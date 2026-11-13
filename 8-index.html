@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indian Mobility | Shivansh for VGP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #000000;
+    --surface: #0e0e0f;
+    --surface2: #161618;
+    --hair: #26262a;
+    --hair2: #3a3a3d;
+    --ink: #ffffff;
+    --ink2: #b1b1b7;
+    --ink3: #86868c;
+    --dim: #86868c;
+    --red: #cf2027;
+    --red-soft: rgba(207,32,39,0.18);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6; font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: #ff7a70; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  main { max-width: 1080px; margin: 0 auto; padding: 0 22px 70px; }
+
+  /* ---- Hero: full-bleed photo with overlaid title ---- */
+  .hero { position: relative; }
+  .hero-img {
+    background: url('hero-mobility.png') center 60% / cover no-repeat;
+    height: 560px;
+  }
+  .hero-tx {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 140px 22px 46px;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 42%, rgba(0,0,0,0.92) 100%);
+  }
+  .hero-tx-in { max-width: 1080px; margin: 0 auto; }
+  .kicker { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #ff8a80; margin-bottom: 14px; }
+  .hero h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: 3.4rem; font-weight: 700; letter-spacing: -0.02em;
+    margin: 0 0 14px; line-height: 1.05; color: #fff;
+  }
+  .hero p { color: rgba(255,255,255,0.82); max-width: 640px; font-size: 1rem; margin: 0; line-height: 1.6; }
+
+  /* ---- Sections ---- */
+  section { margin-top: 76px; }
+  h2 {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.75rem; font-weight: 700; letter-spacing: -0.015em;
+    margin: 0 0 22px; line-height: 1.2; color: #fff;
+  }
+
+  /* ---- Flow (sankey) ---- */
+  .sankey-wrap {
+    background: var(--surface); border: 1px solid var(--hair); border-radius: 18px;
+    padding: 26px 22px; overflow-x: auto;
+  }
+  .sankey-wrap svg { min-width: 980px; }
+  .assume-box {
+    background: var(--surface); border: 1px solid var(--hair); border-radius: 18px;
+    padding: 22px 26px; margin-top: 14px;
+  }
+  .assume-box h4 { margin: 0 0 12px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink3); }
+  .assume-box ul { margin: 0; padding-left: 18px; }
+  .assume-box li { font-size: 0.88rem; color: var(--ink2); line-height: 1.65; margin-bottom: 6px; }
+  .assume-box li b { color: var(--ink); font-weight: 600; }
+  .used-stripe {
+    margin-top: 14px; border: 1px dashed var(--hair2); border-radius: 18px;
+    padding: 18px 26px; background: #0a0a0b;
+  }
+  .used-stripe h4 { margin: 0 0 6px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #ff8a80; }
+  .used-stripe p { margin: 0; font-size: 0.9rem; color: var(--ink2); line-height: 1.6; }
+  .used-stripe p b { color: var(--ink); font-weight: 600; }
+
+  /* ---- Four layers ---- */
+  .layers4 { display: flex; flex-direction: column; gap: 16px; }
+  .layer4 {
+    background: var(--surface); border: 1px solid var(--hair); border-radius: 18px;
+    padding: 26px 30px;
+  }
+  .layer4 h3 { margin: 0 0 6px; font-size: 1.12rem; font-weight: 700; letter-spacing: -0.01em; color: #fff; }
+  .layer4 h3 .lnum {
+    font-family: 'Sora', sans-serif; color: var(--red);
+    font-weight: 700; font-size: 1.35rem; margin-right: 10px;
+  }
+  .layer4 .lfunc { font-size: 0.88rem; color: var(--ink2); margin: 0 0 18px; max-width: 780px; line-height: 1.65; }
+  .l4-figs { margin: 0 0 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .l4-fig {
+    display: block; background: var(--surface2); border: 1px solid var(--hair);
+    border-top: 2px solid var(--red); border-radius: 14px; padding: 16px 18px;
+    font-size: 0.85rem; color: var(--ink2); line-height: 1.5;
+  }
+  .l4-fig .amt { display: block; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.45rem; color: #fff; letter-spacing: -0.01em; margin-bottom: 6px; white-space: normal; }
+  .l4-fig .fig-name { font-weight: 700; font-size: 0.92rem; color: #fff; }
+  .l4-fig .fig-what { margin-top: 3px; }
+  .l4-fig .fig-meta { margin-top: 6px; font-size: 0.75rem; color: var(--ink3); letter-spacing: 0.2px; }
+  .l4-fig.memo { opacity: 0.55; }
+  @media (max-width: 640px) { .l4-figs { grid-template-columns: 1fr; } }
+
+  /* ---- Mobile flow list ---- */
+  .flow-list { display: none; }
+  .fl-cap { font-size: 0.72rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--ink3); margin-bottom: 4px; }
+  .fl-row { display: flex; align-items: center; gap: 10px; padding: 10px 2px; border-top: 1px solid #1c1c1e; }
+  .fl-row:first-of-type { border-top: 0; }
+  .fl-dot { width: 10px; height: 10px; border-radius: 3px; flex: 0 0 auto; }
+  .fl-name { font-size: 0.9rem; font-weight: 600; color: #f0f0f2; flex: 1 1 auto; }
+  .fl-num { text-align: right; font-size: 0.9rem; font-weight: 700; color: #fff; white-space: nowrap; line-height: 1.3; }
+  .fl-num span { display: block; font-size: 0.75rem; font-weight: 500; color: var(--ink3); }
+  .fl-divider { display: flex; align-items: center; gap: 10px; margin: 18px 0 12px; color: var(--ink3); font-size: 0.7rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; }
+  .fl-divider:before, .fl-divider:after { content: ''; flex: 1; border-top: 1px solid var(--hair); }
+  .fl-bucket { border: 1px solid var(--hair); border-radius: 12px; background: var(--surface); padding: 14px 16px; margin-bottom: 10px; }
+  .fl-bk-name { font-size: 0.98rem; font-weight: 700; color: #fff; }
+  .fl-bk-strip { display: flex; height: 6px; border-radius: 3px; overflow: hidden; margin: 10px 0; background: var(--hair); }
+  .fl-bk-strip span { display: block; height: 100%; }
+  .fl-bk-nums { font-size: 0.95rem; font-weight: 800; color: #fff; }
+  .fl-bk-per { font-size: 0.8rem; color: var(--ink3); margin-top: 3px; }
+  .l4-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .l4-col { background: var(--surface2); border: 1px solid var(--hair); border-radius: 12px; padding: 14px 18px; }
+  .l4-col h5 { margin: 0 0 6px; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink3); }
+  .l4-col ul { margin: 0; padding-left: 16px; }
+  .l4-col li { font-size: 0.82rem; color: var(--ink2); line-height: 1.55; }
+  @media (max-width: 640px) { .l4-cols { grid-template-columns: 1fr; } }
+
+  /* ---- Toggles + lens bar ---- */
+  .toggle { display: inline-flex; background: var(--surface2); border: 1px solid var(--hair); border-radius: 999px; padding: 3px; gap: 2px; flex-shrink: 0; }
+  .toggle button {
+    border: 0; background: transparent; color: var(--ink2); font-family: inherit;
+    font-weight: 600; font-size: 0.8rem; padding: 7px 16px; border-radius: 999px;
+    cursor: pointer; transition: background .15s, color .15s;
+  }
+  .toggle button:hover { color: #fff; }
+  .toggle button.active { background: var(--red); color: #fff; }
+  .lensbar { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin: 0 0 16px; }
+  .lensbar .toggle { flex-wrap: wrap; border-radius: 16px; row-gap: 3px; max-width: 100%; }
+  .lens-label { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink3); min-width: 64px; }
+  .lensbar .toggle button { padding: 5px 12px; font-size: 0.7rem; }
+
+  /* ---- Map ---- */
+  .map-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-bottom: 18px; }
+  .map-head h2 { margin: 0; }
+  .map { display: grid; grid-template-columns: 132px repeat(4, 1fr); gap: 10px; }
+  .map .corner { }
+  .col-head {
+    text-align: center; font-weight: 700; font-size: 0.84rem; padding: 10px 6px;
+    background: var(--surface2); border: 1px solid var(--hair); border-radius: 10px; color: #e6e6e8;
+  }
+  .row-head {
+    display: flex; align-items: center; font-weight: 700; font-size: 0.8rem;
+    color: var(--ink2); padding: 0 6px; line-height: 1.35;
+  }
+  .cell {
+    background: var(--surface); border: 1px solid var(--hair); border-radius: 14px;
+    padding: 15px 15px; cursor: pointer; transition: border-color .15s, transform .15s, box-shadow .15s, opacity .15s;
+    min-height: 112px; display: flex; flex-direction: column; gap: 7px;
+  }
+  .cell:hover { border-color: var(--red); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
+  .cell.active { border-color: var(--red); box-shadow: 0 0 0 1px var(--red); }
+  .cell.dim { opacity: 0.3; pointer-events: none; }
+  .cell .c-title { font-size: 0.84rem; font-weight: 700; color: #fff; }
+  .cell .c-stat { font-size: 0.76rem; color: var(--ink2); line-height: 1.5; }
+  .mtag { display: inline-block; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.08em; padding: 2px 7px; border-radius: 5px; margin-right: 6px; vertical-align: 1px; text-transform: uppercase; }
+  .mtag.mi { background: var(--red-soft); color: #ff7a70; }
+  .mtag.mx { background: rgba(255,255,255,0.09); color: #cfcfd4; }
+
+  /* ---- Detail panel ---- */
+  #detail {
+    display: none; margin-top: 16px; background: var(--surface);
+    border: 1px solid var(--hair); border-left: 4px solid var(--red);
+    border-radius: 16px; padding: 26px 30px;
+  }
+  #detail.open { display: block; }
+  #detail h3 { margin: 0 0 6px; font-size: 1.2rem; font-weight: 700; letter-spacing: -0.01em; color: #fff; }
+  #detail .d-sum { color: var(--ink2); font-size: 0.92rem; margin: 0 0 18px; max-width: 780px; line-height: 1.65; }
+  #detail h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: #ff8a80; margin: 18px 0 10px; font-weight: 700; }
+  #detail ul { margin: 0; padding-left: 18px; }
+  #detail li { font-size: 0.88rem; margin-bottom: 8px; color: var(--ink2); line-height: 1.6; }
+  .leader {
+    background: var(--surface2); border: 1px solid var(--hair); border-radius: 12px;
+    padding: 14px 18px; margin-bottom: 10px; cursor: pointer;
+  }
+  .leader:hover { background: #1c1c1e; }
+  .leader .l-top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .leader .l-name { font-weight: 700; font-size: 0.94rem; color: #fff; }
+  .leader .l-tag { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; background: var(--surface); color: var(--ink2); padding: 3px 10px; border-radius: 999px; border: 1px solid var(--hair); }
+  .leader .l-blurb { font-size: 0.84rem; color: var(--ink2); margin-top: 5px; line-height: 1.55; }
+  .leader .l-more { display: none; font-size: 0.82rem; color: var(--ink2); margin-top: 8px; border-top: 1px solid var(--hair); padding-top: 8px; }
+  .leader.open .l-more { display: block; }
+  .leader .l-toggle { margin-left: auto; font-size: 0.72rem; color: var(--ink3); }
+  .src-line { font-size: 0.72rem; color: var(--ink3); margin-top: 4px; }
+  .l-tag { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; background: var(--surface2); border: 1px solid var(--hair); color: var(--ink2); padding: 3px 10px; border-radius: 999px; }
+
+  /* ---- Thesis ---- */
+  .thesis {
+    background: var(--surface); border: 1px solid var(--hair); border-radius: 18px;
+    padding: 36px 40px;
+  }
+  .thesis h3 {
+    font-family: 'Sora', sans-serif; font-size: 1.4rem; font-weight: 700;
+    margin: 0 0 14px; letter-spacing: -0.01em; line-height: 1.25; color: #fff;
+  }
+  .thesis p { font-size: 0.98rem; color: var(--ink2); margin: 0 0 14px; max-width: 720px; line-height: 1.7; }
+  .thesis p b { color: var(--ink); font-weight: 700; }
+  .thesis .pull {
+    border-left: 3px solid var(--red); padding: 6px 0 6px 18px; margin: 20px 0;
+    font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 600;
+    color: #fff; max-width: 640px; line-height: 1.4;
+  }
+
+  footer { color: var(--ink3); font-size: 0.78rem; max-width: 1080px; margin: 64px auto 0; padding: 24px 22px 48px; border-top: 1px solid var(--hair); }
+
+  @media (max-width: 860px) {
+    .hero-img { height: 440px; }
+    .hero h1 { font-size: 2.3rem; }
+    h2 { font-size: 1.45rem; }
+    section { margin-top: 56px; }
+    .thesis { padding: 26px 22px; }
+    .layer4 { padding: 20px 20px; }
+  }
+  @media (max-width: 720px) {
+    .sankey-wrap { display: none; }
+    .flow-list { display: block; margin-top: 6px; }
+
+    .map { display: block; }
+    .map .corner, .map .col-head { display: none; }
+    .row-head {
+      margin: 20px 0 8px; padding: 0; font-size: 0.7rem;
+      text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink3);
+    }
+    .cell { min-height: 0; margin-bottom: 8px; padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-tx"><div class="hero-tx-in">
+    <div class="kicker">Sector map &middot; Shivansh for VGP</div>
+    <h1>Indian Mobility</h1>
+    <p>An interactive map of the Indian mobility sector by vehicle class and use case, with market leaders and a short thesis.</p>
+  </div></div>
+</div>
+
+<main>
+
+<section>
+  <div class="map-head">
+    <div>
+      <h2>The use-case engine</h2>
+          </div>
+    <div class="toggle" id="flowToggle">
+      <button data-fmode="vol" class="active">Volume</button>
+      <button data-fmode="val">Value (&#8377;)</button>
+    </div>
+  </div>
+    <div class="sankey-wrap" id="flowWrap"></div>
+    <div class="flow-list" id="flowList"></div>
+  <div class="assume-box" id="splitNotes">
+    <h4>What the splits reflect</h4>
+    <ul id="splitNotesList"></ul>
+  </div>
+  <div class="used-stripe">
+    <h4>Used-car market (kept separate)</h4>
+    <p><b>~60-67&nbsp;L vehicles, ~&#8377;3.15&nbsp;L&nbsp;Cr a year.</b> Resale changes who owns a vehicle, not the stock of vehicles, so it sits outside the new-vehicle flow.</p>
+  </div>
+</section>
+
+<section>
+  <h2>The sector in four layers</h2>
+<div class="layers4">
+    <div class="layer4">
+      <h3><span class="lnum">1</span>Mobility Assets &amp; Manufacturing <span style="color:var(--dim);font-weight:600;font-size:0.8rem;">(The Hardware)</span></h3>
+      <p class="lfunc">Designing, building and selling the physical machines and parts - core OEMs, Tier 1-3 component suppliers, micro-mobility hardware, industrial &amp; off-highway equipment, aftermarket &amp; MRO. The FY26 flow above is this layer's output, split by use case.</p>
+      <div class="l4-figs" id="figs-l1"></div>
+      <div class="l4-cols">
+        <div class="l4-col"><h5>Moving people</h5><ul><li>Cars, two-wheelers, buses, passenger trains, commercial jets, cruise ships, e-bikes</li></ul></div>
+        <div class="l4-col"><h5>Moving things</h5><ul><li>Trucks (LCV/HCV), cargo trains, container ships, freighters, delivery drones, forklifts</li></ul></div>
+      </div>
+    </div>
+    <div class="layer4">
+      <h3><span class="lnum">2</span>Infrastructure &amp; Energy <span style="color:var(--dim);font-weight:600;font-size:0.8rem;">(The Pathways &amp; Fuel)</span></h3>
+      <p class="lfunc">Building and powering the physical corridors and hubs - surface &amp; guideway (highways, metro/rail tracks, freight corridors), terminals &amp; hubs (airports, seaports, dry ports, logistics parks), storage &amp; micro-fulfilment (warehouses, cold chains, dark stores), energy &amp; refuelling (fuel retail, CNG/LNG, EV charging, battery swapping).</p>
+      <div class="l4-figs" id="figs-l2"></div>
+      <div class="l4-cols">
+        <div class="l4-col"><h5>Moving people</h5><ul><li>Roads, metro tracks, airports, bus terminals, EV chargers, fuel stations, parking</li></ul></div>
+        <div class="l4-col"><h5>Moving things</h5><ul><li>Expressways, freight corridors, seaports, dry ports, warehouses, cold chains, pipelines</li></ul></div>
+      </div>
+    </div>
+    <div class="layer4">
+      <h3><span class="lnum">3</span>Transport Operations &amp; Services <span style="color:var(--dim);font-weight:600;font-size:0.8rem;">(The Execution)</span></h3>
+      <p class="lfunc">Running the assets to move payloads from A to B, asset-heavy or asset-light - scheduled mass transit, on-demand &amp; shared mobility, contract &amp; captive passenger transport, long-haul &amp; bulk freight, express/parcel &amp; last-mile logistics. Figures are annual service revenue; the map below details the players.</p>
+      <div class="l4-figs" id="figs-l3"></div>
+      <div class="l4-cols">
+        <div class="l4-col"><h5>Moving people</h5><ul><li>Airlines, railways, city buses, ride-hailing, car rentals, bike taxis</li></ul></div>
+        <div class="l4-col"><h5>Moving things</h5><ul><li>Trucking fleets, shipping lines, courier/express (3PL), last-mile delivery, warehousing ops</li></ul></div>
+      </div>
+    </div>
+    <div class="layer4">
+      <h3><span class="lnum">4</span>Enablers &amp; Tech <span style="color:var(--dim);font-weight:600;font-size:0.8rem;">(The Glue)</span></h3>
+      <p class="lfunc">Financing, insuring, regulating and digitally optimising movement - mobility fintech &amp; risk (loans, CV financing, leasing/subscription, insurance, FASTag/toll rails), fleet &amp; supply-chain software (telematics, route optimisation, WMS/TMS, digital freight brokerage), autonomous/connected/OS, and trade, compliance &amp; governance. Stock metrics (loan book) and flow metrics (annual premiums and revenues) are labelled.</p>
+      <div class="l4-figs" id="figs-l4"></div>
+      <div class="l4-cols">
+        <div class="l4-col"><h5>Moving people</h5><ul><li>Auto loans, motor insurance, navigation/maps, ticketing APIs, traffic management, ADAS</li></ul></div>
+        <div class="l4-col"><h5>Moving things</h5><ul><li>Fleet telematics, freight exchanges, customs tech, supply chain SaaS, cargo insurance</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="map-head">
+    <div>
+      <h2>Layer 3 in detail: the mobility map</h2>
+    </div>
+    <div class="toggle" id="modeToggle">
+      <button data-mode="combined" class="active">Combined</button>
+      <button data-mode="intra">Intracity</button>
+      <button data-mode="inter">Intercity</button>
+    </div>
+  </div>
+  <div class="lensbar">
+    <span class="lens-label">Distance</span>
+    <div class="toggle" id="lensDist">
+      <button data-lv="all" class="active">All</button>
+      <button data-lv="hyper">Hyperlocal 0-10 km</button>
+      <button data-lv="intra">Intra-city 10-50</button>
+      <button data-lv="inter">Intercity 50-500</button>
+      <button data-lv="long">Long-haul 500+</button>
+    </div>
+    <span class="lens-label">Model</span>
+    <div class="toggle" id="lensBiz">
+      <button data-lv="all" class="active">All</button>
+      <button data-lv="b2c">B2C</button>
+      <button data-lv="b2b">B2B</button>
+      <button data-lv="b2g">B2G/G2C</button>
+    </div>
+    <span class="lens-label">Assets</span>
+    <div class="toggle" id="lensAsset">
+      <button data-lv="all" class="active">All</button>
+      <button data-lv="heavy">Asset-heavy</button>
+      <button data-lv="light">Asset-light</button>
+    </div>
+  </div>
+  <div class="map" id="map"></div>
+  <div id="detail"></div>
+</section>
+
+<section>
+  <h2>The thesis</h2>
+  <div class="thesis" id="thesis"></div>
+</section>
+
+</main>
+
+<footer>
+  Made by Shivansh for VGP.
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
