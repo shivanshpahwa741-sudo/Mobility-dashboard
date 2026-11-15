@@ -3,358 +3,591 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How India Moves</title>
-<meta name="description" content="Indians spend ₹6.2 lakh crore a year on fares. Most of it never becomes a company's profit. Where it goes instead, and the gaps left open.">
+<title>India's Passenger Mobility</title>
+<meta name="description" content="How India actually moves in masses, where its ₹6.2 lakh crore of fares go, and where the market is unorganised or badly built.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#f4f3ef;--ink:#0d0d0d;--ink-2:#3a3a37;--muted:#77756f;--line:rgba(13,13,13,.12);--accent:#2251ff;--navy:#051c2c;--grey:#b9bcc0;--loss:#c4442f;
+:root{--paper:#f2f2f0;--ink:#0d0d0d;--ink-2:#3a3a37;--muted:#77756f;--line:rgba(13,13,13,.1);
+--navy:#051c2c;--blue:#2251ff;--cyan:#00a9f4;--grey:#b9bcc0;--loss:#c4442f;
 --serif:"Instrument Serif",Georgia,serif;--sans:"Inter Tight",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;--g:clamp(16px,4vw,64px)}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--paper)}
 body{color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
-header{position:fixed;inset:0 0 auto;z-index:50;height:56px;padding:0 var(--g);display:flex;justify-content:space-between;align-items:center;background:rgba(244,243,239,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.logo{font-family:var(--serif);font-size:24px;text-decoration:none;color:inherit}
-nav{display:flex;gap:24px;font-size:14px}nav a{color:inherit;text-decoration:none;opacity:.75}nav a:hover{opacity:1}
-@media(max-width:760px){nav{display:none}}
-.progress{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:0;z-index:60}
-.screen{min-height:100svh;padding:88px var(--g) 40px;display:flex;flex-direction:column;justify-content:center;max-width:1480px;margin:0 auto}
-.dark{background:#000;color:#fff}
-.dark-wrap{background:#000}
-.kicker{font-family:var(--mono);font-size:13px;color:var(--muted);margin-bottom:16px}
-.dark .kicker{color:#8d8d8d}
-h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,5.2vw,80px);line-height:1;letter-spacing:-.015em;max-width:18ch;margin-bottom:28px}
+a{color:inherit}
+.bw{filter:grayscale(1) contrast(1.05);transition:filter .5s}
+.bw:hover{filter:none}
+
+/* floating pill header */
+header{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:min(1400px,calc(100% - 2*var(--g)));z-index:50;display:flex;justify-content:space-between;align-items:center;padding:10px 12px 10px 24px;background:rgba(236,236,234,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.7);border-radius:16px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.logo{font-family:var(--serif);font-size:26px;text-decoration:none;line-height:1}
+nav{display:flex;align-items:center;gap:4px;background:#fff;border-radius:12px;padding:4px}
+nav a{font-size:13px;text-decoration:none;padding:8px 14px;border-radius:8px;color:var(--ink-2);transition:background .2s}
+nav a:hover{background:var(--paper)}
+nav a.cta{background:var(--ink);color:#fff}
+@media(max-width:820px){nav a:not(.cta){display:none}}
+.progress{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--blue);transform:scaleX(0);transform-origin:0;z-index:60}
+
+/* hero */
+.hero{position:relative;min-height:100svh;padding:120px var(--g) 40px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(56px,min(10.5vw,16vh),190px);line-height:.86;letter-spacing:-.035em;position:relative;z-index:2;pointer-events:none}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+.hero h1 .ln span{display:inline-block}
+.hero h1 .ln:nth-child(2){padding-left:clamp(0px,27vw,480px)}
+.hero-inline{position:absolute;left:var(--g);top:calc(120px + clamp(56px,min(10.5vw,16vh),190px)*.92);display:flex;gap:18px;align-items:flex-start;z-index:3}
+.hero-inline img{width:clamp(110px,11vw,190px);aspect-ratio:4/5;object-fit:cover}
+.hero-inline p{font-size:15px;max-width:19ch;line-height:1.4}
+.hero-inline a{display:inline-block;margin-top:14px;font-size:14px}
+.hero-foot{display:grid;grid-template-columns:1fr 1fr 1.4fr;align-items:end;gap:24px;z-index:2;position:relative}
+.hero-foot span{font-size:15px;line-height:1.35}
+.hero-foot b{font-weight:500;font-size:clamp(26px,2.8vw,44px);line-height:1.05;justify-self:end;max-width:13ch}
+@media(max-width:900px){.hero-inline{position:static;margin-top:24px}.hero h1 .ln:nth-child(2){padding-left:0}.hero-foot{grid-template-columns:1fr 1fr}.hero-foot b{grid-column:1/-1;justify-self:start}}
+.floaters img{position:absolute;aspect-ratio:4/3;object-fit:cover;transform:rotate(var(--r));box-shadow:0 12px 30px rgba(0,0,0,.15);z-index:1}
+@media(max-width:900px){.floaters{display:none}}
+.trail{position:absolute;width:150px;aspect-ratio:4/3;object-fit:cover;z-index:1;pointer-events:none;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.scroll-hint{position:absolute;left:50%;bottom:14px;width:40px;height:4px;border-radius:4px;background:#bbb;transform:translateX(-50%)}
+
+/* scope paragraph with chips */
+.scope{min-height:100svh;padding:120px var(--g);display:flex;flex-direction:column;justify-content:center;max-width:1400px;margin:0 auto}
+.label{font-size:14px;color:var(--ink-2);margin-bottom:40px}
+.chiptext{font-family:var(--serif);font-size:clamp(34px,min(4.6vw,7vh),76px);line-height:1.12;letter-spacing:-.01em;max-width:24ch}
+.chiptext .w{opacity:.16}
+.chip{display:inline-block;width:1.25em;height:.9em;vertical-align:-.08em;margin:0 .12em;overflow:hidden;border-radius:4px;transform:scale(0);transform-origin:center}
+.chip img{width:100%;height:100%;object-fit:cover}
+.circled{position:relative;white-space:nowrap}
+.circled svg{position:absolute;left:-8%;top:-18%;width:116%;height:136%;overflow:visible;pointer-events:none}
+.circled path{fill:none;stroke:var(--loss);stroke-width:2}
+
+/* pinned expanding photo */
+.expand{position:relative;height:100svh;background:#000;color:#fff;overflow:hidden}
+.expand .ph{position:absolute;inset:0;clip-path:inset(38% 41% 38% 41%)}
+.expand .ph img{width:100%;height:100%;object-fit:cover}
+.expand .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.65))}
+.expand h2{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;font-family:var(--serif);font-weight:400;text-transform:uppercase;font-size:clamp(64px,11vw,190px);line-height:.95;letter-spacing:-.01em;text-align:center;pointer-events:none}
+.expand h2 .a{transform:translateX(-14vw)}.expand h2 .b{transform:translateX(16vw)}
+.expand .over{position:absolute;left:var(--g);right:var(--g);bottom:9vh;max-width:760px;font-size:clamp(22px,2.3vw,36px);line-height:1.25;opacity:0}
+
+/* sections */
+.screen{min-height:100svh;padding:110px var(--g) 48px;display:flex;flex-direction:column;justify-content:center;max-width:1480px;margin:0 auto}
+.darkband{background:#000;color:#fff}
+.darkband .label,.darkband .kicker{color:#9a9a95}
+.kicker{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-bottom:14px}
+h2.t{font-family:var(--serif);font-weight:400;font-size:clamp(40px,min(5vw,8vh),80px);line-height:1;letter-spacing:-.015em;max-width:18ch;margin-bottom:24px}
+.big-t{font-family:var(--serif);font-weight:400;text-transform:uppercase;font-size:clamp(56px,min(8vw,12vh),130px);line-height:.9;letter-spacing:-.01em}
+.big-t .caret{display:inline-block;width:.06em;height:.8em;background:currentColor;margin-left:.05em;vertical-align:-.05em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.sub{font-size:15px;color:var(--ink-2);max-width:60ch;margin:16px 0 0}
+.darkband .sub{color:#bdbdb8}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:center}
 @media(max-width:900px){.two{grid-template-columns:1fr}}
 .text p{margin-bottom:14px;color:var(--ink-2);max-width:58ch}
-.dark .text p{color:#cfcfca}
-.why{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:19px;line-height:1.45;max-width:52ch}
-.text p.why{color:var(--ink)}
-.dark .text p.why{color:#fff;border-color:rgba(255,255,255,.18)}
-.why b{font-weight:600}
-.foot{font-size:12px;color:var(--muted);margin-top:20px}
-.hero{padding-top:96px;min-height:100svh;display:flex;flex-direction:column;justify-content:space-between}
-.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(48px,min(8.4vw,11vh),136px);line-height:.92;letter-spacing:-.025em;max-width:13ch;padding:0 var(--g)}
-.hero h1 .ln{display:block;overflow:hidden}.hero h1 .ln span{display:inline-block}
-.hero .dek{padding:24px var(--g) 32px;font-size:clamp(18px,1.6vw,22px);max-width:46ch;color:var(--ink-2)}
-.hero .art{height:34svh;overflow:hidden}.hero .art img{width:100%;height:120%;object-fit:cover;object-position:center 70%}
-.argument p.reveal{font-family:var(--serif);font-size:clamp(26px,min(3.3vw,4.4vh),50px);line-height:1.12;max-width:28ch;margin-bottom:22px}
-.reveal .w{opacity:.15}
-.map{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:24px;border-top:1px solid var(--line);padding-top:20px}
-.map a{text-decoration:none;color:inherit;font-size:14px;line-height:1.35;padding-right:12px}
-.map a span{display:block;font-family:var(--mono);font-size:12px;color:var(--accent);margin-bottom:4px}
-@media(max-width:900px){.map{grid-template-columns:1fr 1fr}}
-.chart{background:#fff;border:1px solid var(--line);padding:clamp(18px,2.4vw,32px);color:var(--ink)}
-.chart h4{font-size:18px;font-weight:500;line-height:1.3;margin-bottom:4px}
-.chart .unit{font-size:13px;color:var(--muted);margin-bottom:16px}
+.darkband .text p{color:#cfcfca}
+.sowhat{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:19px;line-height:1.45;max-width:52ch}
+.text p.sowhat{color:var(--ink)}
+.darkband .text p.sowhat{color:#fff;border-color:rgba(255,255,255,.18)}
+.sowhat b{font-weight:600}
+.src{font-size:11.5px;color:var(--muted);margin-top:14px}
+
+/* radial money map */
+.radial-wrap{display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(24px,4vw,64px);align-items:center}
+@media(max-width:900px){.radial-wrap{grid-template-columns:1fr}}
+.radial{position:relative;aspect-ratio:1;max-width:min(100%,64vh);margin:0 auto;width:100%}
+.radial .glow{position:absolute;inset:16%;border-radius:50%;background:conic-gradient(from 0deg,#c9d3ff,#ffd9b8 120deg,#ffe8a8 200deg,#d6dcff 300deg,#c9d3ff);filter:blur(48px);opacity:.75}
+.radial svg{position:relative;width:100%;height:100%;overflow:visible}
+.radial text{font-family:var(--sans)}
+.seg,.rl{transition:fill-opacity .3s}
+.dim .seg:not(.on),.dim .rl:not(.on){fill-opacity:.15}
+.rl{font-size:12.5px;fill:var(--ink-2)}
+.pies{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.pie{display:flex;gap:12px;align-items:center;cursor:default}
+.pie svg{width:44px;height:44px;flex:none}
+.pie .p{font-size:26px;font-weight:500;line-height:1}
+.pie .pl{font-size:12.5px;color:var(--ink-2);line-height:1.3}
+@media(max-width:600px){.pies{grid-template-columns:1fr}}
+
+/* stat cards */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+.card{background:#fff;border-radius:6px;padding:28px 22px;min-height:230px;display:flex;flex-direction:column}
+.card .n{font-family:var(--serif);font-size:clamp(48px,4.4vw,72px);line-height:1;letter-spacing:-.02em}
+.card .cl{font-size:15px;font-weight:500;margin-top:12px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.card .cd{font-size:13px;color:var(--muted);margin-top:10px;line-height:1.45}
+@media(max-width:900px){.cards{grid-template-columns:1fr 1fr}}
+
+/* charts */
+.chart{background:#fff;border-radius:6px;padding:clamp(20px,2.4vw,32px);color:var(--ink)}
+.chart h4{font-size:18px;font-weight:500;line-height:1.3;margin-bottom:4px;max-width:44ch}
+.chart .unit{font-size:13px;color:var(--muted);margin-bottom:18px}
 .chart svg{width:100%;height:auto;display:block}
-.chart .src{font-size:11.5px;color:var(--muted);margin-top:14px;padding-top:10px;border-top:1px solid var(--line)}
-svg text{font-family:var(--sans)}svg .lbl{font-size:14px;fill:var(--ink-2)}svg .val{font-size:14px;font-weight:500;fill:var(--ink)}svg .small{font-size:12px;fill:var(--muted)}
-.stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
-.stat{padding:20px 20px 20px 0;border-bottom:1px solid var(--line)}
-.stat:nth-child(odd){border-right:1px solid var(--line)}.stat:nth-child(even){padding-left:20px}
-.stat .n{font-family:var(--serif);font-size:clamp(44px,4.6vw,72px);line-height:1}
-.stat .l{font-size:14px;color:var(--muted);margin-top:6px}
-.photo{overflow:hidden}.photo img{width:100%;aspect-ratio:4/3;object-fit:cover;transform:scale(1.12)}
+.chart .src{border-top:1px solid var(--line);padding-top:10px}
+svg .lbl{font-size:14px;fill:var(--ink-2);font-family:var(--sans)}svg .val{font-size:14px;font-weight:500;fill:var(--ink);font-family:var(--sans)}svg .small{font-size:12px;fill:var(--muted);font-family:var(--sans)}svg .inbar{font-size:13px;font-weight:500;fill:#fff;font-family:var(--sans)}
+.photo{overflow:hidden;border-radius:6px}.photo img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .cap{font-size:12px;color:var(--muted);margin-top:8px}
-.gapgrid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:32px}
-.gapgrid div{padding:18px 20px 0 0}
-.gapgrid div+div{padding-left:20px;border-left:1px solid var(--line)}
-.gapgrid h5{font-family:var(--mono);font-weight:400;font-size:12px;color:var(--muted);margin-bottom:8px}
-.gapgrid p{font-size:15.5px;color:var(--ink-2)}
-.dark .gapgrid,.dark .gapgrid div+div{border-color:rgba(255,255,255,.16)}
-.dark .gapgrid p{color:#cfcfca}
-@media(max-width:900px){.gapgrid{grid-template-columns:1fr}.gapgrid div+div{border-left:0;padding-left:0}}
-.gapimg{width:100%;aspect-ratio:3/2;object-fit:cover}
-.gaplabel{font-family:var(--serif);font-size:clamp(80px,9vw,140px);line-height:.8;color:var(--accent);margin-bottom:8px}
-.gaps-intro{font-family:var(--serif);font-size:clamp(26px,2.8vw,42px);line-height:1.15;max-width:30ch}
-.bets{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,80px)}
-.bets h3{font-family:var(--serif);font-weight:400;font-size:36px;margin-bottom:4px}
-.bets .sub{font-size:14px;color:var(--muted);margin-bottom:12px}
-.bet{border-top:1px solid var(--line);padding:12px 0;font-size:15.5px;color:var(--ink-2)}
-.bet b{color:var(--ink);font-weight:500}
-.bet em{font-style:normal;color:var(--loss);font-size:14px}
-@media(max-width:900px){.bets{grid-template-columns:1fr}}
-.close p.reveal{font-family:var(--serif);font-size:clamp(34px,4.4vw,68px);line-height:1.05;max-width:24ch}
-.sources{font-size:13px;color:#9a9a95;max-width:110ch;line-height:1.6;margin-top:56px}
-.sources p{margin-bottom:10px}
-footer{padding:24px var(--g);font-size:13px;color:#8d8d8d;border-top:1px solid rgba(255,255,255,.14)}
-@media(prefers-reduced-motion:reduce){.reveal .w{opacity:1}.photo img{transform:none}}
+.minis{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mini{background:#fff;border-radius:6px;padding:22px}
+.mini .n{font-family:var(--serif);font-size:clamp(44px,4vw,64px);line-height:1}
+.mini .l{font-size:13.5px;color:var(--muted);margin-top:8px}
+
+/* gaps: case study format */
+.gap-head{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,3vw,48px);align-items:end;margin-bottom:28px}
+.gnum{font-family:var(--serif);font-size:clamp(100px,12vw,190px);line-height:.75;color:var(--blue)}
+.case{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,4vw,64px);align-items:stretch}
+.case .art{border-radius:6px;overflow:hidden;min-height:300px}
+.case .art img,.case .art video{width:100%;height:100%;object-fit:cover}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line)}
+.steps div{padding:16px 18px 16px 0;border-bottom:1px solid var(--line)}
+.steps div:nth-child(even){padding-left:18px;border-left:1px solid var(--line)}
+.steps h5{font-family:var(--mono);font-weight:400;font-size:12px;color:var(--muted);margin-bottom:6px}
+.steps p{font-size:15px;color:var(--ink-2);line-height:1.5}
+.darkband .steps,.darkband .steps div{border-color:rgba(255,255,255,.16)}
+.darkband .steps p{color:#cfcfca}
+@media(max-width:900px){.case,.steps{grid-template-columns:1fr}.steps div:nth-child(even){padding-left:0;border-left:0}}
+
+/* bets cards */
+.betgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px}
+.bet{background:var(--paper);padding:22px 20px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;position:relative;transition:background .3s}
+.bet:hover{background:#fff}
+.bet .tag{font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:12px}
+.bet h6{font-size:17px;font-weight:500;line-height:1.3;margin-bottom:8px}
+.bet p{font-size:14px;color:var(--ink-2);line-height:1.45}
+.bet .wrong{font-family:var(--mono);font-size:11.5px;color:var(--loss);margin-top:14px;display:flex;justify-content:space-between;gap:8px}
+.bet .wrong span:last-child{transition:transform .3s}
+.bet:hover .wrong span:last-child{transform:translate(3px,-3px)}
+.bet.bold{background:#fbfbfa}
+@media(max-width:900px){.betgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.betgrid{grid-template-columns:1fr}}
+
+/* closing grid + particle wordmark */
+.closing{background:#000;color:#fff}
+.photogrid{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:16vh;border-top:1px solid #222;border-left:1px solid #222}
+.photogrid>*{border-right:1px solid #222;border-bottom:1px solid #222;overflow:hidden}
+.photogrid img{width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.1)}
+.photogrid .msg{grid-column:2/5;grid-row:2/4;background:#1b1b1b;padding:28px;display:flex;flex-direction:column;justify-content:center}
+.photogrid .msg p{font-size:clamp(22px,2.2vw,34px);line-height:1.2;max-width:28ch}
+@media(max-width:800px){.photogrid{grid-template-columns:repeat(3,1fr)}.photogrid .msg{grid-column:1/-1;grid-row:auto}}
+#particles{width:100%;height:clamp(180px,26vw,380px);display:block}
+.sources{padding:0 var(--g) 28px;font-size:12.5px;color:#8d8d88;line-height:1.6;max-width:120ch}
+.sources p{margin-bottom:8px}
+.bottom{display:flex;justify-content:space-between;padding:18px var(--g);border-top:1px solid #222;font-size:12.5px;color:#8d8d88;gap:16px;flex-wrap:wrap}
+
+@media(prefers-reduced-motion:reduce){.chiptext .w{opacity:1}.chip{transform:none}.expand .ph{clip-path:none}.photogrid img{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 <div class="progress"></div>
-<header><a class="logo" href="#top">How India Moves</a><nav><a href="#argument">The argument</a><a href="#i1">Insights</a><a href="#gaps">Gaps</a><a href="#bets">Bets</a></nav></header>
+<header>
+  <a class="logo" href="#top">How India Moves</a>
+  <nav><a href="#structure">Structure</a><a href="#insights">Insights</a><a href="#gaps">Gaps</a><a href="#bets">Bets</a><a class="cta" href="#gaps">The gaps</a></nav>
+</header>
 
+<!-- HERO -->
 <section class="hero" id="top">
-  <div>
-    <h1><span class="ln"><span>Where the money</span></span><span class="ln"><span>in Indian mobility</span></span><span class="ln"><span><em>actually goes</em></span></span></h1>
-    <p class="dek">Indians spend ₹6.2 lakh crore a year on fares. Very little of it turns into anyone's profit. Here is where it goes instead, and the openings that leaves.</p>
+  <h1><span class="ln"><span>India's passenger</span></span><span class="ln"><span><em>mobility sector,</em></span></span></h1>
+  <div class="hero-inline">
+    <img class="bw" src="assets/p_rush.jpg" alt="Commuters hanging out of the doors of a Mumbai local train at rush hour">
+    <div><p>How India actually moves in masses, and where the system is failing.</p><a href="#scope">Read the thesis</a></div>
   </div>
-  <div class="art"><img src="assets/ill7.jpg" alt="Illustration of an Indian street at sunset with autos, scooters and people walking"></div>
+  <div class="hero-foot">
+    <span>₹6.2 lakh crore<br>in fares a year</span>
+    <span>165.5 crore trips<br>a day</span>
+    <b>Where the money goes, and where it doesn't</b>
+  </div>
+  <div class="floaters" aria-hidden="true"><img src="assets/p_tram.jpg" style="right:23%;top:11%;width:96px;--r:-9deg" alt=""><img src="assets/p_autos.jpg" style="right:10%;top:9%;width:150px;--r:8deg" alt=""><img src="assets/p_magenta.jpg" style="right:4%;top:19%;width:110px;--r:-6deg" alt=""><img src="assets/p_sleeper.jpg" style="right:17%;top:21%;width:84px;--r:11deg" alt=""></div>
+  <div class="scroll-hint"></div>
 </section>
 
-<section class="screen argument" id="argument">
-  <div class="kicker">The argument in brief</div>
-  <p class="reveal">The largest share of India's fare money goes to auto drivers who rarely open an app. The state's buses and trains lose money, and so do the ride-hailing apps that get most of the attention.</p>
-  <p class="reveal">So the opening isn't another app competing for riders. It's in three gaps the market has left alone: too few buses, an auto economy run on cash and costly loans, and women who would travel more if it were cheaper and safer.</p>
-  <div class="map">
-    <a href="#i1"><span>1</span>The biggest business has no app</a>
-    <a href="#i2"><span>2</span>Running vehicles loses money</a>
-    <a href="#i3"><span>3</span>The apps now sell to drivers</a>
-    <a href="#i4"><span>4</span>Missing buses become auto rides</a>
-    <a href="#i5"><span>5</span>Women's demand is priced out</a>
-    <a href="#i6"><span>6</span>Intercity buses went premium</a>
+<!-- SCOPE -->
+<section class="scope" id="scope">
+  <div class="label">What this thesis covers</div>
+  <p class="chiptext">We left out the exotic, like space travel and cruises. <span class="chip"><img src="assets/p_autos.jpg" alt=""></span> This is about how India moves in masses every day, on scooters <span class="chip"><img src="assets/p_scooter3.jpg" alt=""></span> and buses <span class="chip"><img src="assets/p_best.jpg" alt=""></span> or on foot, and where that market is <span class="circled">unorganised<svg viewBox="0 0 200 60" preserveAspectRatio="none"><path d="M10,34 C14,8 120,2 178,12 C204,18 196,48 150,54 C90,60 18,56 8,36 C4,26 26,12 60,8"/></svg></span> or badly built.</p>
+</section>
+
+<!-- EXPANDING PHOTO -->
+<section class="expand" id="structure">
+  <div class="ph"><img src="assets/p_oldelhi.jpg" alt="A crowded street in Old Delhi with cycle rickshaws and people walking"></div>
+  <h2><span class="a">How India</span><span class="b">moves</span></h2>
+  <p class="over">Every day Indians make 165.5 crore trips longer than a kilometre. Ninety-four in a hundred stay inside one city or town. Seven in ten are on a scooter, on a bicycle or on foot.</p>
+</section>
+
+<!-- RADIAL MONEY MAP -->
+<section class="screen" id="map">
+  <div class="radial-wrap">
+    <div>
+      <div class="kicker">Where the fares go</div>
+      <h2 class="t">A third of the money moves through informal hands</h2>
+      <p class="sub">Indians pay ₹6.2 lakh crore a year in fares. About ₹2 lakh crore of it goes to auto drivers and outstation cab owners who mostly work outside any app or company. Another quarter goes to state-run buses, trains and metros, almost all of which lose money.</p>
+      <div class="pies" id="pies"></div>
+      <div class="src">Hover a group to isolate it. Fares in ₹ thousand crore, FY26. Outstation cabs counted as informal because 70% are booked through local agents. Sources: MoRTH SRTU review; redBus BusTrack FY26; Indian Railways / PIB; DGCA; MoHUA and DMRC; MCA filings; VAHAN.</div>
+    </div>
+    <div class="radial" id="radial"><div class="glow"></div></div>
   </div>
 </section>
 
-<section class="screen" id="i1">
+<!-- SCALE CARDS -->
+<section class="screen">
+  <h2 class="big-t" data-type="The scale"></h2>
+  <p class="sub">The numbers that set the shape of everything below.</p>
+  <div class="cards">
+    <div class="card"><div class="n" data-count="70" data-suf=" lakh">0</div><div class="cl">Passenger autos</div><div class="cd">and e-rickshaws. Ninety-eight in a hundred of their trips never touch an app.</div></div>
+    <div class="card"><div class="n" data-count="400" data-suf="+">0</div><div class="cl">Cities without transit</div><div class="cd">no organised public transport at all. India runs about a tenth of the city buses it needs.</div></div>
+    <div class="card"><div class="n" data-count="17.9" data-dec="1" data-pre="₹" data-suf=" L Cr">0</div><div class="cl">Spent owning vehicles</div><div class="cd">a year on buying, fuelling and insuring private cars and two-wheelers, nearly three times all fares.</div></div>
+    <div class="card"><div class="n" data-count="1.83" data-dec="2" data-suf=" lakh">0</div><div class="cl">Road deaths in 2025</div><div class="cd">nearly half on two-wheelers. Buses carry 11% of trips and 2% of deaths.</div></div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section class="screen" id="insights">
   <div class="two">
     <div class="text">
-      <div class="kicker">Insight 1 of 6</div>
-      <h2>The biggest business in Indian mobility has no app</h2>
-      <p>About 70 lakh autos and e-rickshaws carry passengers in India. Between them they collect ₹1.68 lakh crore a year, more than four times what every ride-hailing app takes combined. Ninety-eight of every hundred auto trips start with a wave on the street.</p>
-      <p>A typical auto brings in about ₹19,900 a month, and the driver keeps 45% of it. The next biggest bite, 24%, goes to the lender or the owner he rents from. Three in four new e-autos are bought on credit at 14 to 30% interest.</p>
-      <p class="why"><b>Why it matters:</b> the largest pool of money in the sector is driver income, ₹75,600 crore a year, and the most expensive thing in a driver's life is his loan.</p>
+      <div class="kicker">Insight 1</div>
+      <h2 class="t">The biggest business in Indian mobility has no app</h2>
+      <p>About 70 lakh autos and e-rickshaws collect ₹1.68 lakh crore a year, more than four times what every ride-hailing app takes combined. Most of these trips start with a wave on the street.</p>
+      <p>The driver keeps less than half of what his auto earns. The second largest share goes to whoever financed the vehicle, and three in four new e-autos are bought on credit at 14 to 30% interest.</p>
+      <p class="sowhat"><b>So what:</b> the largest pool of money in the sector is driver income, ₹75,600 crore a year, and the costliest thing in a driver's life is his loan.</p>
     </div>
     <div class="chart">
-      <h4>Autos collect more in fares than any other way of travelling</h4>
-      <div class="unit">Annual fares, FY26, ₹ thousand crore</div>
-      <div id="c-modes"></div>
-      <div class="src">Source: MoRTH SRTU review; redBus India BusTrack FY26; Indian Railways / PIB FY26; DGCA / MoCA FY26; MCA / RoC filings FY25; VAHAN and JMK Research.</div>
+      <h4>Of every ₹100 an auto earns, ₹24 goes to the lender or owner</h4>
+      <div class="unit">Split of a typical auto's monthly earnings of ₹19,900, %</div>
+      <div id="c-split"></div>
+      <div class="src">Source: VAHAN; JMK Research (Oct 2026); RevFin and Mufin Green Finance FY26; PPAC fuel prices.</div>
     </div>
   </div>
 </section>
 
-<section class="screen" id="i2">
+<section class="screen">
   <div class="two">
     <div class="chart">
-      <h4>The operators lose, and the profit that holds up sits with booking firms</h4>
-      <div class="unit">Operating profit (EBITDA), FY26, ₹ crore</div>
+      <h4>Operators lose money; the steady profit sits with firms that book other people's vehicles</h4>
+      <div class="unit">Operating profit (EBITDA) by segment, FY26, ₹ crore</div>
       <div id="c-pools"></div>
-      <div class="src">Source: MoRTH SRTU review; Indian Railways / PIB FY26; MCA / RoC filings FY25; NSE, BSE and NASDAQ filings, Nov 2026. Selected pools. Airline profit is before leases. Booking firms include IRCTC, MakeMyTrip, ixigo and MoveInSync.</div>
+      <div class="src">Source: MoRTH SRTU review; Indian Railways / PIB FY26; MCA filings FY25; NSE, BSE and NASDAQ filings, Nov 2026. Selected segments. Airline profit shown before lease costs. Booking firms: IRCTC, MakeMyTrip, ixigo, MoveInSync.</div>
     </div>
     <div class="text">
-      <div class="kicker">Insight 2 of 6</div>
-      <h2>Running vehicles is how you lose money</h2>
-      <p>Add up the companies that run vehicles and the sector is in the red. Intercity rail loses ₹11,400 crore a year. City and intercity buses lose about ₹13,450 crore between them, and the ride-hailing apps lose ₹1,540 crore. Airlines report an operating profit, but lease and depreciation costs swallow it.</p>
-      <p>The firms that make steady money own almost no vehicles. MakeMyTrip and redBus sell seats on other people's buses, and ixigo does the same for small-town trains. MoveInSync runs office commutes on hired cabs at a 34% margin. IRCTC is profitable too, though only because it holds a state monopoly on train tickets.</p>
-      <p class="why"><b>Why it matters:</b> in this market the margin goes to whoever organises other people's vehicles.</p>
+      <div class="kicker">Insight 2</div>
+      <h2 class="t">Running vehicles is how you lose money</h2>
+      <p>Intercity rail loses ₹11,400 crore a year. City and intercity buses lose about ₹13,450 crore between them, and the ride-hailing apps lose ₹1,540 crore. Airlines report an operating profit, but leases and depreciation swallow it.</p>
+      <p>The firms that make steady money own almost no vehicles. redBus and MakeMyTrip sell seats on other people's buses. MoveInSync runs office commutes on hired cabs at a 34% margin. IRCTC is profitable too, though only because it holds a state monopoly on train tickets.</p>
+      <p class="sowhat"><b>So what:</b> the margin goes to whoever organises scattered vehicles, not to whoever owns them.</p>
     </div>
   </div>
 </section>
 
-<section class="screen" id="i3">
+<section class="screen">
   <div class="two">
     <div class="text">
-      <div class="kicker">Insight 3 of 6</div>
-      <h2>The apps now sell to drivers, not riders</h2>
-      <p>Rapido took about half of India's app rides with one change. It stopped taking a cut of each auto fare and charged drivers ₹20 to ₹40 a day instead. A driver who used to hand over about 28% of his earnings now pays about 2%.</p>
-      <p>Uber and Ola had to follow. Ola held on to commissions longer and lost drivers and riders. Uber still leads in cabs, but it paid ₹2,516 crore in driver incentives against ₹2,604 crore of commission, which leaves almost nothing.</p>
-      <p class="why"><b>Why it matters:</b> the driver has become the paying customer, and the money goes to whoever makes his working day more productive.</p>
+      <div class="kicker">Insight 3</div>
+      <h2 class="t">The apps now sell to drivers, not riders</h2>
+      <p>Rapido took about half of India's app rides with one change. It stopped taking a cut of each auto fare and charged drivers ₹20 to ₹40 a day instead. Uber and Ola had to follow.</p>
+      <p>The cost moved from the driver to the platform. Uber still leads in cabs, but it paid ₹2,516 crore in driver incentives against ₹2,604 crore of commission.</p>
+      <p class="sowhat"><b>So what:</b> the driver is now the paying customer, and the money goes to whoever makes his working day more productive.</p>
     </div>
     <div class="chart">
-      <h4>A daily pass costs an auto driver a fraction of what commission did</h4>
-      <div class="unit">Share of a driver's earnings paid to the platform, %</div>
+      <h4>A daily pass lets an auto driver keep almost all of the fare</h4>
+      <div class="unit">Who keeps ₹100 of fares, by pricing model, ₹</div>
       <div id="c-pass"></div>
-      <div class="src">Source: MCA / RoC filings FY25 (Roppen Transportation, Uber India Systems, ANI Technologies, Moving Tech Innovations); MoRTH Aggregator Guidelines, Jul 2025.</div>
+      <div class="src">Source: MCA filings FY25 (Roppen Transportation, Uber India Systems, ANI Technologies, Moving Tech Innovations); MoRTH Aggregator Guidelines, Jul 2025.</div>
     </div>
   </div>
 </section>
 
-<section class="screen" id="i4">
+<section class="screen">
   <div class="two">
-    <div class="stats">
-      <div class="stat"><div class="n">1 in 10</div><div class="l">of the city buses India needs are on the road</div></div>
-      <div class="stat"><div class="n">400+</div><div class="l">cities with no organised public transport</div></div>
-      <div class="stat"><div class="n">5.8 lakh</div><div class="l">buses reach the end of their life by FY30</div></div>
-      <div class="stat"><div class="n">10–31%</div><div class="l">of planned riders that smaller-city metros carry</div></div>
-    </div>
+    <figure><div class="photo"><img class="bw" src="assets/p_best.jpg" alt="A BEST double-decker bus near CST in Mumbai"></div><figcaption class="cap">BEST double-decker near CST, Mumbai. Wikimedia Commons</figcaption></figure>
     <div class="text">
-      <div class="kicker">Insight 4 of 6</div>
-      <h2>Every missing bus becomes an auto ride</h2>
-      <p>India runs about a tenth of the city buses it needs. State bus companies already lose ₹12,500 crore a year on city routes, so they can't buy their way out of the shortage, and 5.8 lakh buses are due to retire by FY30.</p>
-      <p>People still have to get to work. The trips a bus doesn't carry go to autos and bike taxis, which helps explain why the auto economy is so large. Metros haven't closed the gap either. Delhi carries almost half of all metro riders, and the newer systems in smaller cities run well below the numbers they were built for.</p>
-      <p class="why"><b>Why it matters:</b> the bus shortage and the auto economy are the same problem seen from two sides.</p>
-      <div class="foot">Source: MoRTH SRTU review; MoHUA metro factsheet; IIT Delhi / Infravision Foundation and UITP India ridership audits.</div>
+      <div class="kicker">Insight 4</div>
+      <h2 class="t">Every missing bus becomes an auto ride</h2>
+      <p>India runs about a tenth of the city buses it needs, and 5.8 lakh buses retire by FY30. State bus companies already lose ₹12,500 crore a year on city routes, so they can't buy their way out.</p>
+      <p>People still have to get to work, so the trips a bus doesn't carry go to autos and bike taxis. Metros haven't closed the gap. Smaller-city metros carry only 10 to 31% of the riders they were planned for.</p>
+      <p class="sowhat"><b>So what:</b> the bus shortage and the size of the auto economy are one problem seen from two sides.</p>
+      <div class="src">Source: MoRTH SRTU review; MoHUA; IIT Delhi / Infravision Foundation and UITP India ridership audits.</div>
     </div>
   </div>
 </section>
 
-<div class="dark-wrap"><section class="screen dark" id="i5">
+<div class="darkband"><section class="screen">
   <div class="two">
     <div class="text">
-      <div class="kicker">Insight 5 of 6</div>
-      <h2>Women don't travel less by choice</h2>
-      <p>Only 42% of working women commute more than a kilometre, against 62% of men. Few ride a two-wheeler, so they walk more and take buses and autos more than twice as often as men. In Indian metros they pay about 21% more to cover the same distance.</p>
-      <p>When Karnataka made state buses free for women, their daily trips rose from 37.5 lakh to 67 lakh. The demand had been there all along. Safety moves them the same way: women are 47 to 48% of riders at well-lit Bengaluru metro stations and 40 to 42% at chaotic ones like Majestic.</p>
-      <p class="why"><b>Why it matters:</b> the demand is real but very sensitive to price. Mumbai riders complained when Rapido's women-only Bike Pink cost more than an ordinary bike taxi.</p>
+      <div class="kicker">Insight 5</div>
+      <h2 class="t">Women don't travel less by choice</h2>
+      <p>Only 42% of working women commute more than a kilometre, against 62% of men. Few ride a two-wheeler, so they rely on buses, autos and walking, and in Indian metros they pay about 21% more for the same distance.</p>
+      <p>When Karnataka made state buses free for women, their daily trips rose from 37.5 lakh to 67 lakh. Lighting moves them too: women are 47 to 48% of riders at well-lit Bengaluru metro stations and 40 to 42% at chaotic ones.</p>
+      <p class="sowhat"><b>So what:</b> the demand exists but is very price sensitive. Riders complained when Rapido's women-only Bike Pink cost more than a normal bike taxi.</p>
     </div>
     <div class="chart">
       <h4>Free buses nearly doubled women's daily trips in Karnataka</h4>
       <div class="unit">Women's daily trips on Karnataka state buses, lakh</div>
       <div id="c-karnataka"></div>
-      <div class="src">Source: Azim Premji University / Fiscal Policy Institute, Shakti study; MoSPI NHTS FY26; WRI India, Women Move (Jan 2026); Ola Mobility Institute (2019) for the metro fare premium.</div>
+      <div class="src">Source: Azim Premji University / Fiscal Policy Institute, Shakti study; MoSPI NHTS FY26; WRI India, Women Move (Jan 2026); Ola Mobility Institute (2019).</div>
     </div>
   </div>
 </section></div>
 
-<section class="screen" id="i6">
+<section class="screen">
   <div class="two">
     <div class="text">
-      <div class="kicker">Insight 6 of 6</div>
-      <h2>Intercity buses quietly became a premium business</h2>
-      <p>Flights are dear and train waitlists are long, so more people go by road. Private intercity coaches grew 24.5% last year, and premium AC sleepers now make up 55 to 60% of private trips. Two in three of their riders are between 18 and 36.</p>
-      <p>These sleepers charge about 2.5 times the regular fare per km and run 78 to 85% full. They earn margins of 12 to 15%, rare in a sector that mostly loses money. Yet only about 19% of bus tickets are booked online.</p>
-      <p class="why"><b>Why it matters:</b> this is one of the few places where riders pay more for comfort and operators make money on it.</p>
-      <div class="foot">Source: redBus India BusTrack FY25 and FY26; MoRTH SRTU review.</div>
+      <div class="kicker">Insight 6</div>
+      <h2 class="t">Intercity buses quietly became a premium business</h2>
+      <p>Flights are dear and train waitlists are long, so more people go by road. Private intercity coaches grew 24.5% last year, and premium AC sleepers now carry 55 to 60% of private trips. Two in three of their riders are 18 to 36.</p>
+      <p>They charge about 2.5 times the regular fare per km and earn 12 to 15% margins, rare in a sector that mostly loses money. Yet four in five bus tickets are still sold offline.</p>
+      <p class="sowhat"><b>So what:</b> one of the few places in Indian mobility where riders pay for comfort and operators profit from it.</p>
+      <div class="src">Source: redBus India BusTrack FY25 and FY26; MoRTH SRTU review.</div>
     </div>
-    <figure><div class="photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ksrtc%20ac%20sleeper%20cum%20seater%20bus%20in%20Bangalore-Mysuru%20Expressway.jpg?width=1400" alt="A KSRTC AC sleeper bus on the Bengaluru-Mysuru Expressway"></div><figcaption class="cap">KSRTC AC sleeper on the Bengaluru-Mysuru Expressway. Wikimedia Commons</figcaption></figure>
+    <div class="minis">
+      <div class="mini"><div class="n">24.5%</div><div class="l">growth in private intercity coaches</div></div>
+      <div class="mini"><div class="n">2.5x</div><div class="l">fare per km on AC sleepers</div></div>
+      <div class="mini"><div class="n">78–85%</div><div class="l">of seats filled</div></div>
+      <div class="mini"><div class="n">19%</div><div class="l">of bus tickets booked online</div></div>
+    </div>
   </div>
 </section>
 
-<div class="dark-wrap" id="gaps"><section class="screen dark">
-  <div class="kicker">What the insights add up to</div>
-  <h2 style="max-width:20ch">Three gaps the market has left open</h2>
-  <p class="reveal gaps-intro">Two of them are big and visible: the shortage of buses and the offline auto economy. The third runs through both, because women depend on buses and autos more than anyone.</p>
+<!-- GAPS -->
+<section class="expand" id="gaps">
+  <div class="ph"><img src="assets/p_metrocrowd.jpg" alt="Passengers crowding a metro platform in Howrah"></div>
+  <h2><span class="a">Three</span><span class="b">gaps</span></h2>
+  <p class="over">Two are big and visible: the shortage of buses and the offline auto economy. The third runs through both, because women depend on buses and autos more than anyone.</p>
+</section>
+
+<section class="screen">
+  <div class="gap-head"><div class="gnum">1</div><div><div class="kicker">Gap one</div><h2 class="t" style="margin:0">The bus gap</h2></div></div>
+  <div class="case">
+    <div class="art"><img src="assets/ill5.jpg" alt="Illustration of a city corridor with lanes for scooters, autos, a bus, a metro and people walking"></div>
+    <div class="steps">
+      <div><h5>The problem</h5><p>Cities have a tenth of the buses they need, 400+ have no transit, and 5.8 lakh buses retire by FY30.</p></div>
+      <div><h5>Why it persists</h5><p>State operators lose money on every city route, so each new bus deepens the loss.</p></div>
+      <div><h5>What is changing</h5><p>States now pay private firms a fixed rate per km. A central fund guarantees payment on 38,000+ e-buses.</p></div>
+      <div><h5>Who already pays</h5><p>States, per km. Parents, ₹1,500 to ₹2,200 a month for school buses, a ₹27,500 crore market growing 8% a year.</p></div>
+      <div style="grid-column:1/-1"><h5>What could go wrong</h5><p>Outside the central fund, states pay operators two to six months late.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="screen">
+  <div class="gap-head"><div class="gnum">2</div><div><div class="kicker">Gap two</div><h2 class="t" style="margin:0">The offline auto economy</h2></div></div>
+  <div class="case">
+    <div class="steps">
+      <div><h5>The problem</h5><p>₹1.68 lakh crore moves through 70 lakh vehicles, almost all in cash and off any app.</p></div>
+      <div><h5>Why it persists</h5><p>Credit costs 14 to 30%. An e-auto saves its driver ₹8,965 a month over CNG, but the loan eats much of it.</p></div>
+      <div><h5>What is changing</h5><p>Half of new three-wheelers are electric, and drivers already lease EVs at about ₹450 a day.</p></div>
+      <div><h5>Who already pays</h5><p>Drivers, ₹20 to ₹450 a day for passes and leases. Lenders who track the vehicle keep bad loans at 1.5 to 2.5%.</p></div>
+      <div style="grid-column:1/-1"><h5>What could go wrong</h5><p>The battery. Nobody yet knows what it is worth after five Indian summers, and the loan rests on that value.</p></div>
+    </div>
+    <div class="art"><img src="assets/ill6.jpg" alt="Illustration of an auto driver surrounded by finance, battery, insurance and phone icons"></div>
+  </div>
+</section>
+
+<div class="darkband"><section class="screen">
+  <div class="gap-head"><div class="gnum">3</div><div><div class="kicker">Gap three, across both</div><h2 class="t" style="margin:0">Women's priced-out demand</h2></div></div>
+  <div class="case">
+    <div class="art"><img src="assets/ill4.jpg" alt="Illustration of a woman waiting alone at a lit bus stop at night, a metro passing in the distance"></div>
+    <div class="steps">
+      <div><h5>The problem</h5><p>Women already pay more than men for the same trip, and 77% say the walk to and from transit keeps them off it.</p></div>
+      <div><h5>Why it persists</h5><p>Women are scarce on the supply side. In one sample just 0.8% of drivers were women.</p></div>
+      <div><h5>What is changing</h5><p>Urban women's workforce participation rose from 20.4% to 27.7% since FY18, so more women will commute.</p></div>
+      <div><h5>Who already pays</h5><p>Unproven. Women push back on women-only prices. Employers and the state are the likelier payers.</p></div>
+      <div style="grid-column:1/-1"><h5>What could go wrong</h5><p>A safer ride that costs more or arrives later loses to the bus and the shared auto.</p></div>
+    </div>
+  </div>
 </section></div>
 
-<section class="screen" id="g1">
-  <div class="two">
-    <div>
-      <div class="gaplabel">1</div>
-      <h2>The bus gap</h2>
-      <div class="text"><p>Cities need ten times the buses they have, and the state can't pay for them by running them itself. What is changing is who operates. States now pay private companies a fixed rate per km to run buses, and a central fund guarantees payment on more than 38,000 electric buses.</p></div>
-    </div>
-    <img class="gapimg" src="assets/ill5.jpg" alt="Illustration of a city corridor with lanes for scooters, autos, a bus, a metro and people walking">
-  </div>
-  <div class="gapgrid">
-    <div><h5>Who already pays</h5><p>States, per km of bus service. Parents, ₹1,500 to ₹2,200 a month for school buses, a ₹27,500 crore market growing 8% a year.</p></div>
-    <div><h5>What's still missing</h5><p>Operators willing to sign contracts in smaller cities, and buses to replace the 5.8 lakh that retire by FY30.</p></div>
-    <div><h5>What would break it</h5><p>Late payment. Outside the central fund, states pay operators two to six months late.</p></div>
-  </div>
-</section>
-
-<section class="screen" id="g2">
-  <div class="two">
-    <img class="gapimg" src="assets/ill6.jpg" alt="Illustration of an auto driver surrounded by finance, battery, insurance and phone icons">
-    <div>
-      <div class="gaplabel">2</div>
-      <h2>The offline auto economy</h2>
-      <div class="text"><p>₹1.68 lakh crore moves through 70 lakh vehicles, almost all of it in cash and off any app. An electric auto costs ₹3.29 a km over five years against ₹5.51 for CNG, which leaves its driver ₹8,965 a month better off. Most drivers can't get at that saving because the loan costs too much.</p></div>
-    </div>
-  </div>
-  <div class="gapgrid">
-    <div><h5>Who already pays</h5><p>Drivers. They pay ₹20 to ₹450 a day for app passes and vehicle leases, and lenders who track the vehicle keep bad loans at 1.5 to 2.5%.</p></div>
-    <div><h5>What's still missing</h5><p>Cheaper credit and batteries that last. Also a way to organise shared routes and stands without forcing every ride onto an app.</p></div>
-    <div><h5>What would break it</h5><p>The battery. Nobody yet knows what it is worth after five Indian summers, and the loan rests on that value.</p></div>
-  </div>
-</section>
-
-<div class="dark-wrap"><section class="screen dark" id="g3">
-  <div class="two">
-    <div>
-      <div class="gaplabel">3</div>
-      <h2>Women, across both</h2>
-      <div class="text"><p>Nobody has sized this demand, but free fares nearly doubled women's bus trips, and women already pay more than men for the same journey. Seventy-seven percent say the walk to and from transit keeps them off it. Urban women's workforce participation has risen from 20.4% to 27.7% since FY18, so the number of women commuting is likely to grow.</p></div>
-    </div>
-    <img class="gapimg" src="assets/ill4.jpg" alt="Illustration of a woman waiting alone at a lit bus stop at night, a metro passing in the distance">
-  </div>
-  <div class="gapgrid">
-    <div><h5>Who already pays</h5><p>Unproven. Women pay a premium today but push back on women-only prices. Employers and the state are the likelier payers.</p></div>
-    <div><h5>What's still missing</h5><p>A safe, well-lit walk to the bus or train, and women on the supply side. In one sample just 0.8% of drivers were women.</p></div>
-    <div><h5>What would break it</h5><p>Nobody paying. A safer ride that costs more or arrives later loses to the bus and the shared auto.</p></div>
-  </div>
-</section></div>
-
+<!-- BETS -->
 <section class="screen" id="bets">
-  <div class="kicker">Where to put money</div>
-  <h2>The bets, from safest to boldest</h2>
-  <div class="bets">
-    <div>
-      <h3>Safest</h3><div class="sub">Someone already pays and the numbers are visible</div>
-      <div class="bet"><b>Premium intercity buses and their ticketing.</b> Fast growth, full seats and 12 to 15% margins. <em>Wrong if big operators sell direct.</em></div>
-      <div class="bet"><b>Cheaper credit and longer-lasting batteries for e-autos.</b> As Akshayakalpa did for dairy farmers, make the driver stronger and the rest follows. <em>Wrong if battery values collapse.</em></div>
-      <div class="bet"><b>School transport.</b> Parents pay, new rules demand GPS and CCTV, and short runs suit EVs. <em>Wrong if schools keep it informal.</em></div>
-      <div class="bet"><b>E-bus contracts inside the central payment fund.</b> <em>Wrong outside it, where states pay late.</em></div>
-    </div>
-    <div>
-      <h3>Bolder</h3><div class="sub">Bigger if right, with the payer still unproven</div>
-      <div class="bet"><b>Serve the driver as the customer.</b> Bundle finance, insurance, charging and steady bookings for 70 lakh drivers.</div>
-      <div class="bet"><b>Organise the offline auto economy where it already lives,</b> on shared routes, stands and UPI.</div>
-      <div class="bet"><b>Women as the next wave of commuters,</b> by bus, auto and on foot. <em>Works only if women, employers or the state pay.</em></div>
-      <div class="bet"><b>Private electric buses and e-rickshaw feeders</b> in smaller cities where metros fall short.</div>
-    </div>
+  <h2 class="big-t" data-type="The bets"></h2>
+  <p class="sub">Four where someone already pays, and four that are bigger if right but need a payer to show up.</p>
+  <div class="betgrid">
+    <div class="bet"><div><div class="tag">Safest</div><h6>Premium intercity buses and their ticketing</h6><p>Fast growth, full seats and 12 to 15% margins.</p></div><div class="wrong"><span>Wrong if big operators sell direct</span><span>↗</span></div></div>
+    <div class="bet"><div><div class="tag">Safest</div><h6>Cheaper credit and better batteries for e-autos</h6><p>As Akshayakalpa did for dairy farmers, make the driver stronger and the rest follows.</p></div><div class="wrong"><span>Wrong if battery values collapse</span><span>↗</span></div></div>
+    <div class="bet"><div><div class="tag">Safest</div><h6>School transport</h6><p>Parents pay, new rules require GPS and CCTV, and short runs suit EVs.</p></div><div class="wrong"><span>Wrong if schools keep it informal</span><span>↗</span></div></div>
+    <div class="bet"><div><div class="tag">Safest</div><h6>E-bus contracts inside the central fund</h6><p>The fund takes away the risk of late state payment.</p></div><div class="wrong"><span>Wrong outside the fund</span><span>↗</span></div></div>
+    <div class="bet bold"><div><div class="tag">Bolder</div><h6>Serve the driver as the customer</h6><p>Finance, insurance, charging and steady bookings for 70 lakh drivers.</p></div><div class="wrong"><span>Needs drivers to pay for the bundle</span><span>↗</span></div></div>
+    <div class="bet bold"><div><div class="tag">Bolder</div><h6>Organise the auto economy where it lives</h6><p>Shared routes, stands and UPI, without forcing every ride onto an app.</p></div><div class="wrong"><span>Needs stands to adopt it</span><span>↗</span></div></div>
+    <div class="bet bold"><div><div class="tag">Bolder</div><h6>Women as the next wave of commuters</h6><p>By bus, auto and on foot, with safety and reliability as the product.</p></div><div class="wrong"><span>Works only if someone pays</span><span>↗</span></div></div>
+    <div class="bet bold"><div><div class="tag">Bolder</div><h6>Electric buses and feeders in smaller cities</h6><p>Where metros fall short of their planned riders.</p></div><div class="wrong"><span>Needs on-time state payment</span><span>↗</span></div></div>
   </div>
 </section>
 
-<div class="dark-wrap"><section class="screen dark close">
-  <p class="reveal">India moves on scooters and on foot. Its public transport loses money, and the money that holds up sits with drivers and with the firms that organise them. The gaps worth backing are buses and the offline auto economy, and women's travel runs through both.</p>
-  <div class="sources">
-    <p>Sources: MoSPI / NSO National Household Travel Survey (2025 to 2026); NITI Aayog, Scenarios Towards Viksit Bharat and Net Zero (Feb 2026); MoRTH, Review of SRTU Performance, Road Accidents in India 2024, VAHAN and Aggregator Guidelines 2025; Indian Railways / PIB FY26; DGCA / MoCA FY26; MoHUA and DMRC annual reports; redBus India BusTrack FY25 and FY26; MCA / RoC filings FY25; NSE, BSE and NASDAQ filings (Nov 2026); Tracxn and Venture Intelligence; PPAC and state discom tariffs; RevFin and Mufin Green Finance FY26; JMK Research.</p>
-    <p>Women and safety: Ola Mobility Institute (2019); Girija Borker / World Bank, Safety First (2021); NCW NARI 2025; WRI India (2025 and 2026); Azim Premji University / Fiscal Policy Institute; Safetipin audits; MoSPI PLFS. Household incomes: PRICE ICE 360°.</p>
+<!-- CLOSING -->
+<footer class="closing">
+  <div class="photogrid">
+    <div></div><div><img src="assets/p_tram.jpg" alt=""></div><div></div><div></div><div><img src="assets/p_rickshaw.jpg" alt=""></div><div></div>
+    <div><img src="assets/p_family.jpg" alt=""></div>
+    <div class="msg"><p>India moves on scooters and on foot. The money that holds up sits with drivers and with the firms that organise them, and the gaps worth backing are buses and the offline auto economy.</p></div>
+    <div><img src="assets/p_magenta.jpg" alt=""></div><div></div>
+    <div></div><div><img src="assets/p_sleeper.jpg" alt=""></div>
+    <div></div><div><img src="assets/p_autos.jpg" alt=""></div><div></div><div><img src="assets/p_scooter3.jpg" alt=""></div><div></div><div></div>
   </div>
-</section>
-<footer>How India Moves. A passenger mobility thesis, FY26 to FY31. Photo: Wikimedia Commons.</footer></div>
+  <canvas id="particles" aria-label="How India Moves"></canvas>
+  <div class="sources">
+    <p>Sources: MoSPI / NSO National Household Travel Survey (2025 to 2026); NITI Aayog (Feb 2026); MoRTH SRTU review, Road Accidents in India 2024, VAHAN and Aggregator Guidelines 2025; Indian Railways / PIB FY26; DGCA / MoCA FY26; MoHUA and DMRC; redBus India BusTrack FY25 and FY26; MCA filings FY25; NSE, BSE and NASDAQ filings (Nov 2026); Tracxn; PPAC and state discom tariffs; RevFin and Mufin Green Finance FY26; JMK Research. Women and safety: Ola Mobility Institute (2019); Borker / World Bank (2021); NCW NARI 2025; WRI India (2025, 2026); Azim Premji University / Fiscal Policy Institute; Safetipin; MoSPI PLFS. Household incomes: PRICE ICE 360°.</p>
+    <p>Photos: Wikimedia Commons, under their respective licences.</p>
+  </div>
+  <div class="bottom"><span>India's passenger mobility sector, FY26 to FY31</span><a href="#top">Back to top ↑</a></div>
+</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
 gsap.registerPlugin(ScrollTrigger);
-const NS='http://www.w3.org/2000/svg',C={ink:'#0d0d0d',navy:'#051c2c',accent:'#2251ff',grey:'#b9bcc0',loss:'#c4442f',line:'rgba(13,13,13,.12)'};
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const NS='http://www.w3.org/2000/svg',C={ink:'#0d0d0d',navy:'#051c2c',blue:'#2251ff',cyan:'#00a9f4',grey:'#b9bcc0',lgrey:'#dcdcda',loss:'#c4442f',line:'rgba(13,13,13,.1)'};
 const el=(t,a={},p)=>{const e=document.createElementNS(NS,t);for(const k in a)k==='text'?e.textContent=a[k]:e.setAttribute(k,a[k]);p&&p.appendChild(e);return e};
 const svg=(id,w,h)=>{const s=el('svg',{viewBox:`0 0 ${w} ${h}`});document.getElementById(id).appendChild(s);return s};
 const fmt=n=>n.toLocaleString('en-IN');
 
-function hbars(id,data,{W=560,max,lw=150,rowH=44,color,val}){
-  const s=svg(id,W,data.length*rowH+4),sc=(W-lw-90)/max,bars=[];
-  data.forEach((x,i)=>{const y=i*rowH;el('text',{x:0,y:y+rowH/2+2,class:'lbl',text:x[0]},s);
-    const b=el('rect',{x:lw,y:y+8,width:x[1]*sc,height:rowH-18,fill:color(x,i)},s);b.style.transformBox='fill-box';b.style.transformOrigin='0% 50%';bars.push(b);
-    el('text',{x:lw+x[1]*sc+8,y:y+rowH/2+2,class:'val',text:val(x)},s)});
-  gsap.from(bars,{scaleX:0,duration:.8,stagger:.1,ease:'power3.out',scrollTrigger:{trigger:s,start:'top 80%'}});
-}
-hbars('c-modes',[['Offline autos',168],['Air',112],['Rail',76],['Intercity buses',75],['City and school buses',66.5],['Ride-hailing apps',38.5]],
-  {max:170,lw:170,color:x=>x[0]==='Offline autos'?C.accent:(x[0]==='Ride-hailing apps'?C.navy:C.grey),val:x=>x[1]});
-hbars('c-pass',[['Commission',28],['Daily pass',2]],{max:30,lw:110,rowH:64,color:(x,i)=>i?C.accent:C.grey,val:x=>'about '+x[1]+'%'});
+/* smooth scroll */
+let lenis;
+if(!reduce&&window.Lenis){lenis=new Lenis({lerp:.09});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();lenis.scrollTo(a.getAttribute('href'))}))}
+gsap.to('.progress',{scaleX:1,ease:'none',scrollTrigger:{start:0,end:'max',scrub:true}});
 
+/* hero: line rise + cursor photo trail */
+gsap.from('.hero h1 .ln span',{yPercent:110,duration:1.3,stagger:.14,ease:'expo.out'});
+gsap.from('.hero-inline,.hero-foot',{opacity:0,y:20,duration:1,delay:.7,ease:'power3.out'});
 (function(){
-  const d=[['Intercity rail',-11400],['City buses',-6740],['Intercity buses',-6710],['Suburban rail',-1800],['Ride-hailing',-1540],['Metro',1456],['Office commute',3150],['Booking firms',3481],['Outstation cabs',4065],['Airlines, before leases',6720,1]];
-  const W=640,rowH=34,H=d.length*rowH+8,z=330,sc=230/11400,s=svg('c-pools',W,H),bars=[];
-  const p=el('pattern',{id:'h',width:5,height:5,patternUnits:'userSpaceOnUse',patternTransform:'rotate(45)'},el('defs',{},s));el('rect',{width:5,height:5,fill:'#fff'},p);el('rect',{width:2,height:5,fill:C.grey},p);
-  el('line',{x1:z,x2:z,y1:0,y2:H,stroke:C.ink},s);
-  d.forEach((x,i)=>{const y=i*rowH+4,v=x[1],w=Math.abs(v)*sc,n=v<0;
-    const b=el('rect',{x:n?z-w:z,y:y+5,width:w,height:rowH-12,fill:x[2]?'url(#h)':(n?C.loss:C.navy),stroke:x[2]?C.grey:'none'},s);b.style.transformBox='fill-box';b.style.transformOrigin=n?'100% 50%':'0% 50%';bars.push(b);
-    el('text',{x:n?z+8:z-8,y:y+rowH/2+3,'text-anchor':n?'start':'end',class:'lbl',style:'font-size:13px',text:x[0]},s);
-    el('text',{x:n?z-w-6:z+w+6,y:y+rowH/2+3,'text-anchor':n?'end':'start',class:'val',style:'font-size:13px',text:(n?'−':'+')+fmt(Math.abs(v))},s)});
-  gsap.from(bars,{scaleX:0,duration:.7,stagger:.06,ease:'power3.out',scrollTrigger:{trigger:s,start:'top 75%'}});
+  const hero=document.querySelector('.hero');const pics=['autos','metrocrowd','magenta','tram','rickshaw','scooter3','sleeper','best','family','oldelhi'].map(k=>`assets/p_${k}.jpg`);
+  pics.forEach(s=>{const i=new Image();i.src=s});
+  if(!reduce){gsap.from('.floaters img',{y:-60,opacity:0,stagger:.12,duration:1,delay:.4,ease:'power3.out'});
+    hero.addEventListener('mousemove',e=>{const cx=e.clientX/innerWidth-.5,cy=e.clientY/innerHeight-.5;document.querySelectorAll('.floaters img').forEach((im,i)=>gsap.to(im,{x:cx*(20+i*14),y:cy*(16+i*10),duration:1,ease:'power3.out',overwrite:'auto'}))});}
+  let last={x:-999,y:-999},n=0;
+  if(reduce||matchMedia('(hover: none)').matches)return;
+  hero.addEventListener('mousemove',e=>{
+    const r=hero.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
+    if(Math.hypot(x-last.x,y-last.y)<110)return;last={x,y};
+    const img=document.createElement('img');img.className='trail';img.src=pics[n++%pics.length];img.alt='';hero.appendChild(img);
+    gsap.set(img,{x:x-75,y:y-56,rotation:(n%2?1:-1)*(4+(n*7)%10),scale:.4,opacity:0});
+    gsap.timeline({onComplete:()=>img.remove()}).to(img,{scale:1,opacity:1,duration:.35,ease:'back.out(1.6)'}).to(img,{opacity:0,scale:.85,y:'+=30',duration:.6,ease:'power2.in'},'+=.6');
+  });
 })();
 
+/* scope: word highlight, chips pop, circle draws */
+(function(){
+  const p=document.querySelector('.chiptext');
+  const walk=node=>{[...node.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(t=>{if(!t)return;if(/^\s+$/.test(t))f.appendChild(document.createTextNode(t));else{const s=document.createElement('span');s.className='w';s.textContent=t;f.appendChild(s)}});c.replaceWith(f)}else if(c.classList&&c.classList.contains('circled')){walk(c)}})};
+  walk(p);
+  const path=p.querySelector('.circled path'),len=path.getTotalLength();path.style.strokeDasharray=len;path.style.strokeDashoffset=len;
+  if(reduce){path.style.strokeDashoffset=0;return}
+  const tl=gsap.timeline({scrollTrigger:{trigger:'.scope',start:'top top',end:'+=140%',scrub:true,pin:true}});
+  p.querySelectorAll('.w,.chip').forEach((w,i)=>tl.to(w,w.classList.contains('chip')?{scale:1,duration:.6,ease:'back.out(2)'}:{opacity:1,duration:.4},i*.18));
+  tl.to(path,{strokeDashoffset:0,duration:1.2,ease:'none'});
+})();
+
+/* expanding photo sections */
+document.querySelectorAll('.expand').forEach(sec=>{
+  if(reduce){sec.querySelector('.over').style.opacity=1;return}
+  const tl=gsap.timeline({scrollTrigger:{trigger:sec,start:'top top',end:'+=180%',scrub:true,pin:true}});
+  tl.from(sec.querySelectorAll('h2 span'),{opacity:0,xPercent:i=>i?30:-30,duration:.4,stagger:.1})
+    .to(sec.querySelector('.ph'),{clipPath:'inset(0% 0% 0% 0%)',duration:1,ease:'power2.inOut'},'+=.1')
+    .to(sec.querySelector('h2'),{opacity:0,scale:1.08,duration:.6},'<+.4')
+    .to(sec.querySelector('.over'),{opacity:1,y:-10,duration:.5});
+});
+
+/* radial money map */
+(function(){
+  const groups={state:{name:'Run by the state',color:C.navy},priv:{name:'Organised private',color:C.blue},inf:{name:'Largely informal',color:'#f08a4b'}};
+  const d=[['Offline autos',168,'inf'],['Outstation cabs',37.5,'inf'],
+    ['Air',112,'priv'],['Self-drive, leases',9.8,'priv'],['Ride-hailing apps',38.5,'priv'],['Office commute',22.5,'priv'],['Private intercity bus',27.4,'priv'],['Private city, school bus',48,'priv'],
+    ['Rail',76,'state'],['Suburban rail',4,'state'],['State intercity bus',47.5,'state'],['Metro',10.4,'state'],['State city bus',18.5,'state']];
+  const tot=d.reduce((s,x)=>s+x[1],0);
+  const host=document.getElementById('radial');const s=el('svg',{viewBox:'-330 -330 660 660'});host.appendChild(s);
+  const R0=96,R1=196,arc=(a0,a1,r0,r1)=>{const p=(a,r)=>[Math.sin(a)*r,-Math.cos(a)*r];const L=a1-a0>Math.PI?1:0;const[a,b]=p(a0,r1),[c,dd]=p(a1,r1),[e,f]=p(a1,r0),[g,h]=p(a0,r0);return `M${a},${b}A${r1},${r1} 0 ${L} 1 ${c},${dd}L${e},${f}A${r0},${r0} 0 ${L} 0 ${g},${h}Z`};
+  let a=0;const segs=[];
+  d.forEach(x=>{const span=x[1]/tot*Math.PI*2,mid=a+span/2;
+    const path=el('path',{d:arc(a+.004,a+span-.004,R0,R1),fill:groups[x[2]].color,class:'seg','data-g':x[2],opacity:.92},s);segs.push(path);
+    const deg=mid*180/Math.PI,flip=deg>180,rx=Math.sin(mid)*(R1+14),ry=-Math.cos(mid)*(R1+14);
+    el('text',{x:rx,y:ry,class:'rl','data-g':x[2],'text-anchor':flip?'end':'start','dominant-baseline':'middle',transform:`rotate(${flip?deg+90:deg-90} ${rx} ${ry})`,text:`${x[0]}  ${x[1]}`},s);
+    a+=span});
+  el('circle',{r:R0-6,fill:'#fff'},s);
+  el('text',{y:-6,'text-anchor':'middle',style:'font-family:Instrument Serif,serif;font-size:34px',text:'₹6.2L Cr'},s);
+  el('text',{y:18,'text-anchor':'middle',class:'small',text:'fares a year, FY26'},s);
+  const pies=document.getElementById('pies');
+  Object.entries(groups).forEach(([k,g])=>{const v=d.filter(x=>x[2]===k).reduce((s,x)=>s+x[1],0),pct=Math.round(v/tot*100);
+    const div=document.createElement('div');div.className='pie';div.dataset.g=k;
+    const ang=pct/100*Math.PI*2,lg=pct>50?1:0;
+    div.innerHTML=`<svg viewBox="-22 -22 44 44"><circle r="20" fill="#e6e6e3"/><path d="M0,0 L0,-20 A20,20 0 ${lg} 1 ${Math.sin(ang)*20},${-Math.cos(ang)*20} Z" fill="${g.color}"/></svg><div><div class="p">${pct}%</div><div class="pl">${g.name}<br>₹${fmt(Math.round(v*10)/10)}k Cr</div></div>`;
+    pies.appendChild(div);
+    const on=()=>{host.classList.add('dim');host.querySelectorAll('[data-g]').forEach(n=>n.classList.toggle('on',n.dataset.g===k))},off=()=>host.classList.remove('dim');
+    div.addEventListener('mouseenter',on);div.addEventListener('mouseleave',off)});
+  segs.forEach(p=>{p.addEventListener('mouseenter',()=>{host.classList.add('dim');host.querySelectorAll('[data-g]').forEach(n=>n.classList.toggle('on',n.dataset.g===p.dataset.g))});p.addEventListener('mouseleave',()=>host.classList.remove('dim'))});
+  if(!reduce){gsap.from(segs,{scale:.6,opacity:0,transformOrigin:'0px 0px',duration:.7,stagger:.05,ease:'power3.out',scrollTrigger:{trigger:host,start:'top 70%'}});
+    gsap.from(host.querySelectorAll('.rl'),{opacity:0,duration:.5,stagger:.04,delay:.5,scrollTrigger:{trigger:host,start:'top 70%'}})}
+})();
+
+/* typewriter titles */
+document.querySelectorAll('[data-type]').forEach(h=>{
+  const txt=h.dataset.type;h.innerHTML='<span class="tx"></span><span class="caret"></span>';const tx=h.querySelector('.tx');
+  if(reduce){tx.textContent=txt;return}
+  ScrollTrigger.create({trigger:h,start:'top 80%',once:true,onEnter:()=>{let i=0;const t=setInterval(()=>{tx.textContent=txt.slice(0,++i);if(i>=txt.length)clearInterval(t)},70)}});
+});
+
+/* counters */
+document.querySelectorAll('[data-count]').forEach(n=>{const end=+n.dataset.count,dec=+(n.dataset.dec||0),pre=n.dataset.pre||'',suf=n.dataset.suf||'',o={v:0};
+  const set=()=>n.textContent=pre+(dec?o.v.toFixed(dec):Math.round(o.v).toLocaleString('en-IN'))+suf;
+  if(reduce){o.v=end;set();return}
+  gsap.to(o,{v:end,duration:1.8,ease:'power2.out',onUpdate:set,scrollTrigger:{trigger:n,start:'top 88%'}})});
+gsap.utils.toArray('.card').forEach((c,i)=>gsap.from(c,{y:40,opacity:0,duration:.8,delay:i*.08,ease:'power3.out',scrollTrigger:{trigger:c,start:'top 92%'}}));
+
+/* stacked 100 bars */
+function stack(id,rows,legend){
+  const W=560,rowH=78,s=svg(id,W,rows.length*rowH+30),x0=120,w=W-x0-10;const parts=[];
+  rows.forEach((r,i)=>{const y=i*rowH+6;el('text',{x:0,y:y+30,class:'lbl',text:r[0]},s);let x=x0;
+    r[1].forEach(([v,c,t])=>{const ww=v/100*w;const b=el('rect',{x,y:y+8,width:ww-2,height:40,fill:c},s);b.style.transformBox='fill-box';b.style.transformOrigin='0% 50%';parts.push(b);
+      if(t)el('text',{x:x+8,y:y+33,class:ww>48?'inbar':'val',text:t,...(ww>48?{}:{x:x+ww+4})},s);x+=ww})});
+  let lx=x0;legend.forEach(([n,c])=>{el('rect',{x:lx,y:rows.length*rowH+8,width:10,height:10,fill:c},s);el('text',{x:lx+16,y:rows.length*rowH+17,class:'small',text:n},s);lx+=n.length*7+40});
+  if(!reduce)gsap.from(parts,{scaleX:0,duration:.6,stagger:.12,ease:'power2.out',scrollTrigger:{trigger:s,start:'top 80%'}});
+}
+stack('c-split',[['Monthly ₹100',[[45,C.blue,'Driver 45'],[24,C.navy,'Loan or rent 24'],[18,C.grey,'Fuel 18'],[13,C.lgrey,'13']]]],[['Driver keeps',C.blue],['Lender or owner',C.navy],['Fuel',C.grey],['Upkeep, permits',C.lgrey]]);
+stack('c-pass',[['Commission',[[72,C.blue,'Driver 72'],[28,C.navy,'Platform 28']]],['Daily pass',[[98,C.blue,'Driver 98'],[2,C.navy,'']]]],[['Driver keeps',C.blue],['Platform takes',C.navy]]);
+
+/* profit pools diverging */
+(function(){
+  const d=[['Intercity rail',-11400],['City buses',-6740],['Intercity buses',-6710],['Suburban rail',-1800],['Ride-hailing',-1540],['Metro',1456],['Office commute',3150],['Booking firms',3481],['Outstation cabs',4065],['Airlines, before leases',6720,1]];
+  const W=640,rowH=33,H=d.length*rowH+8,z=330,sc=230/11400,s=svg('c-pools',W,H),bars=[];
+  const p=el('pattern',{id:'h',width:5,height:5,patternUnits:'userSpaceOnUse',patternTransform:'rotate(45)'},el('defs',{},s));el('rect',{width:5,height:5,fill:'#fff'},p);el('rect',{width:2,height:5,fill:C.grey},p);
+  el('line',{x1:z,x2:z,y1:0,y2:H,stroke:C.ink},s);
+  d.forEach((x,i)=>{const y=i*rowH+4,v=x[1],w=Math.abs(v)*sc,n=v<0,hl=x[0]==='Booking firms';
+    const b=el('rect',{x:n?z-w:z,y:y+5,width:w,height:rowH-12,fill:x[2]?'url(#h)':(n?C.loss:(hl?C.blue:C.navy)),stroke:x[2]?C.grey:'none'},s);b.style.transformBox='fill-box';b.style.transformOrigin=n?'100% 50%':'0% 50%';bars.push(b);
+    el('text',{x:n?z+8:z-8,y:y+rowH/2+3,'text-anchor':n?'start':'end',class:'lbl',style:'font-size:13px',text:x[0]},s);
+    el('text',{x:n?z-w-6:z+w+6,y:y+rowH/2+3,'text-anchor':n?'end':'start',class:'val',style:'font-size:13px',text:(n?'−':'+')+fmt(Math.abs(v))},s)});
+  if(!reduce)gsap.from(bars,{scaleX:0,duration:.7,stagger:.06,ease:'power3.out',scrollTrigger:{trigger:s,start:'top 75%'}});
+})();
+
+/* Karnataka slope */
 (function(){
   const s=svg('c-karnataka',560,300),y=v=>270-v*3.4;
   [120,440].forEach(x=>el('line',{x1:x,x2:x,y1:20,y2:276,stroke:C.line},s));
   el('text',{x:120,y:296,'text-anchor':'middle',class:'small',text:'Before free fares'},s);el('text',{x:440,y:296,'text-anchor':'middle',class:'small',text:'After'},s);
-  const ln=el('line',{x1:120,y1:y(37.5),x2:120,y2:y(37.5),stroke:C.accent,'stroke-width':3},s);
-  el('circle',{cx:120,cy:y(37.5),r:7,fill:C.accent},s);el('text',{x:104,y:y(37.5)+5,'text-anchor':'end',class:'val',text:'37.5'},s);
-  const c=el('circle',{cx:440,cy:y(67),r:7,fill:C.accent,opacity:0},s),t=el('text',{x:456,y:y(67)+5,class:'val',opacity:0,text:'67 (+79%)'},s);
-  gsap.timeline({scrollTrigger:{trigger:s,start:'top 75%'}}).to(ln,{attr:{x2:440,y2:y(67)},duration:1.2,ease:'power2.inOut'}).to([c,t],{opacity:1,duration:.3});
+  const ln=el('line',{x1:120,y1:y(37.5),x2:reduce?440:120,y2:reduce?y(67):y(37.5),stroke:C.blue,'stroke-width':3},s);
+  el('circle',{cx:120,cy:y(37.5),r:7,fill:C.blue},s);el('text',{x:104,y:y(37.5)+5,'text-anchor':'end',class:'val',text:'37.5'},s);
+  const c=el('circle',{cx:440,cy:y(67),r:7,fill:C.blue,opacity:reduce?1:0},s),t=el('text',{x:456,y:y(67)+5,class:'val',opacity:reduce?1:0,text:'67 (+79%)'},s);
+  if(!reduce)gsap.timeline({scrollTrigger:{trigger:s,start:'top 75%'}}).to(ln,{attr:{x2:440,y2:y(67)},duration:1.2,ease:'power2.inOut'}).to([c,t],{opacity:1,duration:.3});
 })();
 
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-if(!reduce&&window.Lenis){const l=new Lenis({lerp:.1});l.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>l.raf(t*1000));gsap.ticker.lagSmoothing(0);
-  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();l.scrollTo(a.getAttribute('href'),{offset:-56})}))}
-gsap.to('.progress',{scaleX:1,ease:'none',scrollTrigger:{start:0,end:'max',scrub:true}});
-gsap.from('.hero h1 .ln span',{yPercent:110,duration:1.2,stagger:.12,ease:'expo.out'});
-gsap.from('.hero .dek,.hero .art',{opacity:0,y:24,duration:1,delay:.6,ease:'power3.out'});
-document.querySelectorAll('.reveal').forEach(p=>{p.innerHTML=p.textContent.trim().split(/\s+/).map(w=>`<span class="w">${w}</span>`).join(' ');
-  if(!reduce)gsap.to(p.querySelectorAll('.w'),{opacity:1,stagger:.1,ease:'none',scrollTrigger:{trigger:p,start:'top 85%',end:'bottom 55%',scrub:true}})});
+/* general reveals */
 if(!reduce){
-  gsap.to('.hero .art img',{yPercent:-12,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
-  document.querySelectorAll('.photo img').forEach(i=>gsap.to(i,{scale:1,ease:'none',scrollTrigger:{trigger:i,start:'top bottom',end:'bottom top',scrub:true}}));
-  gsap.utils.toArray('.screen h2,.text p,.chart,.stats,.gapgrid,.gapimg,.bet,.gaplabel').forEach(e=>gsap.from(e,{y:30,opacity:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:e,start:'top 92%'}}));
+  gsap.utils.toArray('h2.t,.text p,.chart,.minis,.photo,.case .art,.steps div,.bet,.gnum').forEach(e=>gsap.from(e,{y:30,opacity:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:e,start:'top 92%'}}));
+  gsap.utils.toArray('.case .art img').forEach(i=>gsap.fromTo(i,{scale:1.15},{scale:1,ease:'none',scrollTrigger:{trigger:i,start:'top bottom',end:'bottom top',scrub:true}}));
+  gsap.to('.photogrid img',{opacity:1,scale:1,duration:.8,stagger:{each:.12,from:'random'},ease:'power2.out',scrollTrigger:{trigger:'.photogrid',start:'top 75%'}});
 }
+
+/* particle wordmark */
+(function(){
+  const cv=document.getElementById('particles'),ctx=cv.getContext('2d');let pts=[],mouse={x:-1e4,y:-1e4},W,H,dpr;
+  function build(){dpr=Math.min(devicePixelRatio||1,2);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;
+    const o=document.createElement('canvas');o.width=W;o.height=H;const c=o.getContext('2d');c.fillStyle='#fff';
+    let fs=H*.78;c.font=`${fs}px "Instrument Serif"`;while(c.measureText('How India Moves').width>W*.94&&fs>20){fs-=4;c.font=`${fs}px "Instrument Serif"`}
+    c.textAlign='center';c.textBaseline='middle';c.fillText('How India Moves',W/2,H/2);
+    const data=c.getImageData(0,0,W,H).data,step=Math.max(3,Math.round(W/420));pts=[];
+    for(let y=0;y<H;y+=step)for(let x=0;x<W;x+=step)if(data[(y*W+x)*4+3]>128)pts.push({x,y,ox:x,oy:y,vx:0,vy:0});}
+  function tick(){ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);ctx.fillStyle='rgba(255,255,255,.85)';
+    for(const p of pts){const dx=p.x-mouse.x,dy=p.y-mouse.y,d2=dx*dx+dy*dy;if(d2<6400){const f=(6400-d2)/6400*3;const d=Math.sqrt(d2)||1;p.vx+=dx/d*f;p.vy+=dy/d*f}
+      p.vx+=(p.ox-p.x)*.06;p.vy+=(p.oy-p.y)*.06;p.vx*=.82;p.vy*=.82;p.x+=p.vx;p.y+=p.vy;ctx.fillRect(p.x,p.y,1.4,1.4)}
+    requestAnimationFrame(tick)}
+  cv.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse={x:e.clientX-r.left,y:e.clientY-r.top}});
+  cv.addEventListener('mouseleave',()=>mouse={x:-1e4,y:-1e4});
+  document.fonts.ready.then(()=>{build();tick()});addEventListener('resize',build);
+})();
 addEventListener('load',()=>ScrollTrigger.refresh());
 </script>
 </body>

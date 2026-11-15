@@ -1,2 +1,3 @@
-# Mobility-dashboard
-Indian Mobility: an interactive sector-research dashboard with sourced market data, vehicle and use-case mapping, company deep dives and an investment thesis. Built through an AI-assisted research and analysis workflow.
+# India's Passenger Mobility Sector
+
+A thesis site on how India moves in masses, where its fares go, and the gaps in the market. Live at https://shivanshpahwa741-sudo.github.io/Mobility-dashboard/
