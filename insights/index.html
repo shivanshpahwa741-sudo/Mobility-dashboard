@@ -50,6 +50,10 @@ footer{padding:80px 0 40px;font-size:12px;color:var(--muted)}
 .det dt{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
 .det dd{font-size:14px;color:var(--ink-2)}
 .co{list-style:none;margin:0;padding:0}.co li{margin:0 0 6px}.co li:last-child{margin:0}
+
+/* glass-header-on-scroll */
+body>header:not(.cover),body>.top{transition:background .45s,backdrop-filter .45s,-webkit-backdrop-filter .45s,box-shadow .45s}
+body>header.glass,body>.top.glass{background:rgba(236,236,234,.55)!important;backdrop-filter:blur(20px) saturate(180%)!important;-webkit-backdrop-filter:blur(20px) saturate(180%)!important;box-shadow:0 8px 32px rgba(0,0,0,.06)}
 </style>
 </head>
 <body>
@@ -75,5 +79,6 @@ G.forEach((g,i)=>{const c=document.createElement('article');c.className='iss';c.
  c.onclick=t;c.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}};bank.appendChild(c)});
 </script>
 <script src="../assets/wip.js"></script>
+<script id="glass-header-on-scroll">(function(){var h=document.querySelector("body>header:not(.cover)")||document.querySelector("body>.top");if(!h)return;var f=function(){h.classList.toggle("glass",scrollY>40)};addEventListener("scroll",f,{passive:true});f()})();</script>
 </body>
 </html>

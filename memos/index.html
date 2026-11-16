@@ -57,6 +57,10 @@ footer{padding:80px 0 40px;font-size:12px;color:var(--muted)}
 .sec td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
 .sv{font-family:var(--mono);font-size:12px;font-weight:500}.sv.H{color:var(--loss)}.sv.M{color:#a8741a}.sv.L{color:var(--gain)}
 .tc{background:#fff4d6;border-radius:4px;padding:0 4px;font-family:var(--mono);font-size:12.5px;color:#7a5600}
+
+/* glass-header-on-scroll */
+body>header:not(.cover),body>.top{transition:background .45s,backdrop-filter .45s,-webkit-backdrop-filter .45s,box-shadow .45s}
+body>header.glass,body>.top.glass{background:rgba(236,236,234,.55)!important;backdrop-filter:blur(20px) saturate(180%)!important;-webkit-backdrop-filter:blur(20px) saturate(180%)!important;box-shadow:0 8px 32px rgba(0,0,0,.06)}
 </style>
 </head>
 <body>
@@ -233,14 +237,14 @@ footer{padding:80px 0 40px;font-size:12px;color:var(--muted)}
 <article class="memo" id="m3" hidden>
 <div class="mh"><h2>Kyra Rides</h2><span class="rec">Recommendation: Invest</span></div>
 
-<div class="sec"><span class="no">01</span><div><h3>Company name</h3><p>Kyra Rides (<a href="https://kyrarides.in" target="_blank" rel="noopener">kyrarides.in</a>). Bengaluru and Mysuru. No institutional funding; ₹9 lakh lifetime spend [company data]. Raising ₹8 Cr, mostly for Bengaluru driver acquisition and city expansion [founder].</p></div></div>
+<div class="sec"><span class="no">01</span><div><h3>Company name</h3><p>Kyra Rides (<a href="https://kyrarides.in" target="_blank" rel="noopener">kyrarides.in</a>). Bengaluru and Mysuru. No institutional funding; ₹9 lakh lifetime spend [company data]. Pre-revenue, with 125 rides in its January pilot. Raising ₹8 Cr, mostly for Bengaluru driver acquisition and city expansion [founder].</p></div></div>
 
 <div class="sec"><span class="no">02</span><div><h3>Sector</h3><p>Intra-city road passenger mobility: women-only ride-hailing.</p></div></div>
 
 <div class="sec"><span class="no">03</span><div><h3>Introduction</h3>
 <p>Kyra is a ride-booking app for women in Bengaluru, matched only with verified women drivers, with KYC-reviewed drivers and in-ride SOS [<a href="https://kyrarides.in" target="_blank" rel="noopener">kyrarides.in</a>]. The core idea is that the trip, not the job, keeps many urban women out of work.</p>
 <p>Women-safe commute is worth ₹7,000 Cr a year inside a ₹28,000 Cr women's commute spend pool. 91% of women do not rate public transport very safe [Ola Mobility Institute 2019]; Kyra fixes the trip by controlling who drives.</p>
-<p>Founded by Divyash Patil and Shivansh Pahwa, both at Mesa School of Business; Shivansh is also at IIM Bangalore.</p></div></div>
+<p>Founded by Divyashri Patil and Shivansh Pahwa, both at Mesa School of Business; Shivansh is also at IIM Bangalore.</p></div></div>
 
 <div class="sec"><span class="no">04</span><div><h3>Recommendation: <span>Invest</span></h3><p>Invest at pre-seed, sized to the traction rather than the full ₹8 Cr ask. Kyra has 2,769 riders and 526 women drivers onboarded on ₹9 lakh of spend [company data], which is cheap demand. Only 57 drivers are active, so the first cheque should buy proof of liquidity in Bengaluru, with the rest of the ₹8 Cr tied to that milestone.</p></div></div>
 
@@ -290,7 +294,7 @@ footer{padding:80px 0 40px;font-size:12px;color:var(--muted)}
 
 <div class="sec"><span class="no">08</span><div><h3>Founders: <span>2 repeat founders who built both sides of the market on ₹9 lakh</span></h3>
 <ul><li><b>Shivansh Pahwa, co-founder.</b> 19; Mesa School of Business and IIM Bangalore.</li>
-<li><b>Divyash Patil, co-founder.</b> Mesa School of Business. <span class="tc">[to confirm: role split]</span></li>
+<li><b>Divyashri Patil, co-founder.</b> Mesa School of Business. <span class="tc">[to confirm: role split]</span></li>
 <li>Proof points: together they built a direct-to-consumer brand at Mesa School of Business <span class="tc">[to confirm: brand name and results]</span>, then took Kyra to 2,769 riders and 526 onboarded drivers with no institutional funding.</li></ul></div></div>
 
 <div class="sec"><span class="no">09</span><div><h3>How does this become a sizable outcome?</h3>
@@ -301,8 +305,8 @@ footer{padding:80px 0 40px;font-size:12px;color:var(--muted)}
 
 <div class="sec"><span class="no">10</span><div><h3>Risks</h3>
 <div class="tw"><table><thead><tr><th>Risk</th><th>Severity H M L</th><th>Mitigation</th></tr></thead><tbody>
-<tr><td>Execution</td><td class="sv H">H</td><td>Slow growth: 125 pilot rides and negligible revenue so far; focus on 1 dense Bengaluru zone before Mysuru expansion</td></tr>
-<tr><td>Capital</td><td class="sv H">H</td><td>The ₹8 Cr ask is large against 57 active drivers and negligible revenue; tranche it against driver activation and weekly ride milestones</td></tr>
+<tr><td>Execution</td><td class="sv H">H</td><td>Slow growth: 125 January pilot rides and no revenue yet (pre-revenue); focus on 1 dense Bengaluru zone before Mysuru expansion</td></tr>
+<tr><td>Capital</td><td class="sv H">H</td><td>The ₹8 Cr ask is large against 57 active drivers and no revenue yet; tranche it against driver activation and weekly ride milestones</td></tr>
 <tr><td>Unit economics</td><td class="sv H">H</td><td>₹20 fee per ride is not charged yet; prove riders and drivers stay once it is switched on</td></tr>
 <tr><td>Liquidity</td><td class="sv H">H</td><td>Only 57 of 526 onboarded drivers (11%) are active, so riders wait or fail to match; driver earnings guarantees and shift scheduling in peak hours</td></tr>
 <tr><td>Safety operations</td><td class="sv M">M</td><td>16 open SOS cases on the admin console; a response-time standard and case closure log</td></tr>
@@ -320,5 +324,6 @@ B.forEach(b=>b.onclick=()=>{B.forEach(x=>x.classList.toggle('on',x===b));documen
 const h=location.hash.slice(1);const t=B.find(b=>b.dataset.m===h);if(t)t.click();
 </script>
 <script src="../assets/wip.js"></script>
+<script id="glass-header-on-scroll">(function(){var h=document.querySelector("body>header:not(.cover)")||document.querySelector("body>.top");if(!h)return;var f=function(){h.classList.toggle("glass",scrollY>40)};addEventListener("scroll",f,{passive:true});f()})();</script>
 </body>
 </html>

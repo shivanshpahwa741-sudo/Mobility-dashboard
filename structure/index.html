@@ -207,6 +207,10 @@ svg text{font-family:var(--sans)}svg .lbl{font-size:14px;fill:var(--ink-2)}svg .
 .seg .sz{font-size:14px;font-weight:500;margin-top:6px;color:var(--ink)}
 .slide .cap .unit{font-size:13px;color:var(--muted);margin-top:6px}
 @media(max-width:760px){.dstats{grid-template-columns:1fr 1fr}.dstats div:nth-child(3){padding-left:0;border-left:0}.dgrid,.cos{grid-template-columns:1fr}}
+
+/* glass-header-on-scroll */
+body>header:not(.cover),body>.top{transition:background .45s,backdrop-filter .45s,-webkit-backdrop-filter .45s,box-shadow .45s}
+body>header.glass,body>.top.glass{background:rgba(236,236,234,.55)!important;backdrop-filter:blur(20px) saturate(180%)!important;-webkit-backdrop-filter:blur(20px) saturate(180%)!important;box-shadow:0 8px 32px rgba(0,0,0,.06)}
 </style>
 </head>
 <body>
@@ -233,15 +237,13 @@ svg text{font-family:var(--sans)}svg .lbl{font-size:14px;fill:var(--ink-2)}svg .
 
 <!-- HIGHLIGHTS -->
 <section class="hl">
-  <div class="head"><div><div class="kick">Structure highlights</div><h2 class="t">Indian passengers spend ₹1,970 crore a day on intra-city road travel</h2></div>
+  <div class="head"><div><div class="kick">Structure in detail</div><h2 class="t">Who travels how, and who collects the money</h2></div>
     <div class="arrows"><button data-dir="-1" aria-label="Previous">←</button><button data-dir="1" aria-label="Next">→</button></div></div>
   <div class="track" id="track">
     <div class="slide"><div class="chart" id="h-sankey"></div><div class="cap"><div><p>58.0% of urban workers travelling >1 km go in a privately owned vehicle; 18.3% hire a seat or a ride</p><div class="unit">Urban work trips, %, FY26</div></div></div></div>
     <div class="slide"><div class="chart" id="h-fleet"></div><div class="cap"><div><p>Two-wheelers are 80.5% of the passenger vehicles on India's roads</p><div class="unit">Vehicles on the road, 2026</div></div></div></div>
     <div class="slide"><div class="chart" id="h-buskm"></div><div class="cap"><div><p>State buses lose ₹31 on every km they run</p><div class="unit">₹ per km, FY26</div></div></div></div>
     <div class="slide"><div class="chart" id="h-pools"></div><div class="cap"><div><p>State buses carry as many riders as in FY20, 6.0 crore a day, yet lose 72% more: ₹35,000 crore in FY26</p><div class="unit">Passengers carried a day and net loss, FY20 to FY26</div></div></div></div>
-    <div class="slide"><div class="chart" id="h-roads"></div><div class="cap"><div><p>All 4 ride-hailing apps lost money in FY25. Rapido lost ₹28 for every ₹100 of revenue; Ola lost ₹57.</p><div class="unit">Operating revenue and net loss, ₹ crore, FY25</div></div></div></div>
-    <div class="slide"><div class="chart" id="h-mix"></div><div class="cap"><div><p>Cabs are 22% of app rides but about 53% of app fares</p><div class="unit">App ride-hailing, %, FY26</div></div></div></div>
     <div class="slide"><div class="chart" id="h-own"></div><div class="cap"><div><p>Autos and e-rickshaws collect ₹1.68 lakh crore a year, 4.4 times app ride-hailing</p><div class="unit">₹ lakh crore a year, 2026</div></div></div></div>
   </div>
 </section>
@@ -390,308 +392,6 @@ const grow=(o,trig)=>{if(reduce)return;gsap.from(o.bars,{scaleX:0,duration:.7,st
     el('text',{x:x0+x[1]*sc+8,y:y+26,class:'small',text:'cost ₹'+x[1]},s);el('text',{x:x0+x[2]*sc+8,y:y+54,class:'val',text:'earns ₹'+x[2]+'  ('+(x[2]>x[1]?'+':'−')+'₹'+Math.abs(x[2]-x[1])+')'},s)});
   if(!reduce)gsap.from(bars,{scaleX:0,duration:.7,stagger:.08,ease:'power3.out',scrollTrigger:{trigger:'#h-buskm',start:'top 75%'}});
 })();
-(function(){
-  // ride-hailing FY25: operating revenue vs net loss, ₹ Cr (MCA filings)
-  const d=[['Uber India',3849,1512],['Ola Consumer',1171,662],['Rapido',934,258],['Namma Yatri',23.5,51.2]],s=mk('h-roads',900,420),x0=200,sc=560/3900,bars=[];
-  d.forEach((x,i)=>{const y=6+i*100;el('text',{x:0,y:y+40,class:'lbl',style:'font-size:16px',text:x[0]},s);
-    const a=el('rect',{x:x0,y:y+8,width:Math.max(x[1]*sc,2),height:30,fill:C.navy},s),b=el('rect',{x:x0,y:y+42,width:Math.max(x[2]*sc,2),height:30,fill:C.loss},s);
-    [a,b].forEach(r=>{r.style.transformBox='fill-box';r.style.transformOrigin='0% 50%';bars.push(r)});
-    el('text',{x:x0+Math.max(x[1]*sc,2)+8,y:y+29,class:'val',text:'₹'+fmt(x[1])+' Cr revenue'},s);
-    el('text',{x:x0+Math.max(x[2]*sc,2)+8,y:y+63,class:'val',style:'fill:#c4442f',text:'₹'+fmt(x[2])+' Cr loss'},s)});
-  if(!reduce)gsap.from(bars,{scaleX:0,duration:.7,stagger:.06,ease:'power3.out',scrollTrigger:{trigger:'#h-roads',start:'top 75%'}});
-})();
-(function(){
-  // app ride-hailing: share of rides vs share of fares, FY26, % (fares from est. average fare per ride)
-  const rows=[['Rides',[[45,C.grey,'Bikes 45'],[33,C.blue,'Autos 33'],[22,C.navy,'Cabs 22']]],['Fares',[[20,C.grey,'Bikes 20'],[27,C.blue,'Autos 27'],[53,C.navy,'Cabs 53']]]];
-  grow(stack('h-mix',rows,[['Bikes',C.grey],['Autos',C.blue],['Cabs',C.navy]],900),true);
-})();
-function cols(host,data,{W=560,H=220,color=()=>C.navy,val=x=>fmt(x[1])}={}){
-  const max=Math.max(...data.map(x=>x[1])),bw=Math.min(90,(W/data.length)*.6),step=W/data.length,ch=H-50,s=mk(host,W,H),bars=[];
-  data.forEach((x,i)=>{const h=Math.max(x[1]/max*ch,2),cx=i*step+step/2;const b=el('rect',{x:cx-bw/2,y:H-24-h,width:bw,height:h,fill:color(x,i)},s);b.style.transformBox='fill-box';b.style.transformOrigin='50% 100%';bars.push(b);
-    el('text',{x:cx,y:H-30-h,'text-anchor':'middle',class:'val',text:val(x)},s);el('text',{x:cx,y:H-6,'text-anchor':'middle',class:'small',text:x[0]},s)});
-  return {s,bars,v:true};
-}
-const growV=(o,trig)=>{if(reduce)return;gsap.from(o.bars,{scaleY:0,duration:.7,stagger:.07,ease:'power3.out',scrollTrigger:trig?{trigger:o.s,start:'top 85%'}:undefined})};
-// state buses: passengers carried a day (crore) and net loss (₹ crore), same years, MoRTH FY20 to FY22, FY26 latest
-(function(){
-  const yrs=['FY20','FY21','FY22','FY26'],rid=[6.17,2.45,3.55,6.0],loss=[20378,29086,30192,35000];
-  const W=900,s=mk('h-pools',W,420),x0=190,step=(W-x0)/4,bw=74,bars=[];
-  const panel=(top,h,vals,max,col,lab,f)=>{el('text',{x:0,y:top+16,class:'lbl',style:'font-size:15px',text:lab[0]},s);el('text',{x:0,y:top+36,class:'small',text:lab[1]},s);
-    el('line',{x1:x0,x2:W,y1:top+h,y2:top+h,stroke:C.line},s);
-    vals.forEach((v,i)=>{const hh=v/max*(h-30),cx=x0+i*step+step/2;const r=el('rect',{x:cx-bw/2,y:top+h-hh,width:bw,height:hh,fill:i===3?col:col+'99'},s);r.style.transformBox='fill-box';r.style.transformOrigin='50% 100%';bars.push(r);
-      el('text',{x:cx,y:top+h-hh-8,'text-anchor':'middle',class:'val',style:'font-size:16px',text:f(v)},s)})};
-  panel(10,170,rid,6.5,C.navy,['Passengers carried','crore a day'],v=>v===6?'6.0':String(v));
-  panel(210,170,loss,35000,'#c4442f',['Net loss','₹ crore a year'],v=>'₹'+fmt(v));
-  yrs.forEach((y,i)=>el('text',{x:x0+i*step+step/2,y:408,'text-anchor':'middle',class:'small',style:'font-size:14px',text:y},s));
-  if(!reduce)gsap.from(bars,{scaleY:0,duration:.7,stagger:.06,ease:'power3.out',scrollTrigger:{trigger:'#h-pools',start:'top 80%'}});
-})();
-/* trip share by vehicle type */
-(function(){
-  const R=[['Walking and cycling',43,19.5,'On foot or bicycle',''],['Two-wheelers',34,52.3,'22.5 crore','on the road'],['Three-wheelers',7.4,8.8,'70 lakh','autos and e-rickshaws'],['Four-wheelers',2.5,5.7,'4.63 crore','cars, cabs and school vans'],['Larger than four-wheelers',12,9.2,'19.9 lakh','private, school and state buses'],['Other',1.0,0.3,'70 lakh','work trips a day']];
-  const host=document.getElementById('tv'),M=55;
-  host.innerHTML='<div class="hd"><span>Vehicle type</span><span>Share of all trips (>1 km)</span><span>Share of urban work trips</span><span>On the road</span></div>'+
-   R.map(r=>`<div class="row"><div class="nm">${r[0]}</div><div class="bar"><span class="ml">All trips</span><i style="width:${r[1]/M*80}%"></i>${r[1]}%</div><div class="bar w"><span class="ml">Urban work</span><i style="width:${r[2]/M*80}%"></i>${r[2]}%</div><div class="fl">${r[3]}${r[4]?`<small>${r[4]}</small>`:''}</div></div>`).join('')+
-   '<p class="find">Two-wheelers carry the highest share of trips: 34% of all trips and 52.3% of urban work trips.</p>';
-  if(!reduce)gsap.from('#tv .bar i',{scaleX:0,duration:.8,stagger:.05,ease:'power3.out',scrollTrigger:{trigger:'#tv',start:'top 80%'}});
-})();
-(function(){
-  // fare pools, ₹ lakh crore a year
-  const s=mk('h-own',900,210),sc=700/1.68,bars=[];const d=[['Autos and e-rickshaws',1.68,C.navy],['App ride-hailing',0.385,C.blue]];
-  d.forEach((x,i)=>{const y=20+i*92;el('text',{x:0,y:y+16,class:'lbl',style:'font-size:16px',text:x[0]},s);const b=el('rect',{x:0,y:y+26,width:x[1]*sc,height:40,fill:x[2]},s);b.style.transformBox='fill-box';b.style.transformOrigin='0% 50%';bars.push(b);
-    el('text',{x:x[1]*sc+10,y:y+53,class:'val',style:'font-size:17px',text:'₹'+x[1]+' lakh crore'},s)});
-  if(!reduce)gsap.from(bars,{scaleX:0,duration:.8,stagger:.15,ease:'power3.out',scrollTrigger:{trigger:'#h-own',start:'top 75%'}});
-})();
-/* carousel: arrows + drag */
-(function(){
-  const t=document.getElementById('track');document.querySelectorAll('.arrows button').forEach(b=>b.onclick=()=>t.scrollBy({left:+b.dataset.dir*t.clientWidth*.8,behavior:'smooth'}));
-  let down=false,sx,sl;t.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;down=true;sx=e.clientX;sl=t.scrollLeft;t.classList.add('drag')});
-  addEventListener('pointerup',()=>{down=false;t.classList.remove('drag')});t.addEventListener('pointermove',e=>{if(down)t.scrollLeft=sl-(e.clientX-sx)});
-})();
-
-/* ---------- segment data ---------- */
-const SEG=[
-{id:'nm',name:'Walking and cycling',g:['nm'],chartcard:'nm',size:'43% of trips',d:'31% of all trips are made on foot and 12% by bicycle.',
- lead:'31% of all trips (>1 km) are made on foot and 12% by bicycle. 13.5% of urban workers walk to work and 5.8% cycle. 29.6% of urban students walk to school or college and 9.1% cycle.',
- stats:[['31%','of all trips on foot'],['12%','of all trips by bicycle'],['29.6%','of urban school trips on foot'],['38,900','pedestrian deaths, 2026']],
- chart:{unit:'Urban students travelling >1 km to school or college, %',rows:[['',[[29.6,C.navy,'Walk 29.6'],[9.1,C.blue,'9.1'],[61.3,C.lgrey,'Other modes 61.3']]]],legend:[['Walk',C.navy],['Bicycle',C.blue],['Other modes',C.lgrey]]},
- how:'A walk or a bicycle ride counts as a trip when it is 1 km or more. 37.0% of students and 28.3% of workers in India walk, and 15.8% of students and 10.7% of workers cycle.',
- pays:'No fare is paid. Households pay only for the bicycle.',
- econ:'The cost per km is zero, so walking and cycling are the default for trips under 5 km. 75% of working women in Delhi work within 5 km of home.',
- trend:'Cities walk and cycle less than villages: 13.5% of urban workers walk, against 36.6% of rural workers. India\'s urban population grows from 53.7 crore in 2026 to 59.4 crore in 2036, so more trips move to motorised modes.',
- problems:'Pedestrians are 20.6% of road deaths, or 38,900 deaths in 2026.',
- cos:[],
- src:'MoSPI National Household Travel Survey 2025-26; MoRTH Road Accidents in India 2024.'},
-{id:'own2w',name:'Personal two-wheelers',g:['2w'],img:'p_family',size:'22.5 crore vehicles',d:'22.5 crore two-wheelers carry 34% of all trips.',
- lead:'22.5 crore two-wheelers are on the road. They carry 34% of all trips and 52.3% of urban work trips, including 57% of urban male workers.',
- stats:[['22.5 Cr','two-wheelers on the road'],['34%','of all trips'],['52.3%','of urban work trips'],['87,300','rider deaths, 2026']],
- chart:{unit:'Urban work trips (>1 km), %',rows:[['',[[52.3,C.navy,'Two-wheeler 52.3'],[47.7,C.lgrey,'All other modes 47.7']]]],legend:[['Two-wheeler',C.navy],['All other modes',C.lgrey]]},
- how:'Households buy a two-wheeler and ride it themselves. 2.02 crore two-wheelers were registered in 2025, 72% of all new vehicles.',
- pays:'The rider pays for fuel, maintenance and insurance from household income.',
- econ:'Running costs of privately owned two-wheelers and cars add up to ₹4.18 lakh crore a year, 58% of intra-city road spend. India used 42,663 thousand tonnes of petrol in FY26, and motor insurance premium reached ₹1,06,990 crore.',
- trend:'6.6% of two-wheelers sold in FY26 were electric, from 1.9% in FY22. 14.02 lakh electric two-wheelers were sold in FY26.',
- problems:'Two-wheeler riders are 46.2% of road deaths, or 87,300 deaths in 2026, while two-wheelers carry 34% of trips. No rider-safety product has a disclosed paying customer yet.',
- cos:[['EdgeVerse','Collision warning and rider monitoring for two-wheeler makers, Bengaluru','Seed','₹4.85 crore from GVFL and ARTPARK (IISc), Aug 2026','No disclosed paying customer'],
-  ['BYTES','AI safety system for two-wheeler riders, Bengaluru','Grant','₹20 lakh grant from WTFund, 2025','Prototype']],
- src:'MoSPI National Household Travel Survey 2025-26; VAHAN; PPAC; IRDAI; MoRTH Road Accidents in India 2024; StartupTalky; Inc42.'},
-{id:'own4w',name:'Personal cars',g:['4w'],chartcard:'own4w',size:'4.35 crore vehicles',d:'4.35 crore cars carry 2.5% of all trips.',
- lead:'4.35 crore cars are on the road. They carry 2.5% of all trips and 5.7% of urban work trips.',
- stats:[['4.35 Cr','cars on the road'],['2.5%','of all trips'],['5.7%','of urban work trips'],['23,400','car occupant deaths, 2026']],
- chart:{unit:'Urban work trips (>1 km), %',rows:[['',[[5.7,C.navy,''],[94.3,C.lgrey,'All other modes 94.3']]]],legend:[['Car 5.7',C.navy],['All other modes',C.lgrey]]},
- how:'Households drive their own car or hire a driver. Cars carry 3.0% of work trips in India and 0.7% of school trips.',
- pays:'The owner pays for fuel, maintenance, insurance, tolls and parking.',
- econ:'Car running costs sit inside the ₹4.18 lakh crore a year that privately owned vehicles spend. Car occupants are 12.4% of road deaths while cars carry 2.5% of trips, a ratio of 5 to 1.',
- trend:'8 Indian cities are in the world\'s 50 most congested. Bengaluru moves at 16.6 km/h at peak, down from 18 km/h in 2024, and Pune takes 33 minutes 20 seconds to cover 10 km.',
- problems:'Congestion raises the time cost of every car trip. 23,400 car occupants died on the road in 2026.',
- cos:[['Lane','Driving lessons that also build driver-behaviour data','Seed','₹8.5 crore from Kae Capital, DeVC and Antler','Driver-behaviour data from lessons'],
-  ['NAYAN','Video AI that reads road and traffic violations','Seed','$2.0 million, Oct 2024; We Founder Circle','Road-safety analytics for cities']],
- src:'MoSPI National Household Travel Survey 2025-26; MoRTH Road Accidents in India 2024; TomTom Traffic Index 2025; company announcements.'},
-{id:'bike',name:'Bike taxis and electric two-wheeler fleets',g:['2w'],img:'p_scooter3',size:'$3 billion Rapido',d:'Bike taxis and leased electric scooters; Rapido is valued at $3 billion.',
- lead:'App ride-hailing carries 303 crore rides a year, and 45% of them are on bikes. Rapido earned ₹934 crore of revenue in FY25, lost ₹258 crore, and raised $240 million at a $3 billion valuation in May 2026.',
- stats:[['45%','of app rides are on bikes'],['20%','of app fares are bike fares'],['$3B','Rapido valuation, May 2026'],['6','states permit bike taxis']],
- chart:{unit:'App rides by vehicle, %',rows:[['',[[45,C.navy,'Bikes 45'],[33,C.blue,'Autos 33'],[22,C.lgrey,'Cabs 22']]]],legend:[['Bikes',C.navy],['Autos',C.blue],['Cabs',C.lgrey]]},
- how:'A rider books a bike on an app. The driver uses a privately owned two-wheeler or rents an electric scooter from a fleet. Under the Motor Vehicle Aggregator Guidelines 2025 the driver keeps at least 80% of the fare, and each state must consent before private bikes run as taxis.',
- pays:'The rider pays the fare through the app. Drivers who rent pay the fleet ₹300 to ₹500 a day.',
- econ:'Bike fares are 20% of ₹38,500 crore of app fares, about ₹7,700 crore a year. Rapido lost ₹28 for every ₹100 of revenue in FY25 and cut its loss from ₹371 crore to ₹258 crore.',
- trend:'Rapido grew revenue 44% in FY25 and now carries about 50% of all app rides. Yulu raised a $93 million Series C in Aug 2026.',
- problems:'Bike taxis are permitted in 6 states. Karnataka\'s ban was lifted in 2026 with policy still pending, and Tamil Nadu and Telangana are unclear. Maharashtra\'s draft adds a ₹5 levy per ride and 2% of fares to a welfare fund.',
- cos:[['Rapido','Bike taxi, auto and cab app','Late stage','$240 million at a $3 billion valuation, May 2026','₹934 crore revenue, ₹258 crore loss, FY25'],
-  ['Yulu','Shared and leased electric two-wheelers','Series C','$218 million, including $93 million in Aug 2026','Electric scooters for riders and delivery workers'],
-  ['Zypp Electric','Electric two-wheeler fleet for delivery riders','Growth','$37.5 million','Leases electric scooters to riders'],
-  ['Battery Smart','Battery swapping for electric two- and three-wheelers','Late stage','$74 million','Swap network for drivers'],
-  ['SUN Mobility','Battery swapping','Growth','$50 million','Swap stations for fleets']],
- src:'MCA filings via Inc42; TechCrunch (May 2026); Tracxn; Outlook Business; Scroll.'},
-{id:'autos',name:'Autos and e-rickshaws',g:['3w'],img:'p_autos',size:'₹1.68 lakh crore',d:'The largest fare pool within Indian cities; 98% of trips are booked offline.',
- lead:'70 lakh autos and e-rickshaws carry passengers: 45 lakh on CNG or petrol and 25.3 lakh electric. They collect ₹1.68 lakh crore a year, or ₹460 crore a day. 98% of auto trips are booked offline.',
- stats:[['70 lakh','autos and e-rickshaws'],['₹460 Cr','fares a day'],['98%','of trips booked offline'],['61%','of three-wheeler sales electric, FY26']],
- chart:{unit:'Three-wheeler sales by fuel, FY26, %',rows:[['',[[61,C.blue,'Electric 61'],[24,C.navy,'CNG 24'],[15,C.lgrey,'Other 15']]]],legend:[['Electric',C.blue],['CNG',C.navy],['Other fuels',C.lgrey]]},
- how:'Owner-drivers and renting drivers pick riders up off the street or at stands. Autos carry 8.8% of urban work trips and 14.4% of urban school trips. Only 2 in 100 trips are booked on an app.',
- pays:'Riders pay the driver in cash or UPI. Drivers pay a vehicle loan or rent of ₹300 to ₹500 a day.',
- econ:'Each vehicle collects about ₹657 of fares a day. Autos and e-rickshaws take 56% of all intra-city road fares, 4.4 times app ride-hailing. Loans for electric autos cost 14% to 16% a year, against 9.9% for e-rickshaws at Mufin Green.',
- trend:'Electric passenger autos rose from 4% of sales in FY22 to 33.7% in FY26. 8.31 lakh electric three-wheelers were sold in FY26, about ₹20,000 crore of new loans a year.',
- problems:'Drivers have no credit history, so financing is expensive. Offline trips leave no data on demand, price or driver earnings.',
- cos:[['Namma Yatri','Zero-commission open-network auto and cab app, Bengaluru','Series A','$15.4 million; valued at ₹500 crore, Mar 2026','4.6 crore trips, 4 lakh drivers; ₹23.5 crore revenue, ₹51 crore loss, FY25'],
-  ['Chargeup','Batteries and credit for electric auto drivers, Delhi','Seed','₹22 crore round','10,000+ drivers; target 20,000 more by FY27'],
-  ['Vidyut','Battery subscription and financing for electric autos','Early Series A','$16.5 million, Feb 2025','Cuts upfront cost of an electric auto by 35% to 40%'],
-  ['Mufin Green','Lender for electric vehicles','Listed','','$175 million disbursed'],
-  ['iGoWise Mobility','Electric three-wheeler maker','Pre-seed','₹8.2 crore from ISB Angels, 888VC and Guptaji VC, Sep 2025','Pre-revenue']],
- src:'VAHAN via Autocar Pro; FADA; EVreporter; MoSPI National Household Travel Survey 2025-26; Tracxn; Inc42; Mercom.'},
-{id:'cabs',name:'Cabs and ride-hailing',g:['4w'],chartcard:'cabs',size:'₹38,500 crore',d:'24.5 lakh cabs; app ride-hailing worth ₹38,500 crore a year.',
- lead:'24.5 lakh cabs and maxi cabs are on the road. App ride-hailing is worth ₹38,500 crore a year across bikes, autos and cabs. Cabs are 22% of app rides and about 53% of app fares.',
- stats:[['24.5 lakh','cabs and maxi cabs'],['₹20,000 Cr','app cab fares a year'],['22%','of app rides are cabs'],['53%','of app fares are cabs']],
- chart:{unit:'App ride-hailing by vehicle, FY26, %',rows:[['Rides',[[45,C.grey,'Bikes 45'],[33,C.blue,'Autos 33'],[22,C.navy,'Cabs 22']]],['Fares',[[20,C.grey,'Bikes 20'],[27,C.blue,'Autos 27'],[53,C.navy,'Cabs 53']]]],legend:[['Bikes',C.grey],['Autos',C.blue],['Cabs',C.navy]]},
- how:'Drivers own a cab, rent one from a fleet or drive an aggregator\'s vehicle, and take rides from Uber, Ola, Rapido or Namma Yatri. The Motor Vehicle Aggregator Guidelines 2025 set the driver share at 80% of the fare (60% on aggregator-owned vehicles) and cap surge at 2 times the base fare.',
- pays:'Riders pay through the app; employers pay for office cabs.',
- econ:'App cab fares are about ₹20,000 crore a year; electric fleets can address ₹4,000 crore of it. Snap-E Cabs earns ₹120 crore of gross revenue from 1,112 EVs, about ₹10.8 lakh per car a year, and is EBITDA positive.',
- trend:'Ola Consumer revenue fell 42% in FY25 to ₹1,171 crore. Uber BV put ₹2,921 crore into its India arm between Nov 2025 and Jan 2026. BluSmart shut in Apr 2025 and left its riders to other fleets.',
- problems:'All 4 apps lost money in FY25: Uber India ₹1,512 crore, Ola Consumer ₹662 crore, Rapido ₹258 crore and Namma Yatri ₹51 crore. Uber reported that driver supply grew slower than demand.',
- cos:[['Snap-E Cabs','Electric cab fleet, Kolkata and Delhi','Pre-Series A','About $5 million; bridge round led by Inflection Point Ventures, Sep 2025','1,112 EVs, 3.2 million rides, ₹120 crore gross revenue, EBITDA positive'],
-  ['Evera','Electric cab fleet','Seed','$14 million, Jun 2025','Supplies cabs to riders and apps'],
-  ['Milo Drive','Electric cab fleets run by driver-entrepreneurs, Gurugram and Bengaluru','Seed','$2.4 million from Caret Capital and Antler, Jul 2026','Driver-owner model for app supply'],
-  ['Trevel','Electric ride service, Gurugram','Seed','$1 million, Jun 2026','Adds 25 EVs a month; target 500 by 2027'],
-  ['Trev Mobility','Electric cabs, Delhi-NCR','Angel','₹3.65 crore from its own users, Apr 2026','Runs in 5 NCR cities'],
-  ['Fery Rides','Ride platform built for women','Seed','₹2.075 crore from IAN Angel Fund plus ₹50 lakh government seed grant','Women-first rides'],
-  ['Cautio','Dashcam safety for cab and car fleets','Seed','$3.0 million','Fleet video safety'],
-  ['Netradyne','AI cameras for commercial fleets','Late stage','Backed by SoftBank Vision Fund','Fleet driver scoring']],
- src:'MCA filings via Inc42 and Outlook Business; Entrackr; Autocar Pro; Tracxn; Motor Vehicle Aggregator Guidelines 2025.'},
-{id:'school',name:'School buses and vans',g:['bus','4w'],chartcard:'school',size:'7.3 lakh vehicles',d:'3.8 lakh school buses and 3.5 lakh vans.',
- lead:'3.8 lakh school and college buses and 3.5 lakh vans move 1.5 crore students. 33.7% of urban students travelling >1 km go by bus.',
- stats:[['1.5 Cr','students use school transport'],['₹27,000 Cr','fees a year'],['33.7%','of urban students go by bus'],['14.4%','of urban students go by auto']],
- chart:{unit:'Urban students travelling >1 km to school or college, %',rows:[['',[[33.7,C.navy,'Bus 33.7'],[29.6,C.grey,'Walk 29.6'],[14.4,C.blue,'Auto 14.4'],[11.5,C.orange,'2W 11.5'],[10.8,C.lgrey,'10.8']]]],legend:[['Bus',C.navy],['Walk',C.grey],['Auto',C.blue],['Two-wheeler',C.orange],['Other',C.lgrey]]},
- how:'Schools run their own buses or hire bus contractors, and parents hire van owner-drivers directly. Each vehicle carries about 20 students.',
- pays:'Parents pay a monthly fee of ₹1,500 to ₹4,000 in metros, to the school or the van owner.',
- econ:'1.5 crore students x ₹1,800 a month x 10 months is ₹27,000 crore a year. A van with 20 students earns about ₹36,000 a month.',
- trend:'GPS tracking is mandatory on public service vehicles, and UPI autopay makes a monthly plan easy to collect.',
- problems:'Most vans are unregulated and untracked, and parents have no single operator accountable for safety.',
- cos:[['ZeroMoblt','Subscription student transport, Hyderabad','Pre-seed','₹1.5 crore, Feb 2026; JioMart CEO Sandeep Varaganti and others','3.4 lakh trips, 147 pincodes, 15+ institutions, 3,000+ vehicles'],
-  ['AppAlert','School bus tracking for parents and schools','Seed','About ₹6 crore','Tracks school fleets']],
- src:'MoSPI National Household Travel Survey 2025-26; Entrackr; Venture Intelligence.'},
-{id:'office',name:'Office commute',g:['bus','4w'],chartcard:'office',size:'₹72,000 crore',d:'Employer-paid shift transport worth ₹72,000 crore a year.',
- lead:'64.1% of urban workers travel more than 1 km to work. Employers move part of them in contracted cabs and buses, a market of ₹72,000 crore a year.',
- stats:[['₹72,000 Cr','market a year'],['₹438 Cr','MoveInSync revenue, FY24'],['₹178 Cr','Routematic revenue, FY25'],['120 of 150','Cityflo routes cash positive']],
- how:'An employer signs a contract with a commute operator, which plans routes and pays cab and bus owners per trip or per km. States require employer transport for women working after dark.',
- pays:'The employer pays the operator; Cityflo also sells seats directly to commuters.',
- econ:'$6.1 billion in 2023 growing 11.7% a year gives $8.5 billion, about ₹72,000 crore, in 2026. Routematic targets ₹500 crore of revenue in FY26.',
- trend:'Global capability centre hiring, the return to office and corporate electric-vehicle targets are raising shift volumes.',
- problems:'The leaders are already at Series C, so there is little room for a new seed-stage company.',
- cos:[['MoveInSync','Office commute software for employers','Growth','$32.7 million over 9 rounds','₹438 crore revenue, FY24'],
-  ['Routematic','Managed office commute with electric fleets','Series C','$40 million Series C','₹178 crore revenue, FY25'],
-  ['Cityflo','Seat-guaranteed office buses, Mumbai and Hyderabad','Series A','$19 million; last round Oct 2023','More than ₹275 crore annualised revenue; 120 of 150 routes cash positive']],
- src:'MoSPI National Household Travel Survey 2025-26; YourStory; Inc42; Autocar Pro; Tracxn.'},
-{id:'privbus',name:'Private buses',g:['bus'],chartcard:'privbus',size:'14.7 lakh buses',d:'14.7 lakh privately owned buses, all services.',
- lead:'14.7 lakh privately owned buses run stage, charter and contract services, including inter-city coaches. Buses carry 12% of all trips.',
- stats:[['14.7 lakh','private buses'],['12%','of all trips by bus'],['9.2%','of urban work trips by bus'],['₹6,000 Cr','premium office bus market']],
- how:'Operators hold state permits for a route (stage carriage) or a contract (charter and contract carriage) and keep the fares.',
- pays:'Riders pay per trip; schools, employers and tour groups pay per contract.',
- econ:'Fares of private buses, cabs, school and office transport add up to ₹33,800 crore a year. Premium seat-guaranteed office buses are a ₹6,000 crore market.',
- trend:'India has 9.7 state buses per lakh people against a benchmark of 60, so private operators fill the gap.',
- problems:'Permits limit who can run a city route, and most operators are small and offline.',
- cos:[['Chalo','City bus ticketing app and electric bus operations','Growth','$117 million','Ticketing and buses in several cities'],
-  ['Cityflo','Seat-guaranteed office buses','Series A','$19 million','120 of 150 routes cash positive']],
- src:'MoSPI National Household Travel Survey 2025-26; MoRTH; Tracxn; Autocar Pro.'},
-{id:'srtu',name:'State buses',g:['bus'],img:'p_best',size:'₹35,000 crore loss',d:'1,40,100 state buses lose ₹31 on every km.',
- lead:'58 state transport undertakings run 1,40,100 buses and carry 6.0 crore riders a day. Each km costs ₹86 and earns ₹55, so they lose ₹35,000 crore a year. Net loss has risen 72% since FY20.',
- stats:[['1,40,100','state buses'],['6.0 Cr','riders a day'],['₹35,000 Cr','net loss, FY26'],['4.39','staff per bus']],
- chart:{unit:'State bus cost of ₹86 per km, FY26, split into what it earns and what it loses',rows:[['',[[64,C.blue,'Earns ₹55'],[36,C.loss,'Loses ₹31']]]],legend:[['Revenue per km',C.blue],['Loss per km',C.loss]]},
- how:'State-owned undertakings run city and inter-city buses on fares set by the state.',
- pays:'Riders pay ₹64,700 crore of fares a year. The state pays the rest: subsidies were 26.29% of revenue in FY22.',
- econ:'Each bus-km costs ₹86 and earns ₹55. Each bus carries 4.39 staff. Only 2 of 58 undertakings made a profit in FY22: Chandigarh Transport Undertaking and UPSRTC.',
- trend:'Riders fell from 6.17 crore a day in FY20 to 3.55 crore in FY22 and recovered to 6.0 crore in FY26. The fleet shrinks 1.2% a year.',
- problems:'India has 9.7 state buses per lakh people against a benchmark of 60. Delhi city buses alone lose ₹10,950 crore a year.',
- cos:[['BMTC','Bengaluru city buses','State-owned','State budget','Bengaluru city network'],['BEST','Mumbai city buses','Municipal','Municipal budget','Mumbai city network'],['DTC','Delhi city buses','State-owned','State budget','Largest loss-maker, ₹8,470 crore in FY22'],['UPSRTC','Uttar Pradesh state buses','State-owned','State budget','1 of 2 profit-making undertakings, FY22']],
- src:'MoRTH Review of the Performance of State Road Transport Undertakings; MoSPI National Household Travel Survey 2025-26.'},
-{id:'ebus',name:'Electric city buses',g:['bus'],chartcard:'ebus',size:'38,000+ e-buses',d:'38,000+ e-buses backed by a ₹3,435 crore payment guarantee.',
- lead:'PM e-Bus Sewa sanctioned 10,000 e-buses for 116 cities; 4 cities ran them by Mar 2026. PM E-DRIVE funds 14,028 e-buses. A ₹3,435 crore payment guarantee covers 38,000+ e-buses from FY25 to FY29.',
- stats:[['10,000','e-buses sanctioned'],['2,730','contracted, Mar 2026'],['14,028','e-buses under PM E-DRIVE'],['₹3,435 Cr','payment guarantee']],
- how:'Cities hire private operators who buy, run and maintain the buses and are paid per km under a gross cost contract.',
- pays:'The city pays the operator per km; the central guarantee covers what states fail to pay.',
- econ:'PM e-Bus Sewa has an outlay of ₹57,613 crore. The operator earns a fixed rate per km, so its risk is late payment, not ridership.',
- trend:'Of 10,000 sanctioned buses, 5,212 have letters of award and 2,730 are contracted. 4 cities were running them by Mar 2026.',
- problems:'State bus undertakings lose ₹35,000 crore a year, so payments outside the guarantee can be late.',
- cos:[['EKA Mobility','Electric bus maker and operator','Growth','','City e-bus contracts'],['PMI Electro','Electric bus maker and operator','Growth','','City e-bus contracts'],['Chalo','City bus ticketing and e-bus operations','Growth','$117 million','Runs e-buses for cities']],
- src:'MHI PM E-DRIVE; MoHUA PM e-Bus Sewa; emobilityplus (Mar 2026); Tracxn.'},
-{id:'other',name:'Other vehicles',g:['other'],chartcard:'other',size:'70 lakh trips a day',d:'Jugaads and chhakdas: 1.0% of work trips in India.',
- lead:'Other vehicles such as jugaads and chhakdas carry 1.0% of work trips in India, or 70 lakh work trips a day, and 0.3% of urban work trips. Cycle rickshaws carry 0.2%, or 14 lakh work trips a day.',
- stats:[['70 lakh','work trips a day'],['1.0%','of all trips'],['0.3%','of urban work trips'],['14 lakh','cycle rickshaw work trips a day']],
- how:'Locally built vehicles carry passengers on routes that buses and autos do not serve, mostly in small towns.',
- pays:'Riders pay the driver in cash.',
- econ:'Owner-drivers keep the full fare; no platform or operator sits between rider and driver.',
- trend:'1.4% of rural work trips use other vehicles against 0.3% of urban work trips, so the segment shrinks as India urbanises.',
- problems:'No company organises this segment, and it carries only 0.3% of urban work trips.',
- cos:[],
- src:'MoSPI National Household Travel Survey 2025-26.'}
-];
-
-const FILT=[['all','All'],['nm','Non-motor'],['2w','Two-wheelers'],['3w','Three-wheelers'],['4w','Four-wheelers'],['bus','Larger than four-wheelers'],['other','Other']];
-const OWN=s=>(FILT.find(f=>f[0]===s.g[0])||['','Other'])[1];
-
-/* typographic card visuals for segments without photos */
-function cardVis(seg,host){
-  const box=document.createElement('div');box.className='big';
-  box.innerHTML=`<div class="kick" style="margin:0">${OWN(seg)}</div><div class="n">${seg.size.replace(' Cr','')}<span style="font-size:.35em;margin-left:.15em">${seg.size.includes(' Cr')?'Cr':''}</span></div>`;
-  host.appendChild(box);
-  const tint={nm:'#eef6e9',own4w:'#eeeeec',cabs:'#fff1e6',school:'#e7ecff',office:'#e5f4fd',privbus:'#e5f4fd',ebus:'#e7ecff',other:'#f3efe6'}[seg.id]||'#fff';
-  host.style.background=tint;
-}
-
-/* ---------- build grid ---------- */
-(function(){
-  const cols=document.querySelectorAll('#grid .col');const ars=['4/3','4/5','1/1','4/3','5/4','4/5'];
-  SEG.forEach((s,i)=>{
-    const b=document.createElement('button');b.className='seg';b.dataset.g=s.g.join(' ');b.dataset.id=s.id;b.style.setProperty('--ar',ars[i%ars.length]);
-    b.innerHTML=`<div class="vis">${s.img?`<img class="bw" src="${A}${s.img}.jpg" alt="" loading="lazy">`:''}<span class="go">↗</span></div><h3>${s.name}</h3><div class="sz">${s.size}</div><p class="d">${s.d}</p>`;
-    if(!s.img)cardVis(s,b.querySelector('.vis'));
-    b.onclick=()=>openSeg(s);cols[i%2].appendChild(b);
-  });
-  const f=document.getElementById('filters').appendChild(document.createElement('div'));f.style.display='contents';
-  FILT.forEach(([k,n],i)=>{const btn=document.createElement('button');btn.textContent=n;if(!i)btn.className='on';btn.onclick=()=>{
-    document.querySelectorAll('#filters button').forEach(x=>x.classList.toggle('on',x===btn));
-    const cards=[...document.querySelectorAll('.seg')];
-    gsap.to(cards,{opacity:0,y:12,duration:.2,onComplete:()=>{cards.forEach(c=>c.classList.toggle('hide',k!=='all'&&!c.dataset.g.split(' ').includes(k)));
-      const vis=cards.filter(c=>!c.classList.contains('hide'));vis.forEach((c,j)=>cols[j%2].appendChild(c));ScrollTrigger.refresh();
-      gsap.fromTo(vis,{opacity:0,y:24},{opacity:1,y:0,duration:.5,stagger:.05,ease:'power3.out'})}});
-    lenis?lenis.scrollTo('#segments',{offset:-40}):document.getElementById('segments').scrollIntoView()};document.getElementById('filters').firstChild.appendChild(btn)});
-  if(!reduce)gsap.utils.toArray('.seg').forEach(c=>gsap.from(c,{y:60,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:c,start:'top 92%'}}));
-})();
-
-/* ---------- drawer ---------- */
-const drawer=document.getElementById('drawer'),scrim=document.getElementById('scrim'),dbody=document.getElementById('dbody');
-function openSeg(s){
-  document.getElementById('dkick').textContent=OWN(s);
-  const co=c=>`<div class="co"><b>${c[0]}</b><div class="wh">${c[1]}</div><dl>${c[2]?`<dt>Stage</dt><dd>${c[2]}</dd>`:''}${c[3]?`<dt>Funding</dt><dd>${c[3]}</dd>`:''}${c[4]?`<dt>Traction</dt><dd>${c[4]}</dd>`:''}</dl></div>`;
-  dbody.innerHTML=`${s.img?`<div class="hero-img"><img src="${A}${s.img}.jpg" alt=""></div>`:''}<h2>${s.name}</h2><div class="size">${s.size}</div><p class="lead">${s.lead}</p>
-   <div class="dstats">${s.stats.map(x=>`<div><div class="n">${x[0]}</div><div class="l">${x[1]}</div></div>`).join('')}</div>
-   ${s.chart?`<div class="dchart"><div class="unit">${s.chart.unit}</div><div id="dch"></div></div>`:''}
-   <div class="dgrid"><div class="dsec"><h5>How it works</h5><p>${s.how}</p></div><div class="dsec"><h5>Who pays</h5><p>${s.pays}</p></div>
-   <div class="dsec"><h5>Unit economics</h5><p>${s.econ}</p></div><div class="dsec"><h5>Trend</h5><p>${s.trend}</p></div>
-   <div class="dsec wide"><h5>Problems</h5><p>${s.problems}</p></div></div>
-   <div class="dsec"><h5>Companies</h5>${s.cos.length?`<div class="cos">${s.cos.map(co).join('')}</div>`:'<p>No company earns from this segment.</p>'}</div>
-   <div class="dsrc">Source: ${s.src}</div>`;
-  if(s.chart){const o=stack('dch',s.chart.rows,s.chart.legend,620);if(!reduce)gsap.from(o.bars,{scaleX:0,duration:.7,stagger:.1,delay:.35,ease:'power3.out'})}
-  drawer.scrollTop=0;drawer.classList.add('on');scrim.classList.add('on');drawer.setAttribute('aria-hidden','false');document.body.classList.add('lock');lenis&&lenis.stop();
-  if(!reduce)gsap.from(dbody.children,{y:24,opacity:0,duration:.6,stagger:.05,delay:.2,ease:'power3.out'});
-}
-function closeSeg(){drawer.classList.remove('on');scrim.classList.remove('on');drawer.setAttribute('aria-hidden','true');document.body.classList.remove('lock');lenis&&lenis.start()}
-scrim.onclick=closeSeg;document.getElementById('dclose').onclick=closeSeg;addEventListener('keydown',e=>{if(e.key==='Escape')closeSeg()});
-
-/* ---------- factor tabs ---------- */
-(function(){
-  const charts={};
-  document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#tabs button').forEach(x=>x.classList.toggle('on',x===b));
-    document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id===b.dataset.p));const p=document.getElementById(b.dataset.p);
-    if(!reduce){gsap.from(p.children,{y:20,opacity:0,duration:.5,stagger:.08,ease:'power3.out'});(charts[b.dataset.p]||[]).forEach(o=>gsap.from(o.bars,{scaleX:0,duration:.7,stagger:.08,ease:'power3.out'}))}});
-  // 1 regulation: bike-taxi status by state; PM e-Bus Sewa pipeline
-  (function(){const g=[['Permitted',C.blue,['Goa','Maharashtra (e-bikes)','Delhi','Haryana','Rajasthan','West Bengal']],['Ban lifted, policy pending',C.orange,['Karnataka']],['Unclear',C.grey,['Tamil Nadu','Telangana']]];
-    const s=mk('c-states',560,250);let y=4;g.forEach(([n,c,st])=>{el('text',{x:0,y:y+14,class:'val',text:n},s);y+=24;let x=0;st.forEach(t=>{const w=t.length*7.2+20;if(x+w>560){x=0;y+=34}el('rect',{x,y,width:w,height:26,rx:13,fill:c,opacity:.9},s);el('text',{x:x+10,y:y+17,class:'small',style:'fill:#fff',text:t},s);x+=w+6});y+=44});})();
-  const eb=hbars('c-ebus',[['Sanctioned',10000],['Letters of award',5212],['Contracted',2730]],{max:10000,lw:130,val:x=>fmt(x[1])});grow(eb,true);charts['p-rules']=[eb];
-  // 2 infrastructure: buses per 10 lakh people
-  const bu=hbars('c-buses',[['Benchmark',60],['India, 2026',9.7]],{max:60,lw:110,rowH:36,color:x=>x[0].startsWith('India')?C.loss:C.grey,val:x=>x[1]});
-  const me=cols('c-metro',[['2014',248],['Jan 2025',1000],['May 2025',1013],['Dec 2025',1095]],{H:200,val:x=>fmt(x[1])});growV(me,true);
-  const sp=hbars('c-speed',[['Kolkata',17.4],['Bengaluru',16.6],['Pune',15.1]],{max:20,lw:110,rowH:36,color:()=>C.orange,val:x=>x[1]+' km/h'});
-  const sf=(function(){const d=[['Two-wheeler',34,46.2],['Walking',31,20.6],['Car',2.5,12.4]],s=mk('c-safety',560,250),sc=380/50,bars=[];
-    d.forEach((x,i)=>{const y=6+i*80;el('text',{x:0,y:y+32,class:'lbl',text:x[0]},s);bars.push(el('rect',{x:110,y:y+8,width:x[1]*sc,height:26,fill:C.grey},s));el('text',{x:118+x[1]*sc,y:y+27,class:'val',text:x[1]+'% of trips'},s);
-      bars.push(el('rect',{x:110,y:y+38,width:x[2]*sc,height:26,fill:C.loss},s));el('text',{x:118+x[2]*sc,y:y+57,class:'val',text:x[2]+'% of deaths'},s)});
-    bars.forEach(b=>{b.style.transformBox='fill-box';b.style.transformOrigin='0% 50%'});return {s,bars}})();
-  charts['p-infra']=[bu,sf,sp];
-  // 3 technology
-  (function(){const yrs=['FY22','FY23','FY24','FY25','FY26'],L=[[4,8,12.6,22.8,33.7,C.blue],[1.9,4.6,5.1,6.2,6.6,C.navy]],W=560,H=220,x0=30,sx=(W-80)/4,sy=(H-40)/40,s=mk('c-ev',W,H);
-    [0,10,20,30,40].forEach(t=>{el('line',{x1:x0,x2:W-40,y1:H-24-t*sy,y2:H-24-t*sy,stroke:C.line},s);el('text',{x:0,y:H-20-t*sy,class:'small',text:t},s)});
-    yrs.forEach((y,i)=>el('text',{x:x0+i*sx,y:H-4,'text-anchor':'middle',class:'small',text:y},s));
-    L.forEach(l=>{const pts=l.slice(0,5).map((v,i)=>[x0+i*sx,H-24-v*sy]);const pa=el('path',{d:'M'+pts.join('L'),fill:'none',stroke:l[5],'stroke-width':3},s);
-      pts.forEach(p=>el('circle',{cx:p[0],cy:p[1],r:4,fill:l[5]},s));el('text',{x:pts[4][0]+8,y:pts[4][1]+4,class:'val',style:'fill:'+l[5],text:l[4]+'%'},s);
-      if(!reduce){const len=pa.getTotalLength?pa.getTotalLength():600;pa.style.strokeDasharray=len;pa.style.strokeDashoffset=len;gsap.to(pa.style,{strokeDashoffset:0,duration:1.2,ease:'power2.out',scrollTrigger:{trigger:s,start:'top 85%'}})}})})();
-  const upi=cols('c-upi',[['FY22',46],['FY23',84],['FY24',131],['FY25',186],['FY26',241.6]],{H:200,color:(x,i)=>i===4?C.blue:C.grey,val:x=>x[1]});growV(upi,true);
-  const off=stack('c-offline',[['',[[98,C.navy,'Offline 98'],[2,C.blue,'']]]],[['Offline',C.navy],['App 2',C.blue]]);
-  charts['p-tech']=[off];
-  // 4 population
-  const ur=cols('c-urban',[['2011',37.7],['2026',53.7],['2036',59.4]],{H:200,color:(x,i)=>i===1?C.blue:C.grey,val:x=>x[1]+' Cr'});growV(ur,true);
-  (function(){const d=[['Rural',59.6,37.7],['Urban',66.6,52.9],['India',61.9,41.9],['Other trips',23.8,13.3]],W=560,rowH=46,H=d.length*rowH+36,x0=110,sc=(W-x0-30)/80,s=mk('c-gender',W,H);
-    [0,20,40,60,80].forEach(t=>{el('line',{x1:x0+t*sc,x2:x0+t*sc,y1:0,y2:H-22,stroke:C.line},s);el('text',{x:x0+t*sc,y:H-4,'text-anchor':'middle',class:'small',text:t+'%'},s)});
-    d.forEach((x,i)=>{const y=i*rowH+22;el('text',{x:0,y:y+5,class:'lbl',text:x[0]},s);el('line',{x1:x0+x[1]*sc,x2:x0+x[2]*sc,y1:y,y2:y,stroke:C.lgrey,'stroke-width':2},s);
-      el('circle',{cx:x0+x[1]*sc,cy:y,r:7,fill:C.grey},s);el('circle',{cx:x0+x[2]*sc,cy:y,r:7,fill:C.blue},s);
-      el('text',{x:x0+x[2]*sc,y:y-12,'text-anchor':'middle',class:'val',style:'fill:#2251ff',text:x[2]},s);el('text',{x:x0+x[1]*sc,y:y-12,'text-anchor':'middle',class:'small',text:x[1]},s)});
-  })();
-})();
-
 /* ---------- players wall ---------- */
 (function(){
   const P=[['Rapido','₹934 crore revenue, ₹258 crore loss in FY25; valued at $3 billion'],['Uber','₹3,849 crore revenue, ₹1,512 crore loss in FY25'],['Ola','₹1,171 crore revenue, ₹662 crore loss in FY25; valuation marked down from $7.3B to $1.5B'],['Namma Yatri','4.6 crore trips; valued at ₹500 crore'],
@@ -727,5 +427,6 @@ if(!reduce)gsap.from('.bigtitle h2',{yPercent:30,opacity:0,duration:1,ease:'powe
 addEventListener('load',()=>ScrollTrigger.refresh());
 </script>
 <script src="../assets/wip.js"></script>
+<script id="glass-header-on-scroll">(function(){var h=document.querySelector("body>header:not(.cover)")||document.querySelector("body>.top");if(!h)return;var f=function(){h.classList.toggle("glass",scrollY>40)};addEventListener("scroll",f,{passive:true});f()})();</script>
 </body>
 </html>

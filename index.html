@@ -262,7 +262,62 @@ svg .lbl{font-size:14px;fill:var(--ink-2);font-family:var(--sans)}svg .val{font-
 .su .g{font-size:12px;color:var(--blue);margin-top:auto}
 .chart #c-gaps svg{max-width:760px}
 .more{display:inline-block;margin-top:24px;font-size:14px}
-/* vehicle strip */
+/* header glass on scroll */
+header{transition:background .45s,backdrop-filter .45s,-webkit-backdrop-filter .45s,box-shadow .45s,border-color .45s}
+header.glass{background:rgba(236,236,234,.55);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-color:rgba(255,255,255,.45);box-shadow:0 8px 32px rgba(0,0,0,.06)}
+/* vehicle captions */
+.veh{cursor:pointer;background:none;border:0;font:inherit;color:inherit;text-align:left}
+.veh .cap span{font-family:var(--mono);font-size:14px;color:var(--ink-2);display:block;margin-top:6px}
+.veh:focus-visible{outline:2px solid var(--blue);outline-offset:6px;border-radius:6px}
+/* modal */
+#mdl{position:fixed;inset:0;z-index:9998;display:flex;align-items:center;justify-content:center;background:rgba(13,13,13,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .35s}
+#mdl.on{opacity:1;pointer-events:auto}
+#mdl .bx{position:relative;background:#fff;color:var(--ink);border-radius:18px;padding:clamp(24px,4vw,48px);width:min(780px,calc(100% - 32px));max-height:86svh;overflow:auto;overscroll-behavior:contain;transform:translateY(16px) scale(.98);transition:transform .35s}
+#mdl.on .bx{transform:none}
+#mdl .x{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:0;background:var(--paper);font-size:20px;line-height:1;cursor:pointer;color:var(--ink)}
+#mdl .k{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+#mdl h2{font:400 clamp(34px,5vw,56px)/1 var(--serif);letter-spacing:-.02em;margin:0 0 6px;padding-right:40px}
+#mdl .big{font:400 clamp(28px,3.6vw,40px)/1.1 var(--serif);color:var(--blue);margin-bottom:18px}
+#mdl .rows{border-top:1px solid var(--line)}
+#mdl .rows div{display:grid;grid-template-columns:170px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+#mdl .rows h5{font:400 12px var(--mono);color:var(--muted);padding-top:3px}
+#mdl .rows p{font-size:15px;color:var(--ink-2);line-height:1.5}
+#mdl .pl{margin-top:22px}
+#mdl .pl h5,#mdl .mc h5{font:400 12px var(--mono);color:var(--muted);margin-bottom:8px}
+#mdl .pl li{list-style:none;font-size:14.5px;color:var(--ink-2);padding:7px 0;border-bottom:1px solid var(--line)}
+#mdl .pl li b{color:var(--ink);font-weight:600;margin-right:6px}
+#mdl .mc{margin-top:22px;background:var(--paper);border-radius:10px;padding:16px 18px}
+#mdl .mc svg{width:100%;height:auto;display:block}
+@media(max-width:600px){#mdl .rows div{grid-template-columns:1fr;gap:4px}}
+/* factor cards */
+.fcards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
+@media(max-width:1000px){.fcards{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.fcards{grid-template-columns:1fr}}
+.fcard{background:#fff;border-radius:10px;padding:24px 22px 20px;display:flex;flex-direction:column;cursor:pointer;border:0;font:inherit;color:inherit;text-align:left;transition:transform .3s,box-shadow .3s;min-height:320px}
+.fcard:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.07)}
+.fcard:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.fcard h3{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.05;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.fcard h3 i{font-style:normal;color:var(--blue);margin-right:8px}
+.fstage{position:relative;flex:1;overflow:hidden;min-height:190px;margin-top:18px}
+.fs{position:absolute;inset:0;opacity:0;transform:translateX(40px);transition:opacity .6s,transform .7s cubic-bezier(.2,.7,.2,1)}
+.fs.on{opacity:1;transform:none}
+.fs.out{opacity:0;transform:translateX(-40px)}
+.fs b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(44px,4.4vw,64px);line-height:1;letter-spacing:-.02em;margin-bottom:12px}
+.fs span{font-size:14.5px;color:var(--ink-2);line-height:1.45;display:block}
+.fdots{display:flex;gap:6px;margin-top:12px;align-items:center}
+.fdots i{width:18px;height:2px;background:var(--line);transition:background .4s}
+.fdots i.on{background:var(--ink)}
+.fdots em{margin-left:auto;font:400 11.5px var(--mono);font-style:normal;color:var(--blue)}
+/* stacked mix chart */
+#c-mix .seg-l{font-size:12.5px;font-weight:500;font-family:var(--sans)}
+/* photo band, no pin */
+.band{background:#000;color:#fff;padding:14vh var(--g) 12vh}
+.band .bph{position:relative;height:72vh;max-width:1480px;margin:0 auto;overflow:hidden;border-radius:6px;clip-path:inset(10% 22% 10% 22% round 6px)}
+.band .bph img{width:100%;height:100%;object-fit:cover}
+.band .bph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55))}
+.band h2{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--serif);font-weight:400;text-transform:uppercase;font-size:clamp(48px,9vw,160px);line-height:.95;letter-spacing:-.01em;padding:0 16px}
+.band .bover{max-width:1480px;margin:40px auto 0;font-size:clamp(22px,2.3vw,34px);line-height:1.25}
+@media(prefers-reduced-motion:reduce){.band .bph{clip-path:none}.fs{transition:none}}
 </style>
 </head>
 <body>
@@ -334,43 +389,14 @@ svg .lbl{font-size:14px;fill:var(--ink-2);font-family:var(--sans)}svg .val{font-
 <!-- VEHICLE TYPES -->
 <section class="parade" id="vehicles"><div class="pin">
   <div class="ph"><div class="kicker">Every vehicle type within city borders</div><h2>22.5 crore two-wheelers to 1,40,100 state buses</h2></div>
-  <div class="lane" id="lane"><div class="veh"><div class="cap"><b>Two-wheelers</b><span>22.5 crore on the road; 34% of all trips</span></div><img src="assets/v/family.webp" alt="Two-wheelers" style="height:clamp(120px,22.2vh,200px)"></div><div class="veh"><div class="cap"><b>Electric two-wheeler fleets</b><span>6.6% of two-wheeler sales electric in FY26</span></div><img src="assets/v/delivery.webp" alt="Electric two-wheeler fleets" style="height:clamp(114px,21.1vh,190px)"></div><div class="veh"><div class="cap"><b>Bike taxis</b><span>Rapido valued at $3 billion, May 2026</span></div><img src="assets/v/biketaxi.webp" alt="Bike taxis" style="height:clamp(114px,21.1vh,190px)"></div><div class="veh"><div class="cap"><b>Autos</b><span>45 lakh on CNG or petrol</span></div><img src="assets/v/auto.webp" alt="Autos" style="height:clamp(114px,21.1vh,190px)"></div><div class="veh"><div class="cap"><b>E-rickshaws</b><span>25.3 lakh registered; 61% of three-wheeler sales electric in FY26</span></div><img src="assets/v/erick.webp" alt="E-rickshaws" style="height:clamp(120px,22.2vh,200px)"></div><div class="veh"><div class="cap"><b>Other vehicles</b><span>Jugaads and chhakdas: 70 lakh work trips a day</span></div><img src="assets/v/jugaad.webp" alt="Other vehicles" style="height:clamp(120px,22.2vh,200px)"></div><div class="veh"><div class="cap"><b>Cabs</b><span>24.5 lakh cabs and maxi cabs</span></div><img src="assets/v/cab.webp" alt="Cabs" style="height:clamp(90px,16.7vh,150px)"></div><div class="veh"><div class="cap"><b>Office shuttles</b><span>MoveInSync has raised $32.7 million</span></div><img src="assets/v/officevan.webp" alt="Office shuttles" style="height:clamp(108px,20.0vh,180px)"></div><div class="veh"><div class="cap"><b>School vans and buses</b><span>3.5 lakh vans and 3.8 lakh school buses</span></div><img src="assets/v/schoolvan.webp" alt="School vans and buses" style="height:clamp(111px,20.6vh,185px)"></div><div class="veh"><div class="cap"><b>State buses</b><span>1,40,100 buses, 6.0 crore riders a day</span></div><img src="assets/v/statebus.webp" alt="State buses" style="height:clamp(129px,23.9vh,215px)"></div><div class="veh"><div class="cap"><b>Electric city buses</b><span>38,000+ backed by a ₹3,435 crore payment guarantee</span></div><img src="assets/v/ebus.webp" alt="Electric city buses" style="height:clamp(129px,23.9vh,215px)"></div></div>
+  <div class="lane" id="lane"></div>
 </div></section>
 
 <!-- FACTORS -->
 <section class="screen" id="factors">
   <h2 class="t">Factors influencing the intra-city mobility sector:</h2>
-  <div class="fgrid">
-    <div class="fac">
-      <div><h3><i>1</i>Regulation</h3><ul>
-        <li><b>80%</b>of each fare is kept by the driver under the Motor Vehicle Aggregator Guidelines 2025</li>
-        <li><b>2x</b>cap on surge over the state base fare</li>
-        <li><b>₹57,613 crore</b>PM e-Bus Sewa outlay for 10,000 e-buses</li>
-        <li><b>4 cities</b>running PM e-Bus Sewa buses by March 2026</li></ul></div>
-      <div><div class="q">How far has PM e-Bus Sewa got?</div><div id="f-reg"></div><div class="src">Source: MoRTH; emobilityplus (Mar 2026).</div></div>
-    </div>
-    <div class="fac">
-      <div><h3><i>2</i>Road infrastructure and connectivity</h3><ul>
-        <li><b>1,095 km</b>of metro in 26 cities by December 2025, from 248 km in 5 cities in 2014</li>
-        <li><b>16.6 km/h</b>peak speed in Bengaluru in 2025, 2nd most congested city in the world</li>
-        <li><b>9.7</b>state buses per lakh people, against a benchmark of 60</li></ul></div>
-      <div><div class="q">How fast is the metro network growing?</div><div id="f-inf"></div><div class="src">Source: PIB; TomTom Traffic Index 2025; MoRTH.</div></div>
-    </div>
-    <div class="fac">
-      <div><h3><i>3</i>Technology</h3><ul>
-        <li><b>33.7%</b>of passenger autos sold in FY26 were electric, from 12.6% in FY24</li>
-        <li><b>6.6%</b>of two-wheelers sold in FY26 were electric</li>
-        <li><b>241.6 billion</b>UPI transactions in FY26, by 55.5 crore users</li></ul></div>
-      <div><div class="q">How fast are city vehicles going electric?</div><div id="f-tech"></div><div class="src">Source: EVreporter; FADA; NPCI via Open.</div></div>
-    </div>
-    <div class="fac">
-      <div><h3><i>4</i>Population</h3><ul>
-        <li><b>53.7 crore</b>Indians live in cities in 2026, 37% of the population</li>
-        <li><b>+57%</b>growth in urban population from 2011 to 2036</li>
-        <li><b>53</b>million-plus cities at the 2011 Census</li></ul></div>
-      <div><div class="q">How many Indians live in cities?</div><div id="f-pop"></div><div class="src">Source: Census 2011; NCP Technical Group 2019.</div></div>
-    </div>
-  </div>
+  <div class="fcards" id="fcards"></div>
+  <div class="src">Click a card for what each figure means. Sources: MoRTH; MoHUA; emobilityplus; PIB; TomTom Traffic Index 2025; EVreporter; FADA; NPCI; Census 2011; NCP Technical Group 2019.</div>
 </section>
 
 <!-- RIDE-HAILING -->
@@ -396,7 +422,7 @@ svg .lbl{font-size:14px;fill:var(--ink-2);font-family:var(--sans)}svg .val{font-
       </div>
       <div class="chart" style="margin-top:12px">
         <h4>Cabs are 22% of app rides and 53% of app fares</h4>
-        <div class="unit">App rides and app fares by vehicle, FY26, %</div>
+        <div class="unit">App rides, crore a year, and app fares, ₹ crore a year, by vehicle, FY26</div>
         <div id="c-mix"></div>
       </div>
     </div>
@@ -406,18 +432,16 @@ svg .lbl{font-size:14px;fill:var(--ink-2);font-family:var(--sans)}svg .val{font-
 <!-- STATE BUSES -->
 <section class="screen">
   <div class="two">
-    <div class="chart">
-      <h4>Each state bus-km costs ₹86 and earns ₹55</h4>
-      <div class="unit">State transport undertakings, per bus-km, FY26, ₹</div>
-      <div id="c-bus"></div>
-      <div class="src">Source: MoRTH, Review of the Performance of State Road Transport Undertakings.</div>
-    </div>
     <div class="text">
       <div class="kicker">Public transport</div>
       <h2 class="t">9.2% of urban workers go to work by bus</h2>
-      <p>52.3% of urban workers go to work on a two-wheeler, 8.8% by auto and 5.0% by metro. India has 9.7 state buses per lakh people, against a benchmark of 60.</p>
-      <p>58 state transport undertakings run 1,40,100 buses and lose ₹35,000 crore a year, because each bus-km costs ₹31 more than it earns.</p>
+      <p>52.3% of urban workers go to work on a two-wheeler, 8.8% by auto and 5.0% by metro. 58 state transport undertakings run 1,40,100 buses and lose ₹35,000 crore a year.</p>
       <p class="sowhat"><b>Thus,</b> the lack of public transport connectivity in India is filled by privately owned two-wheelers and hired autos.</p>
+      <a class="more" href="structure/">Bus economics on the structure page ↗</a>
+    </div>
+    <div class="duo" style="margin:0">
+      <div><b>9.7</b><span>state buses per lakh people, against a benchmark of 60</span></div>
+      <div><b>₹31</b><span>lost on every state bus-km</span></div>
     </div>
   </div>
 </section>
@@ -455,10 +479,9 @@ svg .lbl{font-size:14px;fill:var(--ink-2);font-family:var(--sans)}svg .val{font-
 </section>
 
 <!-- STARTUPS -->
-<section class="expand" id="startups">
-  <div class="ph"><img src="assets/p_metrocrowd.jpg" alt="Passengers crowding a metro platform in Howrah"></div>
-  <h2><span class="a">Who is</span><span class="b">solving it</span></h2>
-  <p class="over">11 pre-seed, seed and early Series A startups are tracked against the 8 gaps.</p>
+<section class="band" id="startups">
+  <div class="bph"><img src="assets/p_metrocrowd.jpg" alt="Passengers crowding a metro platform in Howrah"><h2>Who is solving it</h2></div>
+  <p class="bover">11 pre-seed, seed and early Series A startups are tracked against the 8 gaps.</p>
 </section>
 
 <section class="screen">
@@ -477,6 +500,8 @@ svg .lbl{font-size:14px;fill:var(--ink-2);font-family:var(--sans)}svg .val{font-
     <a class="bet bold" href="memos/" style="text-decoration:none"><div><h6>Investment memos</h6><p>3 investment memos.</p></div><div class="wrong"><span>Open 3 investment memos</span><span>↗</span></div></a>
   </div>
 </section>
+
+<div id="mdl" role="dialog" aria-modal="true" aria-hidden="true"><div class="bx"><button class="x" aria-label="Close">×</button><div class="mb"></div></div></div>
 
 <!-- CLOSING -->
 <footer class="closing">
@@ -612,11 +637,6 @@ function lines(id,xs,series,o){
     if(!reduce){const L=p.getTotalLength?p.getTotalLength():600;p.style.strokeDasharray=L;p.style.strokeDashoffset=L;gsap.to(p,{strokeDashoffset:0,duration:1.4,ease:'power2.inOut',scrollTrigger:{trigger:s,start:'top 82%'}})}});
 }
 
-/* factors */
-hbars('f-reg',[['Sanctioned',10000,'10,000',C.grey],['Letters of award',5212,'5,212',C.cyan],['Concessions signed',2730,'2,730',C.blue]],{x0:120,rh:36});
-lines('f-inf',['2014','Jan 2025','May 2025','Dec 2025'],[['Metro km',[248,1000,1013,1095],C.blue]],{max:1200,f:v=>fmt(v)+' km'});
-lines('f-tech',['FY22','FY23','FY24','FY25','FY26'],[['e-autos',[4,8,12.6,22.8,33.7],C.blue],['e-two-wheelers',[1.9,4.6,5.1,6.2,6.6],C.navy]],{max:40,f:v=>v+'%'});
-hbars('f-pop',[['2011',37.7,'37.7 crore (31.1%)',C.grey],['2026',53.7,'53.7 crore (37%)',C.blue],['2036',59.4,'59.4 crore (39%)',C.navy]],{x0:50,rh:36,max:59.4});
 
 /* ride-hailing: revenue and loss on the same basis */
 (function(){
@@ -631,18 +651,24 @@ hbars('f-pop',[['2011',37.7,'37.7 crore (31.1%)',C.grey],['2026',53.7,'53.7 cror
   if(!reduce)gsap.from(bars,{scaleX:0,duration:.7,stagger:.05,ease:'power3.out',scrollTrigger:{trigger:s,start:'top 82%'}});
 })();
 
-/* app rides vs app fares, by vehicle */
+/* app rides vs app fares, by vehicle: totals on top, values on each segment */
 (function(){
-  const rows=[['App rides',[[45,C.grey,'Bikes 45'],[33,C.cyan,'Autos 33'],[22,C.navy,'Cabs 22']]],['App fares',[[20,C.grey,'Bikes 20'],[27,C.cyan,'Autos 27'],[53,C.navy,'Cabs 53']]]];
-  const W=560,rh=58,x0=90,w=W-x0-10,s=svg('c-mix',W,rows.length*rh+4),parts=[];
-  rows.forEach((r,i)=>{const y=i*rh+4;el('text',{x:0,y:y+28,class:'lbl',style:'font-size:13px',text:r[0]},s);let x=x0;
-    r[1].forEach(([v,c,t])=>{const ww=v/100*w;const b=el('rect',{x,y:y+8,width:ww-2,height:36,fill:c},s);b.style.transformBox='fill-box';b.style.transformOrigin='0% 50%';parts.push(b);
-      el('text',{x:x+8,y:y+31,class:'inbar',style:c===C.grey?'fill:#0d0d0d':'',text:t},s);x+=ww})});
-  if(!reduce)gsap.from(parts,{scaleX:0,duration:.6,stagger:.08,ease:'power2.out',scrollTrigger:{trigger:s,start:'top 82%'}});
+  const bars=[['App rides','303 crore rides',[[45,C.grey,'Bikes','136 Cr'],[33,C.cyan,'Autos','100 Cr'],[22,C.navy,'Cabs','67 Cr']]],
+              ['App fares','₹38,500 crore',[[20,C.grey,'Bikes','₹7,700 Cr'],[27,C.cyan,'Autos','₹10,400 Cr'],[53,C.navy,'Cabs','₹20,400 Cr']]]];
+  const W=560,H=400,top=46,bh=310,bw=170,s=svg('c-mix',W,H),parts=[];
+  bars.forEach(([name,tot,segs],i)=>{const x=70+i*250;
+    el('text',{x:x+bw/2,y:top-14,'text-anchor':'middle',class:'val',style:'font-size:16px',text:tot},s);
+    el('text',{x:x+bw/2,y:top+bh+26,'text-anchor':'middle',class:'lbl',style:'font-size:13px',text:name},s);
+    let y=top+bh;
+    segs.forEach(([v,c,lab,val])=>{const h=v/100*bh;y-=h;
+      const r=el('rect',{x,y:y+1,width:bw,height:h-2,fill:c},s);r.style.transformBox='fill-box';r.style.transformOrigin='50% 100%';parts.push(r);
+      const fill=c===C.grey?'#0d0d0d':'#fff';
+      el('text',{x:x+12,y:y+h/2-3,class:'seg-l',style:`fill:${fill}`,text:`${lab} ${v}%`},s);
+      el('text',{x:x+12,y:y+h/2+14,class:'seg-l',style:`fill:${fill};font-weight:600;font-size:14px`,text:val},s)});
+  });
+  if(!reduce)gsap.from(parts,{scaleY:0,duration:.6,stagger:.08,ease:'power2.out',scrollTrigger:{trigger:s,start:'top 82%'}});
 })();
 
-/* state bus per km */
-hbars('c-bus',[['Cost per bus-km',86,'₹86',C.navy],['Revenue per bus-km',55,'₹55',C.grey],['Loss per bus-km',31,'₹31',C.loss]],{x0:150,rh:46,max:86});
 
 /* women: Delhi bus share before and after */
 (function(){
@@ -739,6 +765,181 @@ hbars('c-gaps',GAPS.map((g,i)=>[`${i+1}. ${SHORT[i]}`,g[1],fmt(g[1]),i<3?C.blue:
  set(0);
  ScrollTrigger.create({trigger:sec,start:'top top',end:'bottom bottom',onUpdate:self=>set(Math.min(5,Math.floor(self.progress*6)))});
 })();
+/* header glass on scroll */
+(function(){const h=document.querySelector('header');const f=()=>h.classList.toggle('glass',scrollY>40);addEventListener('scroll',f,{passive:true});f()})();
+
+/* photo band: clip opens as it scrolls in, no pin */
+document.querySelectorAll('.band').forEach(b=>{if(reduce)return;const ph=b.querySelector('.bph');
+  gsap.fromTo(ph,{clipPath:'inset(10% 22% 10% 22% round 6px)'},{clipPath:'inset(0% 0% 0% 0% round 6px)',ease:'none',scrollTrigger:{trigger:ph,start:'top 95%',end:'center 55%',scrub:true}});
+  gsap.from(b.querySelector('.bover'),{opacity:0,y:24,duration:.8,ease:'power3.out',scrollTrigger:{trigger:b.querySelector('.bover'),start:'top 90%'}})});
+
+/* centred modal */
+const MDL=(function(){const m=document.getElementById('mdl'),body=m.querySelector('.mb');let last=null;
+  const close=()=>{m.classList.remove('on');m.setAttribute('aria-hidden','true');lenis&&lenis.start();last&&last.focus&&last.focus()};
+  m.addEventListener('click',e=>{if(e.target===m)close()});m.querySelector('.x').addEventListener('click',close);
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&m.classList.contains('on'))close()});
+  return{open(html,from){last=from||null;body.innerHTML=html;m.querySelector('.bx').scrollTop=0;m.classList.add('on');m.setAttribute('aria-hidden','false');lenis&&lenis.stop();m.querySelector('.x').focus()},close}})();
+function miniBars(rows,f){const W=560,rh=30,x0=130,max=Math.max(...rows.map(r=>r[1])),w=W-x0-90;
+  let o=`<svg viewBox="0 0 ${W} ${rows.length*rh+4}">`;
+  rows.forEach((r,i)=>{const y=i*rh+2,ww=Math.max(2,r[1]/max*w),last=i===rows.length-1;
+    o+=`<text x="0" y="${y+rh/2+4}" class="lbl" style="font-size:13px">${r[0]}</text><rect x="${x0}" y="${y+5}" width="${ww}" height="${rh-10}" rx="2" fill="${r[2]||(last?C.blue:C.navy)}"/><text x="${x0+ww+8}" y="${y+rh/2+4}" class="val" style="font-size:13px">${f(r[1])}</text>`});
+  return o+'</svg>'}
+const esc=t=>t;
+
+/* vehicle segments, one standard structure */
+const VEH=[
+ {n:'Two-wheelers',img:'family',h:'clamp(120px,22.2vh,200px)',fleet:'22.5 crore',
+  rows:[['Fleet','22.5 crore two-wheelers are on the road. 2.02 crore were registered in calendar 2025.'],
+   ['Share of trips','34% of all trips (>1 km) and 52.3% of urban work trips.'],
+   ['Fares and spend','Owners pay fuel, maintenance and insurance, inside ₹4.18 lakh crore of running costs a year. App bike taxis collect ₹7,700 crore of fares a year.'],
+   ['Economics per vehicle','An app bike-taxi ride costs ₹60 on average, against ₹110 for an app auto ride and ₹330 for an app cab ride.'],
+   ['Trend','6.6% of two-wheelers sold in FY26 were electric, 14.02 lakh units, up from 1.9% in FY22.'],
+   ['Problems','Two-wheeler riders are 46.2% of road deaths, 87,300 a year. Bike taxis need state consent under the Motor Vehicle Aggregator Guidelines 2025.']],
+  players:[['Rapido','Bike taxi, auto and cab app with 50% of all app rides, valued at $3 billion in May 2026.'],['Uber','Runs bike taxis inside its app and holds 40% of all app rides.'],['Yulu','Rents shared electric two-wheelers and raised a $93M Series C in August 2026.'],['EdgeVerse','Builds rider assistance for two-wheeler makers, with ₹4.85 crore raised.']],
+  chart:['Electric share of two-wheeler sales, %',[['FY22',1.9],['FY23',4.6],['FY24',5.1],['FY25',6.2],['FY26',6.6]],v=>v+'%']},
+ {n:'Autos',img:'auto',h:'clamp(114px,21.1vh,190px)',fleet:'45 lakh',
+  rows:[['Fleet','45 lakh autos run on CNG or petrol, beside 25.3 lakh e-rickshaws.'],
+   ['Share of trips','Three-wheelers carry 7.4% of all trips and 8.8% of urban work trips.'],
+   ['Fares and spend','Autos and e-rickshaws collect ₹1.68 lakh crore of fares a year, 56% of all intra-city road fares. 98% of auto rides are booked offline.'],
+   ['Economics per vehicle','Each vehicle collects ₹657 of fares a day. Drivers who rent an e-auto pay ₹300 to ₹500 a day.'],
+   ['Trend','33.7% of passenger autos sold in FY26 were electric, up from 12.6% in FY24.'],
+   ['Problems','e-auto loans cost 14% to 16% a year, and most drivers have no credit history.']],
+  players:[['Namma Yatri','Zero-commission auto and cab app with 4.6 crore trips, valued at ₹500 crore in March 2026.'],['Rapido','Holds over 65% of app bike and auto rides.'],['Vidyut','Battery subscription that cuts the upfront cost of an e-auto by 35% to 40%, $16.5M raised.'],['Chargeup','Battery swaps and credit for 10,000+ EV drivers in Delhi, ₹22 crore raised in January 2026.']],
+  chart:['Electric share of passenger auto sales, %',[['FY22',4],['FY23',8],['FY24',12.6],['FY25',22.8],['FY26',33.7]],v=>v+'%']},
+ {n:'E-rickshaws',img:'erick',h:'clamp(120px,22.2vh,200px)',fleet:'25.3 lakh',
+  rows:[['Fleet','25.3 lakh e-rickshaws are registered on VAHAN.'],
+   ['Share of trips','Counted with autos in 7.4% of all trips. 14.4% of urban school trips are by auto or e-rickshaw.'],
+   ['Fares and spend','Part of ₹1.68 lakh crore of auto and e-rickshaw fares a year. Shared feeder rides cost ₹10 to ₹30 a leg.'],
+   ['Economics per vehicle','e-rickshaw loans cost 9.9% a year at Mufin Green, against 14% to 16% for e-autos.'],
+   ['Trend','61% of three-wheelers sold in FY26 were electric. 8.31 lakh electric three-wheelers were sold in FY26.'],
+   ['Problems','98% of auto and e-rickshaw rides are booked offline, so drivers leave no digital earnings record for lenders.']],
+  players:[['Mufin Green','Listed lender that finances e-rickshaws at 9.9% a year.'],['Chargeup','Battery swaps and credit for e-rickshaw and e-auto drivers.'],['PointO','Lithium batteries and finance for e-rickshaw owners, ₹6.2 crore seed.'],['Battery Smart','Battery-swap network for electric three-wheelers, $74M raised.']],
+  chart:['Electric three-wheelers sold, lakh',[['FY25',6.98],['FY26',8.31]],v=>v+' lakh']},
+ {n:'Cabs',img:'cab',h:'clamp(90px,16.7vh,150px)',fleet:'24.5 lakh',
+  rows:[['Fleet','24.5 lakh cabs and maxi cabs are on the road.'],
+   ['Share of trips','Cars, including app cabs, carry 2.5% of all trips. Cabs are 67 crore app rides a year, 22% of app rides.'],
+   ['Fares and spend','App cab fares are ₹20,400 crore a year, 53% of all app fares.'],
+   ['Economics per vehicle','An app cab ride costs ₹330 on average, and the driver keeps 80% of it. Snap-E earns ₹10.8 lakh a year per EV.'],
+   ['Trend','Uber runs 45% of app cab rides, Ola 25% to 30% and Rapido over 20%. BluSmart suspended operations in April 2025.'],
+   ['Problems','Every major app lost money in FY25, and Uber reported that driver supply growth lagged demand.']],
+  players:[['Uber','Largest cab app. Its India arm lost ₹1,512 crore in FY25.'],['Ola','Cab app whose revenue fell 42% to ₹1,171 crore in FY25.'],['Snap-E Cabs','Runs 1,112 EVs, earns ₹120 crore of gross revenue and is EBITDA positive.'],['Milo Drive','EV fleets run by driver-entrepreneurs in Gurugram and Bengaluru, $2.4M seed.']],
+  chart:['Net loss per ₹100 of operating revenue, FY25, ₹',[['Rapido',28],['Uber India',39],['Ola Consumer',57,C.loss]],v=>'₹'+v]},
+ {n:'Private buses',img:'officevan',h:'clamp(108px,20.0vh,180px)',fleet:'14.7 lakh',
+  rows:[['Fleet','14.7 lakh private buses are on the road, including office shuttles and charters.'],
+   ['Share of trips','Buses carry 12% of all trips and 9.2% of urban work trips.'],
+   ['Fares and spend','Private buses, cabs outside apps, school and office transport collect ₹33,800 crore of fares a year.'],
+   ['Economics per vehicle','Cityflo runs at more than ₹275 crore annualised revenue, and 120 of its 150 routes are cash positive.'],
+   ['Trend','Employee commute is a ₹72,000 crore a year market, the largest gap in this thesis.'],
+   ['Problems','India has 9.7 state buses per lakh people against a benchmark of 60, so employers and private operators fill the gap.']],
+  players:[['MoveInSync','Employee transport software and operations, ₹438 crore of revenue in FY24.'],['Routematic','Employee commute operator, ₹178 crore of revenue in FY25.'],['Cityflo','Seat-guaranteed office buses, $14.7M raised.'],['Chalo','Bus ticketing and tracking app, $117M raised.']],
+  chart:['Revenue, ₹ crore',[['MoveInSync, FY24',438],['Cityflo, annualised',275],['Routematic, FY25',178]],v=>'₹'+fmt(v)]},
+ {n:'School vans and buses',img:'schoolvan',h:'clamp(111px,20.6vh,185px)',fleet:'7.3 lakh',
+  rows:[['Fleet','3.5 lakh school vans and 3.8 lakh school buses.'],
+   ['Share of trips','33.7% of urban school trips are by bus and 14.4% by auto.'],
+   ['Fares and spend','Parents pay ₹1,500 to ₹4,000 a month in metros. Student transport is a ₹27,000 crore a year gap.'],
+   ['Economics per vehicle','A school van with 20 students earns ₹36,000 a month.'],
+   ['Trend','GPS tracking is mandatory on public service vehicles, and UPI autopay makes monthly plans easy to collect.'],
+   ['Problems','1.5 crore students use school transport, much of it in unregulated vans.']],
+  players:[['ZeroMoblt','3.4 lakh student trips for 15+ institutions in Hyderabad, ₹1.5 crore pre-seed. The only funded company in the segment.']],
+  chart:['Urban school trips by mode, %',[['Bus',33.7],['Walk',29.6],['Auto',14.4],['Two-wheeler',11.5]],v=>v+'%']},
+ {n:'State buses',img:'statebus',h:'clamp(129px,23.9vh,215px)',fleet:'1,40,100',
+  rows:[['Fleet','1,40,100 buses run by 58 state transport undertakings.'],
+   ['Share of trips','State buses carry 6.0 crore riders a day. Buses carry 12% of all trips.'],
+   ['Fares and spend','Passengers pay ₹64,700 crore of fares a year.'],
+   ['Economics per vehicle','Each bus-km costs ₹86 and earns ₹55. Each bus needs 4.39 staff.'],
+   ['Trend','PM e-Bus Sewa has sanctioned 10,000 electric buses. A ₹3,435 crore payment guarantee backs 38,000+ electric buses from FY25 to FY29.'],
+   ['Problems','State bus companies lose ₹35,000 crore a year. India has 9.7 state buses per lakh people against a benchmark of 60.']],
+  players:[['DTC and Delhi IMTS','Delhi city bus operators with ₹10,950 crore of losses.'],['PMI and EKA','Make electric buses for city and inter-city routes.'],['Chalo','Ticketing and live tracking for city buses, $117M raised.']],
+  chart:['Per bus-km, FY26, ₹',[['Cost',86],['Revenue',55,C.grey],['Loss',31,C.loss]],v=>'₹'+v]}
+];
+(function(){const lane=document.getElementById('lane');if(!lane)return;
+  VEH.forEach((v,i)=>{const b=document.createElement('div');b.className='veh';b.tabIndex=0;b.setAttribute('role','button');b.setAttribute('aria-label',v.n+', '+v.fleet+'. Open details');
+    b.innerHTML=`<div class="cap"><b>${v.n}</b><span>${v.fleet}</span></div><img src="assets/v/${v.img}.webp" alt="${v.n}" style="height:${v.h}">`;
+    const open=()=>MDL.open(`<div class="k">Segment in India</div><h2>${v.n}</h2><div class="big">${v.fleet} in India</div><div class="rows">${v.rows.map(r=>`<div><h5>${r[0]}</h5><p>${r[1]}</p></div>`).join('')}</div><div class="pl"><h5>Main players</h5><ul>${v.players.map(p=>`<li><b>${p[0]}</b>${p[1]}</li>`).join('')}</ul></div><div class="mc"><h5>${v.chart[0]}</h5>${miniBars(v.chart[1],v.chart[2])}</div>`,b);
+    b.addEventListener('click',open);b.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}});lane.appendChild(b)});
+})();
+
+/* factors: 4 cards, each cycles its stats every 5s, staggered 1.25s */
+const FAC=[
+ ['Regulation',[
+  ['2,730','of 10,000 PM e-Bus Sewa buses had signed contracts by March 2026',
+   'The Centre sanctioned 10,000 electric buses across 116 cities with a ₹57,613 crore outlay. By March 2026, 5,212 buses had letters of award, 2,730 had signed concessions and buses ran in 4 cities.',
+   'Operators are paid per km by city bus companies that lose ₹35,000 crore a year, so they sign only when payment is secured. The ₹3,435 crore payment guarantee exists for this reason.',
+   'The guarantee covers 38,000+ electric buses from FY25 to FY29. Each signed concession adds buses to cities that have 9.7 state buses per lakh people, against a benchmark of 60.'],
+  ['80%','of each fare is kept by the driver under the Motor Vehicle Aggregator Guidelines 2025',
+   'From 1 July 2025, a driver on his own vehicle keeps at least 80% of the fare. On a vehicle owned by the aggregator, he keeps 60%.',
+   'The guidelines set one national rule for app commissions. Namma Yatri had already shown a zero-commission model, and Rapido earns ₹275 crore from driver subscriptions.',
+   'Apps earn more from subscriptions and fleet supply than from a cut of the fare. Every major app lost money in FY25, so cost control becomes the main lever.'],
+  ['2x','cap on surge pricing over the state base fare',
+   'Under the same guidelines, an app may charge at most 2 times the base fare that the state sets for that vehicle.',
+   'States set base fares for autos and cabs, and the cap ties app pricing to those fares.',
+   'Peak demand has to be met with more vehicles, not higher prices. That favours fleets that can add supply, such as Snap-E with 1,112 EVs.']]],
+ ['Road infrastructure and connectivity',[
+  ['1,095 km','of metro in 26 cities by December 2025, from 248 km in 5 cities in 2014',
+   'Metro length grew 4.4 times in 11 years. The figure includes 55 km of RRTS.',
+   'Indian cities are among the most congested in the world, and metro adds capacity without adding vehicles to the road.',
+   'Metro, suburban and rail carry 2.0% of all trips. Each station needs a first and last mile ride, a ₹8,800 crore a year gap.'],
+  ['16.6 km/h','peak speed in Bengaluru in 2025, the 2nd most congested city in the world',
+   'Bengaluru slowed from 18 km/h in 2024. Pune takes 33 minutes 20 seconds to cover 10 km.',
+   'Two-wheelers carry 34% of all trips and 52.3% of urban work trips, so most commuters add a vehicle to the road.',
+   'Slower roads raise the value of shared buses and metro feeders, which move more people per vehicle.'],
+  ['9.7','state buses per lakh people, against a benchmark of 60',
+   '58 state transport undertakings run 1,40,100 buses for 145 crore people.',
+   'Each bus-km costs ₹86 and earns ₹55, so every new bus adds to a ₹35,000 crore annual loss.',
+   'PM e-Bus Sewa adds 10,000 buses. Office buses and school buses fill the rest of the gap.'],
+  ['8','Indian cities are in the global top 50 for congestion in 2025',
+   'Bengaluru ranks 2nd and Pune 5th in the TomTom Traffic Index 2025.',
+   '22.5 crore two-wheelers and 4.35 crore cars share city roads.',
+   'Congestion keeps commute times rising until shared and mass modes take a larger share of trips.']]],
+ ['Technology',[
+  ['33.7%','of passenger autos sold in FY26 were electric, from 12.6% in FY24',
+   'Including e-rickshaws, 61% of all three-wheelers sold in FY26 were electric.',
+   'Battery subscriptions cut the upfront cost of an e-auto by 35% to 40%, and drivers already rent e-autos at ₹300 to ₹500 a day.',
+   'Lenders still charge 14% to 16% a year for e-auto loans. Driver EV financing is a ₹30,000 crore a year gap.'],
+  ['6.6%','of two-wheelers sold in FY26 were electric',
+   '14.02 lakh electric two-wheelers were sold in FY26, up from 1.9% of sales in FY22.',
+   'Personal buyers move slower than commercial drivers: 6.6% of two-wheeler sales against 33.7% of passenger auto sales.',
+   'Shared rental is the faster route. Yulu raised a $93M Series C in August 2026 to grow its electric two-wheeler fleet.'],
+  ['241.6 billion','UPI transactions in FY26, by 55.5 crore users',
+   '₹314 lakh crore moved over UPI in FY26.',
+   'UPI made small fares digital without a card or a wallet.',
+   '98% of auto rides are still booked offline. UPI autopay makes monthly transport plans easy to collect.'],
+  ['8.5%','of all vehicles sold in FY26 were electric, 25.5 lakh EVs',
+   'Three-wheelers lead at 61% of sales. Two-wheelers trail at 6.6%.',
+   'Commercial drivers adopt first: 61% of three-wheelers sold were electric, against 6.6% of two-wheelers.',
+   'Electric adoption creates demand for battery swapping, charging and EV credit.']]],
+ ['Population',[
+  ['53.7 crore','Indians live in cities in 2026, 37% of the population',
+   'Up from 37.7 crore, 31.1% of the population, at the 2011 Census.',
+   'Work pulls people into cities. 61.9% of male and 41.9% of female workers travel more than 1 km to work.',
+   'Every new urban resident adds daily trips to the 165.5 crore trips (>1 km) made each day.'],
+  ['+57%','growth in urban population from 2011 to 2036',
+   'Urban India grows from 37.7 crore in 2011 to 59.4 crore in 2036.',
+   'Cities hold the jobs. 52.3% of urban workers already need a two-wheeler to reach them.',
+   'City transport demand grows faster than the state bus fleet, which shrank to 1,40,100 buses.'],
+  ['59.4 crore','Indians will live in cities by 2036, 39% of the population',
+   'The urban population adds 5.7 crore people from 2026 to 2036.',
+   'The NCP Technical Group projects the urban share of India rising from 37% to 39%.',
+   'Each new city resident spends ₹694 a month on conveyance at today’s rate.'],
+  ['53','million-plus cities at the 2011 Census',
+   '53 urban agglomerations had more than 10 lakh people in 2011.',
+   'Large cities concentrate jobs, which concentrates commute demand.',
+   'Metro, bus and ride-hailing networks scale city by city, so each new million-plus city is a new market.']]]
+];
+(function(){const host=document.getElementById('fcards');if(!host)return;const cards=[];
+  FAC.forEach(([h,stats],ci)=>{const c=document.createElement('div');c.className='fcard';c.tabIndex=0;c.setAttribute('role','button');
+    c.innerHTML=`<h3><i>${ci+1}</i>${h}</h3><div class="fstage">${stats.map((x,j)=>`<div class="fs${j?'':' on'}"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('')}</div><div class="fdots">${stats.map((x,j)=>`<i class="${j?'':'on'}"></i>`).join('')}<em>Read more ↗</em></div>`;
+    const st={c,i:0,hover:false,stats};cards.push(st);
+    c.addEventListener('mouseenter',()=>st.hover=true);c.addEventListener('mouseleave',()=>st.hover=false);
+    const open=()=>{const x=stats[st.i];MDL.open(`<div class="k">${ci+1} / ${h}</div><h2>${x[0]}</h2><div class="big" style="font-size:22px;color:var(--ink-2)">${x[1]}</div><div class="rows"><div><h5>What it means</h5><p>${x[2]}</p></div><div><h5>Why it happened</h5><p>${x[3]}</p></div><div><h5>What comes next</h5><p>${x[4]}</p></div></div>`,c)};
+    c.addEventListener('click',open);c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}});
+    host.appendChild(c)});
+  const go=st=>{const sl=st.c.querySelectorAll('.fs'),dt=st.c.querySelectorAll('.fdots i'),prev=st.i;st.i=(st.i+1)%st.stats.length;
+    sl[prev].classList.remove('on');sl[prev].classList.add('out');setTimeout(()=>sl[prev].classList.remove('out'),750);sl[st.i].classList.add('on');
+    dt.forEach((d,j)=>d.classList.toggle('on',j===st.i))};
+  let k=0;setInterval(()=>{const st=cards[k%4];k++;if(document.hidden||st.hover||document.getElementById('mdl').classList.contains('on'))return;go(st)},1250);
+})();
+
 /* vehicle parade */
 (function(){const lane=document.getElementById('lane'),sec=document.getElementById("vehicles");if(!lane)return;
   if(reduce){sec.querySelector('.pin').style.overflowX='auto';return}
@@ -748,7 +949,7 @@ hbars('c-gaps',GAPS.map((g,i)=>[`${i+1}. ${SHORT[i]}`,g[1],fmt(g[1]),i<3?C.blue:
 })();
 /* general reveals */
 if(!reduce){
-  gsap.utils.toArray('h2.t,.text p,.chart,.fac,.duo,.glist details,.bet').forEach(e=>gsap.from(e,{y:30,opacity:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:e,start:'top 92%'}}));
+  gsap.utils.toArray('h2.t,.text p,.chart,.fcard,.duo,.glist details,.bet').forEach(e=>gsap.from(e,{y:30,opacity:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:e,start:'top 92%'}}));
   gsap.utils.toArray('.case .art img').forEach(i=>gsap.fromTo(i,{scale:1.15},{scale:1,ease:'none',scrollTrigger:{trigger:i,start:'top bottom',end:'bottom top',scrub:true}}));
   gsap.to('.photogrid img',{opacity:1,scale:1,duration:.8,stagger:{each:.12,from:'random'},ease:'power2.out',scrollTrigger:{trigger:'.photogrid',start:'top 75%'}});
 }
