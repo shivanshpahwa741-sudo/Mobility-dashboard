@@ -75,51 +75,25 @@ tr:last-child td{border-bottom:0}
   <h1>Tracked <em>startups</em></h1>
 </div>
 
-<section id="tracked" style="padding-top:20px">
-  <div class="kick">01 · Tracked</div><h2>3 companies we follow closely</h2>
-  <div class="trk">
-    <article class="card">
-      <span class="tag">Enabling tech · Pre-seed</span>
-      <h3><a href="https://inlane.in" target="_blank" rel="noopener">Inlane ↗</a></h3>
-      <p>Inlane, also known as Lane, teaches people to drive and fits sensors in its cars that score driver behaviour. It also helps learners buy and sell cars and handle licence paperwork.</p>
-      <dl class="kv"><dt>Founded</dt><dd>2025, Bengaluru</dd><dt>Raised</dt><dd>₹8.5 Cr</dd><dt>Last round</dt><dd>₹8.5 Cr, 12 Aug 2026</dd><dt>Investors</dt><dd>Kae Capital (lead), DeVC, Antler India, Panthera Peak</dd><dt>Traction</dt><dd>400+ pilot class hours; about 70% of learners already hold a licence</dd></dl>
-      <p>Every app fleet, school van and office cab needs trained drivers. A school that also records how each graduate drives builds data that insurers and fleets can price.</p>
-    </article>
-    <article class="card">
-      <span class="tag">Passenger service · Ripe for seed</span>
-      <h3><a href="https://entrackr.com/snippets/student-mobility-startup-zeromobit-raises-pre-seed-round-11150709" target="_blank" rel="noopener">ZeroMoblt ↗</a></h3>
-      <p>ZeroMoblt sells parents a monthly subscription for school and college transport in Hyderabad, run on partner vehicles.</p>
-      <dl class="kv"><dt>Raised</dt><dd>₹1.5 Cr pre-seed</dd><dt>Last round</dt><dd>₹1.5 Cr, Feb 2026</dd><dt>Investors</dt><dd>Sandeep Varaganti (JioMart CEO), Ashok Agrawal, other angels</dd><dt>Traction</dt><dd>3.4 lakh trips; 147 pincodes; 15+ institutions; 3,000+ partner vehicles</dd></dl>
-      <div class="sc" id="score"></div>
-    </article>
-    <article class="card">
-      <span class="tag">Passenger service</span>
-      <h3><a href="https://kyrarides.in/" target="_blank" rel="noopener">Kyra Rides</a></h3>
-      <p>Women-only ride-hailing: women riders matched with verified women drivers, with live SOS and KYC-reviewed drivers.</p>
-      <dl class="kv"><dt>Raised</dt><dd>No institutional funding; ₹9 lakh spent to date</dd><dt>Riders</dt><dd>2,769</dd><dt>Drivers onboarded</dt><dd>526</dd><dt>Active drivers</dt><dd>57</dd><dt>Gap</dt><dd>Women-safe commute, ₹7,000 Cr a year</dd></dl>
-    </article>
-  </div>
-</section>
+<p class="lead" style="margin-top:0">Inlane, ZeroMoblt and Kyra Rides are written up as full investment memos. <a href="../memos/">Read the 3 memos</a>.</p>
 
 <section id="passenger">
-  <div class="kick">02 · Passenger-service startups</div><h2>12 startups that move people within cities</h2>
+  <div class="kick">01 · Passenger-service startups</div><h2>13 startups that move people within cities</h2>
   <div class="tbl"><table data-t="P"><thead><tr><th data-k="0">Company</th><th data-k="2">Stage</th><th data-k="3" class="num">Raised</th><th data-k="5">Last round</th><th data-k="6">Investors</th><th data-k="7">Traction</th></tr></thead><tbody></tbody></table></div>
 </section>
 
 <section id="enabling">
-  <div class="kick">03 · Enabling tech</div><h2>9 companies that serve fleets of every type</h2>
+  <div class="kick">02 · Enabling tech</div><h2>9 companies that serve fleets of every type</h2>
   <div class="tbl"><table data-t="E"><thead><tr><th data-k="0">Company</th><th data-k="2">Stage</th><th data-k="3" class="num">Raised</th><th data-k="5">Last round</th><th data-k="6">Investors</th><th data-k="7">Traction</th></tr></thead><tbody></tbody></table></div>
 </section>
 
 <section id="benchmarks">
-  <div class="kick">04 · Benchmarks</div><h2>Benchmarks, not tracked</h2>
+  <div class="kick">03 · Benchmarks</div><h2>Benchmarks, not tracked</h2>
   <div class="bm"><div><b>Rapido</b>6.5M rides a day, Mar 2026</div><div><b>Uber India</b>₹1,512 Cr net loss, FY25</div><div><b>Ola Consumer</b>₹1,171 Cr revenue, FY25</div><div><b>MoveInSync</b>₹438 Cr revenue, FY24</div><div><b>Routematic</b>₹178 Cr revenue, FY25</div><div><b>Yulu</b>$93M Series C, Aug 2026</div></div>
 </section>
 <footer>How India Moves · Companies · Sources: Tracxn, Nov 2026; Entrackr; Inc42; Autocar Pro; YourStory; StartupTalky; Venture Intelligence; Ascendants; company disclosures.</footer>
 </div>
 <script>
-const SC=[["Traction",4,"3.4 lakh trips on ₹1.5 Cr raised, the most trips per rupee in the set"],["Unit economics",3,"Partner vehicles keep it asset-light, and parents prepay"],["Team",3,"Backed by operators, including the JioMart CEO"],["Market",5,"Student transport is worth ₹27,000 Cr a year, and it is the only funded player"],["Round timing",5,"Pre-seed in Feb 2026 and a 6-city plan put a seed round in the first half of 2027"]];
-document.getElementById('score').innerHTML='<div class="kick" style="margin:0 0 4px">Seed readiness scorecard</div>'+SC.map(([k,v,e])=>'<div class="r"><span>'+k+'</span><div class="meter"><i style="width:'+v*20+'%"></i></div><b>'+v+'/5</b><small>'+e+'</small></div>').join('')+'<div class="tot"><span>Total</span><span>'+SC.reduce((a,b)=>a+b[1],0)+'/25</span></div>';
 /* [name, one line, stage, sort value ₹ Cr, raised, last round, investors, traction, link] */
 const P=[
 ["Cityflo","App-booked premium office buses, Mumbai and Hyderabad","Series A",161,"$19M","₹57 Cr Series A, Nov 2020","India Quotient, Lightbox, Chiratae Ventures","₹275 Cr+ annualised revenue; 120 of 150 routes cash positive (Sep 2026)","https://www.autocarpro.in/news/exclusive-120-of-cityflos-150-routes-are-cash-positive-says-ceo-134892"],
@@ -131,6 +105,7 @@ const P=[
 ["Fery Rides","Women drivers on electric bike taxis and cabs, for women riders, Gurugram","Seed",2.6,"₹2.6 Cr","₹2.075 Cr seed, Oct 2025","IAN Angel Fund","65,000+ rides; 250+ women drivers; 50,000+ downloads (Jan 2026)","https://www.autocarpro.in/news/fery-rides-secures-%e2%82%b92075-crore-seed-funding-from-ian-angel-fund-129236"],
 ["Namma Yatri","Zero-commission auto and cab app, Bengaluru","Pre-Series A",140,"$15M+","₹39.75 Cr extension, Mar 2026","Blume Ventures, Google, Antler","FY25 revenue ₹23.5 Cr; 4.6 Cr trips to date","https://news.ventureintelligence.com/private-equity/ride-hailing-app-namma-yatri-raises-rs.39.75-cr"],
 ["MyPickup","Subscription electric auto rides for housing societies, Bengaluru and Gurugram","Seed",1.5,"₹1.5 Cr","₹1.5 Cr seed, Jul 2024","Inflection Point Ventures","Not disclosed","https://www.autocarpro.in/news/mypickup-raises-rs-15-crore-in-seed-round-led-by-inflection-point-ventures-121547"],
+["WhistleDrive","Managed employee transport and fleet software for corporates, Hyderabad (founded 2016)","Series B",100,"$11.8M","Angel round, Aug 2024 (amount undisclosed); ₹72 Cr Series B, Sep 2019","Colosseum Group, Strateology","FY25 revenue ₹50 Cr to ₹100 Cr; 700+ vehicles and 1.5 lakh+ trips a month (2019)","https://tracxn.com/d/companies/whistledrive/__JnIJv8YNTSgtXLHPWRA4iWQOUocZ6HRxQAiqwfcJze0"],
 ["DriverShaab","Supplies trained drivers to employee transport operators","Pre-Series A",2.82,"₹2.82 Cr","₹2.82 Cr, 2025","Firstport Capital, Inflection Point Ventures","Not disclosed","https://entrackr.com/snippets/b2b-mobility-startup-drivershaab-raises-pre-series-a-round-8920587"],
 ["LetzRyd","Electric ride service","Seed",34,"$4M","$4M, 2026","JIF Capital","Not disclosed","https://www.autocarpro.in/news/letzryd-raises-usd-4-million-in-funding-round-led-by-jif-capital-131776"],
 ["Sakhi","Women-only autos, Bengaluru","Unfunded pilot",0,"None","None","None","About 17 trips in its pilot week","https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fbengaluru%2Fwomen-only-auto-service-set-for-launch-on-february-14-in-bengaluru-3888197"]],

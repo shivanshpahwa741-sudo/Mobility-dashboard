@@ -35,17 +35,28 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(38px,4.5vw,64px);lin
 footer{padding:80px 0 40px;font-size:12px;color:var(--muted)}
 
 .note{font-size:18px;max-width:60ch;color:var(--ink-2);margin-top:24px}
-.memos{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
-.memo{background:#fff;border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:4px}
-.mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.pend{font-family:var(--mono);font-size:11px;padding:3px 8px;border-radius:6px;background:var(--paper);color:var(--muted)}
-.sec{display:grid;grid-template-columns:30px 1fr;gap:10px;padding:12px 0;border-top:1px solid var(--line)}
-.no{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:2px}
-.sec h4{font-size:15px;font-weight:600;margin-bottom:8px}
-.ph{height:8px;width:70%;background:var(--paper);border-radius:4px}
-.sec table{width:100%;border-collapse:collapse;font-size:12px}
-.sec th{text-align:left;font-weight:500;color:var(--muted);padding:6px 4px;border-bottom:1px solid var(--line)}
-.sec td{height:22px;border-bottom:1px dashed var(--line)}
+.chips{position:sticky;top:96px;z-index:5;padding:8px 0}
+.memo{background:#fff;border-radius:16px;padding:clamp(22px,4vw,48px);max-width:980px}
+.memo[hidden]{display:none}
+.mh{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:8px}
+.mh h2{margin:0}
+.rec{font-family:var(--mono);font-size:12px;padding:5px 10px;border-radius:6px;background:var(--navy);color:#fff}
+.sec{display:grid;grid-template-columns:38px minmax(0,1fr);gap:12px;padding:22px 0;border-top:1px solid var(--line)}
+.sec:first-of-type{border-top:0}
+.no{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:4px}
+.sec h3{font-size:17px;font-weight:600;margin-bottom:10px}
+.sec h3 span{font-weight:400;color:var(--ink-2)}
+.sec p,.sec li{font-size:15.5px;color:var(--ink-2);max-width:72ch}
+.sec p+p,.sec p+ul,.sec ul+p,.sec table+p,.sec p+table{margin-top:10px}
+.sec ul{padding-left:18px}.sec li{margin:4px 0}
+.lbl{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:14px 0 4px}
+.sec a{color:var(--blue);text-decoration:none}.sec a:hover{text-decoration:underline}
+.tw{overflow-x:auto}
+.sec table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
+.sec th{text-align:left;font-weight:500;color:var(--muted);padding:8px 8px;border-bottom:1px solid var(--line)}
+.sec td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.sv{font-family:var(--mono);font-size:12px;font-weight:500}.sv.H{color:var(--loss)}.sv.M{color:#a8741a}.sv.L{color:var(--gain)}
+.tc{background:#fff4d6;border-radius:4px;padding:0 4px;font-family:var(--mono);font-size:12.5px;color:#7a5600}
 </style>
 </head>
 <body>
@@ -57,17 +68,257 @@ footer{padding:80px 0 40px;font-size:12px;color:var(--muted)}
 <div class="hero">
   <div class="kick">Memos · Intra-city road passenger mobility · Nov 2026</div>
   <h1>Investment <em>memos</em></h1>
-  <p class="note">3 memos follow after company selection from the <a href="../companies/">tracked startups</a>.</p>
+  <p class="note">3 memos on companies picked from the <a href="../companies/">tracked startups</a>, one for each of 3 <a href="../thesis/">problem statements</a>: driver training and safety, student transport and women-safe commute.</p>
 </div>
-<div class="memos"><article class="memo"><div class="mh"><span class="kick" style="margin:0">Memo 1</span><span class="pend">Pending</span></div>
-<div class="sec"><span class="no">01</span><div><h4>Company name</h4><div class="ph"></div></div></div><div class="sec"><span class="no">02</span><div><h4>Sector</h4><div class="ph"></div></div></div><div class="sec"><span class="no">03</span><div><h4>Introduction</h4><div class="ph"></div></div></div><div class="sec"><span class="no">04</span><div><h4>Recommendation</h4><div class="ph"></div></div></div><div class="sec"><span class="no">05</span><div><h4>Sector Thesis</h4><div class="ph"></div></div></div><div class="sec"><span class="no">06</span><div><h4>Company Thesis</h4><div class="ph"></div></div></div><div class="sec"><span class="no">07</span><div><h4>Competition</h4><div class="ph"></div></div></div><div class="sec"><span class="no">08</span><div><h4>Founders</h4><div class="ph"></div></div></div><div class="sec"><span class="no">09</span><div><h4>How does this become a sizable outcome?</h4><div class="ph"></div></div></div><div class="sec"><span class="no">10</span><div><h4>Risks</h4><table><thead><tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr></thead><tbody><tr><td>Execution</td><td>H / M / L</td><td></td></tr><tr><td>Capital</td><td>H / M / L</td><td></td></tr><tr><td>Unit economics</td><td>H / M / L</td><td></td></tr><tr><td>[Other]</td><td>H / M / L</td><td></td></tr></tbody></table></div></div><div class="sec"><span class="no">11</span><div><h4>What could go wrong in 18 months</h4><div class="ph"></div></div></div>
-</article><article class="memo"><div class="mh"><span class="kick" style="margin:0">Memo 2</span><span class="pend">Pending</span></div>
-<div class="sec"><span class="no">01</span><div><h4>Company name</h4><div class="ph"></div></div></div><div class="sec"><span class="no">02</span><div><h4>Sector</h4><div class="ph"></div></div></div><div class="sec"><span class="no">03</span><div><h4>Introduction</h4><div class="ph"></div></div></div><div class="sec"><span class="no">04</span><div><h4>Recommendation</h4><div class="ph"></div></div></div><div class="sec"><span class="no">05</span><div><h4>Sector Thesis</h4><div class="ph"></div></div></div><div class="sec"><span class="no">06</span><div><h4>Company Thesis</h4><div class="ph"></div></div></div><div class="sec"><span class="no">07</span><div><h4>Competition</h4><div class="ph"></div></div></div><div class="sec"><span class="no">08</span><div><h4>Founders</h4><div class="ph"></div></div></div><div class="sec"><span class="no">09</span><div><h4>How does this become a sizable outcome?</h4><div class="ph"></div></div></div><div class="sec"><span class="no">10</span><div><h4>Risks</h4><table><thead><tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr></thead><tbody><tr><td>Execution</td><td>H / M / L</td><td></td></tr><tr><td>Capital</td><td>H / M / L</td><td></td></tr><tr><td>Unit economics</td><td>H / M / L</td><td></td></tr><tr><td>[Other]</td><td>H / M / L</td><td></td></tr></tbody></table></div></div><div class="sec"><span class="no">11</span><div><h4>What could go wrong in 18 months</h4><div class="ph"></div></div></div>
-</article><article class="memo"><div class="mh"><span class="kick" style="margin:0">Memo 3</span><span class="pend">Pending</span></div>
-<div class="sec"><span class="no">01</span><div><h4>Company name</h4><div class="ph"></div></div></div><div class="sec"><span class="no">02</span><div><h4>Sector</h4><div class="ph"></div></div></div><div class="sec"><span class="no">03</span><div><h4>Introduction</h4><div class="ph"></div></div></div><div class="sec"><span class="no">04</span><div><h4>Recommendation</h4><div class="ph"></div></div></div><div class="sec"><span class="no">05</span><div><h4>Sector Thesis</h4><div class="ph"></div></div></div><div class="sec"><span class="no">06</span><div><h4>Company Thesis</h4><div class="ph"></div></div></div><div class="sec"><span class="no">07</span><div><h4>Competition</h4><div class="ph"></div></div></div><div class="sec"><span class="no">08</span><div><h4>Founders</h4><div class="ph"></div></div></div><div class="sec"><span class="no">09</span><div><h4>How does this become a sizable outcome?</h4><div class="ph"></div></div></div><div class="sec"><span class="no">10</span><div><h4>Risks</h4><table><thead><tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr></thead><tbody><tr><td>Execution</td><td>H / M / L</td><td></td></tr><tr><td>Capital</td><td>H / M / L</td><td></td></tr><tr><td>Unit economics</td><td>H / M / L</td><td></td></tr><tr><td>[Other]</td><td>H / M / L</td><td></td></tr></tbody></table></div></div><div class="sec"><span class="no">11</span><div><h4>What could go wrong in 18 months</h4><div class="ph"></div></div></div>
-</article></div>
-<footer>How India Moves · Memos</footer>
+<div class="chips" role="tablist"><button class="on" data-m="m1" role="tab">1 · Inlane</button><button data-m="m2" role="tab">2 · ZeroMoblt</button><button data-m="m3" role="tab">3 · Kyra Rides</button></div>
+
+<!-- ===================== MEMO 1: INLANE ===================== -->
+<article class="memo" id="m1">
+<div class="mh"><h2>Inlane (Lane)</h2><span class="rec">Recommendation: Invest</span></div>
+
+<div class="sec"><span class="no">01</span><div><h3>Company name</h3><p>Inlane Technologies, trading as Lane (<a href="https://inlane.in" target="_blank" rel="noopener">inlane.in</a>). Bengaluru. Pre-seed, ₹8.5 Cr raised in August 2026 from Kae Capital (lead), DeVC, Antler India and Panthera Peak [<a href="https://ascendants.in/business-stories/lane-raises-8-5-crore-kae-capital-driver-education-platform/" target="_blank" rel="noopener">Ascendants, 12 Aug 2026</a>].</p></div></div>
+
+<div class="sec"><span class="no">02</span><div><h3>Sector</h3><p>Intra-city road passenger mobility, enabling technology: driver training and driver-behaviour data.</p></div></div>
+
+<div class="sec"><span class="no">03</span><div><h3>Introduction</h3>
+<p>Lane teaches people to drive in Bengaluru and fits sensors in its cars that turn every lesson into a driver-behaviour profile. The core idea is that the licence is not the finish line: 70% of its learners already hold a licence when they enrol [Ascendants].</p>
+<p>India has about 25 crore licence holders [Ascendants, company figure] and 1.89 lakh road deaths a year [MoRTH], and fleets of every type need trained drivers. Most Indians learn from family or a local school that teaches to the test. Lane replaces that with vetted instructors scored on 15 parameters and a data record that insurers and fleets can price.</p>
+<p>Founded by Samiksha Agarwal (ex-Antler, 3one4 Capital and EY; Shri Ram College of Commerce).</p></div></div>
+
+<div class="sec"><span class="no">04</span><div><h3>Recommendation: <span>Invest</span></h3><p>Invest in the next round. Lane has the largest disclosed learner base of any tech-led driving school we found, and a data layer that can grow beyond lessons.</p></div></div>
+
+<div class="sec"><span class="no">05</span><div><h3>Sector Thesis: <span>India licenses drivers but does not train them, and road deaths are the bill</span></h3>
+<span class="lbl">Market size and growth</span>
+<div class="tw"><table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
+<tr><td>Licence holders</td><td>25 crore [Ascendants, company figure]</td></tr>
+<tr><td>Road deaths a year</td><td>1.89 lakh [MoRTH, ]</td></tr>
+<tr><td>Two-wheeler riders' share of road deaths</td><td>46.2% [MoRTH, ]</td></tr>
+<tr><td>Two-wheeler safety gap</td><td>₹5,000 Cr a year [, derived]</td></tr>
+<tr><td>Autos and e-rickshaws needing drivers</td><td>70 lakh</td></tr>
+</tbody></table></div>
+<span class="lbl">Structural tailwinds</span>
+<ul><li>Policy: Karnataka's Urban Mobility Mission is exploring driver-behaviour data for traffic management; Lane presented to the state IT and Home Minister on 3 Nov 2026 [<a href="https://inlane.in" target="_blank" rel="noopener">inlane.in</a>].</li>
+<li>Demand: ride-hailing, employee commute (₹72,000 Cr a year) and EV fleets all need a steady supply of safe drivers.</li>
+<li>Cost: motor insurers price on vehicle and age, not behaviour; a scored driver lets them price risk.</li></ul>
+<span class="lbl">Why India, why now</span>
+<p>India has about 1% of the world's vehicles and about 11% of its road deaths [Ascendants, company figure]. 60% of Lane learners plan to buy a first car [Ascendants], so the school sits at the start of the car-ownership spend.</p></div></div>
+
+<div class="sec"><span class="no">06</span><div><h3>Company Thesis: <span>a driving school is the cheapest way to collect the first record of how a person drives</span></h3>
+<span class="lbl">Problem</span>
+<ul><li>Licensed is not competent: 70% of Lane learners already hold a licence [Ascendants].</li>
+<li>Local schools teach to the test and have no quality standard; most learners are taught by family [Ascendants].</li></ul>
+<span class="lbl">Solution</span>
+<ul><li>Product: structured lessons from instructors vetted on 15 parameters, in the learner's own car after the first session; in-car sensor system that scores driving behaviour.</li>
+<li>Customer experience: rated 4.7 stars; app booking and flexible timings [<a href="https://inlane.in" target="_blank" rel="noopener">inlane.in</a>].</li>
+<li>Delivery: partner instructors in micro-markets earn ₹80,000 to ₹90,000 a month [Ascendants]; add-on services for first car purchase and RTO paperwork.</li></ul>
+<span class="lbl">Traction</span>
+<div class="tw"><table><thead><tr><th>Metric</th><th>Aug 2026</th><th>Nov 2026</th></tr></thead><tbody>
+<tr><td>Learners</td><td>3,100+ [Ascendants]</td><td>5,757+ [inlane.in]</td></tr>
+<tr><td>Hours on road</td><td>30,000+</td><td>52,313+</td></tr>
+<tr><td>Vetted instructors</td><td>n/d</td><td>94+</td></tr>
+<tr><td>Revenue</td><td colspan="2"><span class="tc">[to confirm: FY26 revenue and course price]</span></td></tr>
+</tbody></table></div>
+<p>Learners grew 86% in about 3 months (3,100 to 5,757).</p></div></div>
+
+<div class="sec"><span class="no">07</span><div><h3>Competition: <span>local schools own volume, nobody owns the data</span></h3>
+<div class="tw"><table><thead><tr><th>Player</th><th>Type</th><th>Scale</th><th>Where Lane differs</th></tr></thead><tbody>
+<tr><td>Maruti Suzuki Driving Schools</td><td>OEM-linked school chain</td><td>National network</td><td>Lane trains in the learner's own car and records behaviour</td></tr>
+<tr><td>Local driving schools</td><td>Unorganised</td><td>Thousands, single-site</td><td>Vetted instructors, app booking, quality standard</td></tr>
+<tr><td>Netradyne, LightMetrics, Cautio</td><td>Fleet video telematics</td><td>$300M+, $10.4M, $3.8M raised</td><td>Lane scores a driver from day 1, before any fleet hires them</td></tr>
+<tr><td>DriverShaab</td><td>Driver supply for employee transport</td><td>₹2.82 Cr raised [Entrackr]</td><td>Lane trains and certifies; DriverShaab places</td></tr>
+</tbody></table></div>
+<p>Lane sits between the school and the telematics layer. It wins if its driver profile becomes the record that fleets and insurers ask for.</p></div></div>
+
+<div class="sec"><span class="no">08</span><div><h3>Founders: <span>an investor-turned-operator who has built the team before the product is finished</span></h3>
+<ul><li><b>Samiksha Agarwal, founder.</b> Previously at Antler, 3one4 Capital and EY; commerce graduate of Shri Ram College of Commerce [NFX Signal, Antler]. Raised ₹8.5 Cr pre-seed led by Kae Capital; Kae's partner said she is "exactly the founder to build from it" [Ascendants].</li>
+<li><b>Sanchit Agarwal, co-incorporator</b> of Inlane Technologies (April 2024) per registry coverage <span class="tc">[to confirm: role]</span>.</li>
+<li>Team of 18+ including a senior telematics engineer and a chief of staff [inlane.in/about-us].</li></ul></div></div>
+
+<div class="sec"><span class="no">09</span><div><h3>How does this become a sizable outcome?</h3>
+<div class="tw"><table><thead><tr><th>Revenue in year 7</th><th>Customers needed</th><th>Net revenue and margin</th><th>Exit value</th></tr></thead><tbody>
+<tr><td>₹300 Cr: lessons ₹150 Cr + fleet and insurer data ₹100 Cr + car purchase and RTO commissions ₹50 Cr</td><td>1 lakh learners a year at ₹15,000 a course; 50 fleet and insurer contracts at ₹2 Cr a year</td><td>₹300 Cr, 20% EBITDA</td><td>₹1,500 Cr at 5x revenue</td></tr>
+</tbody></table></div>
+<p><b>Alpha:</b> 1 lakh learners a year is 17x today's cumulative base over about 2 years. The upside is the data line: if 5% of the 70 lakh three-wheeler drivers are scored through fleet contracts, Lane owns the largest driver-risk dataset in India.</p></div></div>
+
+<div class="sec"><span class="no">10</span><div><h3>Risks</h3>
+<div class="tw"><table><thead><tr><th>Risk</th><th>Severity H M L</th><th>Mitigation</th></tr></thead><tbody>
+<tr><td>Execution</td><td class="sv M">M</td><td>Instructor quality across cities; 15-parameter vetting and rating-based removal</td></tr>
+<tr><td>Capital</td><td class="sv L">L</td><td>Asset-light partner instructors; ₹8.5 Cr runway</td></tr>
+<tr><td>Unit economics</td><td class="sv M">M</td><td>Lessons are 1-time purchases; car and RTO add-ons lift revenue per learner</td></tr>
+<tr><td>Data monetisation</td><td class="sv H">H</td><td>No paying insurer or fleet disclosed yet; first data contract is the milestone to back</td></tr>
+</tbody></table></div></div></div>
+
+<div class="sec"><span class="no">11</span><div><h3>What could go wrong in 18 months?</h3><p>Most likely failure: Lane becomes a well-run driving school without a data business, which caps it at a services multiple. Early-warning milestone: no signed fleet, insurer or OEM pilot for the sensor data by the end of 2027.</p></div></div>
+</article>
+
+<!-- ===================== MEMO 2: ZEROMOBLT ===================== -->
+<article class="memo" id="m2" hidden>
+<div class="mh"><h2>ZeroMoblt</h2><span class="rec">Recommendation: Invest</span></div>
+
+<div class="sec"><span class="no">01</span><div><h3>Company name</h3><p>ZeroMoblt (<a href="https://www.zeromoblt.com" target="_blank" rel="noopener">zeromoblt.com</a>). Hyderabad, founded April 2024. Pre-seed, ₹1.5 Cr in February 2026 co-led by Sandeep Varaganti (JioMart CEO), Ashok Agrawal and HNIs [<a href="https://entrackr.com/snippets/student-mobility-startup-zeromobit-raises-pre-seed-round-11150709" target="_blank" rel="noopener">Entrackr, 24 Feb 2026</a>].</p></div></div>
+
+<div class="sec"><span class="no">02</span><div><h3>Sector</h3><p>Intra-city road passenger mobility: school and college student transport, sold as a subscription.</p></div></div>
+
+<div class="sec"><span class="no">03</span><div><h3>Introduction</h3>
+<p>ZeroMoblt sells parents and institutions a monthly transport subscription with tracking and compliance, run on 3,000+ partner vehicles [Entrackr]. The core idea is to turn the unregulated school van into a tracked, compliant, prepaid service.</p>
+<p>Student transport is worth ₹27,000 Cr a year: 1.5 crore students x ₹1,800 a month x 10 months. Parents pay today, but to vans with no tracking, no driver checks and no backup; ZeroMoblt adds all 3 behind one subscription.</p>
+<p>Founded by Vijay Ganagam (CEO) and Alfred Lazarus [Entrackr], with Abhinav Dantuluri listed as co-founder [Crunchbase].</p></div></div>
+
+<div class="sec"><span class="no">04</span><div><h3>Recommendation: <span>Invest</span></h3><p>Invest in the seed round, expected in the first half of 2027. It is the only funded player in a ₹27,000 Cr gap and scores 20 of 25 on our seed-readiness scorecard.</p></div></div>
+
+<div class="sec"><span class="no">05</span><div><h3>Sector Thesis: <span>parents already pay for student transport; the money flows to vans nobody tracks</span></h3>
+<span class="lbl">Market size and growth</span>
+<div class="tw"><table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
+<tr><td>Students using school transport</td><td>1.5 crore</td></tr>
+<tr><td>Average monthly fee</td><td>₹1,800 (₹1,500 to ₹4,000 in metros)</td></tr>
+<tr><td>Annual spend</td><td>₹27,000 Cr [, derived]</td></tr>
+<tr><td>Urban students going by bus / by auto</td><td>33.7% / 14.4% [NHTS via thesis]</td></tr>
+<tr><td>School van revenue a month</td><td>₹36,000 per vehicle [FACTS R3-D, derived]</td></tr>
+</tbody></table></div>
+<span class="lbl">Structural tailwinds</span>
+<ul><li>Policy: GPS tracking (AIS-140) is mandated on public service vehicles, and states tightened school transport rules after incidents.</li>
+<li>Payments: UPI autopay makes a monthly subscription easy to collect; UPI ran 241.6 bn transactions in FY26.</li></ul>
+<span class="lbl">Why India, why now</span>
+<p>Urban population rises from 53.7 crore in 2026 to 59.4 crore by 2036, and every new urban family with school children is a buyer. Compliance cost is rising faster than a single van owner can absorb.</p></div></div>
+
+<div class="sec"><span class="no">06</span><div><h3>Company Thesis: <span>a compliance layer on top of vehicles that already exist</span></h3>
+<span class="lbl">Problem</span>
+<ul><li>Parents cannot see where the child is or who drives the van.</li>
+<li>Institutions carry the liability but do not run the fleet.</li>
+<li>Van owners cannot afford tracking and compliance on their own.</li></ul>
+<span class="lbl">Solution</span>
+<ul><li>Product: subscription with live tracking, safety monitoring and discovery; AI route optimisation and compliance automation in build [Entrackr].</li>
+<li>Customer experience: 1 monthly payment for parents; 1 compliant vendor for institutions.</li>
+<li>Delivery: 3,000+ partner vehicles, no owned fleet [Entrackr]; bootstrapped with ₹4 lakh before the first pilot [zeromoblt.com/about].</li></ul>
+<span class="lbl">Traction</span>
+<div class="tw"><table><thead><tr><th>Metric</th><th>Feb 2026</th></tr></thead><tbody>
+<tr><td>Student trips</td><td>3.4 lakh</td></tr><tr><td>Pincodes in Hyderabad</td><td>147</td></tr><tr><td>Institutions</td><td>15+</td></tr><tr><td>Partner vehicles</td><td>3,000+</td></tr>
+<tr><td>Revenue, subscribers, retention</td><td><span class="tc">[to confirm: revenue, paying students, monthly churn]</span></td></tr>
+</tbody></table></div>
+<p>Source: Entrackr, company-reported. 3.4 lakh trips on ₹1.5 Cr raised is the most trips per rupee in our set.</p></div></div>
+
+<div class="sec"><span class="no">07</span><div><h3>Competition: <span>the competitor is the unorganised van, not another startup</span></h3>
+<div class="tw"><table><thead><tr><th>Player</th><th>Type</th><th>Scale</th><th>Where ZeroMoblt differs</th></tr></thead><tbody>
+<tr><td>Independent school vans</td><td>Unorganised owner-drivers</td><td>3.5 lakh school vans [FACTS R3-D]</td><td>Tracking, compliance and one subscription; these vans become its supply</td></tr>
+<tr><td>School-owned and contracted buses</td><td>Institution-run</td><td>3.8 lakh school buses [FACTS R3-D]</td><td>Asset-light; the school drops fleet liability</td></tr>
+<tr><td>MoveInSync, Routematic</td><td>Employee commute</td><td>₹438 Cr (FY24), ₹178 Cr (FY25) revenue</td><td>Parents and students as payers, not employers</td></tr>
+<tr><td>WhistleDrive</td><td>Employee transport, Hyderabad</td><td>$11.8M raised [Tracxn]</td><td>Same city, different customer; a possible entrant</td></tr>
+</tbody></table></div>
+<p>ZeroMoblt is the only funded company built for students. It wins by signing institutions first, which gives it a whole campus of parents in 1 contract.</p></div></div>
+
+<div class="sec"><span class="no">08</span><div><h3>Founders: <span>a CEO who built it from ₹4 lakh, backed by an operator from India's largest grocery network</span></h3>
+<ul><li><b>Vijay Ganagam, co-founder and CEO</b> [Entrackr, CB Insights]. <span class="tc">[to confirm: prior roles]</span></li>
+<li><b>Alfred Lazarus, co-founder</b> per Entrackr; listed as Chief Visionary Officer on the company site. <span class="tc">[to confirm: prior roles]</span></li>
+<li><b>Abhinav Dantuluri</b>, listed as co-founder on Crunchbase and as Chief of Staff on the company site.</li>
+<li>Proof points: reached 3.4 lakh trips on ₹4 lakh of bootstrap money plus ₹1.5 Cr pre-seed; the company says it was started by parents and technologists [zeromoblt.com/about].</li></ul></div></div>
+
+<div class="sec"><span class="no">09</span><div><h3>How does this become a sizable outcome?</h3>
+<div class="tw"><table><thead><tr><th>GMV in year 7</th><th>Customers needed</th><th>Net revenue and margin</th><th>Exit value</th></tr></thead><tbody>
+<tr><td>₹540 Cr</td><td>3 lakh students at ₹1,800 a month for 10 months; about 600 institutions at 500 students each</td><td>₹108 Cr at a 20% take rate; 15% EBITDA</td><td>₹650 Cr to ₹1,000 Cr at 6x to 9x net revenue</td></tr>
+</tbody></table></div>
+<p><b>Alpha:</b> 3 lakh students is 2% of the 1.5 crore who use school transport. Parents prepay, so working capital is negative and growth funds itself once a city is dense.</p></div></div>
+
+<div class="sec"><span class="no">10</span><div><h3>Risks</h3>
+<div class="tw"><table><thead><tr><th>Risk</th><th>Severity H M L</th><th>Mitigation</th></tr></thead><tbody>
+<tr><td>Execution</td><td class="sv H">H</td><td>6-city expansion (Hyderabad, Bengaluru, Vijayawada, Visakhapatnam, Chennai, Mumbai) [Entrackr] on a small team; go city by city after Hyderabad density</td></tr>
+<tr><td>Capital</td><td class="sv M">M</td><td>Asset-light; prepaid subscriptions</td></tr>
+<tr><td>Unit economics</td><td class="sv M">M</td><td>Take rate on van fees is thin; route density and institution contracts set margin</td></tr>
+<tr><td>Safety incident</td><td class="sv H">H</td><td>1 incident with a child ends trust in a city; driver verification and live monitoring are the product</td></tr>
+</tbody></table></div></div></div>
+
+<div class="sec"><span class="no">11</span><div><h3>What could go wrong in 18 months?</h3><p>Most likely failure: expansion outside Hyderabad before the home city is profitable, leaving thin route density in 6 cities. Early-warning milestone: fewer than 40 institutions signed in Hyderabad, or no second city live with paying students, by mid-2027.</p></div></div>
+</article>
+
+<!-- ===================== MEMO 3: KYRA ===================== -->
+<article class="memo" id="m3" hidden>
+<div class="mh"><h2>Kyra Rides</h2><span class="rec">Recommendation: Invest</span></div>
+
+<div class="sec"><span class="no">01</span><div><h3>Company name</h3><p>Kyra Rides (<a href="https://kyrarides.in" target="_blank" rel="noopener">kyrarides.in</a>). Bengaluru and Mysuru. No institutional funding; ₹9 lakh lifetime spend [company data]. Raising ₹8 Cr, mostly for Bengaluru driver acquisition and city expansion [founder].</p></div></div>
+
+<div class="sec"><span class="no">02</span><div><h3>Sector</h3><p>Intra-city road passenger mobility: women-only ride-hailing.</p></div></div>
+
+<div class="sec"><span class="no">03</span><div><h3>Introduction</h3>
+<p>Kyra is a ride-booking app for women in Bengaluru, matched only with verified women drivers, with KYC-reviewed drivers and in-ride SOS [<a href="https://kyrarides.in" target="_blank" rel="noopener">kyrarides.in</a>]. The core idea is that the trip, not the job, keeps many urban women out of work.</p>
+<p>Women-safe commute is worth ₹7,000 Cr a year inside a ₹28,000 Cr women's commute spend pool. 91% of women do not rate public transport very safe [Ola Mobility Institute 2019]; Kyra fixes the trip by controlling who drives.</p>
+<p>Founded by Divyash Patil and Shivansh Pahwa, both at Mesa School of Business; Shivansh is also at IIM Bangalore.</p></div></div>
+
+<div class="sec"><span class="no">04</span><div><h3>Recommendation: <span>Invest</span></h3><p>Invest at pre-seed, sized to the traction rather than the full ₹8 Cr ask. Kyra has 2,769 riders and 526 women drivers onboarded on ₹9 lakh of spend [company data], which is cheap demand. Only 57 drivers are active, so the first cheque should buy proof of liquidity in Bengaluru, with the rest of the ₹8 Cr tied to that milestone.</p></div></div>
+
+<div class="sec"><span class="no">05</span><div><h3>Sector Thesis: <span>women limit their work to the trips they feel safe taking</span></h3>
+<span class="lbl">Market size and growth</span>
+<div class="tw"><table><thead><tr><th>Step</th><th>Value</th></tr></thead><tbody>
+<tr><td>Urban working women using paid modes</td><td>1.3 crore</td></tr>
+<tr><td>Monthly commute spend</td><td>₹1,500</td></tr>
+<tr><td>Spend pool</td><td>₹28,000 Cr a year</td></tr>
+<tr><td>Switch to a verified women-safe service at ₹2,250 a month</td><td>20%</td></tr>
+<tr><td>Addressable market</td><td>₹7,000 Cr a year</td></tr>
+</tbody></table></div>
+<span class="lbl">Structural tailwinds</span>
+<ul><li>Demand: women's share of Delhi bus riders rose from 33% to 42% once fares were free [WRI India]; 86% of Bengaluru women feel unsafe on public transport [Save the Children 2019].</li>
+<li>Labour: urban female labour force participation is 25.0% against about 75% for men [MoSPI PLFS Apr 2026].</li>
+<li>Policy: the 2025 aggregator guidelines let states permit private bikes as taxis.</li></ul>
+<span class="lbl">Why India, why now</span>
+<p>30% of women report harassment or theft on public transport [ITDP and GIZ 2024], and women are less than 1% of the public transport workforce [same]. Smartphones, UPI and digital KYC now make it cheap to verify and pay a woman driver.</p></div></div>
+
+<div class="sec"><span class="no">06</span><div><h3>Company Thesis: <span>trust is the product, and only women drivers can supply it</span></h3>
+<span class="lbl">Problem</span>
+<ul><li>Women do not feel safe with unknown male drivers, especially at night.</li>
+<li>Large apps cannot guarantee a woman driver on demand.</li></ul>
+<span class="lbl">Solution</span>
+<ul><li>Product: Android rider app; 100% verified women drivers; SOS and KYC [kyrarides.in]. Vehicle types <span class="tc">[to confirm: auto, cab, bike taxi]</span>. Live in Bengaluru and Mysuru.</li>
+<li>Customer experience: market-rate pricing, no surprises [kyrarides.in]. Fares follow the state-notified meter rate, the same as Namma Yatri. Planned ₹20 platform fee per ride, not charged yet [founder].</li>
+<li>Delivery: women drivers onboarded through KYC review and training <span class="tc">[to confirm: vehicle ownership model]</span>.</li></ul>
+<span class="lbl">Traction</span>
+<div class="tw"><table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
+<tr><td>Riders</td><td>2,769</td></tr><tr><td>Drivers onboarded</td><td>526</td></tr><tr><td>Active drivers</td><td>57 (11% of onboarded)</td></tr><tr><td>Lifetime spend</td><td>₹9 lakh</td></tr>
+<tr><td>Rides in January pilot</td><td>125</td></tr>
+<tr><td>Rides to date</td><td><span class="tc">[to confirm: total rides to date]</span></td></tr>
+<tr><td>Open SOS cases (admin console)</td><td>16</td></tr>
+<tr><td>Revenue</td><td>Negligible; no platform fee charged yet</td></tr>
+<tr><td>Rider repeat rate</td><td><span class="tc">[to confirm: rider repeat rate]</span></td></tr>
+</tbody></table></div>
+<p>Source: company data and founder, Nov 2026. ₹9 lakh of spend works out to about ₹325 per rider acquired.</p></div></div>
+
+<div class="sec"><span class="no">07</span><div><h3>Competition: <span>the field is small and early</span></h3>
+<div class="tw"><table><thead><tr><th>Player</th><th>Type</th><th>Scale</th><th>Where Kyra differs</th></tr></thead><tbody>
+<tr><td>Fery Rides</td><td>Women drivers, bike taxis and cabs, Gurugram</td><td>₹2.6 Cr raised; 65,000+ rides; 250+ women drivers [Autocar Pro, YourStory]</td><td>Kyra is in Bengaluru, which Fery does not serve</td></tr>
+<tr><td>Sakhi</td><td>Women-only autos, Bengaluru</td><td>Unfunded; about 17 trips in pilot week [Deccan Herald]</td><td>Kyra has an app and 526 drivers onboarded</td></tr>
+<tr><td>Rapido, Uber, Namma Yatri</td><td>General ride-hailing</td><td>Rapido 6.5M rides a day</td><td>No guaranteed woman driver</td></tr>
+<tr><td>MoveInSync, Routematic</td><td>Employer-paid shift transport</td><td>₹438 Cr, ₹178 Cr revenue</td><td>Kyra serves women paying for themselves, any trip</td></tr>
+</tbody></table></div>
+<p>Kyra charges the same meter fare as Namma Yatri, so a rider pays nothing extra for a woman driver. It sits as the women-only option in Bengaluru, a city where 86% of women feel unsafe on public transport. It wins if it keeps enough active women drivers to fill demand on time.</p></div></div>
+
+<div class="sec"><span class="no">08</span><div><h3>Founders: <span>2 repeat founders who built both sides of the market on ₹9 lakh</span></h3>
+<ul><li><b>Shivansh Pahwa, co-founder.</b> 19; Mesa School of Business and IIM Bangalore.</li>
+<li><b>Divyash Patil, co-founder.</b> Mesa School of Business. <span class="tc">[to confirm: role split]</span></li>
+<li>Proof points: together they built a direct-to-consumer brand at Mesa School of Business <span class="tc">[to confirm: brand name and results]</span>, then took Kyra to 2,769 riders and 526 onboarded drivers with no institutional funding.</li></ul></div></div>
+
+<div class="sec"><span class="no">09</span><div><h3>How does this become a sizable outcome?</h3>
+<div class="tw"><table><thead><tr><th>GMV in year 7</th><th>Customers needed</th><th>Net revenue and margin</th><th>Exit value</th></tr></thead><tbody>
+<tr><td>GMV ₹1,080 Cr: 7.2 crore rides a year at ₹150 average meter fare</td><td>3 lakh monthly active riders taking 20 rides a month; 15,000 active women drivers at 400 rides a month</td><td>₹144 Cr: 7.2 crore rides x ₹20 platform fee [founder]; 10% EBITDA</td><td>₹720 Cr at 5x net revenue</td></tr>
+</tbody></table></div>
+<p><b>Alpha:</b> 3 lakh riders is 12% of the 26 lakh women expected to switch to a verified women-safe service. Employer contracts for night shifts (₹72,000 Cr employee commute gap) are upside not counted here.</p></div></div>
+
+<div class="sec"><span class="no">10</span><div><h3>Risks</h3>
+<div class="tw"><table><thead><tr><th>Risk</th><th>Severity H M L</th><th>Mitigation</th></tr></thead><tbody>
+<tr><td>Execution</td><td class="sv H">H</td><td>Slow growth: 125 pilot rides and negligible revenue so far; focus on 1 dense Bengaluru zone before Mysuru expansion</td></tr>
+<tr><td>Capital</td><td class="sv H">H</td><td>The ₹8 Cr ask is large against 57 active drivers and negligible revenue; tranche it against driver activation and weekly ride milestones</td></tr>
+<tr><td>Unit economics</td><td class="sv H">H</td><td>₹20 fee per ride is not charged yet; prove riders and drivers stay once it is switched on</td></tr>
+<tr><td>Liquidity</td><td class="sv H">H</td><td>Only 57 of 526 onboarded drivers (11%) are active, so riders wait or fail to match; driver earnings guarantees and shift scheduling in peak hours</td></tr>
+<tr><td>Safety operations</td><td class="sv M">M</td><td>16 open SOS cases on the admin console; a response-time standard and case closure log</td></tr>
+<tr><td>Incumbent copy</td><td class="sv M">M</td><td>Large apps can add a women-driver option; Kyra's edge is a verified women-only network</td></tr>
+</tbody></table></div></div></div>
+
+<div class="sec"><span class="no">11</span><div><h3>What could go wrong in 18 months?</h3><p>Most likely failure: the ₹8 Cr goes into driver acquisition, but drivers onboard and do not stay online, so riders fail to match, churn and the ₹20 fee never switches on. Kyra then needs a second raise without proof of liquidity. Early-warning milestone: active drivers below 150 (from 57) and fewer than 500 rides a week in Bengaluru 6 months after funding, or ride fill rate below 70% <span class="tc">[to confirm: current fill rate]</span>.</p></div></div>
+</article>
+
+<footer>How India Moves · Memos · Sources: Ascendants; Entrackr; inlane.in; zeromoblt.com; kyrarides.in and company data; Tracxn, Nov 2026; Crunchbase; CB Insights; NFX Signal; FACTS sections 9 to 21 for market data.</footer>
 </div>
+<script>
+const B=[...document.querySelectorAll('.chips button')];
+B.forEach(b=>b.onclick=()=>{B.forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('.memo').forEach(m=>m.hidden=m.id!==b.dataset.m);history.replaceState(null,'','#'+b.dataset.m)});
+const h=location.hash.slice(1);const t=B.find(b=>b.dataset.m===h);if(t)t.click();
+</script>
 <script src="../assets/wip.js"></script>
 </body>
 </html>
