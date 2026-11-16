@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unsolved Road Problems</title>
+<meta name="description" content="A bank of problems people report on India's roads, what they do about it, and the fact that nobody is fixing them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f2f2f0;--ink:#0d0d0d;--ink-2:#3a3a37;--muted:#77756f;--line:rgba(13,13,13,.1);--navy:#051c2c;--blue:#2251ff;--loss:#c4442f;
+--serif:"Instrument Serif",Georgia,serif;--sans:"Inter Tight",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;--g:clamp(16px,4vw,64px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper)}
+body{color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+header{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:min(1400px,calc(100% - 2*var(--g)));z-index:50;display:flex;justify-content:space-between;align-items:center;padding:10px 12px 10px 24px;background:rgba(236,236,234,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.7);border-radius:16px}
+.logo{font-family:var(--serif);font-size:26px;text-decoration:none;line-height:1}
+nav{display:flex;align-items:center;gap:4px;background:#fff;border-radius:12px;padding:4px}
+nav a{font-size:13px;text-decoration:none;padding:8px 14px;border-radius:8px;color:var(--ink-2)}
+nav a:hover{background:var(--paper)}nav a.on{text-decoration:underline;text-underline-offset:5px;color:var(--ink)}nav a.cta{background:var(--ink);color:#fff}
+@media(max-width:820px){nav a:not(.cta):not(.on){display:none}}
+.wrap{max-width:1400px;margin:0 auto;padding:0 var(--g)}
+.hero{padding:140px 0 30px}
+.kick{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(54px,8vw,130px);line-height:.92;letter-spacing:-.03em}
+h1 em{color:var(--blue)}
+.intro{max-width:60ch;margin-top:24px;color:var(--ink-2)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:36px 0 18px}
+.chips button{font-size:13px;padding:7px 13px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+.chips button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.bank{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:14px;padding-bottom:80px}
+@media(max-width:500px){.bank{grid-template-columns:1fr}}
+.iss{background:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:14px}
+.iss .top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.iss .n{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.iss .who{font-family:var(--mono);font-size:11px;padding:3px 8px;border-radius:6px;background:var(--navy);color:#fff;white-space:nowrap}
+.iss h3{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.02}
+.iss dl{display:grid;gap:10px;font-size:14px}
+.iss dt{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--blue)}
+.iss dd{color:var(--ink-2)}
+.iss .size{border-top:1px solid var(--line);padding-top:12px;display:flex;justify-content:space-between;gap:12px;font-size:13px}
+.iss .size b{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1;display:block;color:var(--ink)}
+.iss .src{font-size:11.5px;color:var(--muted)}
+footer{padding:20px 0 40px;font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="../">How India Moves</a>
+  <nav><a href="../structure/">Structure</a><a href="../dashboard/">Dashboard</a><a class="on" href="./">Insights</a><a href="../#gaps">Gaps</a><a class="cta" href="../thesis/">Read the thesis</a></nav>
+</header>
+<div class="wrap">
+<div class="hero">
+  <div class="kick">Insights · A bank of unsolved road problems</div>
+  <h1>Reported, <em>visible</em>, and left alone</h1>
+  <p class="intro">Each card is a problem people say they have, backed by something we can see them doing about it, where no funded company is working on it directly. It grows as we find more.</p>
+  <div class="chips" id="chips"></div>
+</div>
+<div class="bank" id="bank"></div>
+<footer>How India Moves · Insights · "Nobody" means no funded company found on Tracxn or in our research, November 2026. Work in progress.</footer>
+</div>
+<script>
+const I=[
+ {t:'Autos',h:'The auto stand has no software',say:'Drivers wait at stands and fill shared routes by shouting; riders bargain each time.',see:'98 in 100 auto trips never touch an app, even after daily passes made apps cheap for drivers.',n:'70 lakh',nl:'autos and e-rickshaws',m:'₹1.68 lakh Cr',ml:'in fares a year',src:'VAHAN; industry estimates'},
+ {t:'Women',h:'Women stay off transit they can\'t reach safely',say:'77% of women say poor access to and from transit keeps them off it.',see:'When Karnataka made buses free, women\'s daily trips rose from 37.5 to 67 lakh.',n:'29.5 lakh',nl:'trips a day held back in one state',m:'Not sized',ml:'',src:'WRI India; Azim Premji University Shakti study'},
+ {t:'Women',h:'Women pay more for the same distance',say:'Women describe choosing cabs at night because buses and autos feel unsafe.',see:'Salaried women use cabs more than men, mostly after 8 PM, and pay about 21% more per trip.',n:'21%',nl:'more paid per trip',m:'Not sized',ml:'',src:'Ola Mobility Institute (2019)'},
+ {t:'Women',h:'Women drivers carry loans without insurance',say:'Women auto drivers report debt and no safety net.',see:'In one survey only 19% had insurance and 93% carried loans.',n:'19%',nl:'insured',m:'Not sized',ml:'',src:'Women auto driver survey, thesis research base'},
+ {t:'Schools',h:'Parents hire school vans nobody checks',say:'Parents worry about overloaded vans and unknown drivers.',see:'3.5 lakh vans run by owner-drivers hired directly by parents. Maharashtra now mandates GPS, CCTV and regulated fares.',n:'3.5 lakh',nl:'school vans',m:'₹5,000 Cr',ml:'a year from parents',src:'State transport rules (2025, 2026); Tracxn shows two school transport startups shut'},
+ {t:'Informal',h:'Rural India rides in vehicles that don\'t legally exist',say:'Villagers rely on jugaads and shared vans because no bus comes.',see:'4.5 to 6 lakh jugaads keep running despite court bans; after Gujarat\'s crackdown 50,000+ chhakdas still operate.',n:'14–18 lakh',nl:'informal vehicles',m:'Not sized',ml:'',src:'State enforcement audits; ITDP India; World Bank'},
+ {t:'Informal',h:'E-rickshaws get fined, not formalised',say:'Drivers say registration is slow and rules change city to city.',see:'Delhi issued 2.3 lakh challans to e-rickshaw drivers and plans a cap of 2.5 lakh; UP launched a crackdown in 2025.',n:'4.6 lakh',nl:'unregistered e-rickshaws',m:'Not sized',ml:'',src:'Business Standard (2025); Delhi draft e-rickshaw policy (2026)'},
+ {t:'Buses',h:'400 cities have no organised buses',say:'Residents in smaller cities report long waits and no route network.',see:'Every missing bus trip turns into an auto ride or a scooter purchase; India runs a tenth of the city buses it needs.',n:'400+',nl:'cities without transit',m:'Not sized',ml:'',src:'MoRTH; thesis research base'},
+ {t:'Buses',h:'Private bus contracts outside the fund get paid late',say:'Operators say states pay diesel and CNG contracts 2 to 6 months late.',see:'Operators bid for electric contracts inside the central payment fund and avoid the rest.',n:'2–6 months',nl:'payment delay',m:'Not sized',ml:'',src:'PM e-Bus Sewa PSM guidelines; operator reports'},
+ {t:'Safety',h:'Scooters carry a third of trips and half the deaths',say:'Families ride three and four to a scooter because nothing else fits the budget.',see:'Two-wheeler riders were 46% of 1.83 lakh road deaths in 2025; bus riders, 2%.',n:'1.83 lakh',nl:'road deaths in 2025',m:'Not sized',ml:'',src:'MoRTH Road Accidents in India'},
+ {t:'Drivers',h:'Drivers buy every service from a different place',say:'Drivers juggle a lender, an insurer, a charging point and several apps.',see:'Gig welfare levies fall on payouts, so daily-pass apps escape them and drivers stay uncovered.',n:'~95 lakh',nl:'auto and cab drivers',m:'Not sized',ml:'',src:'State gig worker acts; VAHAN'}];
+const tags=['All',...new Set(I.map(x=>x.t))],chips=document.getElementById('chips'),bank=document.getElementById('bank');
+function draw(f){bank.innerHTML=I.map((x,i)=>[x,i]).filter(([x])=>f==='All'||x.t===f).map(([x,i])=>`<article class="iss"><div class="top"><span class="n">${String(i+1).padStart(2,'0')} · ${x.t}</span><span class="who">Nobody on it</span></div><h3>${x.h}</h3><dl><div><dt>What people report</dt><dd>${x.say}</dd></div><div><dt>What we see them do</dt><dd>${x.see}</dd></div></dl><div class="size"><div><b>${x.n}</b>${x.nl}</div><div style="text-align:right"><b>${x.m}</b>${x.ml}</div></div><div class="src">${x.src}</div></article>`).join('')}
+tags.forEach((t,i)=>{const b=document.createElement('button');b.textContent=t;if(!i)b.className='on';b.onclick=()=>{[...chips.children].forEach(c=>c.classList.toggle('on',c===b));draw(t)};chips.appendChild(b)});draw('All');
+</script>
+<script src="../assets/wip.js"></script>
+</body>
+</html>

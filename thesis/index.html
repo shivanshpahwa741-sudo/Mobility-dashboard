@@ -62,307 +62,210 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:now
 .src{font-size:13px;color:var(--muted)}
 .src p{margin-bottom:8px}
 footer{border-top:1px solid var(--line);padding:24px;text-align:center;font-size:13px;color:var(--muted)}
-.tree{font-size:14px;line-height:1.5;border-top:1px solid var(--ink);padding-top:14px;margin:24px 0}
-.tree details{border-bottom:1px solid var(--line);padding:10px 0}
-.tree summary{cursor:pointer;font-weight:600;color:var(--ink);list-style:none}
-.tree summary::-webkit-details-marker{display:none}
-.tree summary:before{content:"+";display:inline-block;width:18px;color:var(--blue)}
-.tree details[open] summary:before{content:"−"}
-.tree summary .gv{font-weight:400;color:var(--muted)}
-.tree ul{margin:8px 0 4px 34px}.tree li{margin-bottom:4px}
-.tree .focus{background:#f3f6ff}
-.tree .focus summary{color:var(--blue)}
 .st{margin-top:14px;border-top:1px dashed var(--line);padding-top:12px}
 .st b{font-size:12px;font-weight:600;color:var(--blue);display:block;margin-bottom:6px}
 .st table{font-size:13.5px}.st td{padding:6px 10px 6px 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0}
+.two>div{border-top:3px solid var(--ink);padding-top:12px}
+.two h4{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.two ul{margin-left:18px;font-size:15px}.two li{margin-bottom:6px}
+@media(max-width:700px){.two{grid-template-columns:1fr}}
+.pill{display:inline-block;font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:3px;white-space:nowrap}
+.pill.open{background:#051c2c;color:#fff}.pill.part{background:#e8edff;color:var(--blue)}
 </style>
 </head>
 <body>
-<div class="top"><span><a href="../">← How India Moves</a> &nbsp;·&nbsp; <a href="../dashboard/">Dashboard</a></span><span style="color:#6b6b6b">Investment thesis · November 2026</span></div>
+<div class="top"><span><a href="../">← How India Moves</a> &nbsp;·&nbsp; <a href="../dashboard/">Dashboard</a> &nbsp;·&nbsp; <a href="../insights/">Insights</a></span><span style="color:#6b6b6b">Investment thesis · November 2026</span></div>
 <div class="layout">
 <nav class="toc" id="toc"><b>Contents</b>
-<a href="#summary">Executive summary</a><a href="#s1">1. The whole sector</a><a href="#s2">2. Why road</a><a href="#s3">3. Rules and roads</a><a href="#s4">4. Road operations</a><a href="#s5">5. Who makes money on the road</a><a href="#s6">6. What is changing</a><a href="#s7">7. Gaps, with startups</a><a href="#s8">8. Bets, with startups</a><a href="#s9">9. Risks</a><a href="#sources">Sources</a></nav>
+<a href="#summary">Executive summary</a><a href="#s1">1. Who is involved</a><a href="#s2">2. Road, rail, air, water</a><a href="#s3">3. Why road</a><a href="#s4">4. Public and private road</a><a href="#s5">5. The vehicles</a><a href="#s6">6. Unaddressed gaps</a><a href="#s7">7. How big the gaps are</a><a href="#s8">8. Startups on each gap</a><a href="#s9">Risks</a><a href="#sources">Sources</a></nav>
 <main>
 
 <header class="cover">
   <div class="eyebrow">Sector thesis · Road passenger transport · India · FY26 to FY31</div>
   <h1>How India Moves<br><span style="font-size:.55em;color:#6b6b6b">(Roads edition)</span></h1>
-  <p class="dek">Two of every three rupees Indians spend on fares go to something that runs on a road. Most of that money moves through autos, buses and cabs that no company organises, and the companies that do run vehicles mostly lose money. This report maps the full passenger sector once, then goes deep on road, and names the startups working next to each problem.</p>
+  <p class="dek">Two of every three rupees Indians spend on fares go to something that runs on a road. Most of that money moves through autos, buses and vans that no company organises. This report goes from everyone involved in moving people, to the road, to the vehicles on it, to the problems nobody is fixing, how big they are, and which startups are closest.</p>
   <div class="meta">November 2026 · Figures are FY26 unless stated · ₹ Cr = crore rupees · Startup funding as stated on Tracxn, November 2026</div>
 </header>
 
 <section id="summary">
 <h2><span class="no">Executive summary</span>The short version</h2>
 <div class="keys"><h4>Key findings</h4><ol>
-<li><strong>Road is the sector.</strong> Road fares come to about ₹4.18 lakh crore of ₹6.2 lakh crore, and road vehicles carry 55% of daily trips. Households spend a further ₹17.9 lakh crore a year owning their own two-wheelers and cars.</li>
-<li><strong>The largest road pool belongs to nobody.</strong> Autos and e-rickshaws take ₹1.68 lakh crore, and 98% of their trips never touch an app. Drivers keep ₹75,600 Cr a year.</li>
-<li><strong>Running vehicles loses money and organising them earns it.</strong> State buses lose about ₹22,500 Cr in cash a year. Office commute firms and outstation cab networks are the steady earners.</li>
-<li><strong>Eight gaps already have funded startups,</strong> led by e-auto credit, battery swapping and branded intercity buses. Battery Smart and SUN Mobility alone have raised about $370M between them.</li>
-<li><strong>Six bets have no funded player,</strong> led by organising autos at the stand and school transport outside big cities, where Tracxn shows only 11 funded Indian startups.</li>
+<li><strong>Road is the sector.</strong> Of ₹6.2 lakh crore in fares, road takes ₹4.18 lakh crore, and road vehicles carry 55% of daily trips.</li>
+<li><strong>Private hands run almost all of it.</strong> The state runs 1.5 lakh buses. Private owners run about 1.1 crore commercial vehicles and 27 crore personal ones.</li>
+<li><strong>The biggest gaps are the least organised.</strong> Offline autos (₹1.68 lakh crore, 70 lakh vehicles) and informal para-transit (14 to 18 lakh vehicles) have no funded company organising them.</li>
+<li><strong>Money is going to the edges.</strong> Batteries, credit and branded buses have funded startups. The stand, the school van and the small-city bus do not.</li>
 </ol></div>
-<div class="callout"><p><strong>Definitions.</strong> Passenger travel here means a person moving by choice. A <strong>gap</strong> is a problem most sources report and that a startup or company is already moving into. A <strong>bet</strong> is a reported problem where no company is visibly working at scale. Each problem sits in one list only.</p></div>
 </section>
 
 <section id="s1">
-<h2><span class="no">Section 1</span>The whole sector, once</h2>
-<p>India's passenger transport splits cleanly into six parts by the surface a person travels on, plus one horizontal layer that serves all of them. Each part has its own rule-makers, its own infrastructure owner and its own operators. Open any branch below.</p>
-<div class="tree">
-<details open class="focus"><summary>1. Road transport <span class="gv">· Centre and states share control · focus of this report</span></summary><ul>
-<li><strong>Policy and regulation:</strong> MoRTH sets the Motor Vehicles Act and vehicle standards; state transport departments and RTOs issue permits, collect road tax and enforce.</li>
-<li><strong>Infrastructure:</strong> NHAI and MoRTH run national highways and expressways; state PWDs and city bodies run the rest.</li>
-<li><strong>Operations:</strong> state road transport undertakings, formal private buses, intermediate public transport (autos, e-rickshaws, taxis, ride-hailing), school and office fleets, informal para-transit, and personal two-wheelers and cars.</li></ul></details>
-<details><summary>2. Rail and urban rapid transit <span class="gv">· Centre and joint ventures</span></summary><ul>
-<li>Ministry of Railways sets intercity policy, MoHUA sets urban transit policy, and the Commission of Railway Safety oversees safety.</li>
-<li>Indian Railways runs 17 zones and about 70 divisions, with tickets through IRCTC. Bharat Gaurav and luxury tourist trains sit alongside.</li>
-<li>Metros and light rail run through 50:50 Centre-state companies and PPP concessions; RRTS through NCRTC.</li></ul></details>
-<details><summary>3. Civil aviation <span class="gv">· Centralised, deregulated</span></summary><ul>
-<li>MoCA sets policy. DGCA licenses and enforces safety, AERA sets airport tariffs, BCAS and CISF run security, and AAIB investigates accidents.</li>
-<li>AAI controls air traffic and public airports; private consortia run the large PPP airports.</li>
-<li>Full-service and low-cost airlines fly scheduled routes; UDAN commuter airlines, charters and helicopters fly the rest.</li></ul></details>
-<details><summary>4. Waterways and ferries <span class="gv">· Centre and coastal states</span></summary><ul>
-<li>The shipping ministry and DG Shipping regulate safety, IWAI runs inland waterways, and state maritime boards run coastal and local services.</li>
-<li>Island vessels run through the Shipping Corporation and UT administrations; water metros, ro-pax and river ferries run inland and on the coast.</li></ul></details>
-<details><summary>5. Cable and non-motorised <span class="gv">· Local and niche</span></summary><ul>
-<li>Ropeways and cable cars under MoRTH's Parvatmala programme and state authorities, run by tourism companies and PPP operators.</li>
-<li>Footpaths, skywalks and cycle tracks built by cities; bicycles, cycle-rickshaws and shared e-bikes and scooters run on them.</li></ul></details>
-<details><summary>6. Enablers across every mode <span class="gv">· Horizontal layers</span></summary><ul>
-<li><strong>Planning:</strong> PM Gati Shakti nationally, and Unified Metropolitan Transport Authorities in cities.</li>
-<li><strong>Digital and payment rails:</strong> NCMC cards, UPI for transit, FASTag, ONDC Mobility, Vahan and Sarathi registries, traffic control and e-challans.</li>
-<li><strong>Supply chain:</strong> vehicle and EV makers, rail coach factories, shipyards, maintenance shops, fuel and charging networks, scrappage centres.</li>
-<li><strong>Finance and response:</strong> transit budgets, multilateral lenders, vehicle NBFCs, IRDAI-regulated insurance, 108 ambulances and rescue forces.</li></ul></details>
+<h2><span class="no">Step 1</span>Who is involved in moving people</h2>
+<p>Everyone in passenger transport either moves people or makes it possible for someone else to. The first group earns from the trip. The second earns from the vehicle, the road, the money or the rules around it.</p>
+<div class="two">
+<div><h4>Directly involved: they make the trip happen</h4><ul>
+<li><strong>Riders</strong>, who pay the fare or own the vehicle</li>
+<li><strong>Drivers and owner-drivers</strong> of autos, cabs, buses and vans</li>
+<li><strong>Operators</strong>: state bus corporations, private bus and fleet owners, school and office fleets</li>
+<li><strong>Platforms</strong> that match riders and drivers or sell tickets</li></ul></div>
+<div><h4>Indirectly involved: they make the trip possible</h4><ul>
+<li><strong>Rule-makers</strong>: MoRTH, state transport departments and RTOs</li>
+<li><strong>Road owners</strong>: NHAI, state PWDs and city bodies</li>
+<li><strong>Vehicle makers</strong>, fuel retailers and charging and swap networks</li>
+<li><strong>Lenders and insurers</strong>, from vehicle NBFCs to IRDAI-regulated insurers</li>
+<li><strong>Digital rails</strong>: FASTag, UPI, Vahan, booking software</li></ul></div>
 </div>
-
-<h3>Exotic and niche travel</h3>
-<p>These modes are real but small, and none changes the picture. Ocean cruises carried 4.71 lakh passengers in FY24, worth roughly ₹830 Cr in FY25, and Cordelia Cruises holds about four-fifths of that. The Cruise Bharat Mission targets 10 lakh cruise passengers by 2029. River cruises ran 443 voyages on national waterways in FY25, up 19%.</p>
-<p>Space travel is not yet a market. Gaganyaan's first crewed flight is targeted for 2027, and no Indian company sells space tourism. Elsewhere, Kedarnath helicopters averaged about 215 flights a day in the 2025 season, Bharat Gaurav tourist trains carried over 96,000 people in 2023, only two UDAN seaplane water aerodromes were working as of October 2025, and a pipeline of 250+ ropeways is planned.</p>
-<p>Moving live animals, an estimated ₹26,500 Cr a year, is freight. An animal does not choose its trip, so it is not passenger travel and is counted nowhere in this report.</p>
+<p>Moving goods and animals sits outside this report. An animal does not choose its trip, so its transport (an estimated ₹26,500 Cr) is freight and is counted nowhere here.</p>
 </section>
 
 <section id="s2">
-<h2><span class="no">Section 2</span>Why road</h2>
-<p>Indians make about 165.5 crore trips a day longer than a kilometre. Road vehicles carry 55% of them: two-wheelers 31%, buses 11%, autos 9% and cars 4%. Walking and cycling carry another 42%, and metro, rail and app cabs about 1% each.</p>
-<figure class="ex"><div class="n">Exhibit 1</div><div class="h">Road vehicles carry more than half of all daily trips</div><div class="u">Share of daily trips over 1 km, %</div><div id="e1"></div><figcaption>Source: MoSPI / NSO National Household Travel Survey (Jul 2025 to Jun 2026). App cabs run on roads but are grouped with metro and rail here because the survey reports them together.</figcaption></figure>
-<p>The money follows. Of ₹6,20,066 Cr in fares, about ₹4,17,716 Cr, or 67%, goes to road services. Air takes ₹1.12 lakh crore and all rail, metro included, ₹90,400 Cr. And road fares are the smaller half of road spending: owning private vehicles costs households ₹17.9 lakh crore a year, 2.9 times all fares combined.</p>
-<figure class="ex"><div class="n">Exhibit 2</div><div class="h">Two of every three fare rupees are spent on the road</div><div class="u">Fares by mode, FY26, ₹ thousand crore</div><div id="e2"></div><figcaption>Source: MoRTH SRTU review; redBus India BusTrack FY26; Indian Railways / PIB FY26; DGCA / MoCA FY26; MoHUA and DMRC; MCA filings FY25. Rail includes metro (₹10,400 Cr) and suburban (₹4,000 Cr).</figcaption></figure>
-</section>
-
-<section id="s3">
-<h2><span class="no">Section 3</span>Rules and roads</h2>
-<h3>3.1 Who makes the rules</h3>
-<p>Road transport is a shared subject. The Centre writes the Motor Vehicles Act, vehicle safety and emission standards and, since 2025, the Motor Vehicles Aggregator Guidelines. States decide almost everything that touches a business: who gets a permit, how much road tax a vehicle pays, which fares apply and how hard the rules are enforced. So one national law turns into many state markets.</p>
-<p>Bike taxis show how far apart they sit. Maharashtra allows electric bike taxis only, with a 15 km trip cap and a full switch off petrol by July 2027. Karnataka's are tied up in court, Delhi has not notified final rules, and Tamil Nadu has none. The aggregator guidelines give drivers at least 80% of the fare and cap surge at twice the base fare, but most states have not enforced them.</p>
-<p>Labour rules are moving fastest. Karnataka and Telangana passed gig worker acts, and five states charge platforms 1 to 5% for gig welfare. The levy falls on payouts, so subscription apps where riders pay drivers directly mostly escape it for now.</p>
-<p>Money from the Centre shapes what gets bought. PM E-DRIVE subsidises electric commercial vehicles, and the PM e-Bus Sewa payment fund guarantees operators get paid on 38,000+ electric buses. Diesel and CNG bus contracts sit outside it.</p>
-<h3>3.2 The roads themselves</h3>
-<p>NHAI and MoRTH own national highways and expressways, and states and cities own everything else. Highways are where private money already earns: toll collections reached about ₹82,900 Cr, up 14%, over 4.45 billion FASTag transactions. Faster highways are also what made overnight sleeper buses and outstation cabs worth running.</p>
-<p>The cost shows up in safety. Road crashes killed 1.83 lakh people in 2025. Two-wheeler riders were 46% of the dead and pedestrians 21%, while buses carry 11% of trips and account for 2% of deaths.</p>
-</section>
-
-<section id="s4">
-<h2><span class="no">Section 4</span>Road operations, segment by segment</h2>
-<p>The six operating segments below cover every paid and unpaid road trip without overlap. Five are sized in fares; personal vehicles are sized by what owners spend.</p>
-<figure class="ex"><div class="n">Exhibit 3</div><div class="h">Autos, taxis and app rides take six of every ten road fare rupees</div><div class="u">Road fares by operating segment, FY26, ₹ thousand crore</div><div id="e3"></div><figcaption>Source: MoRTH SRTU review; redBus India BusTrack FY26; MCA filings FY25; VAHAN; industry estimates. Informal para-transit is not sized; its fares overlap with autos and school transport.</figcaption></figure>
-
-<h3>4.1 State road transport undertakings · ₹66,000 Cr</h3>
-<p>India's 58 state bus corporations, including BMTC, BEST, DTC, MSRTC and KSRTC, run about 1.5 lakh buses and carry about 7 crore riders a day. Intercity routes bring in ₹47,500 Cr and city routes ₹18,500 Cr. Together they lose about ₹22,500 Cr in cash a year. Free bus travel for women in Karnataka, Tamil Nadu, Telangana and Delhi has raised ridership sharply and made states, not riders, the main payer.</p>
-
-<h3>4.2 Formal private buses · ₹47,916 Cr</h3>
-<p>Private operators own about 87% of India's buses. On intercity routes, 6,858 operators carried 28.72 crore passengers in FY26 for ₹27,416 Cr, up 24.5%. AC sleepers are 55 to 60% of trips and earn 12 to 15% margins, yet 81% of tickets are still sold offline. In cities, private stage carriages and charters take about ₹20,500 Cr, mainly in Kerala, West Bengal and Odisha, where private buses run regular routes.</p>
-
-<h3>4.3 Intermediate public transport · ₹2,53,800 Cr</h3>
-<p>This is the heart of road mobility. <strong>Autos and e-rickshaws</strong> collect ₹1.68 lakh crore from 70 lakh vehicles, 25 lakh of them electric. A typical auto earns ₹19,900 a month and the driver keeps 45%. <strong>Ride-hailing apps</strong> handle ₹38,500 Cr across 303 crore rides; bikes and autos are 78% of those rides, and Rapido runs about half. <strong>Outstation cabs</strong> take ₹37,500 Cr, with 70% booked through local agents, and <strong>self-drive rentals and driver leases</strong> ₹9,800 Cr.</p>
-<figure class="ex"><div class="n">Exhibit 4</div><div class="h">Of every ₹100 an auto earns, ₹24 goes to the lender or owner</div><div class="u">Split of a typical auto's monthly earnings of ₹19,900, %</div><div id="e4"></div><figcaption>Source: VAHAN; FADA / JMK Research (Oct 2026); RevFin and Mufin Green Finance FY26; PPAC.</figcaption></figure>
-
-<h3>4.4 School and office fleets · ₹50,000 Cr</h3>
-<p>School and college buses take ₹27,500 Cr, carrying 1.5 crore students at ₹1,500 to ₹2,200 a month and growing about 8% a year. New rules require GPS and CCTV. Office commute takes ₹22,500 Cr, paid by employers on multi-year contracts, and is one of the few profitable road segments; MoveInSync runs at a 34% margin.</p>
-
-<h3>4.5 Informal para-transit · not sized</h3>
-<p>Below the permit system sit modified rural vehicles such as the jugaad and chhakda, unlicensed vans and about 4.75 lakh unregistered e-rickshaws in UP, Bihar, Assam, Delhi and West Bengal. School vans alone are worth about ₹5,000 Cr. Nobody has counted this segment properly, which is itself the finding: the transport most of rural India uses is invisible to every dataset in this report.</p>
-
-<h3>4.6 Personal two-wheelers and cars · ₹17.9 lakh crore of ownership cost</h3>
-<p>The scooter is the price every paid service has to beat. Two-wheelers carry 31% of trips and cars 4%. Owning and running them costs households ₹17.9 lakh crore a year, of which about ₹1.25 lakh crore overlaps with commercial use. Used vehicles add ₹4 lakh crore of resale, used cars sell 1.4 times as often as new ones, and the vehicle loan book stands at ₹20.5 lakh crore.</p>
-</section>
-
-<section id="s5">
-<h2><span class="no">Section 5</span>Who makes money on the road</h2>
-<p>Road operators that run their own vehicles lose money, and the losses sit mostly with the state. The private profit sits with firms that organise other people's vehicles under contract, and with drivers.</p>
-<figure class="ex"><div class="n">Exhibit 5</div><div class="h">State buses lose money; commute and outstation networks earn it</div><div class="u">Operating profit (EBITDA) by road pool, FY26, ₹ Cr</div><div id="e5"></div><figcaption>Source: MoRTH SRTU review; MCA filings FY25; NSE and BSE filings (Nov 2026). Selected pools.</figcaption></figure>
-<p>The largest pile of money belongs to no company: auto drivers take home ₹75,600 Cr a year. Electric is cheaper per km in every class. Over five years an e-auto costs ₹3.29 a km against ₹5.51 for CNG, leaving the driver ₹8,965 a month better off; an EV cab costs ₹6.00 a km against ₹7.58. Lenders that track the vehicle keep bad loans at 1.5 to 2.5%, against 3.5 to 5.5% for others.</p>
-<p>Capital has followed the platforms. Outside investors put $1.15 billion into mobility from FY23 to November 2026 across 86 deals: ride-hailing took 52%, EV fleets and shared bikes 33%, and bus and commute tech 15%. Rapido is valued at $3 billion, while Ola has been marked down from $7.3 billion to about $1.5 billion.</p>
-</section>
-
-<section id="s6">
-<h2><span class="no">Section 6</span>What is changing, FY26 to FY31</h2>
-<div class="tw"><table><thead><tr><th>Shift</th><th>Evidence</th><th>Implication</th></tr></thead><tbody>
-<tr><td><strong>More people can pay for comfort</strong></td><td>80 to 85M households at ₹10 to 30 lakh by 2031</td><td>Cabs, premium buses and first cars grow</td></tr>
-<tr><td><strong>App growth goes down-market</strong></td><td>Bikes and autos 78% of app rides; 90% of small-town app trips cost ₹25 to ₹70</td><td>Cheapest rides drive volume</td></tr>
-<tr><td><strong>Platforms become driver software</strong></td><td>Daily passes of ₹20 to ₹40 replace 20 to 30% commission</td><td>The driver is the paying customer</td></tr>
-<tr><td><strong>Commercial vehicles electrify first</strong></td><td>One in two new three-wheelers is electric</td><td>Credit and batteries become the bottleneck</td></tr>
-<tr><td><strong>Intercity goes premium</strong></td><td>Private coaches +24.5%; sleepers earn 12 to 15%</td><td>Comfort is a paid product</td></tr>
-<tr><td><strong>States fund, not operate</strong></td><td>Per-km bus contracts; payment fund for 38,000+ e-buses</td><td>Private operators enter city buses</td></tr>
-<tr><td><strong>Rules catch up</strong></td><td>80% fare floor, 2x surge cap, gig levies of 1 to 5%</td><td>Platform costs rise</td></tr>
-<tr><td><strong>Ownership turns into finance</strong></td><td>Used cars sell 1.4x new; EV leases at ₹450 a day</td><td>Leasing and subscription grow</td></tr>
+<h2><span class="no">Step 2</span>Road, rail, air and water</h2>
+<p>Every passenger trip happens on one of four surfaces. Road takes two-thirds of the fare money and more than half the trips. Rail and air are run or tightly held by the state or by two airlines, and water is tiny.</p>
+<figure class="ex"><div class="n">Exhibit 1</div><div class="h">Two of every three fare rupees are spent on the road</div><div class="u">Fares by mode, FY26, ₹ thousand crore</div><div id="e2"></div><figcaption>Source: MoRTH SRTU review; redBus India BusTrack FY26; Indian Railways / PIB FY26; DGCA / MoCA FY26; MoHUA; KMRL. Rail includes metro and suburban. Water is ferries and water metros.</figcaption></figure>
+<div class="tw"><table><thead><tr><th>Mode</th><th class="num">Fares, ₹ Cr</th><th>Who controls it</th><th>Why it is or isn't open</th></tr></thead><tbody>
+<tr><td><strong>Road</strong></td><td class="num">4,17,716</td><td>Mostly private, much of it informal</td><td>Millions of small owners; low entry cost</td></tr>
+<tr><td>Air</td><td class="num">1,12,000</td><td>Two airlines hold over 91%</td><td>Capital-heavy and closed to entrants</td></tr>
+<tr><td>Rail, incl. metro</td><td class="num">90,400</td><td>The state</td><td>Run by Indian Railways and state metro companies</td></tr>
+<tr><td>Water</td><td class="num">1,450</td><td>State and a few private ferries</td><td>Useful only where water is the shortest route</td></tr>
 </tbody></table></div>
 </section>
 
+<section id="s3">
+<h2><span class="no">Step 3</span>Why road</h2>
+<p>Indians make about 165.5 crore trips a day longer than a kilometre. Road vehicles carry 55% of them: two-wheelers 31%, buses 11%, autos 9% and cars 4%. On top of ₹4.18 lakh crore in road fares, households spend ₹17.9 lakh crore a year owning their own vehicles.</p>
+<figure class="ex"><div class="n">Exhibit 2</div><div class="h">Road vehicles carry more than half of all daily trips</div><div class="u">Share of daily trips over 1 km, %</div><div id="e1"></div><figcaption>Source: MoSPI / NSO National Household Travel Survey (Jul 2025 to Jun 2026).</figcaption></figure>
+<p>Road is also where the rules are least settled, which is where openings appear. The Centre writes the Motor Vehicles Act and the 2025 Aggregator Guidelines; states set permits, road tax and fares. A commercial cab pays 4% of its price as tax in Delhi and up to 15% in Karnataka, and electric commercial vehicles are close to tax-free in most large states. National highways have grown to 1,46,560 km, and expressways have cut journeys like Mumbai to Nagpur from 17 hours to 8.</p>
+</section>
+
+<section id="s4">
+<h2><span class="no">Step 4</span>Public and private road transport</h2>
+<p>The state owns a small slice of road transport. Even where it pays, it increasingly hires private operators per km instead of running buses itself.</p>
+<div class="two">
+<div><h4>Public · ₹66,000 Cr in fares</h4><ul>
+<li><strong>58 state transport undertakings</strong> run about 1.5 lakh buses and carry about 7 crore riders a day</li>
+<li>City routes ₹18,500 Cr, intercity and rural ₹47,500 Cr</li>
+<li>They lose about ₹22,500 Cr in cash a year. A city state bus costs ₹88 to ₹105 a km and earns ₹44 to ₹52</li>
+<li>New electric buses are bought by the state but run by private contractors at ₹45 to ₹65 a km</li></ul></div>
+<div><h4>Private · ₹3,51,716 Cr in fares, plus personal vehicles</h4><ul>
+<li><strong>Commercial</strong>: autos, e-rickshaws, cabs, private buses, school and office fleets, and the informal layer</li>
+<li><strong>Personal</strong>: 22.5 crore two-wheelers and 4.35 crore cars, costing households ₹17.9 lakh crore a year</li>
+<li>A private AC sleeper costs ₹42 to ₹48 a km and earns ₹48 to ₹56, a 12 to 15% margin</li>
+<li>The gap with the state is mostly staff: 4.4 to 6.5 employees per state bus against 2.1 to 2.4 drivers for a private contractor</li></ul></div>
+</div>
+<figure class="ex"><div class="n">Exhibit 3</div><div class="h">A state bus loses money on every km; a private bus earns on the same road</div><div class="u">Cost and revenue per km, ₹, midpoints of reported ranges</div><div id="e3"></div><figcaption>Source: MoRTH Review of SRTU Performance; ASRTU performance reports; CESL and PM e-Bus Sewa contract benchmarks.</figcaption></figure>
+</section>
+
+<section id="s5">
+<h2><span class="no">Step 5</span>The vehicles, public and private</h2>
+<div class="tw"><table><thead><tr><th>Vehicle</th><th>Public or private</th><th class="num">On the road</th><th class="num">Fares, ₹ Cr</th><th>What it does</th></tr></thead><tbody>
+<tr><td>State buses</td><td>Public</td><td class="num">1.5 lakh</td><td class="num">66,000</td><td>City, intercity and rural routes at a loss</td></tr>
+<tr><td>Contracted electric city buses</td><td>Public, privately run</td><td class="num">38,000+ funded</td><td class="num">in state figures</td><td>Paid per km through the central payment fund</td></tr>
+<tr><td>Autos (CNG, petrol)</td><td>Private</td><td class="num">45 lakh</td><td rowspan="2" class="num">1,68,000</td><td rowspan="2">The largest fare pool; 98% of trips offline</td></tr>
+<tr><td>E-rickshaws and e-autos</td><td>Private</td><td class="num">25.3 lakh</td></tr>
+<tr><td>Cabs and maxi cabs</td><td>Private</td><td class="num">24.5 lakh</td><td class="num">85,800</td><td>App rides, outstation trips and self-drive</td></tr>
+<tr><td>Private stage and charter buses</td><td>Private</td><td class="num">2.55 lakh</td><td class="num">20,500</td><td>Scheduled routes in Kerala and Bengal; wedding and event hire</td></tr>
+<tr><td>Private intercity coaches</td><td>Private</td><td class="num">in 10.9 lakh private buses</td><td class="num">27,416</td><td>AC sleepers growing 24.5% a year</td></tr>
+<tr><td>School buses and vans</td><td>Private and school-owned</td><td class="num">7.3 lakh</td><td class="num">32,500</td><td>1.5 crore students, paid monthly by parents</td></tr>
+<tr><td>Office cabs and shuttles</td><td>Private</td><td class="num">not counted</td><td class="num">22,500</td><td>Paid by employers on multi-year contracts</td></tr>
+<tr><td>Jugaads, chhakdas, unlicensed vans</td><td>Private, informal</td><td class="num">14 to 18 lakh</td><td class="num">not sized</td><td>Rural and small-town transport outside every permit</td></tr>
+<tr><td>Two-wheelers</td><td>Personal</td><td class="num">22.5 crore</td><td class="num">n/a</td><td>31% of all trips</td></tr>
+<tr><td>Cars and SUVs</td><td>Personal</td><td class="num">4.35 crore</td><td class="num">n/a</td><td>4% of trips</td></tr>
+</tbody></table></div>
+<p class="src" style="margin-top:8px">Source: VAHAN (registrations less estimated scrappage, Nov 2026); MoRTH; redBus BusTrack FY26; state transport departments; ITDP India and World Bank paratransit studies. Cab fares combine ride-hailing (₹38,500 Cr), outstation (₹37,500 Cr) and self-drive (₹9,800 Cr). School fares include ₹5,000 Cr of vans.</p>
+</section>
+
+<section id="s6">
+<h2><span class="no">Step 6</span>The gaps nobody has closed</h2>
+<p>Each problem below is reported across sources and shows up in what people actually do. Some have funded companies working near them, but none is solved. The tag shows how far anyone has got: <span class="pill open">Unaddressed</span> means no funded company is working on it directly; <span class="pill part">Partly addressed</span> means startups are in but most of the problem is still open.</p>
+
+<div class="card"><span class="pill open">Unaddressed</span><h4 style="margin-top:10px">1. Nobody organises the auto stand</h4><dl><dt>Problem</dt><dd>98% of auto trips never touch an app. Apps try to pull rides online; nobody serves the stand, the shared route and the cash fare as they already work.</dd></dl></div>
+<div class="card"><span class="pill open">Unaddressed</span><h4 style="margin-top:10px">2. Informal para-transit runs outside the system</h4><dl><dt>Problem</dt><dd>Jugaads, chhakdas, white-plate vans and unregistered e-rickshaws carry rural India with no permit, insurance or credit. States respond with crackdowns, not a path to legality.</dd></dl></div>
+<div class="card"><span class="pill open">Unaddressed</span><h4 style="margin-top:10px">3. Women's first and last mile</h4><dl><dt>Problem</dt><dd>77% of women say poor access to transit keeps them off it. When Karnataka made buses free, women's daily trips rose from 37.5 to 67 lakh, which shows how much demand is held back.</dd></dl></div>
+<div class="card"><span class="pill open">Unaddressed</span><h4 style="margin-top:10px">4. School vans and buses outside big cities</h4><dl><dt>Problem</dt><dd>3.5 lakh vans are run by owner-drivers hired directly by parents, and new rules now require GPS, CCTV and regulated fares. Only 11 Indian school transport startups have raised money, and two have shut.</dd></dl></div>
+<div class="card"><span class="pill open">Unaddressed</span><h4 style="margin-top:10px">5. 400+ cities with no organised buses</h4><dl><dt>Problem</dt><dd>Funded bus companies chase big-city contracts inside the payment fund. Small cities can't pay reliably, so every missing bus trip becomes an auto ride or a scooter.</dd></dl></div>
+<div class="card"><span class="pill open">Unaddressed</span><h4 style="margin-top:10px">6. One bundle of services for the driver</h4><dl><dt>Problem</dt><dd>Drivers buy finance, insurance, charging and bookings separately. Only 19% of women auto drivers in one survey have insurance, and 93% carry loans.</dd></dl></div>
+<div class="card"><span class="pill part">Partly addressed</span><h4 style="margin-top:10px">7. Expensive credit for e-autos</h4><dl><dt>Problem</dt><dd>Three in four e-autos are bought on credit at 14 to 30%, and the loan or rent takes 24% of what an auto earns.</dd></dl></div>
+<div class="card"><span class="pill part">Partly addressed</span><h4 style="margin-top:10px">8. Battery cost and life</h4><dl><dt>Problem</dt><dd>The battery is most of an EV's cost and nobody knows its value after five summers. Swapping exists in big cities only.</dd></dl></div>
+<div class="card"><span class="pill part">Partly addressed</span><h4 style="margin-top:10px">9. Intercity buses and cabs still sold offline</h4><dl><dt>Problem</dt><dd>81% of private bus tickets and 70% of outstation cab trips are booked offline through agents.</dd></dl></div>
+<div class="card"><span class="pill part">Partly addressed</span><h4 style="margin-top:10px">10. Electric cabs that make money</h4><dl><dt>Problem</dt><dd>BluSmart lost ₹470 Cr on ₹172 Cr revenue before collapsing in 2025. No fleet has shown a profitable model.</dd></dl></div>
+<div class="card"><span class="pill part">Partly addressed</span><h4 style="margin-top:10px">11. Crashes on two wheels and in fleets</h4><dl><dt>Problem</dt><dd>Road crashes killed 1.83 lakh people in 2025; two-wheeler riders were 46% of them. Fleet safety tech exists for trucks and large fleets, not for scooters or small operators.</dd></dl></div>
+</section>
+
 <section id="s7">
-<h2><span class="no">Section 7</span>Gaps: problems startups are already moving into</h2>
-<p>Each gap is a road problem reported across sources where funded companies are already building. The startups listed are the main ones working on or next to the problem, with total funding as Tracxn states it. Tracxn's own pages sometimes disagree; where they do, the higher figure is shown.</p>
-<figure class="ex"><div class="n">Exhibit 6</div><div class="h">Gaps and bets by how proven the payer is and how much startup money is already in</div><div class="u">Qualitative placement based on evidence in this report</div><div id="e6"></div><figcaption>Placement is a judgement from Sections 2 to 6 and Tracxn funding, not a measured score.</figcaption></figure>
-
-<div class="card"><span class="tag gap">Gap 1</span><h4>Expensive credit for e-autos</h4><dl>
-<dt>Problem</dt><dd>Three in four new e-autos are bought on credit at 14 to 30%. The loan or rent takes 24% of what an auto earns.</dd>
-<dt>What is still open</dt><dd>Credit for drivers without a history, and pricing the battery's resale value.</dd>
-<dt>Wrong if</dt><dd>Battery values collapse after a few summers.</dd></dl>
-<div class="st"><b>Startups on Tracxn</b><table><tr><td>RevFin</td><td>Digital lender for e-autos</td><td class="num">$34.8M</td></tr><tr><td>Three Wheels United</td><td>Driver loans for e-autos, Bengaluru</td><td class="num">$10.1M</td></tr><tr><td>VidyutTech</td><td>EV and battery financing</td><td class="num">n/a</td></tr><tr><td>Mufin Green Finance</td><td>Listed EV lender</td><td class="num">Listed</td></tr></table></div></div>
-
-<div class="card"><span class="tag gap">Gap 2</span><h4>Battery cost and life</h4><dl>
-<dt>Problem</dt><dd>The battery is most of an EV's cost, and nobody knows what it is worth after five Indian summers.</dd>
-<dt>What is still open</dt><dd>Swap density outside big cities, standard formats and second-life value.</dd>
-<dt>Wrong if</dt><dd>Fixed batteries get cheap enough that swapping stops paying.</dd></dl>
-<div class="st"><b>Startups on Tracxn</b><table><tr><td>SUN Mobility</td><td>Swap stations for 2W, 3W and buses</td><td class="num">$188M</td></tr><tr><td>Battery Smart</td><td>Swap network for e-2W and e-3W</td><td class="num">$186M</td></tr><tr><td>Yuma Energy</td><td>Battery swapping</td><td class="num">n/a</td></tr><tr><td>Nunam</td><td>Second-life EV batteries</td><td class="num">Undisclosed</td></tr></table></div></div>
-
-<div class="card"><span class="tag gap">Gap 3</span><h4>Platform fees drivers can afford</h4><dl>
-<dt>Problem</dt><dd>Commission of 20 to 30% took about 28% of an auto driver's earnings.</dd>
-<dt>What is still open</dt><dd>Little. Daily passes are now standard, and the fight is over what else to sell the driver.</dd>
-<dt>Wrong if</dt><dd>States tax daily passes like commission.</dd></dl>
-<div class="st"><b>Startups on Tracxn</b><table><tr><td>Rapido</td><td>Bike, auto and cab hailing on driver passes</td><td class="num">$800M</td></tr><tr><td>Namma Yatri</td><td>Zero-commission open-network app</td><td class="num">$15.4M</td></tr></table></div></div>
-
-<div class="card"><span class="tag gap">Gap 4</span><h4>Premium intercity buses still sold offline</h4><dl>
-<dt>Problem</dt><dd>Private coaches grew 24.5% and sleepers earn 12 to 15%, but 81% of bus tickets are sold offline by 6,858 mostly small operators.</dd>
-<dt>What is still open</dt><dd>Operator software and direct booking for regional fleets.</dd>
-<dt>Wrong if</dt><dd>Large operators sell direct and bypass platforms.</dd></dl>
-<div class="st"><b>Startups on Tracxn</b><table><tr><td>IntrCity SmartBus</td><td>Branded intercity bus network</td><td class="num">$45.3M</td></tr><tr><td>zingbus</td><td>Intercity bus network</td><td class="num">$16.4M</td></tr><tr><td>Fresh Bus</td><td>Electric intercity coaches</td><td class="num">$15.6M</td></tr></table></div></div>
-
-<div class="card"><span class="tag gap">Gap 5</span><h4>Reliable office commutes</h4><dl>
-<dt>Problem</dt><dd>Employers spend ₹22,500 Cr moving staff and want reliability and safety, especially on late shifts.</dd>
-<dt>What is still open</dt><dd>Smaller employers and Tier-2 office clusters.</dd>
-<dt>Wrong if</dt><dd>Hybrid work cuts office attendance for good.</dd></dl>
-<div class="st"><b>Startups on Tracxn</b><table><tr><td>Routematic</td><td>Managed employee transport, EV fleet</td><td class="num">$47.1M</td></tr><tr><td>MoveInSync</td><td>Commute management software</td><td class="num">$32.7M</td></tr><tr><td>Cityflo</td><td>Premium commuter buses, Mumbai</td><td class="num">$19.0M</td></tr></table></div></div>
-
-<div class="card"><span class="tag gap">Gap 6</span><h4>Electric cabs after BluSmart</h4><dl>
-<dt>Problem</dt><dd>BluSmart collapsed in 2025 after losing ₹470 Cr on ₹172 Cr revenue in FY24, leaving riders who wanted a reliable electric cab.</dd>
-<dt>What is still open</dt><dd>A fleet model that makes money.</dd>
-<dt>Wrong if</dt><dd>Fleet unit economics stay negative at scale.</dd></dl>
-<div class="st"><b>Startups on Tracxn</b><table><tr><td>Evera Cabs</td><td>All-EV cab fleet, Delhi</td><td class="num">$14.0M</td></tr><tr><td>Snap-E Cabs</td><td>EV cab fleet, Kolkata</td><td class="num">$5.0M</td></tr><tr><td>Refex Green Mobility</td><td>EV fleet for office commute</td><td class="num">Unfunded</td></tr></table></div></div>
-
-<div class="card"><span class="tag gap">Gap 7</span><h4>Electric city buses in large cities</h4><dl>
-<dt>Problem</dt><dd>India runs a tenth of the city buses it needs, and 5.8 lakh buses retire by FY30.</dd>
-<dt>What is still open</dt><dd>Contracts outside the central payment fund, where states pay 2 to 6 months late.</dd>
-<dt>Wrong if</dt><dd>States stop paying on time even inside the fund.</dd></dl>
-<div class="st"><b>Startups on Tracxn</b><table><tr><td>EKA Mobility</td><td>Electric bus maker</td><td class="num">$179M</td></tr><tr><td>Chalo</td><td>Bus ticketing, tracking and operations</td><td class="num">$117M</td></tr><tr><td>PMI Electro Mobility</td><td>Electric buses on per-km contracts</td><td class="num">$89.2M</td></tr><tr><td>SWITCH</td><td>Electric buses</td><td class="num">$18.0M</td></tr></table></div></div>
-
-<div class="card"><span class="tag gap">Gap 8</span><h4>Crashes in commercial fleets</h4><dl>
-<dt>Problem</dt><dd>Road crashes killed 1.83 lakh people in 2025, and fleets carry the liability for their drivers.</dd>
-<dt>What is still open</dt><dd>Products priced for small bus and cab operators, not only large truck fleets.</dd>
-<dt>Wrong if</dt><dd>Small operators won't pay without an insurance discount.</dd></dl>
-<div class="st"><b>Startups on Tracxn</b><table><tr><td>Netradyne</td><td>AI dashcams and driver monitoring</td><td class="num">$297M</td></tr><tr><td>Intangles</td><td>Predictive vehicle health for fleets</td><td class="num">$53.2M</td></tr></table></div></div>
+<h2><span class="no">Step 7</span>How big the gaps are</h2>
+<p>Volume is the number of vehicles, people or trips the problem touches. Money is the fare pool or spending at stake, not the revenue a startup could capture.</p>
+<figure class="ex"><div class="n">Exhibit 4</div><div class="h">The two largest gaps by money are both unaddressed</div><div class="u">Money at stake by gap, ₹ thousand crore. Dark: unaddressed; blue: partly addressed</div><div id="e4"></div><figcaption>Credit is 24% of auto fares (₹1.68 lakh crore). Offline intercity combines 81% of private bus fares and 70% of outstation cab fares. Gaps with no money figure are left out.</figcaption></figure>
+<div class="tw"><table><thead><tr><th>Gap</th><th>Status</th><th>Volume</th><th class="num">Money, ₹ Cr</th></tr></thead><tbody>
+<tr><td>1. Organise the auto stand</td><td><span class="pill open">Unaddressed</span></td><td>70 lakh vehicles; 98% of trips offline</td><td class="num">1,68,000</td></tr>
+<tr><td>2. Informal para-transit</td><td><span class="pill open">Unaddressed</span></td><td>14 to 18 lakh vehicles</td><td class="num">not sized</td></tr>
+<tr><td>3. Women's first and last mile</td><td><span class="pill open">Unaddressed</span></td><td>29.5 lakh extra daily trips appeared in Karnataka alone once buses were free</td><td class="num">not sized</td></tr>
+<tr><td>4. School transport</td><td><span class="pill open">Unaddressed</span></td><td>7.3 lakh vehicles; 1.5 crore students</td><td class="num">32,500</td></tr>
+<tr><td>5. Small-city buses</td><td><span class="pill open">Unaddressed</span></td><td>400+ cities; 5.8 lakh buses retire by FY30</td><td class="num">not sized</td></tr>
+<tr><td>6. Driver services bundle</td><td><span class="pill open">Unaddressed</span></td><td>About 95 lakh auto and cab drivers</td><td class="num">not sized</td></tr>
+<tr><td>7. E-auto credit</td><td><span class="pill part">Partly</span></td><td>3 in 4 new e-autos on credit</td><td class="num">40,300</td></tr>
+<tr><td>8. Battery cost and life</td><td><span class="pill part">Partly</span></td><td>25.3 lakh passenger e-rickshaws and e-autos</td><td class="num">not sized</td></tr>
+<tr><td>9. Offline intercity bookings</td><td><span class="pill part">Partly</span></td><td>28.72 crore bus passengers a year</td><td class="num">48,500</td></tr>
+<tr><td>10. Profitable EV cabs</td><td><span class="pill part">Partly</span></td><td>24.5 lakh cabs and maxi cabs</td><td class="num">38,500</td></tr>
+<tr><td>11. Road crashes</td><td><span class="pill part">Partly</span></td><td>1.83 lakh deaths in 2025</td><td class="num">not sized</td></tr>
+</tbody></table></div>
+<p class="src" style="margin-top:8px">Money for gap 10 is the ride-hailing pool the EV cab fleets compete in.</p>
 </section>
 
 <section id="s8">
-<h2><span class="no">Section 8</span>Bets: problems nobody is solving</h2>
-<p>Each bet is a reported road problem where Tracxn shows no funded startup working on it directly. The startups listed sit next to the problem and are the likeliest to move in.</p>
-
-<div class="card"><span class="tag bet">Bet 1</span><h4>Organise the offline auto economy where it lives</h4><dl>
-<dt>Problem</dt><dd>₹1.68 lakh crore and 70 lakh vehicles run almost entirely offline; 98% of auto trips never touch an app.</dd>
-<dt>Why nobody has</dt><dd>Apps try to pull rides online. Nobody serves the stand, the shared route and the cash or UPI fare as they already work.</dd>
-<dt>Who would pay</dt><dd>Drivers, who already pay ₹20 to ₹450 a day for passes and leases.</dd>
-<dt>Wrong if</dt><dd>Drivers won't pay for anything that doesn't bring them rides.</dd></dl>
-<div class="st"><b>Adjacent startups on Tracxn</b><table><tr><td>Yulu</td><td>EV two-wheeler fleet for gig workers</td><td class="num">$198M</td></tr><tr><td>Zypp Electric</td><td>EV two-wheeler fleet for delivery</td><td class="num">$76.5M</td></tr><tr><td>EVeez</td><td>EV rental for gig workers</td><td class="num">n/a</td></tr></table></div></div>
-
-<div class="card"><span class="tag bet">Bet 2</span><h4>A safe first and last mile for women</h4><dl>
-<dt>Problem</dt><dd>77% of women say poor access to and from transit keeps them off it. When Karnataka made buses free, women's daily trips nearly doubled.</dd>
-<dt>Why nobody has</dt><dd>Women-only offers such as Rapido's Bike Pink cost more and drew complaints, and women are 0.8% of drivers in one sample.</dd>
-<dt>Who would pay</dt><dd>Employers or the state, more likely than women themselves.</dd>
-<dt>Wrong if</dt><dd>It can't match the convenience of what exists.</dd></dl>
-<div class="st"><b>Adjacent startups on Tracxn</b><p style="font-size:13.5px;margin:0">No funded startup found. The nearest activity is a feature inside Rapido, not a company.</p></div></div>
-
-<div class="card"><span class="tag bet">Bet 3</span><h4>School transport beyond the big cities</h4><dl>
-<dt>Problem</dt><dd>₹27,500 Cr of school buses plus about ₹5,000 Cr of vans carry 1.5 crore students, and new rules require GPS and CCTV.</dd>
-<dt>Why nobody has</dt><dd>Schools treat it as a chore, and the market is fragmented. Tracxn lists 72 Indian school transport startups, of which only 11 are funded; SafeTrack and Zuwagon have shut.</dd>
-<dt>Who would pay</dt><dd>Parents, who already pay ₹1,500 to ₹2,200 a month.</dd>
-<dt>Wrong if</dt><dd>Schools keep it informal and rules go unenforced.</dd></dl>
-<div class="st"><b>Adjacent startups on Tracxn</b><table><tr><td>TrackNOW</td><td>GPS tracking, including school buses</td><td class="num">Seed, undisclosed</td></tr><tr><td>TrackSchoolBus</td><td>School bus tracking</td><td class="num">Unfunded</td></tr></table></div></div>
-
-<div class="card"><span class="tag bet">Bet 4</span><h4>Buses for the 400+ cities with none</h4><dl>
-<dt>Problem</dt><dd>More than 400 cities have no organised public transport, and every missing bus trip becomes an auto ride or a scooter.</dd>
-<dt>Why nobody has</dt><dd>Funded bus companies chase large-city contracts inside the payment fund. Small cities can't pay reliably.</dd>
-<dt>Who would pay</dt><dd>States, per km, where payment is guaranteed.</dd>
-<dt>Wrong if</dt><dd>Contracts stay outside the central payment fund.</dd></dl>
-<div class="st"><b>Adjacent startups on Tracxn</b><table><tr><td>Chalo</td><td>Bus operations in mid-sized cities</td><td class="num">$117M</td></tr><tr><td>PMI Electro Mobility</td><td>Electric buses on per-km contracts</td><td class="num">$89.2M</td></tr></table></div></div>
-
-<div class="card"><span class="tag bet">Bet 5</span><h4>One bundle of services for the driver</h4><dl>
-<dt>Problem</dt><dd>Drivers buy finance, insurance, charging and bookings from different places. Only 19% of women auto drivers in one survey have insurance, and 93% carry loans.</dd>
-<dt>Why nobody has</dt><dd>Each company serves one piece: lenders lend, apps book, swappers swap.</dd>
-<dt>Who would pay</dt><dd>Drivers, with platforms pushed by gig welfare laws to cover them.</dd>
-<dt>Wrong if</dt><dd>The pieces stay cheaper bought separately.</dd></dl>
-<div class="st"><b>Adjacent startups on Tracxn</b><p style="font-size:13.5px;margin:0">No driver-specific insurance or welfare startup found. RevFin, Battery Smart and Rapido each serve one piece and could widen.</p></div></div>
-
-<div class="card"><span class="tag bet">Bet 6</span><h4>Rural and informal para-transit</h4><dl>
-<dt>Problem</dt><dd>Jugaads, chhakdas, unlicensed vans and about 4.75 lakh unregistered e-rickshaws carry much of rural and small-town India, uncounted and uninsured.</dd>
-<dt>Why nobody has</dt><dd>The vehicles sit outside permits, so lenders, insurers and apps can't see them.</dd>
-<dt>Who would pay</dt><dd>Unclear. Possibly states paying to formalise, or makers of cheap electric replacements.</dd>
-<dt>Wrong if</dt><dd>Formalising raises costs enough to push riders back onto two-wheelers.</dd></dl>
-<div class="st"><b>Adjacent startups on Tracxn</b><p style="font-size:13.5px;margin:0">None found.</p></div></div>
+<h2><span class="no">Step 8</span>Startups capturing each gap, or next to it</h2>
+<p>Funding as stated on Tracxn unless marked. "Next to it" means the company serves the same people or vehicles but not the problem itself.</p>
+<div class="tw"><table><thead><tr><th>Gap</th><th>On the gap</th><th>Next to it</th></tr></thead><tbody>
+<tr><td>1. Auto stand</td><td>None found</td><td>Yulu ($198M), Zypp Electric ($76.5M), Namma Yatri ($15.4M)</td></tr>
+<tr><td>2. Informal para-transit</td><td>None found</td><td>GOGO Bus, rural bus aggregator (seed, user research)</td></tr>
+<tr><td>3. Women's first and last mile</td><td>None found</td><td>Sakha Consulting Wings and Safetipin (grant-funded); Rapido's Bike Pink feature</td></tr>
+<tr><td>4. School transport</td><td>TrackNOW (seed, undisclosed)</td><td>TrackSchoolBus (unfunded); SafeTrack and Zuwagon shut</td></tr>
+<tr><td>5. Small-city buses</td><td>None found</td><td>Chalo ($117M), PMI Electro Mobility ($89.2M), EKA Mobility ($179M)</td></tr>
+<tr><td>6. Driver bundle</td><td>None found</td><td>KarmaLife (~$11M) and Onsurity (~$65M), user research; RevFin, Battery Smart</td></tr>
+<tr><td>7. E-auto credit</td><td>RevFin ($34.8M), Three Wheels United ($10.1M), Mufin Green Finance (listed)</td><td>VidyutTech</td></tr>
+<tr><td>8. Batteries</td><td>SUN Mobility ($188M), Battery Smart ($186M)</td><td>Yuma Energy, Nunam</td></tr>
+<tr><td>9. Offline intercity</td><td>IntrCity SmartBus ($45.3M), zingbus ($16.4M), Fresh Bus ($15.6M), NueGo (~$350M incl. debt)</td><td>redBus and Bitla, inside MakeMyTrip</td></tr>
+<tr><td>10. EV cabs</td><td>Evera ($14M), Snap-E ($5M)</td><td>Refex Green Mobility, Routematic ($47.1M)</td></tr>
+<tr><td>11. Road crashes</td><td>Netradyne ($297M), Intangles ($53.2M)</td><td>None for two-wheelers</td></tr>
+</tbody></table></div>
+<p>The pattern is clear. Every gap with money behind it involves a vehicle a company can own, finance or track. The six unaddressed gaps involve people and places: the stand, the van, the small town, the woman walking to the bus. That is where the next company has room.</p>
 </section>
 
 <section id="s9">
-<h2><span class="no">Section 9</span>Risks</h2>
+<h2><span class="no">Risks</span>What could make this wrong</h2>
 <ul class="b">
-<li><strong>Battery value.</strong> Gaps 1 and 2 and Bet 1 rest on what an EV battery is worth after years of heat.</li>
+<li><strong>Battery value.</strong> Credit and battery gaps rest on what an EV battery is worth after years of heat.</li>
 <li><strong>State payment.</strong> Any business paid by states depends on the payment fund or suffers 2 to 6 month delays.</li>
-<li><strong>Regulation.</strong> Bike taxis are legal state by state, and gig welfare levies could extend to daily passes.</li>
+<li><strong>Regulation.</strong> Bike taxis and e-rickshaws are legal state by state, and crackdowns can wipe out informal supply overnight.</li>
 <li><strong>Price sensitivity.</strong> The fastest growth is in the cheapest rides, where margins are thinnest.</li>
-<li><strong>Data.</strong> Startup funding comes from Tracxn pages, which sometimes disagree with each other; the informal segment has no reliable count.</li>
+<li><strong>Data.</strong> Informal vehicles have no reliable count, and Tracxn's own pages sometimes disagree on funding.</li>
 </ul>
 </section>
 
 <section id="sources" class="src">
 <h2><span class="no">Sources</span>Data sources</h2>
-<p>MoSPI / NSO National Household Travel Survey (2025 to 2026); NITI Aayog (Feb 2026); MoRTH, Review of SRTU Performance, Road Accidents in India, VAHAN and Motor Vehicles Aggregator Guidelines 2025; NHAI / IHMCL FASTag data; Indian Railways / PIB FY26; DGCA / MoCA FY26; MoHUA and DMRC; redBus India BusTrack FY25 and FY26; MCA / RoC filings FY25; SEBI and NCLT orders (2025); NSE and BSE filings (Nov 2026); Tracxn company pages (Nov 2026) and Venture Intelligence; SIAM, FADA; PPAC; CRIF High Mark; RevFin and Mufin Green Finance FY26; JMK Research; MHI PM E-DRIVE and PM e-Bus Sewa PSM guidelines.</p>
-<p>Niche travel: PIB (cruise passengers FY24); Crisil via secondary reports (cruise market FY25); Cruise Bharat Mission; IWAI / PIB (river cruises); ISRO statements on Gaganyaan; Railways data on Bharat Gaurav; MoCA on UDAN seaplanes; CBRE (ropeways, Oct 2026).</p>
-<p>Women and safety: Ola Mobility Institute (2019); Girija Borker / World Bank (2021); NCW NARI 2025; WRI India (2025, 2026); Azim Premji University Shakti study; Safetipin; MoSPI PLFS. Household incomes: PRICE ICE 360°.</p>
+<p>MoSPI / NSO National Household Travel Survey (2025 to 2026); MoRTH, Review of SRTU Performance, Road Accidents in India, VAHAN, year-end review 2026 and Aggregator Guidelines 2025; ASRTU; NHAI; state motor vehicle tax schedules; Indian Railways / PIB FY26; DGCA / MoCA FY26; KMRL; redBus India BusTrack FY25 and FY26; MCA filings; SEBI and NCLT orders; Tracxn (Nov 2026); ITDP India and World Bank paratransit assessments; CEPT; RevFin and Mufin Green Finance FY26; JMK Research; MHI PM E-DRIVE and PM e-Bus Sewa guidelines.</p>
+<p>Women and safety: Ola Mobility Institute (2019); World Bank (2021); NCW NARI 2025; WRI India (2025, 2026); Azim Premji University Shakti study; Safetipin.</p>
 </section>
 </main>
 </div>
 <footer>How India Moves · Road passenger transport investment thesis · <a href="../">Back to the site</a></footer>
 
 <script>
-const NS='http://www.w3.org/2000/svg',C={navy:'#051c2c',blue:'#2251ff',cyan:'#00a9f4',grey:'#b3b3b3',lgrey:'#e6e6e6',loss:'#c4442f',orange:'#f08a4b'};
+const NS='http://www.w3.org/2000/svg',C={navy:'#051c2c',blue:'#2251ff',grey:'#b3b3b3',lgrey:'#e6e6e6',loss:'#c4442f'};
 const el=(t,a={},p)=>{const e=document.createElementNS(NS,t);for(const k in a)k==='text'?e.textContent=a[k]:e.setAttribute(k,a[k]);p&&p.appendChild(e);return e};
 const mk=(id,w,h)=>{const s=el('svg',{viewBox:`0 0 ${w} ${h}`});document.getElementById(id).appendChild(s);return s};
-const fmt=n=>n.toLocaleString('en-IN');
-// E1 trips, road highlighted
+function bars(id,d,max,lw,suffix){const rowH=36,s=mk(id,720,d.length*rowH),sc=(720-lw-90)/max;
+  d.forEach((x,i)=>{const y=i*rowH;el('text',{x:0,y:y+23,class:'l',text:x[0]},s);el('rect',{x:lw,y:y+7,width:x[1]*sc,height:rowH-14,fill:x[2]},s);el('text',{x:lw+x[1]*sc+6,y:y+23,class:'v',text:x[1]+(x[3]||'')},s)})}
+// E1 trips
 (function(){const d=[['Two-wheeler',31,C.blue],['Bus',11,'#4f73ff'],['Auto',9,'#7d93ff'],['Car',4,'#a9b8ff'],['Walking',30,C.grey],['Cycling',12,'#cfcfcf'],['Metro, rail, cab',3,C.lgrey]];
   const s=mk('e1',720,120);let x=0;d.forEach(v=>{const w=v[1]/100*720;el('rect',{x,y:14,width:w-2,height:44,fill:v[2]},s);if(w>40)el('text',{x:x+6,y:41,class:'v',style:v[2]===C.blue||v[2]==='#4f73ff'?'fill:#fff':'',text:v[1]+'%'},s);x+=w});
-  el('line',{x1:0,x2:55/100*720-2,y1:6,y2:6,stroke:C.blue,'stroke-width':2},s);el('text',{x:0,y:4,class:'s',style:'fill:#2251ff',text:''},s);
-  el('text',{x:55/100*720+4,y:10,class:'s',text:'← 55% by road vehicle'},s);
+  el('line',{x1:0,x2:55/100*720-2,y1:6,y2:6,stroke:C.blue,'stroke-width':2},s);el('text',{x:55/100*720+4,y:10,class:'s',text:'← 55% by road vehicle'},s);
   let lx=0,ly=84;d.forEach(v=>{if(lx>600){lx=0;ly+=20}el('rect',{x:lx,y:ly-9,width:10,height:10,fill:v[2]},s);el('text',{x:lx+15,y:ly,class:'s',text:v[0]},s);lx+=v[0].length*6.4+36})})();
-// E2 mode bars
-(function(){const d=[['Road',417.7,C.blue],['Air',112,C.grey],['Rail and metro',90.4,C.grey]];const rowH=40,s=mk('e2',720,d.length*rowH),lw=130,sc=(720-lw-90)/420;
-  d.forEach((x,i)=>{const y=i*rowH;el('text',{x:0,y:y+25,class:'l',text:x[0]},s);el('rect',{x:lw,y:y+8,width:x[1]*sc,height:rowH-14,fill:x[2]},s);el('text',{x:lw+x[1]*sc+6,y:y+25,class:'v',text:x[1]+(i===0?'  (67%)':'')},s)})})();
-// E3 road segments
-(function(){const d=[['Autos and e-rickshaws',168,C.orange],['State bus undertakings',66,C.navy],['Formal private buses',47.9,C.blue],['Ride-hailing apps',38.5,C.blue],['Outstation cabs',37.5,C.orange],['School buses',27.5,C.blue],['Office commute',22.5,C.blue],['Self-drive and leases',9.8,C.blue]];
-  const rowH=30,s=mk('e3',720,d.length*rowH+40),lw=170,sc=(720-lw-50)/170;
-  d.forEach((x,i)=>{const y=i*rowH;el('text',{x:0,y:y+20,class:'l',text:x[0]},s);el('rect',{x:lw,y:y+6,width:x[1]*sc,height:rowH-10,fill:x[2]},s);el('text',{x:lw+x[1]*sc+6,y:y+20,class:'v',text:x[1]},s)});
-  let lx=lw;[['Largely informal',C.orange],['Organised private',C.blue],['State',C.navy]].forEach(([n,c])=>{el('rect',{x:lx,y:d.length*rowH+18,width:10,height:10,fill:c},s);el('text',{x:lx+15,y:d.length*rowH+27,class:'s',text:n},s);lx+=n.length*6.4+36})})();
-// E4 auto stack
-(function(){const d=[[45,C.blue,'Driver keeps 45'],[24,C.navy,'Loan or rent 24'],[18,C.grey,'Fuel 18'],[13,C.lgrey,'Upkeep 13']],s=mk('e4',720,64);let x=0;
-  d.forEach(v=>{const w=v[0]/100*720;el('rect',{x,y:6,width:w-2,height:44,fill:v[1]},s);el('text',{x:x+8,y:33,class:'v',style:v[0]>20?'fill:#fff':'',text:v[2]},s);x+=w})})();
-// E5 diverging road pools
-(function(){const d=[['State city buses',-6740],['State intercity buses',-6710],['Ride-hailing',-1540],['Office commute',3150],['Outstation cabs',4065]];
-  const rowH=34,H=d.length*rowH+6,z=360,sc=250/7000,s=mk('e5',720,H);el('line',{x1:z,x2:z,y1:0,y2:H,stroke:'#051c2c'},s);
-  d.forEach((x,i)=>{const y=i*rowH+3,v=x[1],w=Math.abs(v)*sc,n=v<0;el('rect',{x:n?z-w:z,y:y+6,width:w,height:rowH-12,fill:n?C.loss:C.navy},s);
-    el('text',{x:n?z+6:z-6,y:y+rowH/2+4,'text-anchor':n?'start':'end',class:'l',text:x[0]},s);el('text',{x:n?z-w-5:z+w+5,y:y+rowH/2+4,'text-anchor':n?'end':'start',class:'v',text:(n?'−':'+')+fmt(Math.abs(v))},s)})})();
-// E6 matrix
-(function(){const s=mk('e6',720,440),L=70,T=10,W=620,H=380;
-  el('rect',{x:L,y:T,width:W,height:H,fill:'none',stroke:'#d9d9d9'},s);el('line',{x1:L+W/2,x2:L+W/2,y1:T,y2:T+H,stroke:'#d9d9d9'},s);el('line',{x1:L,x2:L+W,y1:T+H/2,y2:T+H/2,stroke:'#d9d9d9'},s);
-  el('text',{x:L+W/2,y:T+H+24,'text-anchor':'middle',class:'s',text:'Startup funding already in →'},s);el('text',{x:L-14,y:T+H/2,'text-anchor':'middle',class:'s',transform:`rotate(-90 ${L-14} ${T+H/2})`,text:'How proven the payer is →'},s);
-  el('text',{x:L+W-8,y:T+18,'text-anchor':'end',class:'s',text:'Gaps: proven, contested'},s);el('text',{x:L+8,y:T+18,class:'s',text:'Bets: proven payer, nobody building'},s);el('text',{x:L+8,y:T+H-8,class:'s',text:'Bets: payer unproven'},s);
-  const pts=[['G1 E-auto credit',.68,.8,'g'],['G2 Battery swapping',.88,.6,'g'],['G3 Driver passes',.95,.92,'g'],['G4 Premium buses',.72,.72,'g'],['G5 Office commute',.74,.86,'g'],['G6 EV cabs',.6,.52,'g'],['G7 Big-city e-buses',.85,.66,'g'],['G8 Fleet safety',.9,.45,'g'],
-    ['B1 Organise autos',.2,.62,'b'],['B2 Women first/last mile',.06,.22,'b'],['B3 School transport',.14,.74,'b'],['B4 Small-city buses',.3,.55,'b'],['B5 Driver bundle',.24,.4,'b'],['B6 Rural para-transit',.05,.12,'b']];
-  pts.forEach(([n,x,y,k])=>{const cx=L+x*W,cy=T+(1-y)*H;el('circle',{cx,cy,r:7,fill:k==='g'?C.blue:C.navy},s);el('text',{x:x>.55?cx-11:cx+11,y:cy+4,'text-anchor':x>.55?'end':'start',class:'l',style:'font-size:12px',text:n},s)})})();
-// TOC highlight
+bars('e2',[['Road',417.7,C.blue,'  (67%)'],['Air',112,C.grey],['Rail, incl. metro',90.4,C.grey],['Water',1.45,C.grey]],420,140);
+// E3 per km
+(function(){const d=[['State bus, city',96,48],['State bus, blended',71,53],['Private AC sleeper',45,52],['Contracted e-bus',48,55]],s=mk('e3',720,d.length*74),x0=170,sc=440/100;
+  d.forEach((x,i)=>{const y=i*74;el('text',{x:0,y:y+34,class:'l',text:x[0]},s);el('rect',{x:x0,y:y+6,width:x[1]*sc,height:22,fill:C.lgrey},s);el('text',{x:x0+x[1]*sc+6,y:y+22,class:'s',text:'cost ₹'+x[1]},s);
+    el('rect',{x:x0,y:y+32,width:x[2]*sc,height:22,fill:x[2]>x[1]?C.blue:C.loss},s);el('text',{x:x0+x[2]*sc+6,y:y+48,class:'v',text:'earns ₹'+x[2]+' ('+(x[2]>x[1]?'+':'−')+'₹'+Math.abs(x[2]-x[1])+')'},s)})})();
+bars('e4',[['1. Auto stand',168,C.navy],['9. Offline intercity',48.5,C.blue],['7. E-auto credit',40.3,C.blue],['10. EV cabs',38.5,C.blue],['4. School transport',32.5,C.navy]],170,170);
 (function(){const links=[...document.querySelectorAll('#toc a')],secs=links.map(a=>document.querySelector(a.getAttribute('href')));
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-20% 0px -70% 0px'});secs.forEach(s=>s&&io.observe(s))})();
 </script>
