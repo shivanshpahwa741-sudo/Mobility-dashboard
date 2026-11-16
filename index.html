@@ -187,11 +187,7 @@ svg .lbl{font-size:14px;fill:var(--ink-2);font-family:var(--sans)}svg .val{font-
 .npills b{font-weight:600;color:var(--blue);margin-left:6px}
 .ndots{position:absolute;left:var(--g);bottom:28px;display:flex;gap:8px}.ndots i{width:28px;height:2px;background:var(--line)}.ndots i.on{background:var(--ink)}
 
-/* hero vehicle pill */
-.vpill{display:inline-block;position:relative;width:1.7em;height:.74em;border-radius:999px;background:#fff;vertical-align:.02em;margin-left:.14em;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(13,13,13,.08)}
-.vpill img{position:absolute;inset:8% 10%;width:80%;height:84%;object-fit:contain;opacity:0;transform:translateX(18%);transition:opacity .7s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
-.vpill img.on{opacity:1;transform:none}
-.vpill img.out{opacity:0;transform:translateX(-18%)}
+
 
 /* narrowing circles */
 .narrow{position:relative;height:480vh}
@@ -252,6 +248,14 @@ svg .lbl{font-size:14px;fill:var(--ink-2);font-family:var(--sans)}svg .val{font-
 .su .g{font-size:12px;color:var(--blue);margin-top:auto}
 .chart #c-gaps svg{max-width:760px}
 .more{display:inline-block;margin-top:24px;font-size:14px}
+/* vehicle strip */
+.vstrip h2.t{max-width:24ch}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin-top:28px}
+.vt{background:#fff;border-radius:6px;padding:14px 14px 16px;display:flex;flex-direction:column;gap:6px}
+.vt img{height:64px;width:auto;max-width:100%;object-fit:contain;align-self:flex-start}
+.vt b{font-size:15px;font-weight:600}
+.vt span{font-size:13px;color:var(--ink-2);line-height:1.4}
+@media(max-width:520px){.vgrid{grid-template-columns:1fr 1fr}.vt img{height:48px}}
 </style>
 </head>
 <body>
@@ -263,7 +267,7 @@ svg .lbl{font-size:14px;fill:var(--ink-2);font-family:var(--sans)}svg .val{font-
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <h1><span class="ln"><span>How India moves</span></span><span class="ln"><span><em>within its cities</em><span class="vpill" id="vpill" aria-hidden="true"></span></span></span></h1>
+  <h1><span class="ln"><span>How India moves</span></span><span class="ln"><span><em>within its cities</em></span></span></h1>
   <div class="hero-inline">
     <img class="bw" src="assets/p_rush.jpg" alt="Commuters hanging out of the doors of a Mumbai local train at rush hour">
     <div><p>A sector thesis on how India moves within its city borders, covering only road transportation as the subsegment of the sector.</p><a href="thesis/">Read the thesis</a></div>
@@ -318,13 +322,20 @@ svg .lbl{font-size:14px;fill:var(--ink-2);font-family:var(--sans)}svg .val{font-
   </div>
 </section>
 
+<!-- VEHICLE TYPES -->
+<section class="screen vstrip" id="vehicles">
+  <div class="kicker">Every vehicle type within city borders</div>
+  <h2 class="t">22.5 crore two-wheelers to 1,40,100 state buses</h2>
+  <div class="vgrid"><div class="vt"><img src="assets/v/family.webp" alt="Two-wheelers" loading="lazy"><b>Two-wheelers</b><span>22.5 crore on the road; 34% of all trips</span></div><div class="vt"><img src="assets/v/delivery.webp" alt="Electric two-wheeler fleets" loading="lazy"><b>Electric two-wheeler fleets</b><span>6.6% of two-wheeler sales electric in FY26</span></div><div class="vt"><img src="assets/v/biketaxi.webp" alt="Bike taxis" loading="lazy"><b>Bike taxis</b><span>Rapido valued at $3 billion, May 2026</span></div><div class="vt"><img src="assets/v/auto.webp" alt="Autos" loading="lazy"><b>Autos</b><span>45 lakh on CNG or petrol</span></div><div class="vt"><img src="assets/v/erick.webp" alt="E-rickshaws" loading="lazy"><b>E-rickshaws</b><span>25.3 lakh registered; 61% of three-wheeler sales electric in FY26</span></div><div class="vt"><img src="assets/v/jugaad.webp" alt="Other vehicles" loading="lazy"><b>Other vehicles</b><span>Jugaads and chhakdas: 70 lakh work trips a day</span></div><div class="vt"><img src="assets/v/cab.webp" alt="Cabs" loading="lazy"><b>Cabs</b><span>24.5 lakh cabs and maxi cabs</span></div><div class="vt"><img src="assets/v/officevan.webp" alt="Office shuttles" loading="lazy"><b>Office shuttles</b><span>MoveInSync has raised $32.7 million</span></div><div class="vt"><img src="assets/v/schoolvan.webp" alt="School vans and buses" loading="lazy"><b>School vans and buses</b><span>3.5 lakh vans and 3.8 lakh school buses</span></div><div class="vt"><img src="assets/v/statebus.webp" alt="State buses" loading="lazy"><b>State buses</b><span>1,40,100 buses, 6.0 crore riders a day</span></div><div class="vt"><img src="assets/v/ebus.webp" alt="Electric city buses" loading="lazy"><b>Electric city buses</b><span>38,000+ backed by a ₹3,435 crore payment guarantee</span></div></div>
+</section>
+
 <!-- FACTORS -->
 <section class="screen" id="factors">
   <h2 class="t">Factors influencing the intra-city mobility sector:</h2>
   <div class="fgrid">
     <div class="fac">
       <div><h3><i>1</i>Regulation</h3><ul>
-        <li><b>80%</b>of each fare is kept by the driver under MVAG 2025</li>
+        <li><b>80%</b>of each fare is kept by the driver under the Motor Vehicle Aggregator Guidelines 2025</li>
         <li><b>2x</b>cap on surge over the state base fare</li>
         <li><b>₹57,613 crore</b>PM e-Bus Sewa outlay for 10,000 e-buses</li>
         <li><b>4 cities</b>running PM e-Bus Sewa buses by March 2026</li></ul></div>
@@ -391,7 +402,7 @@ svg .lbl{font-size:14px;fill:var(--ink-2);font-family:var(--sans)}svg .val{font-
       <h4>Each state bus-km costs ₹86 and earns ₹55</h4>
       <div class="unit">State transport undertakings, per bus-km, FY26, ₹</div>
       <div id="c-bus"></div>
-      <div class="src">Source: MoRTH, Review of the performance of SRTUs.</div>
+      <div class="src">Source: MoRTH, Review of the Performance of State Road Transport Undertakings.</div>
     </div>
     <div class="text">
       <div class="kicker">Public transport</div>
@@ -409,7 +420,7 @@ svg .lbl{font-size:14px;fill:var(--ink-2);font-family:var(--sans)}svg .val{font-
     <div class="text">
       <div class="kicker">Women</div>
       <h2 class="t">25.0% of urban women are in the labour force</h2>
-      <p>Only 9% of women rate public transport in their city as very safe. In Bengaluru, 86% of women feel unsafe on public transport. 30% of women have faced harassment or theft on it.</p>
+      <p>91% of women do not rate public transport in their city as very safe. In Bengaluru, 86% of women feel unsafe on public transport. 30% of women have faced harassment or theft on it.</p>
       <p>75% of working women in Delhi work within 5 km of home. 41.9% of working women travel more than 1 km to work, against 61.9% of men.</p>
       <p class="sowhat"><b>Thus,</b> when Delhi made buses free for women, their share of bus riders rose from 33% to 42%.</p>
     </div>
@@ -464,7 +475,7 @@ svg .lbl{font-size:14px;fill:var(--ink-2);font-family:var(--sans)}svg .val{font-
   <div class="photogrid">
     <div></div><div><img src="assets/p_tram.jpg" alt=""></div><div></div><div></div><div><img src="assets/p_rickshaw.jpg" alt=""></div><div></div>
     <div><img src="assets/p_family.jpg" alt=""></div>
-    <div class="msg"><p>Risks: state bus companies lose ₹35,000 crore a year, so operator payments outside the ₹3,435 crore guarantee fund can be late. Bike taxis need state consent under MVAG 2025. BluSmart suspended operations in April 2025.</p></div>
+    <div class="msg"><p>Risks: state bus companies lose ₹35,000 crore a year, so operator payments outside the ₹3,435 crore guarantee fund can be late. Bike taxis need state consent under the Motor Vehicle Aggregator Guidelines 2025. BluSmart suspended operations in April 2025.</p></div>
     <div><img src="assets/p_magenta.jpg" alt=""></div><div></div>
     <div></div><div><img src="assets/p_sleeper.jpg" alt=""></div>
     <div></div><div><img src="assets/p_autos.jpg" alt=""></div><div></div><div><img src="assets/p_scooter3.jpg" alt=""></div><div></div><div></div>
@@ -572,15 +583,6 @@ document.querySelectorAll('[data-type]').forEach(h=>{
   ScrollTrigger.create({trigger:h,start:'top 80%',once:true,onEnter:()=>{let i=0;const t=setInterval(()=>{tx.textContent=txt.slice(0,++i);if(i>=txt.length)clearInterval(t)},70)}});
 });
 
-/* hero vehicle pill */
-(function(){
-  const host=document.getElementById('vpill');if(!host)return;
-  const v=['auto','biketaxi','cab','statebus','erick','officevan','ebus','schoolvan','family','delivery','jugaad','sleeper'];
-  const imgs=v.map((k,i)=>{const im=document.createElement('img');im.src=`assets/v/${k}.webp`;im.alt='';if(!i)im.className='on';host.appendChild(im);return im});
-  if(reduce)return;let i=0;
-  setInterval(()=>{const a=imgs[i];i=(i+1)%imgs.length;const b=imgs[i];a.className='out';b.className='';void b.offsetWidth;b.className='on';setTimeout(()=>{if(a.className==='out')a.className=''},900)},1800);
-})();
-
 /* chart helpers */
 function hbars(id,rows,o={}){
   const W=560,rh=o.rh||40,x0=o.x0||150,max=o.max||Math.max(...rows.map(r=>r[1])),w=W-x0-90,s=svg(id,W,rows.length*rh+6),bars=[];
@@ -650,21 +652,21 @@ const GAPS=[
  ['Driver EV financing and battery subscription',30000,'₹30,000 Cr','Loans and batteries for auto and two-wheeler drivers who have no credit history.',
   'e-auto loans cost 14% to 16% a year, against 9.9% for e-rickshaws at Mufin Green.','Drivers already pay ₹300 to ₹500 a day to rent e-autos and e-two-wheelers. Vidyut cuts the upfront cost of an e-auto by 35% to 40%.','33.7% of passenger autos sold in FY26 were electric, up from 12.6% in FY24. Telematics lets a lender lock a vehicle remotely.','Chargeup, Vidyut, Mufin Green (listed), Battery Smart (late stage).'],
  ['Student transport subscription',27000,'₹27,000 Cr','Safe, tracked school and college transport sold as a monthly plan.',
-  '1.5 crore students use school transport, much of it in unregulated vans.','Parents pay ₹1,500 to ₹4,000 a month in metros. ZeroMoblt has run 3.4 lakh trips for 15+ institutions.','GPS tracking (AIS-140) is mandatory, and UPI autopay makes monthly plans easy to collect.','ZeroMoblt (₹1.5 crore pre-seed) and local bus contractors.'],
- ['Electric fleets that supply ride-hailing apps',20000,'₹20,000 Cr','Organised electric cab fleets that the asset-light apps rely on for supply.',
+  '1.5 crore students use school transport, much of it in unregulated vans.','Parents pay ₹1,500 to ₹4,000 a month in metros. ZeroMoblt has run 3.4 lakh trips for 15+ institutions.','GPS tracking is mandatory on public service vehicles, and UPI autopay makes monthly plans easy to collect.','ZeroMoblt (₹1.5 crore pre-seed) and local bus contractors.'],
+ ['Electric fleets that supply ride-hailing apps',4000,'₹4,000 Cr','Organised electric cab fleets that the asset-light apps rely on for supply.',
   'Uber reported that driver supply growth lagged demand.','Snap-E Cabs earns ₹120 crore of gross revenue a year from 1,112 EVs and is EBITDA positive.','BluSmart shut in April 2025 and left its riders unserved. ₹20,000 crore of app fares are paid for cabs, ₹4,000 crore of it addressable by EV fleets.','Snap-E, Milo Drive, Trevel, Trev Mobility, Evera.'],
- ['Employee commute',72000,'₹72,000 Cr','Shift transport for IT, BPO and GCC employees, paid by the employer.',
-  'Night shifts need employer transport, and states require it for women working after dark.','MoveInSync earned ₹438 crore in FY24. Routematic earned ₹178 crore in FY25.','GCC hiring and the return to office are raising shift volumes.','MoveInSync and Routematic (Series C). Little room at seed stage.'],
+ ['Employee commute',72000,'₹72,000 Cr','Shift transport for employees of IT firms, back offices and global capability centres, paid by the employer.',
+  'Night shifts need employer transport, and states require it for women working after dark.','MoveInSync earned ₹438 crore in FY24. Routematic earned ₹178 crore in FY25.','Global capability centre hiring and the return to office are raising shift volumes.','MoveInSync and Routematic (Series C). Little room at seed stage.'],
  ['Metro first and last mile',8800,'₹8,800 Cr','Shared feeder rides between metro stations and homes or offices.',
   'Metro grew from 248 km in 2014 to 1,095 km in December 2025, across 26 cities.','Riders already pay ₹10 to ₹30 a leg for shared autos and e-rickshaws. Yulu raised a $93M Series C in August 2026.','Metro length grew 4.4x since 2014, and ridership lags projections partly because of the last mile.','Yulu, Namma Yatri, local e-rickshaw operators.'],
  ['Premium shared office buses',6000,'₹6,000 Cr','Seat-guaranteed buses for office commuters who own no car.',
   'India has 9.7 state buses per lakh people, against a benchmark of 60.','Cityflo runs at more than ₹275 crore annualised revenue, and 120 of its 150 routes are cash positive.','PM e-Bus Sewa buses run in only 4 cities by March 2026.','Cityflo, Chalo.'],
  ['Two-wheeler rider safety tech',5000,'₹5,000 Cr','Collision warning and rider monitoring fitted by two-wheeler makers.',
-  '46.2% of road deaths are two-wheeler riders, 87,300 deaths a year.','No paying customer is disclosed yet. The route to revenue is OEM fitment or insurers.','2 crore two-wheelers are sold a year, and EdgeVerse closed its seed round in August 2026.','EdgeVerse (₹4.85 crore), BYTES (grant).'],
- ['Women-safe commute',null,'Not sized alone','Rides designed for women who avoid buses after dark.',
-  'Only 9% of women rate public transport as very safe. 86% of Bengaluru women feel unsafe on it.','Delhi women took 150 crore+ free bus rides by November 2024. Evidence that women pay a premium is weak.','Urban female labour force participation is 25.0%. Most demand overlaps with employee commute.','Fery Rides (₹2.075 crore seed).']];
+  '46.2% of road deaths are two-wheeler riders, 87,300 deaths a year.','No paying customer is disclosed yet. The route to revenue is fitment by two-wheeler makers or sales to insurers.','2 crore two-wheelers are sold a year, and EdgeVerse closed its seed round in August 2026.','EdgeVerse (₹4.85 crore), BYTES (grant).'],
+ ['Women-safe commute',7000,'₹7,000 Cr','Safe, tracked rides sold to working women who avoid buses after dark.',
+  '91% of women do not rate public transport as very safe. 86% of Bengaluru women feel unsafe on it.','2.55 crore urban women travel more than 1 km to work. Delhi women took 150 crore+ free bus rides by November 2024, so demand exists; evidence that women pay a premium is still thin.','Urban female labour force participation is 25.0%, against about 75% for men. Urban working women spend ₹28,000 crore a year on paid commutes; a verified women-safe service can capture ₹7,000 crore of it.','Fery Rides (₹2.075 crore seed).']];
 const SHORT=['Driver EV financing','Student transport','EV fleets for apps','Employee commute','Metro feeders','Office buses','Two-wheeler safety','Women-safe commute'];
-hbars('c-gaps',GAPS.map((g,i)=>[`${i+1}. ${SHORT[i]}`,g[1],g[1]?fmt(g[1]):'Overlaps employee commute',i<3?C.blue:C.grey]),{x0:170,rh:34,max:72000});
+hbars('c-gaps',GAPS.map((g,i)=>[`${i+1}. ${SHORT[i]}`,g[1],fmt(g[1]),i<3?C.blue:C.grey]),{x0:170,rh:34,max:72000});
 (function(){const host=document.getElementById('glist');
   GAPS.forEach((g,i)=>{const d=document.createElement('details');
     d.innerHTML=`<summary><span class="rk">${i+1}</span><span class="gt">${g[0]}<span class="gl">${g[3]}</span></span><span class="gs">${g[2]}</span><span class="pm">+</span></summary><div class="gd"><div><h5>Unmet need</h5><p>${g[4]}</p></div><div><h5>Evidence people pay</h5><p>${g[5]}</p></div><div><h5>Why now</h5><p>${g[6]}</p></div><div><h5>Closest companies</h5><p>${g[7]}</p></div></div>`;

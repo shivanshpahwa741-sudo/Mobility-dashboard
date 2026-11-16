@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tracked Startups</title>
-<meta name="description" content="Pre-seed to early Series A startups in intra-city road passenger mobility in India, mapped to the real gaps.">
+<meta name="description" content="Tracked, passenger-service and enabling-tech startups in intra-city road passenger mobility in India.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -46,6 +46,22 @@ tr:last-child td{border-bottom:0}
 .gp{font-family:var(--mono);font-size:12px;color:var(--blue);white-space:nowrap}
 .bm{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--line);border-radius:14px;overflow:hidden}
 .bm>div{background:#ecece9;padding:14px 16px;font-size:13px;color:var(--ink-2)}.bm b{display:block;color:var(--ink);font-weight:600}
+
+.lead{max-width:62ch;color:var(--ink-2);font-size:17px;margin:-8px 0 28px}
+.trk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media(max-width:1000px){.trk{grid-template-columns:minmax(0,1fr)}}
+.card{background:#fff;border-radius:16px;padding:26px 26px 22px;display:flex;flex-direction:column;gap:12px}
+.card .tag{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+.card h3{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1;letter-spacing:-.01em}
+.card h3 a{text-decoration:none}.card h3 a:hover{text-decoration:underline}
+.card p{color:var(--ink-2);font-size:15px}
+.kv{display:grid;grid-template-columns:110px 1fr;gap:6px 12px;font-size:14px;border-top:1px solid var(--line);padding-top:12px}
+.kv dt{color:var(--muted);font-size:12.5px}
+.sc{border-top:1px solid var(--line);padding-top:12px;font-size:13.5px}
+.sc .r{display:grid;grid-template-columns:150px 1fr 34px;gap:10px;align-items:center;margin:7px 0}
+.sc .r small{grid-column:1/-1;color:var(--muted);font-size:12.5px;margin-top:-4px}
+.sc .tot{display:flex;justify-content:space-between;font-weight:600;border-top:1px solid var(--line);padding-top:8px;margin-top:8px}
+.empty{flex:1;display:flex;align-items:center;justify-content:center;min-height:180px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);font-size:15px}
 </style>
 </head>
 <body>
@@ -55,27 +71,83 @@ tr:last-child td{border-bottom:0}
 </header>
 <div class="wrap">
 <div class="hero">
-  <div class="kick">Companies · Pre-seed to early Series A · Nov 2026</div>
+  <div class="kick">Companies · Intra-city road passenger mobility · Nov 2026</div>
   <h1>Tracked <em>startups</em></h1>
 </div>
-<div class="chips" id="chips"></div>
-<div class="tbl"><table><thead><tr><th data-k="0">Company</th><th data-k="2">Stage</th><th data-k="3" class="num">Raised</th><th data-k="5">Last round</th><th data-k="6">Investors</th><th data-k="7">Traction</th><th data-k="8">Gap</th><th data-k="9">Why tracked</th></tr></thead><tbody id="tb"></tbody></table></div>
+
+<section id="tracked" style="padding-top:20px">
+  <div class="kick">01 · Tracked</div><h2>3 companies we follow closely</h2>
+  <div class="trk">
+    <article class="card">
+      <span class="tag">Enabling tech · Pre-seed</span>
+      <h3><a href="https://inlane.in" target="_blank" rel="noopener">Inlane ↗</a></h3>
+      <p>Inlane, also known as Lane, teaches people to drive and fits sensors in its cars that score driver behaviour. It also helps learners buy and sell cars and handle licence paperwork.</p>
+      <dl class="kv"><dt>Founded</dt><dd>2025, Bengaluru</dd><dt>Raised</dt><dd>₹8.5 Cr</dd><dt>Last round</dt><dd>₹8.5 Cr, 12 Aug 2026</dd><dt>Investors</dt><dd>Kae Capital (lead), DeVC, Antler India, Panthera Peak</dd><dt>Traction</dt><dd>400+ pilot class hours; about 70% of learners already hold a licence</dd></dl>
+      <p>Every app fleet, school van and office cab needs trained drivers. A school that also records how each graduate drives builds data that insurers and fleets can price.</p>
+    </article>
+    <article class="card">
+      <span class="tag">Passenger service · Ripe for seed</span>
+      <h3><a href="https://entrackr.com/snippets/student-mobility-startup-zeromobit-raises-pre-seed-round-11150709" target="_blank" rel="noopener">ZeroMoblt ↗</a></h3>
+      <p>ZeroMoblt sells parents a monthly subscription for school and college transport in Hyderabad, run on partner vehicles.</p>
+      <dl class="kv"><dt>Raised</dt><dd>₹1.5 Cr pre-seed</dd><dt>Last round</dt><dd>₹1.5 Cr, Feb 2026</dd><dt>Investors</dt><dd>Sandeep Varaganti (JioMart CEO), Ashok Agrawal, other angels</dd><dt>Traction</dt><dd>3.4 lakh trips; 147 pincodes; 15+ institutions; 3,000+ partner vehicles</dd></dl>
+      <div class="sc" id="score"></div>
+    </article>
+    <article class="card">
+      <span class="tag">Passenger service</span>
+      <h3>Kyra Rides</h3>
+      <div class="empty">Profile to be added</div>
+    </article>
+  </div>
+</section>
+
+<section id="passenger">
+  <div class="kick">02 · Passenger-service startups</div><h2>12 startups that move people within cities</h2>
+  <div class="tbl"><table data-t="P"><thead><tr><th data-k="0">Company</th><th data-k="2">Stage</th><th data-k="3" class="num">Raised</th><th data-k="5">Last round</th><th data-k="6">Investors</th><th data-k="7">Traction</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<section id="enabling">
+  <div class="kick">03 · Enabling tech</div><h2>9 companies that serve fleets of every type</h2>
+  <div class="tbl"><table data-t="E"><thead><tr><th data-k="0">Company</th><th data-k="2">Stage</th><th data-k="3" class="num">Raised</th><th data-k="5">Last round</th><th data-k="6">Investors</th><th data-k="7">Traction</th></tr></thead><tbody></tbody></table></div>
+</section>
 
 <section id="benchmarks">
-  <div class="kick">Benchmarks</div><h2>Benchmarks, not tracked</h2>
-  <div class="bm"><div><b>Rapido</b>6.5M rides a day, Mar 2026</div><div><b>Uber India</b>₹1,512 Cr net loss, FY25</div><div><b>Ola Consumer</b>₹1,171 Cr revenue, FY25</div><div><b>Namma Yatri</b>4.6 Cr trips cumulative</div><div><b>Cityflo</b>120 of 150 routes cash positive</div><div><b>MoveInSync</b>₹438 Cr revenue, FY24</div></div>
+  <div class="kick">04 · Benchmarks</div><h2>Benchmarks, not tracked</h2>
+  <div class="bm"><div><b>Rapido</b>6.5M rides a day, Mar 2026</div><div><b>Uber India</b>₹1,512 Cr net loss, FY25</div><div><b>Ola Consumer</b>₹1,171 Cr revenue, FY25</div><div><b>MoveInSync</b>₹438 Cr revenue, FY24</div><div><b>Routematic</b>₹178 Cr revenue, FY25</div><div><b>Yulu</b>$93M Series C, Aug 2026</div></div>
 </section>
-<footer>How India Moves · Companies · Sources: Tracxn, Nov 2026; Entrackr; Inc42; Autocar Pro; StartupTalky; company disclosures.</footer>
+<footer>How India Moves · Companies · Sources: Tracxn, Nov 2026; Entrackr; Inc42; Autocar Pro; YourStory; StartupTalky; Venture Intelligence; Ascendants; company disclosures.</footer>
 </div>
 <script>
-const CO=[["ZeroMoblt","Student transport subscription, Hyderabad","Pre-seed",1.5,"₹1.5 Cr","Feb 2026","Sandeep Varaganti, Ashok Agrawal, HNIs","3.4 lakh trips, 15+ institutions, 147 pincodes","G3","Only funded player in student transport","https://entrackr.com/snippets/student-mobility-startup-zeromobit-raises-pre-seed-round-11150709"],["Snap-E Cabs","EV cab fleet, Kolkata and Delhi","Pre-Series A",42.5,"$5M","Sep 2025","Inflection Point Ventures, ah! Ventures","1,112 EVs, 3.2M rides, ₹120 Cr gross revenue, EBITDA positive","G2","Proof that an EV fleet can earn","https://entrackr.com/snippets/snap-e-cabs-raises-25-mn-in-bridge-round-led-by-ipv-10387917"],["Chargeup","EV driver battery and credit, Delhi","Seed",22,"₹22 Cr","2026","Not disclosed","10,000+ drivers, 20,000 more planned by FY27","G1","Largest driver base among G1 startups","https://www.autocarpro.in/news/chargeup-secures-%e2%82%b922-crore-in-funding-round-130718"],["Vidyut","Battery-as-a-service and 3W financing","Early Series A",140,"$16.5M","Feb 2025","Flourish, 3one4, Credit Saison","35% to 40% lower upfront e-3W cost","G1","Lender-backed model for the e-3W shift","https://www.autocarpro.in/news/vidyut-raises-$25-million-to-expand-ev-battery-subscription-services-125120"],["Milo Drive","EV driver-entrepreneur fleets, Gurugram and Bengaluru","Seed",20.4,"$2.4M","Jul 2026","Caret Capital, Antler","Not disclosed","G2","Asset-light EV supply for ride-hailing","https://inc42.com/buzz/milo-drive-bags-2-4-mn-to-scale-electric-mobility-platform/"],["Trevel","EV ride service, Gurugram","Seed",8.5,"$1M","Jun 2026","India Accelerator, Finvolve, Haldiram family office","+25 EVs a month, 500 targeted by 2027","G2","Fleet growth disclosed monthly","https://www.autocarpro.in/news/delhi-ncr-ev-startup-trevel-closes-$1-million-funding-round-133060"],["Trev Mobility","EV cabs, Delhi-NCR","Angel",3.65,"₹3.65 Cr","Apr 2026","Existing users","Operating in 5 NCR cities","G2","Funded by its own customers","https://www.autocarpro.in/news/trev-mobility-raises-₹365-crore-in-angel-round-to-scale-ev-fleet-across-delhi-ncr-132020"],["EdgeVerse","2W rider assistance, Bengaluru","Seed",4.85,"₹4.85 Cr","Aug 2026","GVFL, ARTPARK (IISc)","No paying customer disclosed","G7","Test case for OEM fitment of 2W safety tech","https://startuptalky.com/news/edgeverse-raises-3-crore-from-gvfl-to-bring-rider-assistance-to-indias-two-wheelers/"],["iGoWise Mobility","Electric 3W maker","Pre-seed",8.2,"₹8.2 Cr","Sep 2025","ISB Angels, 888VC, Guptaji VC","Pre-revenue","G1","New e-3W supply for driver financing","https://www.autocarpro.in/news/igo-mobility-secures-₹82-cr-pre-seed-funding-to-advance-electric-trike-technology-128965"],["Fery Rides","Women-led ride platform","Seed",2.075,"₹2.075 Cr","2025","IAN Angel Fund","Not disclosed","G6","Only funded women-first ride platform","https://startuptalky.com/news/fery-rides-raises-seed-funding"],["BYTES","2W AI safety, Bengaluru","Pre-seed",0.2,"₹20 lakh grant","2025","WTFund","Prototype","G7","Second approach to 2W safety","https://inc42.com/buzz/bytes-bags-funding-from-nikihil-kamaths-wtfund"]],G=[["G4","Employee commute"],["G1","EV financing for 3W and 2W drivers"],["G3","Student transport subscription"],["G8","Metro first and last mile"],["G5","Premium shared city buses"],["G7","Two-wheeler rider safety tech"],["G2","EV fleets supplying ride-hailing"],["G6","Women-safe commute"]];
-const gn=id=>(G.find(g=>g[0]===id)||[,id])[1];
-let f='all',sk=3,sd=-1;
-function draw(){const r=CO.filter(c=>f==='all'||c[8]===f).sort((a,b)=>{let x=a[sk],y=b[sk];if(sk===8){x=gn(x);y=gn(y)}return (x>y?1:x<y?-1:0)*sd});
- document.getElementById('tb').innerHTML=r.map(c=>'<tr><td><a href="'+c[10]+'" target="_blank" rel="noopener"><b>'+c[0]+'</b> ↗</a><small>'+c[1]+'</small></td><td>'+c[2]+'</td><td class="num">'+c[4]+'</td><td>'+c[5]+'</td><td>'+c[6]+'</td><td>'+c[7]+'</td><td><span class="gp">'+c[8]+'</span><small>'+gn(c[8])+'</small></td><td>'+c[9]+'</td></tr>').join('');
- document.querySelectorAll('th').forEach(t=>t.classList.toggle('s',+t.dataset.k===sk))}
-document.querySelectorAll('th').forEach(t=>t.onclick=()=>{const k=+t.dataset.k;sd=sk===k?-sd:(k===3?-1:1);sk=k;draw()});
-const ch=document.getElementById('chips');[['all','All gaps']].concat(G.filter(g=>CO.some(c=>c[8]===g[0]))).forEach(([k,t],i)=>{const b=document.createElement('button');b.textContent=t;if(!i)b.className='on';b.onclick=()=>{[...ch.children].forEach(x=>x.classList.toggle('on',x===b));f=k;draw()};ch.appendChild(b)});draw();
+const SC=[["Traction",4,"3.4 lakh trips on ₹1.5 Cr raised, the most trips per rupee in the set"],["Unit economics",3,"Partner vehicles keep it asset-light, and parents prepay"],["Team",3,"Backed by operators, including the JioMart CEO"],["Market",5,"Student transport is worth ₹27,000 Cr a year, and it is the only funded player"],["Round timing",5,"Pre-seed in Feb 2026 and a 6-city plan put a seed round in the first half of 2027"]];
+document.getElementById('score').innerHTML='<div class="kick" style="margin:0 0 4px">Seed readiness scorecard</div>'+SC.map(([k,v,e])=>'<div class="r"><span>'+k+'</span><div class="meter"><i style="width:'+v*20+'%"></i></div><b>'+v+'/5</b><small>'+e+'</small></div>').join('')+'<div class="tot"><span>Total</span><span>'+SC.reduce((a,b)=>a+b[1],0)+'/25</span></div>';
+/* [name, one line, stage, sort value ₹ Cr, raised, last round, investors, traction, link] */
+const P=[
+["Cityflo","App-booked premium office buses, Mumbai and Hyderabad","Series A",161,"$19M","₹57 Cr Series A, Nov 2020","India Quotient, Lightbox, Chiratae Ventures","₹275 Cr+ annualised revenue; 120 of 150 routes cash positive (Sep 2026)","https://www.autocarpro.in/news/exclusive-120-of-cityflos-150-routes-are-cash-positive-says-ceo-134892"],
+["ZeroMoblt","Subscription school and college transport, Hyderabad","Pre-seed",1.5,"₹1.5 Cr","₹1.5 Cr, Feb 2026","Sandeep Varaganti, Ashok Agrawal, other angels","3.4 lakh trips; 147 pincodes; 15+ institutions","https://entrackr.com/snippets/student-mobility-startup-zeromobit-raises-pre-seed-round-11150709"],
+["Snap-E Cabs","Own-fleet electric cabs, Kolkata and Delhi","Pre-Series A",42.5,"$5M","$2.5M bridge, Sep 2025","Inflection Point Ventures, ah! Ventures","1,112 EVs; 3.2M rides; ₹120 Cr gross revenue; EBITDA positive","https://entrackr.com/snippets/snap-e-cabs-raises-25-mn-in-bridge-round-led-by-ipv-10387917"],
+["Milo Drive","Electric car fleets run by driver-entrepreneurs for ride-hailing apps, Gurugram and Bengaluru","Seed",20.4,"$2.4M","$2.4M seed, Jul 2026","Caret Capital, Antler","Not disclosed","https://inc42.com/buzz/milo-drive-bags-2-4-mn-to-scale-electric-mobility-platform/"],
+["Trevel","Electric ride service, Gurugram","Seed",8.5,"$1M","$1M, Jun 2026","India Accelerator, Finvolve, Haldiram family office","Adds 25 EVs a month; targets 500 by 2027","https://www.autocarpro.in/news/delhi-ncr-ev-startup-trevel-closes-$1-million-funding-round-133060"],
+["Trev Mobility","Electric cabs funded by their own riders, Delhi-NCR","Angel",3.65,"₹3.65 Cr","₹3.65 Cr angel, Apr 2026","Its own users","Runs in 5 NCR cities","https://www.autocarpro.in/news/trev-mobility-raises-₹365-crore-in-angel-round-to-scale-ev-fleet-across-delhi-ncr-132020"],
+["Fery Rides","Women drivers on electric bike taxis and cabs, for women riders, Gurugram","Seed",2.6,"₹2.6 Cr","₹2.075 Cr seed, Oct 2025","IAN Angel Fund","65,000+ rides; 250+ women drivers; 50,000+ downloads (Jan 2026)","https://www.autocarpro.in/news/fery-rides-secures-%e2%82%b92075-crore-seed-funding-from-ian-angel-fund-129236"],
+["Namma Yatri","Zero-commission auto and cab app, Bengaluru","Pre-Series A",140,"$15M+","₹39.75 Cr extension, Mar 2026","Blume Ventures, Google, Antler","FY25 revenue ₹23.5 Cr; 4.6 Cr trips to date","https://news.ventureintelligence.com/private-equity/ride-hailing-app-namma-yatri-raises-rs.39.75-cr"],
+["MyPickup","Subscription electric auto rides for housing societies, Bengaluru and Gurugram","Seed",1.5,"₹1.5 Cr","₹1.5 Cr seed, Jul 2024","Inflection Point Ventures","Not disclosed","https://www.autocarpro.in/news/mypickup-raises-rs-15-crore-in-seed-round-led-by-inflection-point-ventures-121547"],
+["DriverShaab","Supplies trained drivers to employee transport operators","Pre-Series A",2.82,"₹2.82 Cr","₹2.82 Cr, 2025","Firstport Capital, Inflection Point Ventures","Not disclosed","https://entrackr.com/snippets/b2b-mobility-startup-drivershaab-raises-pre-series-a-round-8920587"],
+["LetzRyd","Electric ride service","Seed",34,"$4M","$4M, 2026","JIF Capital","Not disclosed","https://www.autocarpro.in/news/letzryd-raises-usd-4-million-in-funding-round-led-by-jif-capital-131776"],
+["Sakhi","Women-only autos, Bengaluru","Unfunded pilot",0,"None","None","None","About 17 trips in its pilot week","https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fbengaluru%2Fwomen-only-auto-service-set-for-launch-on-february-14-in-bengaluru-3888197"]],
+E=[
+["Lane (Inlane)","Driving lessons with in-car sensors that score driver behaviour, Bengaluru","Pre-seed",8.5,"₹8.5 Cr","₹8.5 Cr, Aug 2026","Kae Capital, DeVC, Antler India, Panthera Peak","400+ pilot class hours","https://inlane.in"],
+["LightMetrics","Video telematics software for fleet dashcams, Bengaluru","Series A",88,"$10.4M","$8.5M Series A, Apr 2023","Peak XV Partners","Not disclosed","https://platform.tracxn.com/a/d/company/551be75ce4b00b4fff2a1de4/lightmetrics"],
+["Netradyne","AI cameras that coach commercial-fleet drivers, San Diego and Bengaluru","Series D",2550,"$300M+","$90M Series D, Jan 2025","Point72, SoftBank Vision Fund 2, Qualcomm","Revenue of about $31M","https://platform.tracxn.com/a/d/company/5628fa48e4b0e41d08aca1e0/netradyne"],
+["Cautio","AI dashcam safety for car and bus fleets, Bengaluru","Seed",32,"$3.8M","$1.8M seed extension, 2025","Antler, 8i Ventures, AU Small Finance Bank, Amal Parikh","Not disclosed","https://platform.tracxn.com/a/d/company/58dd6b8ee4b0372f4ebb7bd2/cautio"],
+["NAYAN","Video AI for traffic enforcement, dashcams and driver behaviour, Delhi","Pre-Series A",17,"$2M+","$2M, Oct 2024","BEENEXT, We Founder Circle, Venture Catalysts, LetsVenture","35 customers; ₹35 Cr order book; 17,000+ drivers","https://platform.tracxn.com/a/d/company/5b10fe73e4b0ac6980a2974a/nayan"],
+["EdgeVerse","Rider assistance for two-wheelers, Bengaluru","Seed",4.85,"₹4.85 Cr","₹3 Cr, Aug 2026","GVFL, ARTPARK (IISc)","No paying customer disclosed","https://startuptalky.com/news/edgeverse-raises-3-crore-from-gvfl-to-bring-rider-assistance-to-indias-two-wheelers/"],
+["Chargeup","Battery swaps and credit for e-rickshaw and electric auto drivers, Delhi","Seed",76,"$9M+","₹22 Cr, Jan 2026","IAN Group, Cap-A","10,000+ drivers","https://inc42.com/buzz/ev-startup-chargeup-raises-inr-22-cr-to-fuel-expansion/"],
+["Vidyut","Battery-as-a-service financing for electric three-wheelers, Bengaluru","Series A",140,"$16.5M","$2.5M, Feb 2025","Flourish Ventures, 3one4 Capital, Credit Saison","Cuts upfront vehicle cost by 35% to 40%","https://entrackr.com/snippets/vidyut-raises-25-mn-to-expand-battery-as-a-service-financing-biz-8757423"],
+["PointO","Lithium batteries and finance for e-rickshaw owners in smaller cities","Seed",6.2,"₹6.2 Cr","₹6.2 Cr seed","Equirus InnovateX Fund","Not disclosed","https://www.outlookbusiness.com/corporate/equirus-innovatex-fund-leads-pointos-rs-62-cr-seed-round"]];
+document.querySelectorAll('table[data-t]').forEach(t=>{const D=t.dataset.t==='P'?P:E;let sk=-1,sd=1;
+ const draw=()=>{const r=sk<0?D:[...D].sort((a,b)=>(a[sk]>b[sk]?1:a[sk]<b[sk]?-1:0)*sd);
+  t.tBodies[0].innerHTML=r.map(c=>'<tr><td><a href="'+c[8]+'" target="_blank" rel="noopener"><b>'+c[0]+'</b> ↗</a><small>'+c[1]+'</small></td><td>'+c[2]+'</td><td class="num">'+c[4]+'</td><td>'+c[5]+'</td><td>'+c[6]+'</td><td>'+c[7]+'</td></tr>').join('');
+  t.querySelectorAll('th').forEach(h=>h.classList.toggle('s',+h.dataset.k===sk))};
+ t.querySelectorAll('th').forEach(h=>h.onclick=()=>{const k=+h.dataset.k;sd=sk===k?-sd:(k===3?-1:1);sk=k;draw()});draw()});
 </script>
 <script src="../assets/wip.js"></script>
 </body>

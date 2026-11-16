@@ -57,7 +57,7 @@ svg{max-width:100%}
 .big b{display:block;font-family:var(--serif);font-weight:400;font-size:52px;line-height:1;color:var(--ink)}
 .big b.bl{color:var(--blue)}
 .big span{display:block;font-size:13.5px;color:var(--muted);margin-top:8px;max-width:220px;line-height:1.4}
-.sm{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 32px;margin:24px 0}
+.sm{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px 32px;margin:24px 0}
 .sm>div{border-top:1px solid var(--ink);padding-top:10px;min-width:0}
 .sm h4{font-size:14px;font-weight:600;color:var(--ink);line-height:1.35;margin-bottom:10px}
 @media(max-width:640px){.sm{grid-template-columns:minmax(0,1fr)}}
@@ -100,7 +100,7 @@ footer{border-top:1px solid var(--line);padding:24px;text-align:center;font-size
 <div class="find"><div class="k">Finding 1</div><h3>Indian passengers spend ₹7.2 lakh crore a year on intra-city road travel, which is 82.8% of all passenger spend</h3>
 <div id="x1"></div></div>
 
-<div class="find"><div class="k">Finding 2</div><h3>Two-wheelers and walking carry 65% of all trips</h3>
+<div class="find"><div class="k">Finding 2</div><h3>Two-wheelers and walking carry 64% of all trips</h3>
 <div id="x2"></div></div>
 
 <div class="find"><div class="k">Finding 3</div><h3>98% of auto trips are booked offline, and offline autos collect 55% of all intra-city road fares</h3>
@@ -134,8 +134,8 @@ footer{border-top:1px solid var(--line);padding:24px;text-align:center;font-size
 <figure class="ex"><div class="n">Exhibit 3</div><div class="h">Running costs of privately owned vehicles are 58.1% of spend</div><div class="u">Intra-city road passenger spend by ownership, ₹ lakh crore a year, 2026</div><div id="e3"></div><figcaption>Spend is fares and running costs (fuel, maintenance, insurance, tolls, parking). Source: MoSPI HCES; MoRTH; company filings.</figcaption></figure>
 
 <h3>By vehicle</h3>
-<figure class="ex"><div class="n">Exhibit 4</div><div class="h">Two-wheelers lead work trips, and buses lead school trips</div><div class="u">Trip share by mode, %, 2025-26</div><div id="e4"></div><figcaption>Source: MoSPI NHTS 2025-26, Tables 2 and 4; all-trip shares weighted across work, education and other trips.</figcaption></figure>
-<p>Three-wheelers are 45 lakh CNG or petrol autos and 25.3 lakh e-rickshaws. Other vehicles such as jugaads and chhakdas carry 70 lakh work trips a day.</p>
+<figure class="ex"><div class="n">Exhibit 4</div><div class="h">Two-wheelers lead work trips, and buses lead school trips</div><div class="u">Trip share by mode, %, 2025-26</div><div id="e4"></div><figcaption>Source: MoSPI National Household Travel Survey 2025-26, Tables 2 and 4.</figcaption></figure>
+<p>Across all trips, two-wheelers carry 33.6%, walking 30.0%, buses 11.9%, bicycles 11.7%, autos and e-rickshaws 7.3%, cars 2.5%, metro and rail 2.0% and other vehicles 1.0%. Three-wheelers are 45 lakh CNG or petrol autos and 25.3 lakh e-rickshaws. Other vehicles such as jugaads and chhakdas carry 70 lakh work trips a day.</p>
 
 <h3>Fares: offline autos collect 55% of ₹3.02 lakh crore</h3>
 <figure class="ex"><div class="n">Exhibit 5</div><div class="h">Offline autos collect more fares than every other hired service combined</div><div class="u">Intra-city road fares, ₹ thousand crore a year, 2026</div><div id="e5"></div><figcaption>Source: MoRTH; company filings; MoSPI NHTS 2025-26.</figcaption></figure>
@@ -145,8 +145,10 @@ footer{border-top:1px solid var(--line);padding:24px;text-align:center;font-size
 <div class="sm">
 <div><h4>Cost and revenue per bus-km, ₹, FY26</h4><div id="e6a"></div></div>
 <div><h4>Net loss of 58 state bus undertakings, ₹ crore</h4><div id="e6b"></div></div>
+<div><h4>Passengers carried a day, lakh</h4><div id="e6c"></div></div>
 </div>
-<p>State buses carry 6.0 crore passengers a day on a fleet of 1,40,100. Each bus has 4.39 staff. Delhi city buses (DTC and IMTS) alone lose ₹10,950 crore a year.</p>
+<p>Ridership fell from 617 lakh a day in FY20 to 245 lakh in FY21 and has climbed back to about 600 lakh in FY26, lifted by free travel for women in Karnataka, Telangana, Delhi, Punjab and Tamil Nadu. Losses rose 72% over the same years. More riders have not closed the gap, because each bus-km still costs ₹31 more than it earns.</p>
+<p>State buses carry 6.0 crore passengers a day on a fleet of 1,40,100. Each bus has 4.39 staff. Delhi city buses alone lose ₹10,950 crore a year.</p>
 
 <h3>Ride-hailing: every large platform loses money</h3>
 <p>App ride-hailing is ₹38,500 crore of fares a year from 303 crore rides. Bikes and autos are 78% of rides, but cabs collect 53% of fares because a cab ride costs more.</p>
@@ -193,76 +195,76 @@ footer{border-top:1px solid var(--line);padding:24px;text-align:center;font-size
 <div class="gaps" id="gaps"></div>
 
 <div class="gap"><h4><em>1</em>Driver EV financing, leasing and battery-as-a-service</h4><dl>
-<dt>Unmet need</dt><dd>70 lakh auto and e-rickshaw drivers have no credit history. E-3W loans cost 14% to 16%.</dd>
-<dt>Customers pay</dt><dd>Drivers already pay daily rent of ₹300 to ₹500 for fleet e-3Ws and e-2Ws. Battery-as-a-service cuts upfront e-3W cost by 35% to 40%.</dd>
-<dt>Size</dt><dd>₹20,000 crore of e-3W loans and ₹10,800 crore of e-2W loans a year</dd>
-<dt>Why now</dt><dd>Electric passenger 3Ws went from 12.6% of sales in FY24 to 33.7% in FY26. Telematics lets lenders immobilise a vehicle.</dd>
-<dt>Closest</dt><dd>Mufin Green (listed NBFC), Vidyut, Chargeup, Battery Smart (late stage)</dd></dl></div>
+<dt>Unmet need</dt><dd>70 lakh auto and e-rickshaw drivers have no credit history. Loans for electric three-wheelers cost 14% to 16%.</dd>
+<dt>Customers pay</dt><dd>Drivers already pay daily rent of ₹300 to ₹500 for fleet electric three-wheelers and two-wheelers. Battery-as-a-service cuts the upfront cost of an electric three-wheeler by 35% to 40%.</dd>
+<dt>Size</dt><dd>₹20,000 crore of electric three-wheeler loans and ₹10,800 crore of electric two-wheeler loans a year</dd>
+<dt>Why now</dt><dd>Electric passenger three-wheelers went from 12.6% of sales in FY24 to 33.7% in FY26. Telematics lets lenders immobilise a vehicle.</dd>
+<dt>Closest</dt><dd>Vidyut: battery-as-a-service financing, $16.5M raised. Chargeup: battery swaps and credit for e-rickshaw drivers, ₹22 crore in January 2026, 10,000+ drivers. PointO: lithium batteries and finance for e-rickshaw owners, ₹6.2 crore seed. Mufin Green: listed lender to EV buyers.</dd></dl></div>
 
 <div class="gap"><h4><em>2</em>Subscription transport for school and college students</h4><dl>
 <dt>Unmet need</dt><dd>1.5 crore students use school transport, much of it unregulated vans. 33.7% of urban students go by bus and 14.4% by auto.</dd>
 <dt>Customers pay</dt><dd>Parents pay ₹1,500 to ₹4,000 a month in metros. ZeroMoblt has run 3.4 lakh student trips for 15+ institutions.</dd>
 <dt>Size</dt><dd>₹27,000 crore a year</dd>
-<dt>Why now</dt><dd>GPS tracking is now mandated (AIS-140), and UPI autopay makes a monthly subscription easy to collect</dd>
-<dt>Closest</dt><dd>ZeroMoblt (pre-seed); legacy school bus contractors</dd></dl></div>
+<dt>Why now</dt><dd>GPS tracking is now mandated on public service vehicles, and UPI autopay makes a monthly subscription easy to collect</dd>
+<dt>Closest</dt><dd>ZeroMoblt: subscription school and college transport in Hyderabad, ₹1.5 crore pre-seed, 3.4 lakh trips. Legacy school bus contractors: local, unfunded and mostly offline.</dd></dl></div>
 
 <div class="gap"><h4><em>3</em>Organised EV fleets that supply ride-hailing</h4><dl>
 <dt>Unmet need</dt><dd>Asset-light platforms need reliable driver supply. Uber reported that driver supply lagged demand.</dd>
 <dt>Customers pay</dt><dd>Snap-E Cabs reports ₹120 crore of gross revenue from 1,112 EVs and is EBITDA positive.</dd>
 <dt>Size</dt><dd>₹4,000 crore addressable within ₹20,000 crore of app cab fares</dd>
 <dt>Why now</dt><dd>BluSmart shut in April 2025 and left its riders without a fleet.</dd>
-<dt>Closest</dt><dd>Snap-E, Milo Drive, Trevel, Trev Mobility, Evera</dd></dl></div>
+<dt>Closest</dt><dd>Snap-E Cabs: own-fleet electric cabs, $5M raised, EBITDA positive. Milo Drive: fleets run by driver-entrepreneurs, $2.4M seed. Trevel: electric rides in Gurugram, $1M seed. Trev Mobility: electric cabs funded by its riders, ₹3.65 crore. LetzRyd: electric ride service, $4M. Cautio: AI dashcam safety for car fleets, $3.8M.</dd></dl></div>
 
 <div class="gap"><h4><em>4</em>Employee commute for offices and shift workers</h4><dl>
-<dt>Unmet need</dt><dd>IT and GCC night shifts need employer transport after dark.</dd>
+<dt>Unmet need</dt><dd>IT and global capability centre night shifts need employer transport after dark.</dd>
 <dt>Customers pay</dt><dd>Routematic earned ₹178 crore in FY25. MoveInSync earned ₹438 crore in FY24.</dd>
 <dt>Size</dt><dd>₹72,000 crore a year</dd>
-<dt>Why now</dt><dd>GCC hiring and return to office</dd>
-<dt>Closest</dt><dd>MoveInSync, Routematic ($40M Series C), Cityflo. The leaders are past early stage.</dd></dl></div>
+<dt>Why now</dt><dd>Hiring at global capability centres and the return to office</dd>
+<dt>Closest</dt><dd>MoveInSync: employer commute software and operations, ₹438 crore revenue in FY24. Routematic: managed employee transport, $40M Series C. DriverShaab: supplies trained drivers to employee transport operators, ₹2.82 crore pre-Series A. The leaders are past early stage.</dd></dl></div>
 
 <div class="gap"><h4><em>5</em>Feeders to metro stations</h4><dl>
 <dt>Unmet need</dt><dd>Metro grew from 248 km in 2014 to 1,095 km in December 2025, but stations sit beyond walking distance for many riders.</dd>
 <dt>Customers pay</dt><dd>Riders already pay ₹10 to ₹30 a leg for shared autos and e-rickshaws. Yulu raised a $93M Series C in August 2026.</dd>
 <dt>Size</dt><dd>₹8,800 crore a year</dd>
-<dt>Closest</dt><dd>Yulu, Namma Yatri (Bengaluru metro integration), e-rickshaw fleet operators</dd></dl></div>
+<dt>Closest</dt><dd>Yulu: short-trip electric two-wheeler rentals, $93M Series C. Namma Yatri: zero-commission auto and cab app with Bengaluru metro tickets, ₹39.75 crore pre-Series A extension in March 2026. MyPickup: subscription electric autos for housing societies, ₹1.5 crore seed.</dd></dl></div>
 
-<div class="gap"><h4><em>6</em>Premium shared city buses</h4><dl>
+<div class="gap"><h4><em>6</em>Safe commute for women</h4><dl>
+<dt>Unmet need</dt><dd>91% of women do not rate public transport very safe. Urban women join the labour force at 25.0%, against about 75% for urban men, and 41.9% of women workers travel more than 1 km to work, against 61.9% of men. The trip, more than the job, holds them back.</dd>
+<dt>Customers pay</dt><dd>Fery Rides has run 65,000+ rides with 250+ women drivers. Women's share of Delhi bus riders rose from 33% to 42% after fares were made free, and 150 crore+ free pink tickets were issued by November 2024.</dd>
+<dt>Size</dt><dd>₹7,000 crore a year. 1.3 crore urban working women ride paid modes and spend ₹1,500 a month, a ₹28,000 crore spend pool. 20% switching to a verified women-safe service at ₹2,250 a month gives ₹7,000 crore.</dd>
+<dt>Closest</dt><dd>Fery Rides: women drivers on electric bike taxis and cabs for women riders, ₹2.075 crore seed. Sakhi: women-only autos in Bengaluru, unfunded pilot. MoveInSync and Routematic: employer-paid night-shift transport for women staff.</dd></dl></div>
+
+<div class="gap"><h4><em>7</em>Premium shared city buses</h4><dl>
 <dt>Unmet need</dt><dd>9.7 state buses per lakh people against a benchmark of 60. Only 4 PM e-Bus Sewa cities operate.</dd>
 <dt>Customers pay</dt><dd>Cityflo runs at more than ₹275 crore annualised, and 120 of its 150 routes are cash positive.</dd>
 <dt>Size</dt><dd>₹6,000 crore a year</dd>
-<dt>Closest</dt><dd>Cityflo, Chalo</dd></dl></div>
+<dt>Closest</dt><dd>Cityflo: app-booked premium office buses, $19M raised. Chalo: bus ticketing and operations.</dd></dl></div>
 
-<div class="gap"><h4><em>7</em>Two-wheeler rider safety technology</h4><dl>
+<div class="gap"><h4><em>8</em>Two-wheeler rider safety technology</h4><dl>
 <dt>Unmet need</dt><dd>Two-wheeler riders are 46.2% of road deaths, 87,300 deaths in 2026.</dd>
-<dt>Customers pay</dt><dd>No paying customer disclosed. The route to revenue is OEM fitment or fleet and insurer contracts.</dd>
+<dt>Customers pay</dt><dd>No paying customer disclosed. The route to revenue is fitment by vehicle makers or fleet and insurer contracts.</dd>
 <dt>Size</dt><dd>₹5,000 crore a year at 5% fitment on 2 crore new two-wheelers</dd>
-<dt>Closest</dt><dd>EdgeVerse, BYTES, OEM in-house teams</dd></dl></div>
+<dt>Closest</dt><dd>EdgeVerse: rider assistance for two-wheelers, ₹4.85 crore seed. Lane (Inlane): driving lessons with sensors that score driver behaviour, ₹8.5 crore pre-seed. NAYAN: video AI for driver behaviour, $2M pre-Series A. BYTES: two-wheeler AI safety, ₹20 lakh grant.</dd></dl></div>
 
-<div class="gap"><h4><em>8</em>Safe commute for women</h4><dl>
-<dt>Unmet need</dt><dd>Travel limits work. Urban women's labour force participation is 25.0%, against about 75% for urban men. 41.9% of women workers travel more than 1 km to work, against 61.9% of men.</dd>
-<dt>Customers pay</dt><dd>Women's share of Delhi bus riders rose from 33% to 42% after fares were made free, and 150 crore+ free pink tickets were issued by November 2024. Demand is proven at zero price. Paid demand is not.</dd>
-<dt>Size</dt><dd>Sits inside employee commute, where the employer pays</dd>
-<dt>Closest</dt><dd>Fery Rides (seed)</dd></dl></div>
+
 <figure class="ex"><div class="n">Exhibit 10</div><div class="h">Women name the trip, not the job, as the unsafe part of work</div><div class="u">Share of women, %</div><div id="e13"></div><figcaption>Source: Save the Children 2019 (Bengaluru, 3,000 women); ITDP India and GIZ 2024; NARI 2025; Ola Mobility Institute 2019 (11 cities).</figcaption></figure>
 </section>
 
 <section id="s5">
-<h2><span class="no">Step 5</span>13 startups to track, 10 of them at pre-seed or seed</h2>
-<p>These companies are early enough for a pre-seed or seed cheque and have traction or a customer signal on a ranked problem statement. Vidyut, Namma Yatri and Cityflo are past seed and are tracked as benchmarks.</p>
-<table><thead><tr><th>Company</th><th>Problem</th><th>Stage</th><th class="num">Raised</th><th>Traction</th><th>Why tracked</th></tr></thead><tbody>
-<tr><td><strong>ZeroMoblt</strong><br>Hyderabad</td><td>2</td><td>Pre-seed</td><td class="num">₹1.5 crore</td><td>3.4 lakh student trips; 15+ institutions; 147 pincodes</td><td>Only funded player in student subscription transport</td></tr>
-<tr><td><strong>Chargeup</strong><br>Delhi</td><td>1</td><td>Seed</td><td class="num">₹22 crore round</td><td>10,000+ drivers</td><td>Battery and credit sold to the driver</td></tr>
-<tr><td><strong>Snap-E Cabs</strong><br>Kolkata, Delhi</td><td>3</td><td>Bridge</td><td class="num">$5M</td><td>1,112 EVs; 3.2 million rides; ₹120 crore gross revenue; EBITDA positive</td><td>Proof that an EV fleet can earn</td></tr>
-<tr><td><strong>Milo Drive</strong><br>Gurugram, Bengaluru</td><td>3</td><td>Seed</td><td class="num">$2.4M</td><td>Not disclosed</td><td>Driver-entrepreneur fleets for ride-hailing</td></tr>
-<tr><td><strong>Trevel</strong><br>Gurugram</td><td>3</td><td>Seed</td><td class="num">$1M</td><td>25 EVs added a month; target 500 by 2027</td><td>EV ride service in NCR</td></tr>
-<tr><td><strong>Trev Mobility</strong><br>Delhi-NCR</td><td>3</td><td>Angel</td><td class="num">₹3.65 crore</td><td>5 NCR cities</td><td>Funded by its own users</td></tr>
-<tr><td><strong>iGoWise Mobility</strong></td><td>1</td><td>Pre-seed</td><td class="num">₹8.2 crore</td><td>Pre-revenue</td><td>Electric three-wheeler supply</td></tr>
-<tr><td><strong>EdgeVerse</strong><br>Bengaluru</td><td>7</td><td>Seed</td><td class="num">₹4.85 crore</td><td>No disclosed paying customer</td><td>Test of OEM fitment for rider assistance</td></tr>
-<tr><td><strong>BYTES</strong><br>Bengaluru</td><td>7</td><td>Grant</td><td class="num">₹20 lakh</td><td>Prototype</td><td>Two-wheeler safety alternative</td></tr>
-<tr><td><strong>Fery Rides</strong></td><td>8</td><td>Seed</td><td class="num">₹2.075 crore</td><td>Not disclosed</td><td>Women-led ride platform</td></tr>
-<tr><td><strong>Vidyut</strong></td><td>1</td><td>Series A</td><td class="num">$16.5M</td><td>35% to 40% lower upfront cost</td><td>Benchmark for battery-as-a-service</td></tr>
-<tr><td><strong>Namma Yatri</strong><br>Bengaluru</td><td>5</td><td>Series A</td><td class="num">$15.4M</td><td>4.6 crore trips; FY25 revenue ₹23.5 crore</td><td>Benchmark for open-network ride-hailing</td></tr>
-<tr><td><strong>Cityflo</strong><br>Mumbai, Hyderabad</td><td>6</td><td>Series B</td><td class="num">$14.7M</td><td>₹275 crore+ annualised; 120 of 150 routes cash positive</td><td>Benchmark for premium buses</td></tr></tbody></table>
+<h2><span class="no">Step 5</span>3 companies tracked closely and 21 mapped</h2>
+<p>We follow 3 companies closely. Inlane trains drivers and turns their driving into data. ZeroMoblt is the private startup most ready for a seed round, scoring 20 of 25 on traction, unit economics, team, market and round timing. The Kyra Rides profile is to be added.</p>
+<table><thead><tr><th>Seed readiness, ZeroMoblt</th><th class="num">Score</th><th>Evidence</th></tr></thead><tbody>
+<tr><td>Traction</td><td class="num">4/5</td><td>3.4 lakh trips on ₹1.5 crore raised, the most trips per rupee in the set</td></tr>
+<tr><td>Unit economics</td><td class="num">3/5</td><td>Partner vehicles keep it asset-light, and parents prepay</td></tr>
+<tr><td>Team</td><td class="num">3/5</td><td>Backed by operators, including the JioMart CEO</td></tr>
+<tr><td>Market</td><td class="num">5/5</td><td>Student transport is worth ₹27,000 crore a year, and ZeroMoblt is the only funded player</td></tr>
+<tr><td>Round timing</td><td class="num">5/5</td><td>Pre-seed in February 2026 and a 6-city plan put a seed round in the first half of 2027</td></tr>
+<tr><td><strong>Total</strong></td><td class="num"><strong>20/25</strong></td><td>Fery Rides scores 16 and Snap-E Cabs 17, but Snap-E is already past seed</td></tr></tbody></table>
+<h3>Passenger-service startups</h3>
+<table><thead><tr><th>Company</th><th>What it does</th><th>Stage</th><th class="num">Raised</th><th>Traction</th></tr></thead><tbody><tr><td><strong>Cityflo</strong></td><td>App-booked premium office buses</td><td>Series A</td><td class="num">$19M</td><td>₹275 crore+ annualised; 120 of 150 routes cash positive</td></tr><tr><td><strong>ZeroMoblt</strong></td><td>Subscription school and college transport</td><td>Pre-seed</td><td class="num">₹1.5 crore</td><td>3.4 lakh trips; 147 pincodes; 15+ institutions</td></tr><tr><td><strong>Snap-E Cabs</strong></td><td>Own-fleet electric cabs</td><td>Pre-Series A</td><td class="num">$5M</td><td>1,112 EVs; 3.2 million rides; EBITDA positive</td></tr><tr><td><strong>Milo Drive</strong></td><td>Electric fleets run by driver-entrepreneurs for ride-hailing</td><td>Seed</td><td class="num">$2.4M</td><td>Not disclosed</td></tr><tr><td><strong>Trevel</strong></td><td>Electric rides in Gurugram</td><td>Seed</td><td class="num">$1M</td><td>25 EVs added a month</td></tr><tr><td><strong>Trev Mobility</strong></td><td>Electric cabs funded by their own riders</td><td>Angel</td><td class="num">₹3.65 crore</td><td>5 NCR cities</td></tr><tr><td><strong>Fery Rides</strong></td><td>Women drivers carrying women riders</td><td>Seed</td><td class="num">₹2.6 crore</td><td>65,000+ rides; 250+ women drivers</td></tr><tr><td><strong>Namma Yatri</strong></td><td>Zero-commission auto and cab app</td><td>Pre-Series A</td><td class="num">$15M+</td><td>FY25 revenue ₹23.5 crore</td></tr><tr><td><strong>MyPickup</strong></td><td>Subscription electric autos for housing societies</td><td>Seed</td><td class="num">₹1.5 crore</td><td>Not disclosed</td></tr><tr><td><strong>DriverShaab</strong></td><td>Trained drivers for employee transport</td><td>Pre-Series A</td><td class="num">₹2.82 crore</td><td>Not disclosed</td></tr><tr><td><strong>LetzRyd</strong></td><td>Electric ride service</td><td>Seed</td><td class="num">$4M</td><td>Not disclosed</td></tr><tr><td><strong>Sakhi</strong></td><td>Women-only autos in Bengaluru</td><td>Unfunded pilot</td><td class="num">None</td><td>About 17 trips in its pilot week</td></tr></tbody></table>
+<h3>Enabling tech across fleet types</h3>
+<table><thead><tr><th>Company</th><th>What it does</th><th>Stage</th><th class="num">Raised</th><th>Traction</th></tr></thead><tbody><tr><td><strong>Lane (Inlane)</strong></td><td>Driving lessons with sensors that score driver behaviour</td><td>Pre-seed</td><td class="num">₹8.5 crore</td><td>400+ pilot class hours</td></tr><tr><td><strong>LightMetrics</strong></td><td>Video telematics software for fleet dashcams</td><td>Series A</td><td class="num">$10.4M</td><td>Not disclosed</td></tr><tr><td><strong>Netradyne</strong></td><td>AI cameras that coach commercial-fleet drivers</td><td>Series D</td><td class="num">$300M+</td><td>Revenue of about $31M</td></tr><tr><td><strong>Cautio</strong></td><td>AI dashcam safety for car and bus fleets</td><td>Seed</td><td class="num">$3.8M</td><td>Not disclosed</td></tr><tr><td><strong>NAYAN</strong></td><td>Video AI for traffic enforcement and driver behaviour</td><td>Pre-Series A</td><td class="num">$2M+</td><td>₹35 crore order book; 17,000+ drivers</td></tr><tr><td><strong>EdgeVerse</strong></td><td>Rider assistance for two-wheelers</td><td>Seed</td><td class="num">₹4.85 crore</td><td>No paying customer disclosed</td></tr><tr><td><strong>Chargeup</strong></td><td>Battery swaps and credit for e-rickshaw drivers</td><td>Seed</td><td class="num">$9M+</td><td>10,000+ drivers</td></tr><tr><td><strong>Vidyut</strong></td><td>Battery-as-a-service financing for electric three-wheelers</td><td>Series A</td><td class="num">$16.5M</td><td>35% to 40% lower upfront cost</td></tr><tr><td><strong>PointO</strong></td><td>Lithium batteries and finance for e-rickshaw owners</td><td>Seed</td><td class="num">₹6.2 crore</td><td>Not disclosed</td></tr></tbody></table>
+<p><a href="../companies/">Open the companies tracker</a> for last rounds, investors and sources.</p>
 </section>
 
 <section id="s6">
@@ -278,7 +280,7 @@ footer{border-top:1px solid var(--line);padding:24px;text-align:center;font-size
 <li><strong>State payment.</strong> The ₹3,435 crore Payment Security Mechanism covers 38,000+ e-buses. Contracts outside it depend on state undertakings that lose ₹35,000 crore a year.</li>
 <li><strong>Platform economics.</strong> The 4 ride-hailing platforms lost ₹2,483 crore in FY25. BluSmart shut in April 2025 after raising $142M.</li>
 <li><strong>Battery value.</strong> EVs are 61% of all three-wheeler sales, and fleet and lending economics rest on battery life and resale.</li>
-<li><strong>Data.</strong> No census has counted the population since 2011, and NHTS does not publish an all-trip mode share.</li>
+<li><strong>Data.</strong> No census has counted the population since 2011, and the National Household Travel Survey does not publish an all-trip mode share.</li>
 </ul>
 </section>
 
@@ -333,7 +335,7 @@ waterfall('x1');
 
 /* trip share colours, one per mode, used everywhere */
 const M={tw:[ 'Two-wheeler',C.blue],wk:['Walk',C.grey],bus:['Bus',C.navy],au:['Auto',C.cyan],car:['Car',C.mid],met:['Metro and rail',C.pale],cyc:['Bicycle',C.lgrey],oth:['Other',C.lgrey]};
-stack('x2',[['All trips',[[ 'tw',34,C.blue],['wk',31,C.grey],['bus',12,C.navy],['car',2.5,C.mid],['oth',20.5,C.lgrey,'v']]]],80,{rowH:60});
+stack('x2',[['All trips',[[ 'tw',33.6,C.blue],['wk',30.0,C.grey],['bus',11.9,C.navy],['car',2.5,C.mid],['oth',22.0,C.lgrey,'v']]]],80,{rowH:60});
 legend('x2',[['Two-wheeler',C.blue],['Walk',C.grey],['Bus',C.navy],['Car',C.mid],['Auto, bicycle, metro and other',C.lgrey]]);
 
 bars('x4',[['State buses per lakh people',9.7,C.loss],['Benchmark',60,C.grey]],60,220);
@@ -350,7 +352,7 @@ bars('e2',[['Students 6+ (education)',66.4,C.blue,'%'],['Workers 15+ (work)',57.
   el('text',{x:W,y:132,class:'v','text-anchor':'end',text:'Publicly owned'},s);el('text',{x:W,y:148,class:'s','text-anchor':'end',text:'state bus fares, ₹0.65 lakh crore, 9.0%'},s)})();
 /* Exhibit 4: trip share small multiple, 100% stacked */
 stack('e4',[
- ['All trips',[['',34,C.blue],['',31,C.grey],['',12,C.navy],['',2.5,C.mid],['',20.5,C.lgrey,'v']]],
+ ['All trips',[['',33.6,C.blue],['',30.0,C.grey],['',11.9,C.navy],['',7.3,C.cyan,'v'],['',2.5,C.mid],['',2.0,C.pale,'v'],['',12.7,C.lgrey,'v']]],
  ['Urban work',[['',52.3,C.blue],['',13.5,C.grey],['',9.2,C.navy],['',8.8,C.cyan,'v'],['',5.7,C.mid],['',5.0,C.pale,'v'],['',5.8,C.lgrey,'v'],['',0.8,C.lgrey,'v']]],
  ['Urban school',[['',11.5,C.blue],['',29.6,C.grey],['',33.7,C.navy],['',14.4,C.cyan,'v'],['',1.0,C.mid],['',1.9,C.pale,'v'],['',9.1,C.lgrey,'v'],['',0.5,C.lgrey,'v']]]],100);
 legend('e4',[['Two-wheeler',C.blue],['Walk',C.grey],['Bus',C.navy],['Auto',C.cyan],['Car',C.mid],['Metro and rail',C.pale],['Bicycle and other',C.lgrey]]);
@@ -359,6 +361,7 @@ bars('e5',[['Autos booked offline',164.6,C.blue],['State bus fares',64.7,C.grey]
 /* Exhibit 6: per km and loss trend */
 cols('e6a',[['Cost',86,C.grey],['Revenue',55,C.loss]],100,{pre:'₹'});
 cols('e6b',[['FY20',20378,C.lgrey],['FY22',30192,C.grey],['FY26',35000,C.loss]],40000,{pre:'₹'});
+cols('e6c',[['FY20',617,C.navy],['FY21',245,C.grey],['FY22',355,C.grey],['FY26',600,C.navy]],700);
 /* Exhibit 7: rides vs fares */
 stack('e7',[['Share of rides',[['',45,C.pale,'v'],['',33,C.cyan],['',22,C.navy]]],['Share of fares',[['',20,C.pale,'v'],['',27,C.cyan],['',53,C.navy]]]],120);
 legend('e7',[['Bike taxi',C.pale],['Auto',C.cyan],['Cab',C.navy]]);
@@ -375,10 +378,10 @@ cols('e11b',[['FY22',1.9,C.pale],['FY23',4.6,C.pale],['FY24',5.1,C.mid],['FY25',
 /* Population */
 cols('e12',[['2011',37.7,C.grey],['2026',53.7,C.blue],['2036',59.4,C.mid]],70,{w:720,h:220});
 /* Exhibit 10: women */
-bars('e13',[['Feel unsafe on public transport (Bengaluru)',86,C.navy,'%'],['Report harassment or theft on public transport',30,C.navy,'%'],['Name public transport as a harassment hotspot',29,C.navy,'%'],['Rate public transport "very safe"',9,C.grey,'%']],100,330);
+bars('e13',[['Do not rate public transport very safe',91,C.navy,'%'],['Feel unsafe on public transport (Bengaluru)',86,C.navy,'%'],['Report harassment or theft on public transport',30,C.navy,'%'],['Name public transport as a harassment hotspot',29,C.navy,'%']],100,330);
 /* Problem statement ranking rows */
-(function(){const g=[['Driver EV financing and battery-as-a-service',30000],['Student transport subscriptions',27000],['EV fleets that supply ride-hailing',4000],['Employee commute',72000],['Metro feeders',8800],['Premium shared city buses',6000],['Two-wheeler safety technology',5000],['Safe commute for women',0]],max=72000,box=document.getElementById('gaps');
-  box.innerHTML=g.map((x,i)=>`<div class="gr"><span class="r">${i+1}</span><span class="t">${x[0]}</span><span class="val">${x[1]?'₹'+fmt(x[1])+' crore':'Inside rank 4'}</span><span class="bar"><i style="width:${x[1]/max*100}%"></i></span></div>`).join('')})();
+(function(){const g=[['Driver EV financing and battery-as-a-service',30000],['Student transport subscriptions',27000],['EV fleets that supply ride-hailing',4000],['Employee commute',72000],['Metro feeders',8800],['Safe commute for women',7000],['Premium shared city buses',6000],['Two-wheeler safety technology',5000]],max=72000,box=document.getElementById('gaps');
+  box.innerHTML=g.map((x,i)=>`<div class="gr"><span class="r">${i+1}</span><span class="t">${x[0]}</span><span class="val">${'₹'+fmt(x[1])+' crore'}</span><span class="bar"><i style="width:${x[1]/max*100}%"></i></span></div>`).join('')})();
 (function(){const links=[...document.querySelectorAll('#toc a')],secs=links.map(a=>document.querySelector(a.getAttribute('href')));
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-20% 0px -70% 0px'});secs.forEach(s=>s&&io.observe(s))})();
 </script>
