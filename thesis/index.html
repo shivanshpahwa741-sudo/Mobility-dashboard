@@ -72,13 +72,16 @@ footer{border-top:1px solid var(--line);padding:24px;text-align:center;font-size
 @media(max-width:700px){.two{grid-template-columns:1fr}}
 .pill{display:inline-block;font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:3px;white-space:nowrap}
 .pill.open{background:#051c2c;color:#fff}.pill.part{background:#e8edff;color:var(--blue)}
+#s0 pre{background:#f7f7f5;border:1px solid var(--line);padding:18px;overflow-x:auto;font:12.5px/1.45 "IBM Plex Mono",ui-monospace,Menlo,monospace;color:var(--ink);margin:20px 0}
+#s0 h3{margin-top:36px}
+#s0 ul{margin:0 0 16px 20px}#s0 li{margin-bottom:6px}
 </style>
 </head>
 <body>
 <div class="top"><span><a href="../">← How India Moves</a> &nbsp;·&nbsp; <a href="../dashboard/">Dashboard</a> &nbsp;·&nbsp; <a href="../insights/">Insights</a></span><span style="color:#6b6b6b">Investment thesis · November 2026</span></div>
 <div class="layout">
 <nav class="toc" id="toc"><b>Contents</b>
-<a href="#summary">Executive summary</a><a href="#s1">1. Who is involved</a><a href="#s2">2. Road, rail, air, water</a><a href="#s3">3. Why road</a><a href="#s4">4. Public and private road</a><a href="#s5">5. The vehicles</a><a href="#s6">6. Unaddressed gaps</a><a href="#s7">7. How big the gaps are</a><a href="#s8">8. Startups on each gap</a><a href="#s9">Risks</a><a href="#sources">Sources</a></nav>
+<a href="#summary">Executive summary</a><a href="#s0">Scope and sector tree</a><a href="#s1">1. Who is involved</a><a href="#s2">2. Road, rail, air, water</a><a href="#s3">3. Why road</a><a href="#s4">4. Public and private road</a><a href="#s5">5. The vehicles</a><a href="#s6">6. Unaddressed gaps</a><a href="#s7">7. How big the gaps are</a><a href="#s8">8. Startups on each gap</a><a href="#s9">Risks</a><a href="#sources">Sources</a></nav>
 <main>
 
 <header class="cover">
@@ -96,6 +99,318 @@ footer{border-top:1px solid var(--line);padding:24px;text-align:center;font-size
 <li><strong>The biggest gaps are the least organised.</strong> Offline autos (₹1.68 lakh crore, 70 lakh vehicles) and informal para-transit (14 to 18 lakh vehicles) have no funded company organising them.</li>
 <li><strong>Money is going to the edges.</strong> Batteries, credit and branded buses have funded startups. The stand, the school van and the small-city bus do not.</li>
 </ol></div>
+</section>
+
+<section id="s0">
+<h2><span class="no">Scope</span>Scope and sector coverage</h2>
+<h3>Scope in one paragraph</h3>
+<p>Mobility is anything that moves from point A to point B. We split it first by involvement: the people and firms <strong>directly involved</strong> in a movement (the rider, the driver, the vehicle, the operator, the platform that sells the trip) and those <strong>not directly involved</strong> who make it possible (policy and regulation, infrastructure, vehicle and energy supply, finance and insurance, digital rails, safety response, planning).</p>
+<p>Inside direct movement we split by <strong>what moves</strong>: people who choose to travel, goods, and animals. Animals do not choose their trip, so their transport, an estimated ₹26,500 Cr, is freight and is counted nowhere.</p>
+<p>Passenger movement then splits by <strong>surface</strong>: road, rail, air, water and a small "other" bucket for cable, non-motorised travel and space. Road takes ₹4.18 lakh crore of ₹6.2 lakh crore in fares (67%) and carries 55% of daily trips, so it is our focus.</p>
+<p>Road splits into <strong>public</strong> (state-run or state-contracted) and <strong>private</strong>. Private splits by purpose: for hire, own institutional use, personal use, and the informal layer that runs outside permits.</p>
+<p>Every leaf below carries examples and, where we have them, size. The tree ends in the gaps (problems with companies already moving in), the bets (problems nobody is working on), the startups on or next to each, and the risks.</p>
+<p>Each split uses a single rule, so every vehicle, firm or rupee sits in exactly one box:
+- involvement is decided by whether you are part of the trip itself
+- what moves is decided by who or what is carried
+- mode is decided by the surface
+- public or private is decided by who owns or contracts the service
+- private purpose is decided by who the vehicle serves</p>
+
+<h3>The full tree</h3>
+<pre><code>MOBILITY: moving anything from A to B
+│
+├── 1. DIRECTLY INVOLVED IN THE MOVEMENT
+│   │
+│   ├── 1.1 What moves
+│   │   ├── People, by choice ............................. IN SCOPE
+│   │   ├── Goods (trucks, parcels, freight rail) ......... out: separate thesis
+│   │   └── Animals (livestock, ~₹26,500 Cr) .............. out: freight, not counted
+│   │
+│   └── 1.2 People, by surface (₹6.2 lakh Cr fares, 165.5 Cr trips/day)
+│       │
+│       ├── A. ROAD · ₹4.18 lakh Cr fares (67%) · 55% of trips ........ FOCUS
+│       │   │
+│       │   ├── A1. PUBLIC: state-run or state-contracted · ₹66,000 Cr
+│       │   │   ├── State city buses: BMTC, BEST, DTC, MTC · ₹18,500 Cr
+│       │   │   ├── State intercity and rural buses: KSRTC, MSRTC, UPSRTC · ₹47,500 Cr
+│       │   │   │     (58 undertakings, ~1.5 lakh buses, ~7 Cr riders/day,
+│       │   │   │      ~₹22,500 Cr cash loss a year)
+│       │   │   ├── Contracted e-buses: state pays per km, private firm runs
+│       │   │   │     (EKA, PMI, GreenCell; 38,000+ under the payment fund;
+│       │   │   │      fares counted inside the state lines above)
+│       │   │   ├── Station feeder buses: metro feeders run or contracted by
+│       │   │   │     metro companies and city bus bodies · NEW, not yet sized
+│       │   │   ├── Cross-border state buses: Delhi to Kathmandu, Kolkata to
+│       │   │   │     Dhaka, routes into Bhutan · NEW, not yet sized
+│       │   │   └── Government official vehicles (public-owned, own use)
+│       │   │         · NEW, not yet sized
+│       │   │
+│       │   └── A2. PRIVATE · ₹3.52 lakh Cr fares + ₹17.9 lakh Cr ownership
+│       │       │
+│       │       ├── A2.1 For hire (anyone can pay for a ride)
+│       │       │   ├── Autos and e-rickshaws: ~45 lakh CNG/petrol + 25.3 lakh electric
+│       │       │   │     ₹1,68,000 Cr · 98% of trips offline · drivers keep ₹75,600 Cr
+│       │       │   │     (includes station feeder e-rickshaws and shared autos,
+│       │       │   │      not split out yet)
+│       │       │   ├── Ride-hailing apps: Rapido, Uber, Ola, Namma Yatri
+│       │       │   │     ₹38,500 Cr · 303 Cr rides · bikes and autos 78% of rides
+│       │       │   ├── Outstation cabs: local agents, Savaari, MakeMyTrip
+│       │       │   │     ₹37,500 Cr · 70% booked offline
+│       │       │   ├── Airport ground transport: prepaid airport taxis, airport
+│       │       │   │     shuttles, app-cab airport queues · NEW, not yet sized
+│       │       │   ├── Self-drive and driver leases: Zoomcar, Bounce, EV lessors
+│       │       │   │     ₹9,800 Cr  (cabs and maxi cabs on the road: 24.5 lakh)
+│       │       │   ├── Drivers for hire: DriveU, hourly chauffeurs, salaried
+│       │       │   │     household drivers · NEW, not yet sized
+│       │       │   ├── Private stage buses: Kerala, Bengal, Odisha routes
+│       │       │   │     ₹11,500 Cr · 1.45 lakh buses
+│       │       │   ├── Local charter buses: weddings, events, shift backups
+│       │       │   │     ₹9,000 Cr · 1.10 lakh buses
+│       │       │   ├── Intercity coaches: 6,858 operators; IntrCity, zingbus, NueGo
+│       │       │   │     ₹27,416 Cr · 28.72 Cr passengers · +24.5% · 81% offline
+│       │       │   ├── Tourist and pilgrimage road travel: multi-day tour
+│       │       │   │     coaches, Char Dham taxis, hill-station jeeps
+│       │       │   │     · NEW, ~₹12,500 Cr coaches, rest not yet sized
+│       │       │   ├── Private cross-border buses: Siliguri, Gorakhpur and
+│       │       │   │     Kolkata routes · NEW, not yet sized
+│       │       │   └── Non-emergency patient transport: dialysis and elderly
+│       │       │         trips, accessible vans · NEW, not yet sized
+│       │       │
+│       │       ├── A2.2 Captive (institution moves its own people)
+│       │       │   ├── School and college: 3.8 lakh buses + 3.5 lakh vans
+│       │       │   │     ₹32,500 Cr · 1.5 Cr students · 2 in 3 buses school-owned
+│       │       │   ├── Office commute: MoveInSync, Routematic, Cityflo
+│       │       │   │     ₹22,500 Cr · employer pays · +₹3,150 Cr EBITDA
+│       │       │   ├── Factory and construction worker buses · NEW, not yet sized
+│       │       │   └── Hospital, hotel and event shuttles · NEW, not yet sized
+│       │       │
+│       │       ├── A2.3 Informal (carries people outside any valid permit)
+│       │       │   ├── Jugaads (UP, Bihar, Haryana, Punjab, Rajasthan): 4.5 to 6 lakh
+│       │       │   ├── Chhakdas (Saurashtra): 1.25 to 1.5 lakh, 50,000+ unapproved
+│       │       │   ├── White-plate vans and jeeps on fixed routes: 4 to 5 lakh
+│       │       │   ├── Unregistered e-rickshaws: 4.6 lakh
+│       │       │   └── Goods vehicles carrying people: pickups, tempos and
+│       │       │         tractor-trolleys in rural areas · NEW, not yet counted
+│       │       │     Total 14 to 18 lakh vehicles before goods vehicles · fares not sized
+│       │       │
+│       │       └── A2.4 Personal (owner moves themselves)
+│       │           ├── Two-wheelers: 22.5 Cr on the road · 31% of trips
+│       │           ├── Cars and SUVs: 4.35 Cr · 4% of trips
+│       │           ├── Shared bikes and 2W rentals: Yulu, Royal Brothers · ₹1,180 Cr
+│       │           ├── Carpooling and peer-to-peer sharing: QuickRide, sRide,
+│       │           │     BlaBlaCar intercity · NEW, not yet sized
+│       │           └── Services around owning and using a vehicle · NEW
+│       │               ├── Parking: Park+, municipal parking contracts
+│       │               ├── Public charging for consumers: Tata Power EZ Charge,
+│       │               │     Statiq, ChargeZone
+│       │               ├── Subscriptions and personal leasing: Revv, Orix,
+│       │               │     carmaker subscription plans
+│       │               ├── Used-vehicle marketplaces: Cars24, Spinny, CredR
+│       │               │     (used resale ₹4 lakh Cr)
+│       │               ├── Servicing, repairs, roadside help: GoMechanic
+│       │               ├── Consumer motor insurance: Acko, Digit
+│       │               ├── Licences and driver training: driving schools, Sarathi
+│       │               └── Trip planning and ticketing: Google Maps, Chalo app,
+│       │                     NCMC card, ONDC Mobility
+│       │             Ownership cost ₹17.9 lakh Cr covers these, not yet split
+│       │             · vehicle loan book ₹20.5 lakh Cr
+│       │
+│       ├── B. RAIL · ₹90,400 Cr · mostly public ...................... mapped
+│       │   ├── Intercity rail: Indian Railways, IRCTC tickets · ₹76,000 Cr
+│       │   ├── Suburban rail: Mumbai and others · ₹4,000 Cr
+│       │   ├── Metro and RRTS: DMRC, Namma Metro, NCRTC · ₹10,400 Cr
+│       │   └── Tourist trains: Bharat Gaurav (96,000+ tourists in 2023)
+│       │
+│       ├── C. AIR · ₹1,12,000 Cr · two airlines hold over 91% ........ mapped
+│       │   ├── Scheduled: IndiGo, Air India
+│       │   └── Regional and non-scheduled: UDAN, charters, Kedarnath helicopters
+│       │
+│       ├── D. WATER · ~₹1,450 Cr ferries + ~₹830 Cr ocean cruises .... mapped
+│       │   ├── Urban and river ferries: Kochi Water Metro, M2M Ferries
+│       │   ├── Island vessels: Shipping Corporation, UT administrations
+│       │   └── Cruises: Cordelia (~79% share), 4.71 lakh passengers FY24
+│       │
+│       └── E. OTHER ................................................... mapped
+│           ├── Cable: ropeways under Parvatmala (250+ planned)
+│           ├── Non-motorised: walking (30% of trips), cycling (12%)
+│           └── Space: no market yet; first crewed Gaganyaan flight targeted 2027
+│
+└── 2. NOT DIRECTLY INVOLVED: they make the movement possible ......... mapped
+    ├── 2.1 Policy and regulation
+    │   ├── Centre: MoRTH (Motor Vehicles Act, Aggregator Guidelines 2025), MHI (PM E-DRIVE)
+    │   └── States: transport departments and RTOs (permits, road tax 4 to 15% on cabs,
+    │         bike taxi rules, gig worker acts in Karnataka and Telangana)
+    ├── 2.2 Infrastructure
+    │   ├── National highways: NHAI, MoRTH · 1,46,560 km · tolls ~₹82,900 Cr
+    │   └── State and city roads, stands, depots: PWDs, municipal bodies
+    ├── 2.3 Vehicle and energy supply ............................ in, as gap
+    │   ├── Makers: Bajaj, TVS, Tata, Mahindra, EKA, Olectra
+    │   └── Fuel, charging and swapping: Battery Smart, SUN Mobility
+    ├── 2.4 Finance and insurance ................................ in, as gap
+    │   ├── Vehicle lenders: RevFin, Three Wheels United, Mufin Green Finance, NBFCs
+    │   └── Commercial insurers: IRDAI-regulated motor insurance; Onsurity for fleets
+    ├── 2.5 Digital and payment rails
+    │   └── FASTag (4.45 bn transactions), UPI, Vahan, ONDC, booking software (Bitla)
+    ├── 2.6 Safety and emergency response ........................ in, as gap
+    │   └── Fleet safety tech (Netradyne, Intangles), 108 ambulances, traffic police
+    ├── 2.7 Planning
+    │   └── PM Gati Shakti, city transport authorities (UMTAs)
+    └── 2.8 System effects · NEW
+        ├── Congestion and time lost
+        ├── Air pollution and emissions from road vehicles
+        └── Traffic management and enforcement: ITMS, e-challans, telematics data
+</code></pre>
+
+<h3>How demand is cut (applies across every road leaf)</h3>
+<p>These four lenses do not add new boxes; they slice the same trips. None is split out with numbers yet.</p>
+<ul>
+<li><strong>Where:</strong> urban or rural; metro, Tier-2 or Tier-3 city.</li>
+<li><strong>Who travels:</strong> income band; women (partly covered); elderly and people with disabilities; students.</li>
+<li><strong>Why they travel:</strong> work, school, shopping, health, leisure. This decides who pays.</li>
+<li><strong>How far:</strong> inside a city (94% of trips) or between cities (6% of trips, 55% of passenger-km).</li>
+</ul>
+
+<h3>Gaps, bets, startups and risks (road only)</h3>
+<p>A <strong>gap</strong> is a problem with funded companies already moving in. A <strong>bet</strong> is a problem nobody is working on directly. Each sits against the leaf of the tree it belongs to.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Problem</th>
+<th>Tree leaf</th>
+<th>Type</th>
+<th>Volume</th>
+<th>Money, ₹ Cr</th>
+<th>On it</th>
+<th>Next to it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Nobody organises the auto stand</td>
+<td>A2.1 Autos</td>
+<td>Bet</td>
+<td>70 lakh vehicles</td>
+<td>1,68,000</td>
+<td>None</td>
+<td>Yulu, Zypp, Namma Yatri</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Informal vehicles have no path to legality</td>
+<td>A2.3 Informal</td>
+<td>Bet</td>
+<td>14 to 18 lakh</td>
+<td>not sized</td>
+<td>None</td>
+<td>GOGO Bus</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Women's first and last mile</td>
+<td>A1, A2.1</td>
+<td>Bet</td>
+<td>29.5 lakh extra daily trips in Karnataka once buses were free</td>
+<td>not sized</td>
+<td>None</td>
+<td>Safetipin, Sakha (grant-funded)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>School transport outside big cities</td>
+<td>A2.2 School</td>
+<td>Bet</td>
+<td>7.3 lakh vehicles</td>
+<td>32,500</td>
+<td>TrackNOW (seed)</td>
+<td>TrackSchoolBus; two shut</td>
+</tr>
+<tr>
+<td>5</td>
+<td>400+ cities with no organised buses</td>
+<td>A1 Public</td>
+<td>Bet</td>
+<td>400+ cities</td>
+<td>not sized</td>
+<td>None</td>
+<td>Chalo, PMI, EKA</td>
+</tr>
+<tr>
+<td>6</td>
+<td>One service bundle for drivers</td>
+<td>A2.1</td>
+<td>Bet</td>
+<td>~95 lakh drivers</td>
+<td>not sized</td>
+<td>None</td>
+<td>KarmaLife, Onsurity</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Expensive e-auto credit</td>
+<td>2.4 Finance</td>
+<td>Gap</td>
+<td>3 in 4 on credit</td>
+<td>40,300</td>
+<td>RevFin, Three Wheels United, Mufin</td>
+<td>VidyutTech</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Battery cost and life</td>
+<td>2.3 Energy</td>
+<td>Gap</td>
+<td>25.3 lakh e-3W</td>
+<td>not sized</td>
+<td>SUN Mobility, Battery Smart</td>
+<td>Nunam, Yuma</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Intercity trips sold offline</td>
+<td>A2.1 Coaches, cabs</td>
+<td>Gap</td>
+<td>28.72 Cr bus trips</td>
+<td>48,500</td>
+<td>IntrCity, zingbus, Fresh Bus, NueGo</td>
+<td>redBus, Bitla</td>
+</tr>
+<tr>
+<td>10</td>
+<td>EV cabs that make money</td>
+<td>A2.1 Cabs</td>
+<td>Gap</td>
+<td>24.5 lakh cabs</td>
+<td>38,500</td>
+<td>Evera, Snap-E</td>
+<td>Refex, Routematic</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Road crashes</td>
+<td>2.6 Safety</td>
+<td>Gap</td>
+<td>1.83 lakh deaths (2025)</td>
+<td>not sized</td>
+<td>Netradyne, Intangles</td>
+<td>None for two-wheelers</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Risks</strong>
+- <strong>Battery value:</strong> gaps 7, 8 and 10 depend on what a battery is worth after years of heat.
+- <strong>State payment:</strong> bets 5 and the contracted buses in A1 depend on the payment fund; outside it, states pay 2 to 6 months late.
+- <strong>Regulation:</strong> bike taxis and e-rickshaws are legal state by state, and a crackdown can remove informal supply overnight (bets 1 and 2).
+- <strong>Price sensitivity:</strong> the fastest growth is in ₹25 to ₹70 rides, where margins are thinnest.
+- <strong>Data:</strong> the informal layer has no reliable count, some figures are estimates, and Tracxn pages sometimes disagree on funding.</p>
+<p><strong>Not yet sized</strong>
+Every leaf marked NEW was added after checking the tree against industry frameworks: McKinsey's future-of-mobility taxonomy, UITP and ITF classifications, and Redseer and BCG India mobility reports. They are in scope and still need numbers, so the ₹4.18 lakh Cr road total does not include them yet.</p>
+<p><strong>Why the boxes do not overlap</strong>
+- Contracted e-buses are paid by the state, so they sit in A1, and their fares are counted only there.
+- School e-rickshaws (~₹2,500 Cr) are counted in autos, not school.
+- Multi-day tourist coaches (~₹12,500 Cr) are left out of road fares until they are placed.
+- Ambulances sit under 2.6 safety response, not passenger travel.</p>
 </section>
 
 <section id="s1">
