@@ -78,7 +78,7 @@ footer{border-top:1px solid var(--line);padding:24px;text-align:center;font-size
 </style>
 </head>
 <body>
-<div class="top"><a href="../">← How India Moves</a><span style="color:#6b6b6b">Investment thesis · November 2026</span></div>
+<div class="top"><span><a href="../">← How India Moves</a> &nbsp;·&nbsp; <a href="../dashboard/">Dashboard</a></span><span style="color:#6b6b6b">Investment thesis · November 2026</span></div>
 <div class="layout">
 <nav class="toc" id="toc"><b>Contents</b>
 <a href="#summary">Executive summary</a><a href="#s1">1. The whole sector</a><a href="#s2">2. Why road</a><a href="#s3">3. Rules and roads</a><a href="#s4">4. Road operations</a><a href="#s5">5. Who makes money on the road</a><a href="#s6">6. What is changing</a><a href="#s7">7. Gaps, with startups</a><a href="#s8">8. Bets, with startups</a><a href="#s9">9. Risks</a><a href="#sources">Sources</a></nav>
@@ -366,5 +366,6 @@ const fmt=n=>n.toLocaleString('en-IN');
 (function(){const links=[...document.querySelectorAll('#toc a')],secs=links.map(a=>document.querySelector(a.getAttribute('href')));
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-20% 0px -70% 0px'});secs.forEach(s=>s&&io.observe(s))})();
 </script>
+<script src="../assets/wip.js"></script>
 </body>
 </html>

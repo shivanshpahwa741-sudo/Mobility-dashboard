@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Road Mobility Tracker</title>
+<meta name="description" content="Tracker for India's road passenger transport: every gap and bet, every company working on them, and the news behind each.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f2f2f0;--ink:#0d0d0d;--ink-2:#3a3a37;--muted:#77756f;--line:rgba(13,13,13,.1);--navy:#051c2c;--blue:#2251ff;--loss:#c4442f;--orange:#f08a4b;
+--serif:"Instrument Serif",Georgia,serif;--sans:"Inter Tight",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;--g:clamp(16px,4vw,64px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper)}
+body{color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+header{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:min(1400px,calc(100% - 2*var(--g)));z-index:50;display:flex;justify-content:space-between;align-items:center;padding:10px 12px 10px 24px;background:rgba(236,236,234,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.7);border-radius:16px}
+.logo{font-family:var(--serif);font-size:26px;text-decoration:none;line-height:1}
+nav{display:flex;align-items:center;gap:4px;background:#fff;border-radius:12px;padding:4px}
+nav a{font-size:13px;text-decoration:none;padding:8px 14px;border-radius:8px;color:var(--ink-2)}
+nav a:hover{background:var(--paper)}nav a.on{text-decoration:underline;text-underline-offset:5px;color:var(--ink)}nav a.cta{background:var(--ink);color:#fff}
+@media(max-width:820px){nav a:not(.cta):not(.on){display:none}}
+.wrap{max-width:1400px;margin:0 auto;padding:0 var(--g)}
+.hero{padding:140px 0 40px}
+.kick{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(54px,8vw,130px);line-height:.92;letter-spacing:-.03em}
+h1 em{color:var(--blue)}
+.intro{max-width:56ch;margin-top:24px;color:var(--ink-2)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:40px 0 0}
+.kpis div{background:#fff;padding:22px 24px}.kpis .n{font-family:var(--serif);font-size:clamp(40px,5vw,64px);line-height:1}.kpis .l{font-size:13px;color:var(--muted);margin-top:6px}
+@media(max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)}}
+section{padding:72px 0 0}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(38px,4.5vw,64px);line-height:1;letter-spacing:-.02em;margin-bottom:10px}
+.sub{color:var(--muted);font-size:14px;margin-bottom:24px;max-width:70ch}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.chips button{font-size:13px;padding:7px 13px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+.chips button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.board{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.gc{background:#fff;border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px;border:1px solid transparent;transition:border-color .2s;cursor:pointer;text-align:left}
+.gc:hover{border-color:var(--ink)}
+.gc .top{display:flex;justify-content:space-between;align-items:center}
+.tag{font-family:var(--mono);font-size:11px;padding:3px 8px;border-radius:6px;background:#e8edff;color:var(--blue)}
+.tag.bet{background:var(--navy);color:#fff}
+.gc h3{font-family:var(--serif);font-weight:400;font-size:27px;line-height:1.05}
+.gc p{font-size:14px;color:var(--ink-2)}
+.meter{height:6px;background:var(--paper);border-radius:6px;overflow:hidden}.meter i{display:block;height:100%;background:var(--blue)}
+.gc .row{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted)}
+.gc .row b{color:var(--ink);font-weight:600}
+.gc .latest{font-size:12.5px;border-top:1px solid var(--line);padding-top:10px;color:var(--ink-2)}
+.tbl{background:#fff;border-radius:16px;overflow:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:760px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--muted);padding:14px 16px;border-bottom:1px solid var(--line);cursor:pointer;white-space:nowrap;user-select:none}
+th:hover{color:var(--ink)}
+td{padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}th.num{text-align:right}
+tr:last-child td{border-bottom:0}
+.st{font-size:12px;padding:2px 8px;border-radius:999px;background:#eef6e9;color:#2f6b1f;white-space:nowrap}
+.st.shut{background:#fbe9e6;color:var(--loss)}.st.listed{background:#e8edff;color:var(--blue)}.st.grant{background:#f3efe6;color:#7a5a1e}
+.search{width:100%;max-width:320px;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:#fff;font:inherit;font-size:14px;margin-bottom:12px}
+.news{display:grid;gap:1px;background:var(--line);border-radius:16px;overflow:hidden}
+.ni{background:#fff;display:grid;grid-template-columns:110px 1fr auto;gap:18px;padding:16px 20px;align-items:baseline;text-decoration:none}
+.ni:hover{background:#fafaf8}
+.ni .d{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.ni .t{font-size:15px}.ni .s{font-size:12px;color:var(--muted);margin-top:3px}
+.ni .g{font-family:var(--mono);font-size:11px;color:var(--blue);white-space:nowrap}
+@media(max-width:700px){.ni{grid-template-columns:1fr}.ni .g{white-space:normal}}
+.empty{background:#fff;padding:24px;border-radius:16px;color:var(--muted)}
+footer{padding:80px 0 40px;font-size:12px;color:var(--muted)}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(560px,100%);background:#fff;z-index:80;transform:translateX(100%);transition:transform .5s cubic-bezier(.2,.8,.2,1);overflow:auto;padding:32px}
+.drawer.on{transform:none}
+.scrim{position:fixed;inset:0;background:rgba(13,13,13,.4);z-index:70;opacity:0;pointer-events:none;transition:opacity .4s}.scrim.on{opacity:1;pointer-events:auto}
+.drawer .x{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.drawer .x button{width:36px;height:36px;border-radius:50%;background:var(--paper)}
+.drawer h3{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1;margin:10px 0 14px}
+.drawer h5{font-size:12px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:24px 0 8px}
+.drawer li{list-style:none;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.drawer li a{text-decoration:none}.drawer li small{display:block;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="../">How India Moves</a>
+  <nav><a href="../structure/">Structure</a><a class="on" href="./">Dashboard</a><a href="../#gaps">Gaps</a><a href="../#bets">Bets</a><a class="cta" href="../thesis/">Read the thesis</a></nav>
+</header>
+
+<div class="wrap">
+<div class="hero">
+  <div class="kick">Dashboard · Road passenger transport · Updated November 2026</div>
+  <h1>The road <em>tracker</em></h1>
+  <p class="intro">Every gap and bet in the thesis, every company working on or next to it, and the news that moves each one. Click a gap to see its companies and coverage.</p>
+  <div class="kpis"><div><div class="n" id="k1">0</div><div class="l">Gaps and bets tracked</div></div><div><div class="n" id="k2">0</div><div class="l">Companies tracked</div></div><div><div class="n" id="k3">0</div><div class="l">Startup funding tracked, $M</div></div><div><div class="n" id="k4">0</div><div class="l">News reports logged</div></div></div>
+</div>
+
+<section id="gaps">
+  <div class="kick">01 · Problems</div><h2>Gaps and bets</h2>
+  <p class="sub">A gap has funded companies moving in; a bet has none at scale. The bar shows funding tracked against the largest gap.</p>
+  <div class="chips" id="gchips"></div>
+  <div class="board" id="board"></div>
+</section>
+
+<section id="companies">
+  <div class="kick">02 · Who is building</div><h2>Companies</h2>
+  <p class="sub">Funding as stated on Tracxn, November 2026, unless the source column says otherwise. Click a column to sort.</p>
+  <input class="search" id="q" placeholder="Search companies" aria-label="Search companies">
+  <div class="tbl"><table><thead><tr><th data-k="name">Company</th><th data-k="gap">Gap or bet</th><th data-k="what">What it does</th><th data-k="usd" class="num">Funding, $M</th><th data-k="status">Status</th><th data-k="src">Source</th></tr></thead><tbody id="ctb"></tbody></table></div>
+</section>
+
+<section id="news">
+  <div class="kick">03 · Coverage</div><h2>News</h2>
+  <p class="sub">Reports on each gap, newest first. Headlines are paraphrased; open the link for the original.</p>
+  <div class="chips" id="nchips"></div>
+  <div class="news" id="nlist"></div>
+</section>
+
+<footer>How India Moves · Road tracker · Sources: Tracxn company pages (Nov 2026); MCA and stock exchange filings; company releases; news outlets as linked. Work in progress.</footer>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true"><div class="x"><span class="kick" id="dk" style="margin:0"></span><button id="dx" aria-label="Close">✕</button></div><div id="db"></div></aside>
+
+<script>
+const GAPS=[
+ ['credit','gap','E-auto credit','Three in four e-autos are bought on credit at 14 to 30%; the loan takes 24% of earnings.'],
+ ['battery','gap','Battery cost and life','Nobody knows what a battery is worth after five Indian summers.'],
+ ['driver-fees','gap','Driver fees','Commission took about 28% of earnings; daily passes have mostly replaced it.'],
+ ['intercity-bus','gap','Premium intercity buses','Sleepers earn 12 to 15%, but 81% of tickets are still sold offline.'],
+ ['office-commute','gap','Office commute','Employers spend ₹22,500 Cr a year and want reliable, safe late-shift rides.'],
+ ['ev-cabs','gap','Electric cabs after BluSmart','Riders want a reliable EV cab; nobody has a fleet model that makes money.'],
+ ['city-ebus','gap','Big-city electric buses','India runs a tenth of the city buses it needs; 5.8 lakh retire by FY30.'],
+ ['fleet-safety','gap','Fleet crash prevention','1.83 lakh road deaths in 2025; fleets carry the liability.'],
+ ['organise-autos','bet','Organise autos at the stand','₹1.68 lakh crore and 70 lakh vehicles, 98% of trips offline.'],
+ ['women-safety','bet','Safe first and last mile for women','77% of women say poor access to transit keeps them off it.'],
+ ['school','bet','School transport beyond big cities','7.3 lakh vehicles, ₹32,500 Cr, new GPS and CCTV rules.'],
+ ['small-city-bus','bet','Buses for 400+ cities with none','Funded bus firms chase big-city contracts inside the payment fund.'],
+ ['driver-bundle','bet','One bundle for the driver','Finance, insurance and charging bought from different places.'],
+ ['rural','bet','Rural and informal para-transit','14 to 18 lakh jugaads, chhakdas and vans outside every permit.'],
+ ['policy','rule','Rules and policy','Aggregator guidelines, bike taxi rules, gig acts, bus payment fund.']];
+const T='Tracxn';
+const CO=[
+ ['RevFin','credit','Digital lender for e-autos',34.8,'active',T],['Three Wheels United','credit','Driver loans for e-autos',10.1,'active',T],['VidyutTech','credit','EV and battery financing',null,'active',T],['Mufin Green Finance','credit','Listed EV lender',null,'listed','Exchange filings'],
+ ['SUN Mobility','battery','Swap stations for 2W, 3W and buses',188,'active',T],['Battery Smart','battery','Swap network for e-2W and e-3W',186,'active',T],['Yuma Energy','battery','Battery swapping',null,'active',T],['Nunam','battery','Second-life EV batteries',null,'active',T],
+ ['Rapido','driver-fees','Bike, auto and cab hailing on driver passes',800,'active',T],['Namma Yatri','driver-fees','Zero-commission open-network app',15.4,'active',T],
+ ['NueGo','intercity-bus','Intercity and city electric coaches',350,'active','Company filings, user research'],['IntrCity SmartBus','intercity-bus','Branded intercity bus network',45.3,'active',T],['zingbus','intercity-bus','Intercity bus network',16.4,'active',T],['Fresh Bus','intercity-bus','Electric intercity coaches',15.6,'active',T],['Bitla','intercity-bus','Booking software for 3,500+ operators',null,'listed','Part of MakeMyTrip'],['redBus','intercity-bus','70%+ of online bus tickets',null,'listed','Part of MakeMyTrip'],
+ ['Routematic','office-commute','Managed employee transport on EVs',47.1,'active',T],['MoveInSync','office-commute','Commute management software',32.7,'active',T],['Cityflo','office-commute','Premium commuter buses, Mumbai',19,'active',T],
+ ['Evera Cabs','ev-cabs','All-EV cab fleet, Delhi',14,'active',T],['Snap-E Cabs','ev-cabs','EV cab fleet, Kolkata',5,'active',T],['Refex Green Mobility','ev-cabs','EV fleet for office commute',null,'active',T],['BluSmart','ev-cabs','All-EV cabs; collapsed after fraud',null,'shut','SEBI and NCLT orders'],
+ ['EKA Mobility','city-ebus','Electric bus maker',179,'active',T],['Chalo','city-ebus','Bus ticketing, tracking and operations',117,'active',T],['PMI Electro Mobility','city-ebus','Electric buses on per-km contracts',89.2,'active',T],['SWITCH','city-ebus','Electric buses',18,'active',T],
+ ['Netradyne','fleet-safety','AI dashcams and driver monitoring',297,'active',T],['Intangles','fleet-safety','Predictive vehicle health',53.2,'active',T],
+ ['Yulu','organise-autos','EV two-wheeler fleet for gig workers (adjacent)',198,'active',T],['Zypp Electric','organise-autos','EV fleet for delivery (adjacent)',76.5,'active',T],['EVeez','organise-autos','EV rental for gig workers (adjacent)',null,'active',T],
+ ['Sakha Consulting Wings','women-safety','Women-driven cab service',null,'grant','User research'],['Safetipin','women-safety','Urban safety audits for cities',null,'grant','User research'],
+ ['TrackNOW','school','GPS tracking incl. school buses',null,'active',T+', seed'],['TrackSchoolBus','school','School bus tracking',null,'active',T+', unfunded'],['SafeTrack','school','School bus tracking',null,'shut',T],['Zuwagon','school','School bus tracking',null,'shut',T],
+ ['KarmaLife','driver-bundle','Earned-wage access for gig drivers',11,'active','User research'],['Onsurity','driver-bundle','Subscription health cover for SME fleets',65,'active','User research'],
+ ['GOGO Bus','rural','Bus aggregator for Tier-3 and Tier-4 towns',null,'active','User research'],
+ ['Bounce','organise-autos','Scooter rentals and swapping (adjacent)',220,'active','User research'],['Zoomcar','ev-cabs','Peer-to-peer car sharing (adjacent)',null,'listed','NASDAQ filings'],['Royal Brothers','organise-autos','Bike rentals (adjacent)',1.27,'active',T]];
+const NEWS=[{"date": "2026-05-15", "source": "Business Today", "title": "Rapido raises $240 million led by Prosus at $3 billion valuation", "url": "https://www.businesstoday.in/technology/story/rapido-raises-240-million-in-funding-led-by-prosus-at-3-billion-valuation-531670-2026-05-15", "tags": ["Rapido"], "gap": "driver-fees"}, {"date": "2026-05", "source": "Outlook Business", "title": "Rapido funding targets push beyond India's big cities", "url": "https://www.outlookbusiness.com/corporate/rapido-raises-240mn-at-3bn-valuation-in-push-beyond-indias-big-cities", "tags": ["Rapido"], "gap": "driver-fees"}, {"date": "2026-03", "source": "AutocarPro", "title": "Intercity bus passenger volumes up 24% in H2 FY2026, redBus report", "url": "https://www.autocarpro.in/news/intercity-bus-passenger-volumes-rise-24-percent-in-second-half-of-fy2026-redbus-report-132718", "tags": ["redBus"], "gap": "intercity-bus"}, {"date": "2026-01-15", "source": "electrive", "title": "CESL launches tender for 6,230 electric buses", "url": "https://www.electrive.com/2026/01/15/india-cesl-launches-tender-for-6230-electric-buses", "tags": ["PM E-DRIVE"], "gap": "city-ebus"}, {"date": "2026", "source": "Business Standard", "title": "Karnataka gig workers act explained, benefits and platform obligations", "url": "https://www.business-standard.com/india-news/karnataka-gig-workers-act-explained-benefits-high-court-platforms-126070800776_1.html", "tags": ["Gig worker acts"], "gap": "policy"}, {"date": "2026", "source": "Inc42", "title": "Zoomcar narrows Q3 loss on one-time gain, flags going-concern doubt", "url": "https://inc42.com/?p=549446", "tags": ["Zoomcar"], "gap": "ev-cabs"}, {"date": "2026", "source": "Inc42", "title": "Yulu bags $93 million to scale EV fleet and enter scooters", "url": "https://inc42.com/buzz/yulu-bags-93-mn-to-scale-ev-fleet-enter-full-size-electric-scooter-segment/", "tags": ["Yulu"], "gap": "organise-autos"}, {"date": "2026", "source": "News On AIR", "title": "Delhi government unveils draft e-rickshaw policy for public feedback", "url": "https://newsonair.gov.in/delhi-government-unveils-draft-e-rickshaw-policy-invites-public-feedback-for-one-month/", "tags": ["E-rickshaw rules"], "gap": "organise-autos"}, {"date": "2026", "source": "Construction World", "title": "Delhi plans to cap e-rickshaw fleet at 2.5 lakh", "url": "https://www.constructionworld.in/amp/policy-updates-and-economic-news/delhi-to-cap-e-rickshaw-fleet-at-250000-add-ecc/99287", "tags": ["E-rickshaw rules"], "gap": "organise-autos"}, {"date": "2026-07", "source": "Free Press Journal", "title": "Maharashtra regulates school bus fares, mandates CCTV, GPS, seat belts", "url": "https://freepressjournal.in/education/maharashtra-regulates-school-bus-fares-for-first-time-makes-cctv-gps-and-seat-belts-mandatory", "tags": ["School bus rules"], "gap": "school"}, {"date": "2026", "source": "AutocarPro", "title": "EKA Mobility deploys first phase of 876 e-bus order in Rajasthan", "url": "https://www.autocarpro.in/news/eka-mobility-deploys-first-phase-of-876-e-bus-order-in-rajasthan-under-e-bus-scheme-133463?amp=1", "tags": ["EKA Mobility", "PM e-Bus Sewa"], "gap": "small-city-bus"}, {"date": "2025-12", "source": "Coach Builders India", "title": "zingbus targets 1,000 electric buses via operator-led model", "url": "https://coachbuildersindia.com/tag/zingbus/", "tags": ["zingbus"], "gap": "intercity-bus"}, {"date": "2025-12", "source": "AutocarPro", "title": "Evera plans fleet of 4,500 electric vehicles by June 2026", "url": "https://www.autocarpro.in/news/evera-plans-fleet-expansion-to-4500-electric-vehicles-by-june-2026-130190?amp=1", "tags": ["Evera"], "gap": "ev-cabs"}, {"date": "2025-11", "source": "The South First", "title": "Karnataka gig workers act rules notified, board to meet quarterly", "url": "https://thesouthfirst.com/karnataka/karnataka-platform-based-gig-workers-act-2025-rules-notified-board-to-meet-at-least-once-every-three-months", "tags": ["Gig worker acts"], "gap": "policy"}, {"date": "2025-11", "source": "Deccan Herald", "title": "Bengaluru to get 4,500 electric buses as mega tender opens", "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fbengaluru%2Fbengaluru-to-get-4500-electric-buses-as-mega-tender-opens-on-november-6-3776012", "tags": ["PM E-DRIVE"], "gap": "city-ebus"}, {"date": "2025-10-07", "source": "Built In", "title": "Intangles raises $30M to expand predictive AI for fleets", "url": "https://builtin.com/articles/intangles-raises-30m-20251007", "tags": ["Intangles"], "gap": "fleet-safety"}, {"date": "2025-10", "source": "AutocarPro", "title": "EKA Mobility and GreenCell win order for 915 Hyderabad e-buses", "url": "https://www.autocarpro.in/news/eka-mobility-greencell-win-loa-for-915-electric-buses-in-hyderabad-under-pm-e-drive-131765", "tags": ["EKA Mobility", "NueGo"], "gap": "city-ebus"}, {"date": "2025-10", "source": "AutocarPro", "title": "India intercity bus industry grows 25% to 140 million passengers", "url": "https://www.autocarpro.in/news/indias-intercity-bus-industry-records-25-growth-with-140-million-passengers-129833", "tags": ["redBus"], "gap": "intercity-bus"}, {"date": "2025-10", "source": "AutocarPro", "title": "Rapido adds flight, hotel, bus and train bookings via partners", "url": "https://www.autocarpro.in/news/rapido-adds-flight-hotel-bus-and-train-booking-services-through-partner-integrations-129274", "tags": ["Rapido"], "gap": "driver-fees"}, {"date": "2025-10", "source": "Inc42", "title": "Ola, Uber and the zero-commission U-turn", "url": "https://inc42.com/features/ola-uber-the-zero-commission-u-turn", "tags": ["Uber", "Ola"], "gap": "driver-fees"}, {"date": "2025-09-12", "source": "Renewable Watch", "title": "Snap-E Cabs raises $2.5 million to expand EV fleet", "url": "https://renewablewatch.in/2025/09/12/snape-cabs-raises-2-5-million-funding-to-expand-ev-fleet/", "tags": ["Snap-E"], "gap": "ev-cabs"}, {"date": "2025-09", "source": "AutocarPro", "title": "EKA Mobility and Chartered Speed to deploy 1,750 e-buses in Bengaluru", "url": "https://www.autocarpro.in/NEWS/eka-mobility-chartered-speed-to-deploy-1750-electric-buses-in-bengaluru-130797", "tags": ["EKA Mobility"], "gap": "city-ebus"}, {"date": "2025-08-20", "source": "AutocarPro", "title": "Chartered Speed and EKA to deploy 1,135 e-buses under PM e-Bus Sewa", "url": "https://www.autocarpro.in/news/chartered-speed-eka-mobility-to-deploy-1135-electric-buses-under-pm-e-bus-sewa-scheme-128129", "tags": ["EKA Mobility", "PM e-Bus Sewa"], "gap": "small-city-bus"}, {"date": "2025-07-31", "source": "YourStory", "title": "Helios Climate and InfraCo Asia invest $60M in SUN Mobility", "url": "https://yourstory.com/2025/07/africas-helios-climate-infraco-asia-invests-60m-sun-mobility", "tags": ["SUN Mobility"], "gap": "battery"}, {"date": "2025-07", "source": "YourStory", "title": "Uber and Rapido welcome Motor Vehicle Aggregator Guidelines 2025", "url": "https://yourstory.com/2025/07/uber-rapido-motor-vehicle-aggregator-guidelines-2025", "tags": ["Aggregator Guidelines"], "gap": "policy"}, {"date": "2025-07", "source": "Entrackr", "title": "Govt revises ride-hailing rules with 2x surge cap and bike taxi push", "url": "https://entrackr.com/news/govt-revises-ride-hailing-rules-2x-surge-cap-cancellation-fee-and-push-for-bike-taxis-9455586", "tags": ["Aggregator Guidelines", "Bike taxis"], "gap": "policy"}, {"date": "2025-07", "source": "Deccan Herald", "title": "Karnataka transport federation says Centre's bike taxi guidelines not binding", "url": "https://www.deccanherald.com/india/karnataka/centres-guidelines-on-bike-taxis-not-binding-will-impact-drivers-karnataka-transport-federation-3615007", "tags": ["Bike taxis"], "gap": "policy"}, {"date": "2025-07", "source": "AutocarPro", "title": "Maharashtra announces draft aggregator rules for app taxis", "url": "https://www.autocarpro.in/news/maharashtra-announces-draft-motor-vehicle-aggregator-rules-to-bring-app-based-taxis-under-regulation-129211", "tags": ["Bike taxis", "Aggregator Guidelines"], "gap": "policy"}, {"date": "2025-07", "source": "Hindustan Times", "title": "BluSmart Mobility to undergo insolvency", "url": "https://www.magzter.com/es/stories/newspaper/Hindustan-Times-Mumbai/BLUSMART-MOBILITY-TO-UNDERGO-INSOLVENCY", "tags": ["BluSmart"], "gap": "ev-cabs"}, {"date": "2025-06-27", "source": "Sustainable Bus", "title": "CESL tender for 10,900 electric buses across five cities", "url": "https://www.sustainable-bus.com/news/india-cesl-tender-10900-electric-buses-pm-drive-scheme/", "tags": ["PM E-DRIVE"], "gap": "city-ebus"}, {"date": "2025-06-24", "source": "AutocarPro", "title": "Evera Cabs raises $4 million to expand EV fleet", "url": "https://www.autocarpro.in/news/evera-cabs-raises-%244-million-to-expand-electric-vehicle-fleet-127130", "tags": ["Evera"], "gap": "ev-cabs"}, {"date": "2025-06", "source": "Business Standard", "title": "Over 2.3 lakh traffic challans issued to Delhi e-rickshaw drivers", "url": "https://www.business-standard.com/india-news/over-230000-traffic-challans-issued-to-e-rickshaw-drivers-in-delhi-125062001120_1.html", "tags": ["E-rickshaw rules"], "gap": "organise-autos"}, {"date": "2025-05", "source": "Inc42", "title": "Can Evera fill the BluSmart vacuum?", "url": "https://inc42.com/startups/can-evera-fill-the-blusmart-vacuum/", "tags": ["Evera", "BluSmart"], "gap": "ev-cabs"}, {"date": "2025-04", "source": "Finshots", "title": "BluSmart is knee-deep in trouble over Gensol", "url": "https://finshots.in/archive/blusmart-is-knee-deep-in-trouble-gensol", "tags": ["BluSmart"], "gap": "ev-cabs"}, {"date": "2025-04-07", "source": "Business Standard", "title": "Centre receives demand for 15,000 e-buses from three states", "url": "https://www.business-standard.com/india-news/centre-receives-demand-for-15-000-electric-buses-from-three-states-125040701144_1.html", "tags": ["PM E-DRIVE"], "gap": "city-ebus"}, {"date": "2025-04", "source": "AutocarPro", "title": "EKA and Chartered Speed to deploy 675 e-buses across Rajasthan", "url": "https://www.autocarpro.in/news/eka-mobility-and-chartered-speed-to-deploy-675-electric-buses-across-rajasthan-126153", "tags": ["EKA Mobility", "PM e-Bus Sewa"], "gap": "small-city-bus"}, {"date": "2025-04", "source": "Inc42", "title": "Telangana cabinet approves gig workers bill", "url": "https://inc42.com/buzz/telangana-cabinet-approves-gig-workers-bill/", "tags": ["Gig worker acts"], "gap": "policy"}, {"date": "2025-03-27", "source": "Business Standard", "title": "UP to launch crackdown on unauthorised e-rickshaws and autos", "url": "https://www.business-standard.com/india-news/up-to-launch-crackdown-on-unauthorised-e-rickshaws-and-autos-from-april-1-125032700982_1.html", "tags": ["E-rickshaw rules"], "gap": "organise-autos"}, {"date": "2025-02-18", "source": "Business Standard", "title": "Uber adopts zero-commission model for auto drivers in India", "url": "https://business-standard.com/companies/news/uber-adopts-zero-commission-model-for-autorickshaw-drivers-in-india-125021801049_1.html", "tags": ["Uber"], "gap": "driver-fees"}, {"date": "2025-02", "source": "Lokmat Times", "title": "Maharashtra makes GPS, panic buttons and CCTV compulsory in school buses", "url": "https://www.lokmattimes.com/maharashtra/maharashtra-gps-tracking-panic-buttons-cctv-cameras-to-be-compulsory-in-school-buses-from-next-academic-year-a517", "tags": ["School bus rules"], "gap": "school"}, {"date": "2025-02", "source": "Rest of World", "title": "Uber's India price war with Rapido and Namma Yatri", "url": "https://restofworld.org/2025/uber-india-price-war/", "tags": ["Uber", "Rapido", "Namma Yatri"], "gap": "driver-fees"}, {"date": "2025-01", "source": "Inc42", "title": "Netradyne raises $90M from Point72, first unicorn of 2025", "url": "https://inc42.com/buzz/netradyne-bags-90-mn-from-point72-private-investments", "tags": ["Netradyne"], "gap": "fleet-safety"}, {"date": "2025-01", "source": "AutocarPro", "title": "redBus launches NOVA, a B2B marketplace for the bus industry", "url": "https://www.autocarpro.in/news/redbus-launches-nova-indias-first-integrated-b2b-marketplace-for-bus-industry-130444", "tags": ["redBus"], "gap": "intercity-bus"}];
+const gname=k=>(GAPS.find(g=>g[0]===k)||[,,k])[2];
+// KPIs
+const fund=CO.reduce((a,c)=>a+(c[3]||0),0);
+const kp=[[k1,GAPS.length-1],[k2,CO.length],[k3,Math.round(fund)],[k4,NEWS.length]];
+kp.forEach(([e,v])=>{let t0=null;const step=ts=>{t0=t0||ts;const p=Math.min(1,(ts-t0)/1200);e.textContent=Math.round(v*(1-Math.pow(1-p,3))).toLocaleString('en-IN');if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)});
+// board
+const maxF=Math.max(...GAPS.map(g=>CO.filter(c=>c[1]===g[0]).reduce((a,c)=>a+(c[3]||0),0)));
+function board(f){const b=document.getElementById('board');b.innerHTML='';
+ GAPS.filter(g=>g[1]!=='rule'&&(f==='all'||g[1]===f)).forEach(g=>{const cs=CO.filter(c=>c[1]===g[0]),fu=cs.reduce((a,c)=>a+(c[3]||0),0),ns=NEWS.filter(n=>n.gap===g[0]);
+  const el=document.createElement('button');el.className='gc';el.innerHTML=`<div class="top"><span class="tag ${g[1]}">${g[1]==='gap'?'Gap':'Bet'}</span><span class="kick" style="margin:0">${cs.length} companies · ${ns.length} reports</span></div><h3>${g[2]}</h3><p>${g[3]}</p><div class="meter"><i style="width:${Math.max(fu/maxF*100,fu?2:0)}%"></i></div><div class="row"><span>Funding tracked</span><b>${fu?'$'+Math.round(fu)+'M':'None found'}</b></div>${ns[0]?`<div class="latest"><span class="kick" style="margin:0 0 4px;display:block">Latest · ${ns[0].date}</span>${ns[0].title}</div>`:''}`;
+  el.onclick=()=>openGap(g);b.appendChild(el)})}
+const gc=document.getElementById('gchips');[['all','All'],['gap','Gaps'],['bet','Bets']].forEach(([k,n],i)=>{const x=document.createElement('button');x.textContent=n;if(!i)x.className='on';x.onclick=()=>{[...gc.children].forEach(y=>y.classList.toggle('on',y===x));board(k)};gc.appendChild(x)});board('all');
+// companies
+let sk='usd',sd=-1;
+function ctable(){const q=document.getElementById('q').value.toLowerCase();const rows=CO.filter(c=>(c[0]+c[2]+gname(c[1])).toLowerCase().includes(q)).sort((a,b)=>{const i={name:0,gap:1,what:2,usd:3,status:4,src:5}[sk];let x=i===1?gname(a[1]):a[i],y=i===1?gname(b[1]):b[i];if(x==null)x=-1;if(y==null)y=-1;return (x>y?1:x<y?-1:0)*sd});
+ document.getElementById('ctb').innerHTML=rows.map(c=>`<tr><td><b>${c[0]}</b></td><td>${gname(c[1])}</td><td>${c[2]}</td><td class="num">${c[3]==null?'n/a':c[3]}</td><td><span class="st ${c[4]}">${{active:'Active',shut:'Shut',listed:'Listed or owned',grant:'Grant-funded'}[c[4]]}</span></td><td style="color:#77756f;font-size:13px">${c[5]}</td></tr>`).join('')}
+document.querySelectorAll('th').forEach(th=>th.onclick=()=>{const k=th.dataset.k;sd=sk===k?-sd:(k==='usd'?-1:1);sk=k;ctable()});document.getElementById('q').oninput=ctable;ctable();
+// news
+function nlist(f){const l=document.getElementById('nlist');const ns=NEWS.filter(n=>f==='all'||n.gap===f);
+ l.innerHTML=ns.length?ns.map(n=>`<a class="ni" href="${n.url}" target="_blank" rel="noopener"><span class="d">${n.date}</span><span><div class="t">${n.title}</div><div class="s">${n.source}${n.tags&&n.tags.length?' · '+n.tags.join(', '):''}</div></span><span class="g">${gname(n.gap)} ↗</span></a>`).join(''):'<div class="empty">No reports logged yet.</div>'}
+const nc=document.getElementById('nchips');[['all','All']].concat(GAPS.filter(g=>NEWS.some(n=>n.gap===g[0])).map(g=>[g[0],g[2]])).forEach(([k,n],i)=>{const x=document.createElement('button');x.textContent=n;if(!i)x.className='on';x.onclick=()=>{[...nc.children].forEach(y=>y.classList.toggle('on',y===x));nlist(k)};nc.appendChild(x)});nlist('all');
+// drawer
+const dr=document.getElementById('drawer'),sc=document.getElementById('scrim');
+function openGap(g){const cs=CO.filter(c=>c[1]===g[0]),ns=NEWS.filter(n=>n.gap===g[0]);document.getElementById('dk').textContent=g[1]==='gap'?'Gap':'Bet';
+ document.getElementById('db').innerHTML=`<h3>${g[2]}</h3><p>${g[3]}</p><h5>Companies</h5><ul>${cs.map(c=>`<li><b>${c[0]}</b> · ${c[3]==null?'funding n/a':'$'+c[3]+'M'}<small>${c[2]}</small></li>`).join('')||'<li>No funded company found.</li>'}</ul><h5>News</h5><ul>${ns.map(n=>`<li><a href="${n.url}" target="_blank" rel="noopener">${n.title} ↗</a><small>${n.source} · ${n.date}</small></li>`).join('')||'<li>No reports logged yet.</li>'}</ul>`;
+ dr.classList.add('on');sc.classList.add('on');dr.setAttribute('aria-hidden','false')}
+const cl=()=>{dr.classList.remove('on');sc.classList.remove('on');dr.setAttribute('aria-hidden','true')};sc.onclick=cl;document.getElementById('dx').onclick=cl;addEventListener('keydown',e=>{if(e.key==='Escape')cl()});
+</script>
+<script src="../assets/wip.js"></script>
+</body>
+</html>
