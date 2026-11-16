@@ -189,8 +189,22 @@ svg .lbl{font-size:14px;fill:var(--ink-2);font-family:var(--sans)}svg .val{font-
 
 
 
+/* vehicle parade */
+.parade{position:relative;background:var(--paper);overflow:hidden}
+.parade .pin{height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.parade .ph{padding:0 var(--g);margin-bottom:4vh}
+.parade .ph h2{font-family:var(--serif);font-weight:400;font-size:clamp(36px,5vw,80px);line-height:.95;letter-spacing:-.02em}
+.lane{display:flex;align-items:flex-end;gap:clamp(40px,5vw,90px);padding:0 var(--g);width:max-content;position:relative}
+.lane:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:repeating-linear-gradient(90deg,var(--ink) 0 28px,transparent 28px 52px);opacity:.25}
+.veh{display:flex;flex-direction:column;align-items:flex-start;flex:none}
+.veh img{display:block;width:auto;max-width:none;filter:drop-shadow(0 18px 18px rgba(0,0,0,.08));transition:transform .4s}
+.veh:hover img{transform:translateY(-6px)}
+.veh .cap{order:-1;margin-bottom:14px;max-width:240px}
+.veh .cap b{display:block;font-family:var(--serif);font-weight:400;font-size:28px;line-height:1}
+.veh .cap span{font-size:13px;color:var(--ink-2)}
+@media(max-width:820px){.veh .cap b{font-size:22px}.veh .cap{max-width:200px}}
 /* narrowing circles */
-.narrow{position:relative;height:480vh}
+.narrow{position:relative;height:620vh}
 .ncirc{position:relative;width:100%;aspect-ratio:1;max-height:74vh;margin:0 auto}
 .ncirc svg{width:100%;height:100%;overflow:visible}
 .ncirc circle{transition:fill .6s,stroke .6s}
@@ -249,13 +263,6 @@ svg .lbl{font-size:14px;fill:var(--ink-2);font-family:var(--sans)}svg .val{font-
 .chart #c-gaps svg{max-width:760px}
 .more{display:inline-block;margin-top:24px;font-size:14px}
 /* vehicle strip */
-.vstrip h2.t{max-width:24ch}
-.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin-top:28px}
-.vt{background:#fff;border-radius:6px;padding:14px 14px 16px;display:flex;flex-direction:column;gap:6px}
-.vt img{height:64px;width:auto;max-width:100%;object-fit:contain;align-self:flex-start}
-.vt b{font-size:15px;font-weight:600}
-.vt span{font-size:13px;color:var(--ink-2);line-height:1.4}
-@media(max-width:520px){.vgrid{grid-template-columns:1fr 1fr}.vt img{height:48px}}
 </style>
 </head>
 <body>
@@ -284,7 +291,7 @@ svg .lbl{font-size:14px;fill:var(--ink-2);font-family:var(--sans)}svg .val{font-
 <!-- SCOPE -->
 <section class="scope" id="scope">
   <div class="label">The scope of this sector thesis</div>
-  <p class="chiptext">Indian passengers spend ₹7.2 lakh crore a year <span class="chip"><img src="assets/p_autos.jpg" alt=""></span> travelling <span class="circled">within city borders<svg viewBox="0 0 200 60" preserveAspectRatio="none"><path d="M10,34 C14,8 120,2 178,12 C204,18 196,48 150,54 C90,60 18,56 8,36 C4,26 26,12 60,8"/></svg></span> by road. 58% of it runs privately owned vehicles <span class="chip"><img src="assets/p_scooter3.jpg" alt=""></span>, and 55% of all fares go to autos booked offline. Value will move to companies that finance electric vehicles for drivers and organise the supply that state buses <span class="chip"><img src="assets/p_best.jpg" alt=""></span> do not provide.</p>
+  <p class="chiptext">Indian passengers spend ₹7.2 lakh crore a year <span class="chip"><img src="assets/p_autos.jpg" alt=""></span> travelling <span class="circled">within city borders<svg viewBox="0 0 200 60" preserveAspectRatio="none"><path d="M10,34 C14,8 120,2 178,12 C204,18 196,48 150,54 C90,60 18,56 8,36 C4,26 26,12 60,8"/></svg></span> by road.</p>
 </section>
 
 <!-- NARROWING CIRCLES -->
@@ -294,10 +301,12 @@ svg .lbl{font-size:14px;fill:var(--ink-2);font-family:var(--sans)}svg .val{font-
   <div class="nsteps">
    <div class="nstep"><div class="k">01 / Mobility sector</div><h3>India registered 3.08 crore new vehicles in FY26</h3><div class="npills"><span>New vehicles, FY26<b>3.08 crore</b></span><span>Petroleum products used, FY26<b>2,43,203 thousand tonnes</b></span></div></div>
    <div class="nstep"><div class="k">02 / Passenger mobility</div><h3>Indian passengers spend ₹8.7 lakh crore a year</h3><div class="npills"><span>Urban, per person a month<b>₹694</b></span><span>Rural, per person a month<b>₹367</b></span></div></div>
-   <div class="nstep"><div class="k">03 / Road</div><h3>Road is ₹7.43 lakh crore, 85.4% of passenger spend</h3><div class="npills"><span>Road<b>₹7.43L Cr</b></span><span>Rail and metro<b>₹0.90L Cr</b></span><span>Air<b>₹0.36L Cr</b></span><span>Water<b>₹1,450 Cr</b></span></div></div>
-   <div class="nstep"><div class="k">04 / Intra-city road</div><h3>Intra-city road is ₹7.2 lakh crore, 96.9% of road spend</h3><div class="npills"><span>Fares<b>₹3.02L Cr</b></span><span>Running costs<b>₹4.18L Cr</b></span><span>Inter-city road<b>₹0.23L Cr</b></span></div></div>
+   <div class="nstep"><div class="k">03 / By mode</div><h3>Road, rail and metro, air and water</h3><div class="npills"><span>Road<b>₹7.43L Cr</b></span><span>Rail and metro<b>₹0.90L Cr</b></span><span>Air<b>₹0.36L Cr</b></span><span>Water<b>₹0.0145L Cr</b></span></div><p class="out">Pie chart in ₹ lakh crore a year.</p></div>
+   <div class="nstep"><div class="k">04 / Road</div><h3>Road is ₹7.43 lakh crore, 85.4% of passenger spend</h3></div>
+   <div class="nstep"><div class="k">05 / Intra-city and inter-city</div><h3>Road, split by trip</h3><div class="npills"><span>Intra-city road<b>₹7.2L Cr</b></span><span>Inter-city road<b>₹0.23L Cr</b></span></div></div>
+   <div class="nstep"><div class="k">06 / Intra-city road</div><h3>Intra-city road is ₹7.2 lakh crore, 96.9% of road spend</h3><div class="npills"><span>Fares<b>₹3.02L Cr</b></span><span>Running costs<b>₹4.18L Cr</b></span></div></div>
   </div>
-  <div class="ndots"><i></i><i></i><i></i><i></i></div>
+  <div class="ndots"><i></i><i></i><i></i><i></i><i></i><i></i></div>
  </div>
 </section>
 
@@ -323,11 +332,10 @@ svg .lbl{font-size:14px;fill:var(--ink-2);font-family:var(--sans)}svg .val{font-
 </section>
 
 <!-- VEHICLE TYPES -->
-<section class="screen vstrip" id="vehicles">
-  <div class="kicker">Every vehicle type within city borders</div>
-  <h2 class="t">22.5 crore two-wheelers to 1,40,100 state buses</h2>
-  <div class="vgrid"><div class="vt"><img src="assets/v/family.webp" alt="Two-wheelers" loading="lazy"><b>Two-wheelers</b><span>22.5 crore on the road; 34% of all trips</span></div><div class="vt"><img src="assets/v/delivery.webp" alt="Electric two-wheeler fleets" loading="lazy"><b>Electric two-wheeler fleets</b><span>6.6% of two-wheeler sales electric in FY26</span></div><div class="vt"><img src="assets/v/biketaxi.webp" alt="Bike taxis" loading="lazy"><b>Bike taxis</b><span>Rapido valued at $3 billion, May 2026</span></div><div class="vt"><img src="assets/v/auto.webp" alt="Autos" loading="lazy"><b>Autos</b><span>45 lakh on CNG or petrol</span></div><div class="vt"><img src="assets/v/erick.webp" alt="E-rickshaws" loading="lazy"><b>E-rickshaws</b><span>25.3 lakh registered; 61% of three-wheeler sales electric in FY26</span></div><div class="vt"><img src="assets/v/jugaad.webp" alt="Other vehicles" loading="lazy"><b>Other vehicles</b><span>Jugaads and chhakdas: 70 lakh work trips a day</span></div><div class="vt"><img src="assets/v/cab.webp" alt="Cabs" loading="lazy"><b>Cabs</b><span>24.5 lakh cabs and maxi cabs</span></div><div class="vt"><img src="assets/v/officevan.webp" alt="Office shuttles" loading="lazy"><b>Office shuttles</b><span>MoveInSync has raised $32.7 million</span></div><div class="vt"><img src="assets/v/schoolvan.webp" alt="School vans and buses" loading="lazy"><b>School vans and buses</b><span>3.5 lakh vans and 3.8 lakh school buses</span></div><div class="vt"><img src="assets/v/statebus.webp" alt="State buses" loading="lazy"><b>State buses</b><span>1,40,100 buses, 6.0 crore riders a day</span></div><div class="vt"><img src="assets/v/ebus.webp" alt="Electric city buses" loading="lazy"><b>Electric city buses</b><span>38,000+ backed by a ₹3,435 crore payment guarantee</span></div></div>
-</section>
+<section class="parade" id="vehicles"><div class="pin">
+  <div class="ph"><div class="kicker">Every vehicle type within city borders</div><h2>22.5 crore two-wheelers to 1,40,100 state buses</h2></div>
+  <div class="lane" id="lane"><div class="veh"><div class="cap"><b>Two-wheelers</b><span>22.5 crore on the road; 34% of all trips</span></div><img src="assets/v/family.webp" alt="Two-wheelers" style="height:clamp(120px,22.2vh,200px)"></div><div class="veh"><div class="cap"><b>Electric two-wheeler fleets</b><span>6.6% of two-wheeler sales electric in FY26</span></div><img src="assets/v/delivery.webp" alt="Electric two-wheeler fleets" style="height:clamp(114px,21.1vh,190px)"></div><div class="veh"><div class="cap"><b>Bike taxis</b><span>Rapido valued at $3 billion, May 2026</span></div><img src="assets/v/biketaxi.webp" alt="Bike taxis" style="height:clamp(114px,21.1vh,190px)"></div><div class="veh"><div class="cap"><b>Autos</b><span>45 lakh on CNG or petrol</span></div><img src="assets/v/auto.webp" alt="Autos" style="height:clamp(114px,21.1vh,190px)"></div><div class="veh"><div class="cap"><b>E-rickshaws</b><span>25.3 lakh registered; 61% of three-wheeler sales electric in FY26</span></div><img src="assets/v/erick.webp" alt="E-rickshaws" style="height:clamp(120px,22.2vh,200px)"></div><div class="veh"><div class="cap"><b>Other vehicles</b><span>Jugaads and chhakdas: 70 lakh work trips a day</span></div><img src="assets/v/jugaad.webp" alt="Other vehicles" style="height:clamp(120px,22.2vh,200px)"></div><div class="veh"><div class="cap"><b>Cabs</b><span>24.5 lakh cabs and maxi cabs</span></div><img src="assets/v/cab.webp" alt="Cabs" style="height:clamp(90px,16.7vh,150px)"></div><div class="veh"><div class="cap"><b>Office shuttles</b><span>MoveInSync has raised $32.7 million</span></div><img src="assets/v/officevan.webp" alt="Office shuttles" style="height:clamp(108px,20.0vh,180px)"></div><div class="veh"><div class="cap"><b>School vans and buses</b><span>3.5 lakh vans and 3.8 lakh school buses</span></div><img src="assets/v/schoolvan.webp" alt="School vans and buses" style="height:clamp(111px,20.6vh,185px)"></div><div class="veh"><div class="cap"><b>State buses</b><span>1,40,100 buses, 6.0 crore riders a day</span></div><img src="assets/v/statebus.webp" alt="State buses" style="height:clamp(129px,23.9vh,215px)"></div><div class="veh"><div class="cap"><b>Electric city buses</b><span>38,000+ backed by a ₹3,435 crore payment guarantee</span></div><img src="assets/v/ebus.webp" alt="Electric city buses" style="height:clamp(129px,23.9vh,215px)"></div></div>
+</div></section>
 
 <!-- FACTORS -->
 <section class="screen" id="factors">
@@ -466,7 +474,7 @@ svg .lbl{font-size:14px;fill:var(--ink-2);font-family:var(--sans)}svg .val{font-
     <a class="bet" href="memos/" style="text-decoration:none"><div><h6>Driver EV financing</h6><p>₹30,000 crore of new e-auto and e-two-wheeler loans a year. 33.7% of passenger autos sold are electric, and drivers already pay ₹300 to ₹500 a day in rent.</p></div><div class="wrong"><span>Earliest player: Chargeup</span><span>↗</span></div></a>
     <a class="bet" href="memos/" style="text-decoration:none"><div><h6>Student transport subscription</h6><p>₹27,000 crore a year. Parents already pay ₹1,500 to ₹4,000 a month, and ZeroMoblt is the only funded company.</p></div><div class="wrong"><span>Only player: ZeroMoblt, ₹1.5 crore</span><span>↗</span></div></a>
     <a class="bet" href="memos/" style="text-decoration:none"><div><h6>Metro first and last mile</h6><p>₹8,800 crore a year. Metro grew from 248 km to 1,095 km in 11 years, and no seed-stage feeder company was found.</p></div><div class="wrong"><span>No funded seed player found</span><span>↗</span></div></a>
-    <a class="bet bold" href="memos/" style="text-decoration:none"><div><h6>Investment memos</h6><p>3 memos, to be added after company filtering.</p></div><div class="wrong"><span>Open memos</span><span>↗</span></div></a>
+    <a class="bet bold" href="memos/" style="text-decoration:none"><div><h6>Investment memos</h6><p>3 investment memos.</p></div><div class="wrong"><span>Open 3 investment memos</span><span>↗</span></div></a>
   </div>
 </section>
 
@@ -649,23 +657,23 @@ hbars('c-bus',[['Cost per bus-km',86,'₹86',C.navy],['Revenue per bus-km',55,'�
 
 /* ranked gaps */
 const GAPS=[
+ ['Employee commute',72000,'₹72,000 Cr','Shift transport for employees of IT firms, back offices and global capability centres, paid by the employer.',
+  'Night shifts need employer transport, and states require it for women working after dark.','MoveInSync earned ₹438 crore in FY24. Routematic earned ₹178 crore in FY25.','Global capability centre hiring and the return to office are raising shift volumes.','MoveInSync and Routematic (Series C). Little room at seed stage.'],
  ['Driver EV financing and battery subscription',30000,'₹30,000 Cr','Loans and batteries for auto and two-wheeler drivers who have no credit history.',
   'e-auto loans cost 14% to 16% a year, against 9.9% for e-rickshaws at Mufin Green.','Drivers already pay ₹300 to ₹500 a day to rent e-autos and e-two-wheelers. Vidyut cuts the upfront cost of an e-auto by 35% to 40%.','33.7% of passenger autos sold in FY26 were electric, up from 12.6% in FY24. Telematics lets a lender lock a vehicle remotely.','Chargeup, Vidyut, Mufin Green (listed), Battery Smart (late stage).'],
  ['Student transport subscription',27000,'₹27,000 Cr','Safe, tracked school and college transport sold as a monthly plan.',
   '1.5 crore students use school transport, much of it in unregulated vans.','Parents pay ₹1,500 to ₹4,000 a month in metros. ZeroMoblt has run 3.4 lakh trips for 15+ institutions.','GPS tracking is mandatory on public service vehicles, and UPI autopay makes monthly plans easy to collect.','ZeroMoblt (₹1.5 crore pre-seed) and local bus contractors.'],
- ['Electric fleets that supply ride-hailing apps',4000,'₹4,000 Cr','Organised electric cab fleets that the asset-light apps rely on for supply.',
-  'Uber reported that driver supply growth lagged demand.','Snap-E Cabs earns ₹120 crore of gross revenue a year from 1,112 EVs and is EBITDA positive.','BluSmart shut in April 2025 and left its riders unserved. ₹20,000 crore of app fares are paid for cabs, ₹4,000 crore of it addressable by EV fleets.','Snap-E, Milo Drive, Trevel, Trev Mobility, Evera.'],
- ['Employee commute',72000,'₹72,000 Cr','Shift transport for employees of IT firms, back offices and global capability centres, paid by the employer.',
-  'Night shifts need employer transport, and states require it for women working after dark.','MoveInSync earned ₹438 crore in FY24. Routematic earned ₹178 crore in FY25.','Global capability centre hiring and the return to office are raising shift volumes.','MoveInSync and Routematic (Series C). Little room at seed stage.'],
  ['Metro first and last mile',8800,'₹8,800 Cr','Shared feeder rides between metro stations and homes or offices.',
   'Metro grew from 248 km in 2014 to 1,095 km in December 2025, across 26 cities.','Riders already pay ₹10 to ₹30 a leg for shared autos and e-rickshaws. Yulu raised a $93M Series C in August 2026.','Metro length grew 4.4x since 2014, and ridership lags projections partly because of the last mile.','Yulu, Namma Yatri, local e-rickshaw operators.'],
+ ['Women-safe commute',7000,'₹7,000 Cr','Safe, tracked rides sold to working women who avoid buses after dark.',
+  '91% of women do not rate public transport as very safe. 86% of Bengaluru women feel unsafe on it.','2.55 crore urban women travel more than 1 km to work. Delhi women took 150 crore+ free bus rides by November 2024, so demand exists; evidence that women pay a premium is still thin.','Urban female labour force participation is 25.0%, against about 75% for men. Urban working women spend ₹28,000 crore a year on paid commutes; a verified women-safe service can capture ₹7,000 crore of it.','Fery Rides (₹2.075 crore seed).'],
  ['Premium shared office buses',6000,'₹6,000 Cr','Seat-guaranteed buses for office commuters who own no car.',
   'India has 9.7 state buses per lakh people, against a benchmark of 60.','Cityflo runs at more than ₹275 crore annualised revenue, and 120 of its 150 routes are cash positive.','PM e-Bus Sewa buses run in only 4 cities by March 2026.','Cityflo, Chalo.'],
  ['Two-wheeler rider safety tech',5000,'₹5,000 Cr','Collision warning and rider monitoring fitted by two-wheeler makers.',
   '46.2% of road deaths are two-wheeler riders, 87,300 deaths a year.','No paying customer is disclosed yet. The route to revenue is fitment by two-wheeler makers or sales to insurers.','2 crore two-wheelers are sold a year, and EdgeVerse closed its seed round in August 2026.','EdgeVerse (₹4.85 crore), BYTES (grant).'],
- ['Women-safe commute',7000,'₹7,000 Cr','Safe, tracked rides sold to working women who avoid buses after dark.',
-  '91% of women do not rate public transport as very safe. 86% of Bengaluru women feel unsafe on it.','2.55 crore urban women travel more than 1 km to work. Delhi women took 150 crore+ free bus rides by November 2024, so demand exists; evidence that women pay a premium is still thin.','Urban female labour force participation is 25.0%, against about 75% for men. Urban working women spend ₹28,000 crore a year on paid commutes; a verified women-safe service can capture ₹7,000 crore of it.','Fery Rides (₹2.075 crore seed).']];
-const SHORT=['Driver EV financing','Student transport','EV fleets for apps','Employee commute','Metro feeders','Office buses','Two-wheeler safety','Women-safe commute'];
+ ['Electric fleets that supply ride-hailing apps',4000,'₹4,000 Cr','Organised electric cab fleets that the asset-light apps rely on for supply.',
+  'Uber reported that driver supply growth lagged demand.','Snap-E Cabs earns ₹120 crore of gross revenue a year from 1,112 EVs and is EBITDA positive.','BluSmart shut in April 2025 and left its riders unserved. ₹20,000 crore of app fares are paid for cabs, ₹4,000 crore of it addressable by EV fleets.','Snap-E, Milo Drive, Trevel, Trev Mobility, Evera.']];
+const SHORT=['Employee commute','Driver EV financing','Student transport','Metro feeders','Women-safe commute','Office buses','Two-wheeler safety','EV fleets for apps'];
 hbars('c-gaps',GAPS.map((g,i)=>[`${i+1}. ${SHORT[i]}`,g[1],fmt(g[1]),i<3?C.blue:C.grey]),{x0:170,rh:34,max:72000});
 (function(){const host=document.getElementById('glist');
   GAPS.forEach((g,i)=>{const d=document.createElement('details');
@@ -689,23 +697,54 @@ hbars('c-gaps',GAPS.map((g,i)=>[`${i+1}. ${SHORT[i]}`,g[1],fmt(g[1]),i<3?C.blue:
     a.innerHTML=`<div class="h"><b>${x[0]}</b><span>${x[1]}</span></div><div class="r">${x[2]}</div><p>${x[3]}</p><div class="g">${x[4]}</div>`;host.appendChild(a)});
   if(!reduce)gsap.from('.su',{y:30,opacity:0,duration:.7,stagger:.05,ease:'power3.out',scrollTrigger:{trigger:host,start:'top 85%'}});
 })();
-/* narrowing circles: all drawn, active one highlighted */
+/* narrowing circles: sector, passenger, mode pie chart, road, intra/inter split, intra-city */
 (function(){const host=document.getElementById('ncirc'),sec=document.getElementById('narrow');if(!host||!sec)return;
+ const G='#ecebe8',S='rgba(13,13,13,.16)',B='#8aa0f0',BS='rgba(34,81,255,.45)',TX='#9a9893',TB='#3d5bb5';
  const s=el('svg',{viewBox:'-262 -262 524 524'});host.appendChild(s);
- const L=[['Mobility sector','3.08 crore new vehicles, FY26'],['Passenger mobility','₹8.7 lakh crore a year'],['Road','₹7.43 lakh crore a year'],['Intra-city road','₹7.2 lakh crore a year']];
- const R=[250,192,140,92],cs=[],ts=[];
- L.forEach((l,i)=>{const r=R[i],cy=250-r;cs.push(el('circle',{cx:0,cy,r,fill:'#ecebe8',stroke:'rgba(13,13,13,.16)','stroke-width':1},s))});
- L.forEach((l,i)=>{const r=R[i],cy=250-r,last=i===L.length-1,ty=last?cy-6:cy-r+24;
-   const a=el('text',{x:0,y:ty,'text-anchor':'middle',class:'nm',fill:'#9a9893',text:l[0]},s),b=el('text',{x:0,y:ty+16,'text-anchor':'middle',class:'nv',fill:'#9a9893',text:l[1]},s);ts.push([a,b])});
- const st=[...sec.querySelectorAll('.nstep')],dt=[...sec.querySelectorAll('.ndots i')];let cur=-1;
- const set=i=>{if(i===cur)return;cur=i;
-  cs.forEach((c,j)=>{c.setAttribute('fill',j===i?'#e3e7f2':'#ecebe8');c.setAttribute('stroke',j===i?'rgba(34,81,255,.5)':'rgba(13,13,13,.16)');c.setAttribute('stroke-width',j===i?1.5:1)});
-  ts.forEach((t,j)=>t.forEach(x=>x.setAttribute('fill',j===i?'#3d5bb5':'#a5a39e')));
-  if(!reduce)gsap.fromTo(cs[i],{attr:{'stroke-width':4}},{attr:{'stroke-width':1.5},duration:.8,ease:'power2.out'});
-  st.forEach((x,j)=>x.classList.toggle('on',j===i));dt.forEach((x,j)=>x.classList.toggle('on',j<=i))};
+ const c1=el('circle',{cx:0,cy:0,r:250,fill:G,stroke:S,'stroke-width':1},s);
+ const t1=el('text',{x:0,y:-222,'text-anchor':'middle',class:'nm',fill:TB,text:'Mobility sector'},s);
+ const c2=el('circle',{cx:0,cy:46,r:200,fill:'#f4f3f1',stroke:S,'stroke-width':1,opacity:0},s);
+ const t2=el('text',{x:0,y:-128,'text-anchor':'middle',class:'nm',fill:TB,opacity:0,text:'Passenger mobility'},s);
+ const R=136,g3=el('g',{transform:'translate(0,84)',opacity:0},s);
+ el('circle',{r:R,fill:'#fff',stroke:S,'stroke-width':1},g3);
+ const modes=[['7.43',7.43,B],['0.90',0.90,'#c9c7c2'],['0.36',0.36,'#b5b3ae'],['0.0145',0.0145,'#8f8d88']],tot=modes.reduce((a,m)=>a+m[1],0);
+ const segs=modes.map(m=>el('path',{fill:m[2],stroke:'#fff','stroke-width':1.2},g3));
+ const LP=[[0,26,'middle',TB],[-0.59*(R+20),-0.81*(R+20),'end',TX],[-30,-R-16,'end',TX],[8,-R-16,'start',TX]];
+ const lbs=modes.map((m,i)=>el('text',{x:LP[i][0],y:LP[i][1],'text-anchor':LP[i][2],class:'nv',fill:LP[i][3],opacity:0,text:m[0]},g3));
+ const arc=(a0,a1)=>{if(a1-a0>=Math.PI*2-1e-4)return `M0,${-R}A${R},${R} 0 1 1 0,${R}A${R},${R} 0 1 1 0,${-R}Z`;const p=a=>[Math.sin(a)*R,-Math.cos(a)*R],[x0,y0]=p(a0),[x1,y1]=p(a1);return `M0,0L${x0},${y0}A${R},${R} 0 ${a1-a0>Math.PI?1:0} 1 ${x1},${y1}Z`};
+ const st={pie:0,grow:0};
+ function draw(){let a=0;modes.forEach((m,i)=>{const f=i===0?m[1]/tot+(1-m[1]/tot)*st.grow:m[1]/tot*(1-st.grow),sp=f*Math.PI*2*st.pie;segs[i].setAttribute('d',sp>0.0005?arc(a,a+sp):'');a+=sp})}
+ /* intra vs inter split: inter-city share 0.23 of 7.43 */
+ const fi=0.23/7.43,ai=Math.PI*2*(1-fi),px=Math.sin(ai)*R,py=-Math.cos(ai)*R;
+ const inter=el('path',{d:`M0,0L${px},${py}A${R},${R} 0 0 1 0,${-R}Z`,fill:'#cfd7f5',opacity:0},g3);
+ const ln=`M0,${-R}L0,0L${px},${py}`,LL=R*2;
+ const split=el('path',{d:ln,fill:'none',stroke:'#fff','stroke-width':2,'stroke-dasharray':LL,'stroke-dashoffset':LL},g3);
+ const tIn=el('text',{x:-30,y:30,'text-anchor':'middle',class:'nv',fill:TB,opacity:0,text:'Intra-city 7.2'},g3);
+ const tOut=el('text',{x:-6,y:-R-16,'text-anchor':'middle',class:'nv',fill:TX,opacity:0,text:'Inter-city 0.23'},g3);
+ const tFull=el('text',{x:0,y:4,'text-anchor':'middle',class:'nm',fill:TB,opacity:0,text:'Intra-city road, 7.2'},g3);
+ draw();
+ const T=(o,v)=>reduce?gsap.set(o,v):gsap.to(o,{...v,duration:.9,ease:'power2.inOut',overwrite:'auto'});
+ const go=i=>{
+  T(c1,{attr:{fill:i>0?'#f0efed':G}});T(t1,{attr:{fill:i===0?TB:TX},opacity:i>0?.6:1});
+  T(c2,{opacity:i>=1?1:0,attr:{stroke:i===1?BS:S}});T(t2,{opacity:i>=1?(i===1||i===2?1:.6):0,attr:{fill:i<=2?TB:TX}});
+  T(g3,{opacity:i>=2?1:0});
+  if(reduce){st.pie=i>=2?1:0;st.grow=i>=3?1:0;draw()}else gsap.to(st,{pie:i>=2?1:0,grow:i>=3?1:0,duration:1.1,ease:'power2.inOut',onUpdate:draw,overwrite:'auto'});
+  T(lbs[0],{opacity:i===2||i===3?1:0});lbs[0].textContent=i>=3?'Road 7.43':'7.43';T(lbs.slice(1),{opacity:i===2?1:0});
+  T(split,{attr:{'stroke-dashoffset':i>=4?0:LL},opacity:i===4?1:0});
+  T(inter,{opacity:i===4?1:0});T([tIn,tOut],{opacity:i===4?1:0});
+  T(segs[0],{attr:{fill:i>=5?'#7f97ee':B}});T(tFull,{opacity:i>=5?1:0});
+ };
+ const stp=[...sec.querySelectorAll('.nstep')],dt=[...sec.querySelectorAll('.ndots i')];let cur=-1;
+ const set=i=>{if(i===cur)return;cur=i;stp.forEach((x,j)=>x.classList.toggle('on',j===i));dt.forEach((x,j)=>x.classList.toggle('on',j<=i));go(i)};
  set(0);
- if(!reduce)gsap.from(cs,{scale:.85,opacity:0,transformOrigin:'50% 100%',duration:1,stagger:.12,ease:'power3.out',scrollTrigger:{trigger:sec,start:'top 70%'}});
- ScrollTrigger.create({trigger:sec,start:'top top',end:'bottom bottom',onUpdate:self=>set(Math.min(3,Math.floor(self.progress*4)))});
+ ScrollTrigger.create({trigger:sec,start:'top top',end:'bottom bottom',onUpdate:self=>set(Math.min(5,Math.floor(self.progress*6)))});
+})();
+/* vehicle parade */
+(function(){const lane=document.getElementById('lane'),sec=document.getElementById("vehicles");if(!lane)return;
+  if(reduce){sec.querySelector('.pin').style.overflowX='auto';return}
+  const dist=()=>Math.max(0,lane.scrollWidth-innerWidth);
+  gsap.to(lane,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:sec,start:'top top',end:()=>'+='+dist(),pin:true,scrub:.6,invalidateOnRefresh:true}});
+  gsap.from('#lane .veh',{x:120,opacity:0,duration:1,stagger:.06,ease:'power3.out',scrollTrigger:{trigger:sec,start:'top 70%'}});
 })();
 /* general reveals */
 if(!reduce){
@@ -717,7 +756,7 @@ if(!reduce){
 /* particle wordmark */
 (function(){
   const cv=document.getElementById('particles'),ctx=cv.getContext('2d');let pts=[],mouse={x:-1e4,y:-1e4},W,H,dpr;
-  function build(){dpr=Math.min(devicePixelRatio||1,2);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;
+  function build(){dpr=Math.min(devicePixelRatio||1,2);W=cv.clientWidth;H=cv.clientHeight;if(!W||!H)return;cv.width=W*dpr;cv.height=H*dpr;
     const o=document.createElement('canvas');o.width=W;o.height=H;const c=o.getContext('2d');c.fillStyle='#fff';
     let fs=H*.78;c.font=`${fs}px "Instrument Serif"`;while(c.measureText('How India Moves').width>W*.94&&fs>20){fs-=4;c.font=`${fs}px "Instrument Serif"`}
     c.textAlign='center';c.textBaseline='middle';c.fillText('How India Moves',W/2,H/2);
