@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Problem Statements Bank</title>
-<meta name="description" content="Problem statements in intra-city road passenger mobility in India, ranked by size, as on Nov 2026.">
+<meta name="description" content="The real gaps in intra-city road passenger mobility in India, ranked by 2026 size.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#f2f2f0;--ink:#0d0d0d;--ink-2:#3a3a37;--muted:#77756f;--line:rgba(13,13,13,.1);--navy:#051c2c;--blue:#2251ff;--loss:#c4442f;
+:root{--paper:#f2f2f0;--ink:#0d0d0d;--ink-2:#3a3a37;--muted:#77756f;--line:rgba(13,13,13,.1);--navy:#051c2c;--blue:#2251ff;--loss:#c4442f;--gain:#2f6b1f;
 --serif:"Instrument Serif",Georgia,serif;--sans:"Inter Tight",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;--g:clamp(16px,4vw,64px)}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--paper)}
@@ -20,62 +20,58 @@ header{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:min(140
 nav{display:flex;align-items:center;gap:4px;background:#fff;border-radius:12px;padding:4px}
 nav a{font-size:13px;text-decoration:none;padding:8px 14px;border-radius:8px;color:var(--ink-2)}
 nav a:hover{background:var(--paper)}nav a.on{text-decoration:underline;text-underline-offset:5px;color:var(--ink)}nav a.cta{background:var(--ink);color:#fff}
-@media(max-width:820px){nav a:not(.cta):not(.on){display:none}}
+@media(max-width:900px){nav a:not(.cta):not(.on){display:none}}
 .wrap{max-width:1400px;margin:0 auto;padding:0 var(--g)}
-.hero{padding:140px 0 30px}
+.hero{padding:140px 0 40px}
 .kick{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
 h1{font-family:var(--serif);font-weight:400;font-size:clamp(54px,8vw,130px);line-height:.92;letter-spacing:-.03em}
 h1 em{color:var(--blue)}
-.intro{max-width:60ch;margin-top:24px;color:var(--ink-2)}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin:36px 0 18px}
+section{padding:80px 0 0}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(38px,4.5vw,64px);line-height:1;letter-spacing:-.02em;margin-bottom:28px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
 .chips button{font-size:13px;padding:7px 13px;border-radius:999px;background:#fff;border:1px solid var(--line)}
 .chips button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-.bank{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:14px;padding-bottom:80px}
-@media(max-width:500px){.bank{grid-template-columns:1fr}}
-.iss{background:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:14px}
-.iss .top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.meter{height:6px;background:var(--paper);border-radius:6px;overflow:hidden}.meter i{display:block;height:100%;background:var(--blue);border-radius:6px}
+footer{padding:80px 0 40px;font-size:12px;color:var(--muted)}
+
+.bank{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;padding-bottom:40px}
+.iss{background:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:14px;text-align:left;border:1px solid transparent;transition:border-color .2s}
+.iss:hover{border-color:var(--ink)}
+.iss .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
 .iss .n{font-family:var(--mono);font-size:12px;color:var(--muted)}
-.iss .who{font-family:var(--mono);font-size:11px;padding:3px 8px;border-radius:6px;background:var(--navy);color:#fff;white-space:nowrap}
-.iss h3{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.02}
-.iss dl{display:grid;gap:10px;font-size:14px}
-.iss dt{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--blue)}
-.iss dd{color:var(--ink-2)}
-.iss .size{border-top:1px solid var(--line);padding-top:12px;display:flex;justify-content:space-between;gap:12px;font-size:13px}
-.iss .size b{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1;display:block;color:var(--ink)}
-.iss .src{font-size:11.5px;color:var(--muted)}
-footer{padding:20px 0 40px;font-size:12px;color:var(--muted)}
+.iss img{width:72px;height:48px;object-fit:contain}
+.iss .big{font-family:var(--serif);font-size:48px;line-height:1}
+.iss h3{font-size:17px;font-weight:600;line-height:1.25}
+.iss p{font-size:14px;color:var(--ink-2)}
+.iss .more{font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:.05em;text-transform:uppercase}
+.iss.open{grid-column:1/-1;border-color:var(--ink)}
+.det{display:none;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;border-top:1px solid var(--line);padding-top:18px}
+.iss.open .det{display:grid}
+.det dt{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+.det dd{font-size:14px;color:var(--ink-2)}
 </style>
 </head>
 <body>
 <header>
   <a class="logo" href="../">How India Moves</a>
-  <nav><a href="../structure/">Structure</a><a href="../dashboard/">Dashboard</a><a class="on" href="./">Insights</a><a href="../#gaps">Gaps</a><a class="cta" href="../thesis/">Read the thesis</a></nav>
+  <nav><a href="../structure/">Structure</a><a href="../dashboard/">Dashboard</a><a class="on" href="./">Insights</a><a href="../companies/">Companies</a><a href="../memos/">Memos</a><a class="cta" href="../thesis/">Read the thesis</a></nav>
 </header>
 <div class="wrap">
 <div class="hero">
   <div class="kick">Insights · Intra-city road passenger mobility · Nov 2026</div>
-  <h1>Problem statements, <em>ranked</em> by size</h1>
-  <div class="chips" id="chips"></div>
+  <h1>8 gaps, <em>ranked</em> by size</h1>
 </div>
 <div class="bank" id="bank"></div>
-<footer>How India Moves · Insights · Sources: NHTS Factsheet 2025-26 (MoSPI); MoRTH SRTU Review 2019-20 to 2021-22; MoRTH Road Accidents in India 2024; VAHAN; FADA; IRDAI; PIB; company filings; Tracxn, Nov 2026.</footer>
+<footer>How India Moves · Insights · Sources: NHTS 2025-26 (MoSPI); MoRTH; VAHAN; FADA; EVreporter; PIB; MoSPI PLFS; MCA filings via Entrackr, Inc42 and Outlook Business; Tracxn, Nov 2026; company press as linked.</footer>
 </div>
 <script>
-const O={pp:'Privately owned, personal',pc:'Privately owned, commercial',pub:'Publicly owned'};
-const NONE='No funded company found on Tracxn as on Nov 2026';
-const I=[
- {o:'pc',x:[],h:'98% of auto trips are booked offline',say:'Urban workers take an auto for 8.8% of trips to work. Urban students take an auto for 14.4% of trips to school or college.',see:'App auto rides are 3 crore a month, against 150 crore auto rides a month in total. That means 147 crore auto trips a month are still booked offline.',n:'70 lakh',nl:'autos and e-rickshaws (45 lakh ICE and CNG, 25.3 lakh electric)',m:'₹1.68 lakh Cr',ml:'in auto fares a year',co:'Namma Yatri: $15.4M over 2 rounds; 4.6 Cr trips, 70 lakh users and 4 lakh drivers as on Mar 2026',src:'NHTS 2025-26 Tables 2 and 4; VAHAN; Tracxn'},
- {o:'pp',x:['safety'],h:'Two-wheeler riders are 46.2% of road deaths',say:'52.3% of urban workers ride a two-wheeler to work. Among urban male workers the share is 57%.',see:'Road crashes kill 1.89 lakh people a year in 2026. 46.2% of them, or 87,300, are two-wheeler riders. 20.6%, or 38,900, are pedestrians.',n:'22.5 crore',nl:'two-wheelers on the road',m:'₹1,06,990 Cr',ml:'motor insurance premium a year, all vehicle classes (FY26)',co:'Cautio: $3.0M seed; Edgeverse: ₹4.85 Cr ($0.56M); Nayan Tech: $2.0M',src:'MoRTH Road Accidents in India; NHTS 2025-26 Table 4; IRDAI'},
- {o:'pub',x:['women'],h:'India runs 9.7 state buses per lakh people, against a norm of 60',say:'Buses carry 33.7% of urban students to school or college and 21.7% of urban female workers to work.',see:'58 SRTUs carry 6.0 crore riders a day in 2026 on 1,40,100 buses.',n:'1,40,100',nl:'buses held by 58 SRTUs (2026)',m:'₹64,700 Cr',ml:'SRTU passenger fares a year (FY26)',co:'Chalo: $117M',src:'MoRTH SRTU Review Tables 1.2 and 6.1; NHTS 2025-26; Tracxn'},
- {o:'pc',x:[],h:'App cab operators lose money, and the largest EV cab fleet has shut down',say:'Cars, including app cabs, carry 5.7% of urban work trips.',see:'Ola Consumer revenue fell 42% a year to ₹679 Cr in FY26. Uber India ride-hailing earns ₹88 Cr in net revenue. BluSmart, which raised $142M, shut down in Apr 2025.',n:'24.5 lakh',nl:'cabs and maxi cabs',m:'₹38,500 Cr',ml:'ride-hailing GMV a year, across 303 Cr rides',co:'Evera: $14M seed, Jun 2025',src:'Company filings via Inc42 and Outlook Business; Tracxn; NHTS 2025-26 Table 4'},
- {o:'pub',x:[],h:'State bus undertakings lose ₹31 on every bus-km',say:'MoRTH reports that in FY22 fuel, maintenance and staff costs stayed fixed while ridership fell to 3.55 crore a day.',see:'Net loss rose from ₹20,378 Cr in FY20 to ₹30,192 Cr in FY22 and ₹35,000 Cr in FY26. Cost is ₹86 per bus-km in FY26, against revenue of ₹55 per bus-km. Delhi city buses alone lose ₹10,950 Cr a year.',n:'4.39',nl:'staff per state bus',m:'₹35,000 Cr',ml:'SRTU net loss a year (FY26)',co:'PMI Electro Mobility: electric buses on per-km contracts',src:'MoRTH SRTU Review, rolled to FY26'},
- {o:'pp',x:[],h:'6.5% of new two-wheelers are electric in FY26, against 61% of new three-wheelers',say:'Two-wheelers carry 42.6% of workers in India who travel 1 km or more to work.',see:'14,01,818 electric two-wheelers were sold, up 21.81%. 8,30,819 electric three-wheelers were sold, up 18.97%, and CNG fell to 24% of three-wheeler sales.',n:'3.08 crore',nl:'vehicles registered in FY26',m:'₹10,900 Cr',ml:'PM E-DRIVE outlay, for 24.79 lakh e-2W and 3.16 lakh e-3W',co:'Yulu: $218M, including a $93M Series C in Aug 2026',src:'VAHAN via Autocar Pro; FADA; PIB 2053959; Tracxn'},
- {o:'pc',x:[],h:'Urban workers spend 27 minutes and ₹1,044 a month to reach work',say:'64.1% of urban workers travel 1 km or more to work.',see:'Urban workers take a two-wheeler for 52.3% of work trips, a bus for 9.2% and metro or suburban rail for 5.0%.',n:'70.3 crore',nl:'work trips a day',m:'₹1,044',ml:'a month per urban worker',co:'MoveInSync: $32.7M over 9 rounds',src:'NHTS 2025-26 Table 4 and Fig 11; Tracxn'},
- {o:'pc',x:['safety'],h:'33.7% of urban students reach school by bus and 14.4% by auto',say:'66.4% of students aged 6 and above travel 1 km or more to school or college. Urban students take 22 minutes on average.',see:'Urban students spend ₹617 a month on travel. 3.8 lakh school buses and 3.5 lakh school vans carry them.',n:'7.3 lakh',nl:'school buses and vans',m:'₹617',ml:'a month per urban student',co:'AppAlert: $0.70M seed; ZeroMoblt: $0.17M pre-seed',src:'NHTS 2025-26 Tables 1 and 2, Fig 5'},
- {o:'pub',x:['women'],h:'41.9% of women workers travel 1 km or more to work, against 61.9% of men',say:'13.3% of women make a trip for other purposes on a given day, against 23.8% of men.',see:'21.7% of urban female workers take a bus to work. Women spend 36% less on the commute than men.',n:'41.9%',nl:'of female workers commute 1 km or more',m:'₹533',ml:'a month per female worker, against ₹835 for men',co:'Fery Rides: ₹2.6 Cr seed ($0.30M), Oct 2025',src:'NHTS 2025-26 pages 10 and 15, Table 4, Fig 11'}];
-const tags=[['All','All'],['pp',O.pp],['pc',O.pc],['pub',O.pub],['women','Women'],['safety','Safety']],chips=document.getElementById('chips'),bank=document.getElementById('bank');
-function draw(f){bank.innerHTML=I.map((x,i)=>[x,i]).filter(([x])=>f==='All'||x.o===f||x.x.includes(f)).map(([x,i])=>`<article class="iss"><div class="top"><span class="n">${String(i+1).padStart(2,'0')}${x.x.length?' · '+x.x.map(t=>t[0].toUpperCase()+t.slice(1)).join(', '):''}</span><span class="who">${O[x.o]}</span></div><h3>${x.h}</h3><dl><div><dt>What people report</dt><dd>${x.say}</dd></div><div><dt>What we see them do</dt><dd>${x.see}</dd></div><div><dt>Closest funded company</dt><dd>${x.co}</dd></div></dl><div class="size"><div><b>${x.n}</b>${x.nl}</div><div style="text-align:right"><b>${x.m}</b>${x.ml}</div></div><div class="src">${x.src}</div></article>`).join('')}
-tags.forEach(([k,t],i)=>{const b=document.createElement('button');b.textContent=t;if(!i)b.className='on';b.onclick=()=>{[...chips.children].forEach(c=>c.classList.toggle('on',c===b));draw(k)};chips.appendChild(b)});draw('All');
+const G=[{"id":"G4","img":"officevan","t":"Employee commute","size":72000,"sz":"₹72,000 Cr","line":"Employers pay to move shift staff, and GCC hiring keeps adding seats.","need":"IT, BPO and GCC night shifts need employer transport after dark, and state rules require it for women staff.","pay":"Routematic earned ₹178 Cr in FY25 and targets ₹500 Cr in FY26. MoveInSync earned ₹438 Cr in FY24.","sizing":"$6.1B in 2023 growing 11.7% a year gives $8.5B, or ₹72,000 Cr, in 2026.","why":"GCC hiring and return to office both raise demand for managed commute.","co":"MoveInSync; Routematic ($40M Series C); Cityflo"},{"id":"G1","img":"erick","t":"EV financing for 3W and 2W drivers","size":30000,"sz":"₹30,000 Cr","line":"33.7% of new passenger 3W are electric, and drivers cannot get credit.","need":"70 lakh autos and e-rickshaws run on drivers with no credit history. e-3W loans cost 14% to 16%.","pay":"Drivers already pay ₹300 to ₹500 a day to rent an e-3W or e-2W. Battery-as-a-service cuts upfront e-3W cost by 35% to 40%.","sizing":"8.31 lakh e-3W at ₹3 lakh with 80% financed gives ₹20,000 Cr. 14 lakh e-2W at ₹1.1 lakh with 70% financed gives ₹10,800 Cr.","why":"e-3W share rose from 12.6% in FY24 to 33.7% in FY26. IoT telematics lets lenders immobilise a vehicle, and subsidy taper shifts the cost to financing.","co":"Vidyut ($16.5M); Chargeup (10,000+ drivers); Three Wheels United; Mufin Green (listed)"},{"id":"G3","img":"schoolvan","t":"Student transport subscription","size":27000,"sz":"₹27,000 Cr","line":"1.5 crore students ride unregulated vans that parents already pay for.","need":"Parents rely on informal vans with no tracking or compliance checks.","pay":"Parents pay ₹1,500 to ₹4,000 a month in metros. ZeroMoblt has run 3.4 lakh trips for 15+ institutions.","sizing":"1.5 crore students at ₹1,800 a month for 10 months gives ₹27,000 Cr a year.","why":"States now mandate GPS and CCTV on school transport, and UPI autopay makes monthly billing simple.","co":"ZeroMoblt (₹1.5 Cr pre-seed); legacy school bus contractors"},{"id":"G8","img":"auto","t":"Metro first and last mile","size":8800,"sz":"₹8,800 Cr","line":"Metro grew from 248 km to 1,095 km, and the last leg is still informal.","need":"Metro riders in 26 cities need a reliable leg between station and home or office.","pay":"Riders already pay ₹10 to ₹30 a leg for shared autos and e-rickshaws. Yulu raised a $93M Series C in Aug 2026.","sizing":"1.2 crore metro riders a day, 50% needing a feeder, 2 legs at ₹20, over 365 days gives ₹8,800 Cr.","why":"Network length has grown 4.4 times since 2014 and ONDC lets apps plug into metro ticketing.","co":"Yulu; Namma Yatri (Bengaluru metro integration); e-rickshaw fleet operators"},{"id":"G5","img":"ebus","t":"Premium shared city buses","size":6000,"sz":"₹6,000 Cr","line":"India runs 9.7 state buses per lakh people against a norm of 60.","need":"Office commuters without a car want a seat and a fixed time, which state buses do not offer.","pay":"Cityflo runs at over ₹275 Cr annualised and 120 of its 150 routes are cash positive.","sizing":"1 crore car-less commuters earning over ₹50,000 a month, 10% adoption at ₹5,000 a month gives ₹6,000 Cr.","why":"PM e-Bus Sewa is operating in only 4 cities as of Mar 2026, so the supply gap stays open.","co":"Cityflo; Chalo"},{"id":"G7","img":"biketaxi","t":"Two-wheeler rider safety tech","size":5000,"sz":"₹5,000 Cr","line":"Two-wheeler riders are 46.2% of road deaths, or 87,300 a year.","need":"Riders have no collision warning or driver monitoring, unlike cars.","pay":"No paying customer is disclosed yet. The route to money is OEM fitment or fleet and insurer contracts.","sizing":"2 crore 2W sold a year, 5% premium fitment at ₹5,000 gives ₹5,000 Cr.","why":"Low-cost cameras and edge AI now fit a two-wheeler price point.","co":"EdgeVerse (₹4.85 Cr seed); BYTES (grant); OEM in-house teams"},{"id":"G2","img":"cab","t":"EV fleets supplying ride-hailing","size":4000,"sz":"₹4,000 Cr","line":"Cabs are 53% of app fares, and platforms need reliable EV supply.","need":"Ride-hailing platforms own no cars and report driver supply lagging demand.","pay":"Snap-E Cabs runs 1,112 EVs at ₹120 Cr gross revenue and turned EBITDA positive in Jan 2025.","sizing":"53% of ₹38,500 Cr app GMV is ₹20,000 Cr of cab fares. 20% EV-fleet share gives ₹4,000 Cr.","why":"BluSmart shut in Apr 2025 and left fleet demand unserved.","co":"Snap-E Cabs; Milo Drive ($2.4M seed); Trevel ($1M seed); Trev Mobility"},{"id":"G6","img":"family","t":"Women-safe commute","size":0,"sz":"Feature of G4","line":"Only 9% of women rate public transport very safe.","need":"Urban female labour force participation is 25.0%, and 75% of Delhi women work within 5 km of home.","pay":"Delhi women took 150 Cr+ free pink-ticket rides, so demand exists at zero price. Paid demand is still unproven.","sizing":"Standalone consumer sizing is not supported. It sits inside employer-paid commute (G4).","why":"Women's share of Delhi bus riders rose from 33% to 42% once fares were removed.","co":"Fery Rides (₹2.075 Cr seed)"}];
+const max=Math.max(...G.map(g=>g.size)),bank=document.getElementById('bank');
+G.forEach((g,i)=>{const c=document.createElement('article');c.className='iss';c.tabIndex=0;c.setAttribute('role','button');c.setAttribute('aria-expanded','false');
+ c.innerHTML='<div class="top"><span class="n">'+String(i+1).padStart(2,'0')+'</span><img src="../assets/v/'+g.img+'.webp" alt="" loading="lazy"></div><div class="big">'+g.sz+'</div><h3>'+g.t+'</h3><p>'+g.line+'</p><div class="meter"><i style="width:'+(g.size?Math.max(g.size/max*100,3):0)+'%"></i></div><span class="more">Details</span>'+
+ '<dl class="det"><div><dt>Unmet need</dt><dd>'+g.need+'</dd></div><div><dt>Evidence customers pay</dt><dd>'+g.pay+'</dd></div><div><dt>Size</dt><dd>'+g.sizing+'</dd></div><div><dt>Why now</dt><dd>'+g.why+'</dd></div><div><dt>Closest companies</dt><dd>'+g.co+'</dd></div></dl>';
+ const t=()=>{const o=c.classList.toggle('open');c.setAttribute('aria-expanded',o);c.querySelector('.more').textContent=o?'Close':'Details';if(o)c.scrollIntoView({behavior:'smooth',block:'nearest'})};
+ c.onclick=t;c.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}};bank.appendChild(c)});
 </script>
 <script src="../assets/wip.js"></script>
 </body>

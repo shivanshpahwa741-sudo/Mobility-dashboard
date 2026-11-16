@@ -12,329 +12,373 @@
 :root{--ink:#051c2c;--ink-2:#333;--muted:#6b6b6b;--line:#d9d9d9;--blue:#2251ff;--cyan:#00a9f4;--grey:#b3b3b3;--lgrey:#e6e6e6;--loss:#c4442f;--serif:"Source Serif 4",Georgia,serif;--sans:"Inter Tight",Arial,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:#fff;scroll-behavior:smooth}
-body{background:#fff;color:var(--ink-2);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body{background:#fff;color:var(--ink-2);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:var(--blue)}
-.top{border-bottom:1px solid var(--line);padding:14px 24px;display:flex;justify-content:space-between;font-size:14px;position:sticky;top:0;background:#fff;z-index:5}
+.top{border-bottom:1px solid var(--line);padding:14px 24px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px;position:sticky;top:0;background:#fff;z-index:5}
 .top a{color:var(--ink);text-decoration:none}
 .layout{display:grid;grid-template-columns:240px minmax(0,720px);gap:72px;max-width:1100px;margin:0 auto;padding:0 24px}
-@media(max-width:960px){.layout{grid-template-columns:1fr;gap:0}.toc{display:none}}
+@media(max-width:960px){.layout{grid-template-columns:minmax(0,1fr);gap:0;padding:0 16px}.toc{display:none}}
 .toc{position:sticky;top:72px;align-self:start;padding-top:56px;font-size:13.5px}
 .toc b{display:block;font-weight:600;color:var(--ink);margin-bottom:12px}
 .toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 0 5px 12px;border-left:2px solid transparent;line-height:1.35}
 .toc a.on{color:var(--ink);border-color:var(--blue)}
-main{padding:56px 0 120px}
-.cover{padding-bottom:40px;border-bottom:1px solid var(--line);margin-bottom:40px}
-.eyebrow{font-size:13px;font-weight:600;color:var(--blue);margin-bottom:16px}
+main{padding:56px 0 120px;min-width:0;max-width:100%}
+.cover{padding-bottom:40px;border-bottom:1px solid var(--line);margin-bottom:48px}
+.eyebrow{font-size:13px;font-weight:600;color:var(--blue);margin-bottom:16px;letter-spacing:.04em}
 h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,5vw,56px);line-height:1.08;color:var(--ink);letter-spacing:-.01em;margin-bottom:20px}
 .dek{font-family:var(--serif);font-size:21px;line-height:1.45;color:var(--ink-2)}
-.meta{font-size:13px;color:var(--muted);margin-top:20px}
-h2{font-family:var(--serif);font-weight:400;font-size:32px;line-height:1.15;color:var(--ink);margin:64px 0 18px;scroll-margin-top:72px}
+h2{font-family:var(--serif);font-weight:400;font-size:32px;line-height:1.15;color:var(--ink);margin:88px 0 22px;scroll-margin-top:72px}
 h2 .no{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--blue);display:block;margin-bottom:6px}
-h3{font-size:19px;font-weight:600;color:var(--ink);margin:32px 0 10px;scroll-margin-top:72px}
-p{margin-bottom:16px}
-ul.b{margin:0 0 16px 20px}ul.b li{margin-bottom:8px}
+h3{font-size:19px;font-weight:600;color:var(--ink);margin:44px 0 12px;scroll-margin-top:72px;line-height:1.35}
+p{margin-bottom:18px}
 strong{color:var(--ink);font-weight:600}
-.keys{border-top:3px solid var(--ink);border-bottom:1px solid var(--line);padding:24px 0;margin:28px 0}
-.keys h4{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:14px}
-.keys ol{margin-left:20px}.keys li{margin-bottom:12px}
-.callout{background:#f3f6ff;border-left:3px solid var(--blue);padding:18px 22px;margin:24px 0}
-.callout p:last-child{margin:0}
-figure.ex{margin:36px 0;border-top:1px solid var(--ink);padding-top:14px}
+ul.b{margin:0 0 18px 20px}ul.b li{margin-bottom:10px}
+figure.ex{margin:36px 0 44px;border-top:1px solid var(--ink);padding-top:14px}
 .ex .n{font-size:13px;font-weight:600;color:var(--ink)}
-.ex .h{font-family:var(--serif);font-size:20px;line-height:1.3;color:var(--ink);margin:4px 0 4px}
-.ex .u{font-size:13px;color:var(--muted);margin-bottom:16px}
+.ex .h{font-family:var(--serif);font-size:20px;line-height:1.3;color:var(--ink);margin:4px 0}
+.ex .u{font-size:13px;color:var(--muted);margin-bottom:18px}
 .ex svg{width:100%;height:auto;display:block}
 .ex figcaption{font-size:12px;color:var(--muted);margin-top:14px;padding-top:10px;border-top:1px solid var(--line)}
-svg text{font-family:var(--sans)}svg .l{font-size:13px;fill:#333}svg .v{font-size:13px;font-weight:600;fill:#051c2c}svg .s{font-size:11.5px;fill:#6b6b6b}
-table{width:100%;border-collapse:collapse;font-size:14.5px;margin:8px 0}
+svg text{font-family:var(--sans)}svg .l{font-size:13px;fill:#333}svg .v{font-size:13px;font-weight:600;fill:#051c2c}svg .s{font-size:11.5px;fill:#6b6b6b}svg .w{font-size:12.5px;font-weight:600;fill:#fff}
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin:8px 0;display:block;overflow-x:auto;max-width:100%}
+thead,tbody{display:table;width:100%;border-collapse:collapse}
 th{text-align:left;font-weight:600;color:var(--ink);border-bottom:1px solid var(--ink);padding:8px 10px 8px 0;vertical-align:bottom;font-size:13px}
 td{border-bottom:1px solid var(--line);padding:10px 10px 10px 0;vertical-align:top}
 td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.tw{overflow-x:auto}
-.card{border:1px solid var(--line);padding:22px 24px;margin:18px 0}
-.card .tag{display:inline-block;font-size:12px;font-weight:600;padding:3px 8px;margin-bottom:10px}
-.tag.gap{background:#e8edff;color:var(--blue)}.tag.bet{background:#051c2c;color:#fff}
-.card h4{font-family:var(--serif);font-weight:400;font-size:23px;color:var(--ink);line-height:1.2;margin-bottom:12px}
-.card dl{display:grid;grid-template-columns:150px 1fr;gap:8px 16px;font-size:15px}
-.card dt{font-weight:600;color:var(--ink)}
-.card dd{color:var(--ink-2)}
-@media(max-width:600px){.card dl{grid-template-columns:1fr}.card dt{margin-top:6px}}
-.src{font-size:13px;color:var(--muted)}
-.src p{margin-bottom:8px}
+svg{max-width:100%}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--ink-2);margin-top:12px}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px}
+.find{border-top:1px solid var(--line);padding:30px 0 34px}
+.find:first-of-type{border-top:3px solid var(--ink)}
+.find .k{font-size:13px;font-weight:600;color:var(--blue);margin-bottom:6px}
+.find h3{font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.25;margin:0 0 18px}
+.big{display:flex;flex-wrap:wrap;gap:24px 48px;margin:8px 0 6px}
+.big div{min-width:140px}
+.big b{display:block;font-family:var(--serif);font-weight:400;font-size:52px;line-height:1;color:var(--ink)}
+.big b.bl{color:var(--blue)}
+.big span{display:block;font-size:13.5px;color:var(--muted);margin-top:8px;max-width:220px;line-height:1.4}
+.sm{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 32px;margin:24px 0}
+.sm>div{border-top:1px solid var(--ink);padding-top:10px;min-width:0}
+.sm h4{font-size:14px;font-weight:600;color:var(--ink);line-height:1.35;margin-bottom:10px}
+@media(max-width:640px){.sm{grid-template-columns:minmax(0,1fr)}}
+.gaps{margin:20px 0 8px;border-top:1px solid var(--ink)}
+.gr{display:grid;grid-template-columns:28px minmax(0,1fr) 120px;gap:4px 14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.gr .r{font-size:13px;font-weight:600;color:var(--blue)}
+.gr .t{font-size:15.5px;color:var(--ink);font-weight:500;line-height:1.35}
+.gr .bar{grid-column:2/4;height:10px;background:var(--lgrey);position:relative}
+.gr .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--blue)}
+.gr .val{text-align:right;font-size:14px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.gap{border-top:1px solid var(--line);padding:26px 0 8px}
+.gap h4{font-family:var(--serif);font-weight:400;font-size:22px;color:var(--ink);line-height:1.25;margin-bottom:14px}
+.gap h4 em{font-style:normal;color:var(--blue);font-family:var(--sans);font-size:14px;font-weight:600;margin-right:10px}
+.gap dl{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 18px;font-size:15px}
+.gap dt{font-weight:600;color:var(--ink)}
+@media(max-width:600px){.gap dl{grid-template-columns:minmax(0,1fr)}.gap dt{margin-top:6px}.gr{grid-template-columns:24px minmax(0,1fr) 92px}}
+.memo{border:1px dashed var(--grey);padding:22px 24px;margin:24px 0}
+.memo h4{font-family:var(--serif);font-weight:400;font-size:22px;color:var(--ink);margin-bottom:8px}
+.src{font-size:13px;color:var(--muted)}.src p{margin-bottom:8px}
 footer{border-top:1px solid var(--line);padding:24px;text-align:center;font-size:13px;color:var(--muted)}
-.st{margin-top:14px;border-top:1px dashed var(--line);padding-top:12px}
-.st b{font-size:12px;font-weight:600;color:var(--blue);display:block;margin-bottom:6px}
-.st table{font-size:13.5px}.st td{padding:6px 10px 6px 0}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0}
-.two>div{border-top:3px solid var(--ink);padding-top:12px}
-.two h4{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:8px}
-.two ul{margin-left:18px;font-size:15px}.two li{margin-bottom:6px}
-@media(max-width:700px){.two{grid-template-columns:1fr}}
-.pill{display:inline-block;font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:3px;white-space:nowrap}
-.pill.open{background:#051c2c;color:#fff}.pill.part{background:#e8edff;color:var(--blue)}
-main{min-width:0;max-width:100%}table{display:block;overflow-x:auto;max-width:100%}svg{max-width:100%}
 </style>
 </head>
 <body>
-<div class="top"><span><a href="../">← How India Moves</a> &nbsp;·&nbsp; <a href="../dashboard/">Dashboard</a> &nbsp;·&nbsp; <a href="../insights/">Insights</a></span><span style="color:#6b6b6b">Sector thesis · As on November 2026</span></div>
+<div class="top"><span><a href="../">← How India Moves</a> &nbsp;·&nbsp; <a href="../dashboard/">Dashboard</a> &nbsp;·&nbsp; <a href="../insights/">Insights</a> &nbsp;·&nbsp; <a href="../memos/">Memos</a></span><span style="color:#6b6b6b">Sector thesis · November 2026</span></div>
 <div class="layout">
 <nav class="toc" id="toc"><b>Contents</b>
-<a href="#summary">Executive summary</a><a href="#s1">1. The sector, narrowed to intra-city road</a><a href="#s2">2. The subsegment, sized and split</a><a href="#s3">3. Factors influencing the subsegment</a><a href="#s4">4. Problem statements, ranked</a><a href="#s5">5. Startups on each problem</a><a href="#s6">6. Bets and investment memos</a><a href="#s7">7. Risks</a><a href="#sources">8. Sources</a></nav>
+<a href="#summary">Executive summary</a><a href="#s1">1. The sector, narrowed to intra-city road</a><a href="#s2">2. The subsegment, sized and split</a><a href="#s3">3. Factors influencing the subsegment</a><a href="#s4">4. Problem statements, ranked</a><a href="#s5">5. Startups to track</a><a href="#s6">6. Bets and investment memos</a><a href="#s7">7. Risks</a><a href="#sources">8. Sources</a></nav>
 <main>
 
 <header class="cover">
-  <div class="eyebrow"><span style="background:#2251ff;color:#fff;padding:4px 10px;margin-right:8px;letter-spacing:.04em">SECTOR THESIS</span>Sector thesis · As on November 2026</div>
+  <div class="eyebrow">SECTOR THESIS · NOVEMBER 2026</div>
   <h1>How India Moves</h1>
   <p class="dek">A sector thesis on how India moves within its city borders, covering only road transportation as the subsegment of the sector.</p>
 </header>
 
 <section id="summary">
 <h2>Executive summary</h2>
-<div class="keys"><h4>Key findings</h4><ol>
-<li><strong>Indians make 165.5 crore trips (>1 km) a day. Indian passengers spend ₹7.2 lakh crore a year (₹1,970 crore a day) on intra-city road travel.</strong>
-<table><thead><tr><th>Level</th><th class="num">₹ lakh crore a year, 2026</th></tr></thead><tbody>
-<tr><td>Passenger mobility, all modes and distances</td><td class="num">8.7</td></tr>
-<tr><td>Road, intra-city and inter-city</td><td class="num">7.43</td></tr>
-<tr><td>Intra-city road passenger spend</td><td class="num">7.2</td></tr></tbody></table></li>
-<li><strong>Two-wheelers and walking carry 65% of all trips.</strong>
-<table><thead><tr><th>Mode</th><th class="num">Share of all trips</th><th class="num">Share of urban work trips</th></tr></thead><tbody>
-<tr><td>Two-wheeler</td><td class="num">34%</td><td class="num">52.3%</td></tr>
-<tr><td>Walk</td><td class="num">31%</td><td class="num">13.5%</td></tr>
-<tr><td>Bus</td><td class="num">12%</td><td class="num">9.2%</td></tr>
-<tr><td>Car</td><td class="num">2.5%</td><td class="num">5.7%</td></tr></tbody></table></li>
-<li><strong>State bus undertakings lose ₹35,000 crore a year (FY26).</strong>
-<table><thead><tr><th>State bus metric, FY26</th><th class="num">Value</th></tr></thead><tbody>
-<tr><td>Buses held (58 SRTUs)</td><td class="num">1,40,100</td></tr>
-<tr><td>Passengers a day</td><td class="num">6.0 crore</td></tr>
-<tr><td>Passenger fares, ₹ crore a year</td><td class="num">64,700</td></tr>
-<tr><td>Net loss, ₹ crore a year</td><td class="num">35,000</td></tr>
-<tr><td>Buses per lakh population (benchmark 60)</td><td class="num">9.7</td></tr></tbody></table></li>
-<li><strong>Autos and e-rickshaws collect ₹1.68 lakh crore a year. 98% of auto trips are booked offline.</strong>
-<table><thead><tr><th>Problem statement</th><th class="num">₹ crore a year, 2026</th><th>Funded company found</th></tr></thead><tbody>
-<tr><td>Auto trips booked offline</td><td class="num">1,64,600</td><td>Yes</td></tr>
-<tr><td>Public bus supply 84% below benchmark</td><td class="num">64,700</td><td>Yes</td></tr>
-<tr><td>Ride-hailing runs at a loss</td><td class="num">38,500</td><td>Yes</td></tr>
-<tr><td>School transport outside large cities</td><td class="num">n/a</td><td>Seed only</td></tr>
-<tr><td>Women travel to work less</td><td class="num">n/a</td><td>Seed only</td></tr>
-<tr><td>Two-wheeler riders are 46.2% of road deaths</td><td class="num">n/a</td><td>Seed only</td></tr></tbody></table></li>
-<li><strong>Tracked startups in the subsegment have raised $962 million. Companies on problem statements 4 to 6 have raised $6.7 million, 0.7% of the total.</strong></li>
-</ol></div>
+<p>Indians make 165.5 crore trips (>1 km) a day, and 99%+ of them stay within a city. Intra-city road travel is the largest pool of passenger spend in India. Most of it runs through privately owned vehicles and informal fares, because public transport reaches too few people.</p>
+
+<div class="find"><div class="k">Finding 1</div><h3>Indian passengers spend ₹7.2 lakh crore a year on intra-city road travel, which is 82.8% of all passenger spend</h3>
+<div id="x1"></div></div>
+
+<div class="find"><div class="k">Finding 2</div><h3>Two-wheelers and walking carry 65% of all trips</h3>
+<div id="x2"></div></div>
+
+<div class="find"><div class="k">Finding 3</div><h3>98% of auto trips are booked offline, and offline autos collect 55% of all intra-city road fares</h3>
+<div class="big"><div><b class="bl">98%</b><span>Auto trips booked offline</span></div><div><b>₹1.65 lakh crore</b><span>Fares collected a year by offline autos</span></div></div></div>
+
+<div class="find"><div class="k">Finding 4</div><h3>India runs 9.7 state buses per lakh people against a benchmark of 60, and state bus undertakings lose ₹35,000 crore a year</h3>
+<div id="x4"></div></div>
+
+<div class="find"><div class="k">Finding 5</div><h3>The highest-ranked investable gap is driver EV financing, worth ₹30,000 crore of new loans a year</h3>
+<div class="big"><div><b class="bl">₹30,000 crore</b><span>New EV loans a year for autos and two-wheelers</span></div><div><b>33.7%</b><span>Electric share of passenger three-wheeler sales, FY26</span></div></div></div>
 </section>
 
 <section id="s1">
-<h2><span class="no">Step 1</span>Intra-city road is ₹7.2 lakh crore of ₹8.7 lakh crore in passenger spend</h2>
-<p>Passenger mobility is every trip a person makes by choice. Goods and freight are outside this thesis. Indian passengers spend ₹8.7 lakh crore a year (2026) on conveyance across all modes and distances. Road takes ₹7.43 lakh crore of this, and intra-city road takes ₹7.2 lakh crore a year, which is ₹1,970 crore a day. Spend here means fares, fuel, maintenance, insurance and other running costs. Vehicle purchase and financing are excluded.</p>
-<figure class="ex"><div class="n">Exhibit 1</div><div class="h">Intra-city road is 82.8% of passenger spend</div><div class="u">Passenger spend, ₹ lakh crore a year, 2026</div><div id="e1"></div><figcaption>Source: MoSPI HCES; MoSPI NHTS 2025-26.</figcaption></figure>
-<div class="tw"><table><thead><tr><th>Passenger mobility by mode, 2026</th><th class="num">₹ lakh crore a year</th><th class="num">Share</th></tr></thead><tbody>
-<tr><td>Road</td><td class="num">7.43</td><td class="num">85.4%</td></tr>
-<tr><td>of which intra-city road</td><td class="num">7.20</td><td class="num">82.8%</td></tr>
-<tr><td>of which inter-city road</td><td class="num">0.23</td><td class="num">2.6%</td></tr>
-<tr><td>Rail and metro</td><td class="num">0.90</td><td class="num">10.3%</td></tr>
-<tr><td>Air</td><td class="num">0.36</td><td class="num">4.1%</td></tr>
-<tr><td>Water</td><td class="num">0.0145</td><td class="num">0.2%</td></tr>
-<tr><td><strong>Total</strong></td><td class="num"><strong>8.7</strong></td><td class="num"><strong>100%</strong></td></tr></tbody></table></div>
-<div class="tw"><table><thead><tr><th>Metric, 2026</th><th class="num">Urban</th><th class="num">Rural</th></tr></thead><tbody>
-<tr><td>Conveyance spend per person per month, ₹</td><td class="num">694</td><td class="num">367</td></tr></tbody></table></div>
+<h2><span class="no">Step 1</span>Road takes 85.4% of passenger spend, and intra-city road takes 82.8%</h2>
+<p>This thesis covers passenger mobility, which is every trip a person makes by choice. Indian passengers spend ₹8.7 lakh crore a year (2026) on conveyance across all modes and distances. Road takes ₹7.43 lakh crore. Intra-city road takes ₹7.2 lakh crore, which is ₹1,970 crore a day.</p>
+<figure class="ex"><div class="n">Exhibit 1</div><div class="h">Road is 85.4% of passenger spend</div><div class="u">Share of passenger spend by mode, %, 2026</div><div id="e1"></div><figcaption>Source: MoSPI HCES 2023-24, projected to 2026; MoSPI NHTS 2025-26.</figcaption></figure>
+<p>Urban residents spend ₹694 per person a month on conveyance. Rural residents spend ₹367.</p>
+
 <h3>99%+ of trips stay within the city</h3>
-<p>The National Household Travel Survey (NHTS) 2025-26 counts a trip as a movement of 1 km or more, with onward and return as 2 trips. It sampled 4,92,023 households and 18,44,179 persons aged 6+. Indians make 165.5 crore such trips a day.</p>
-<div class="tw"><table><thead><tr><th>Trip purpose</th><th class="num">Share travelling >1 km</th></tr></thead><tbody>
-<tr><td>Work (workers 15+)</td><td class="num">57.6%</td></tr>
-<tr><td>Education (students 6+)</td><td class="num">66.4%</td></tr>
-<tr><td>Other purposes (persons 6+)</td><td class="num">18.7%</td></tr></tbody></table></div>
-<p>Only 11.3% of households (urban 13.1%, rural 10.3%) make an overnight trip of 50 km or more in 28 days. Those trips add less than 0.1 crore trips a day against 165.5 crore. Thus, 99%+ of trips are intra-city.</p>
-<div class="tw"><table><thead><tr><th>Mode of overnight (inter-city) trips</th><th class="num">% of households</th></tr></thead><tbody>
-<tr><td>Bus</td><td class="num">55.8</td></tr><tr><td>Rail</td><td class="num">17.7</td></tr><tr><td>Car</td><td class="num">15.1</td></tr><tr><td>Two-wheeler</td><td class="num">8.8</td></tr><tr><td>Metro and suburban</td><td class="num">3.3</td></tr><tr><td>Auto</td><td class="num">2.4</td></tr><tr><td>Air</td><td class="num">0.6</td></tr></tbody></table></div>
-<h3>Road carries 94.4% of urban work trips</h3>
-<div class="tw"><table><thead><tr><th>Surface</th><th class="num">Urban work trips</th></tr></thead><tbody>
-<tr><td>Road, including walking and cycling</td><td class="num">94.4%</td></tr>
-<tr><td>Metro, suburban and tram</td><td class="num">5.0%</td></tr>
-<tr><td>Rail</td><td class="num">0.3%</td></tr>
-<tr><td>Others</td><td class="num">0.3%</td></tr></tbody></table></div>
+<p>The National Household Travel Survey (NHTS) 2025-26 counts a trip as a movement of 1 km or more, with onward and return as 2 trips. It sampled 4,92,023 households. Only 11.3% of households make an overnight trip of 50 km or more in 28 days. Those trips add less than 0.1 crore trips a day against 165.5 crore.</p>
+<figure class="ex"><div class="n">Exhibit 2</div><div class="h">Students travel more than 1 km more often than workers</div><div class="u">Share of each group making a trip of more than 1 km, %, 2025-26</div><div id="e2"></div><figcaption>Source: MoSPI NHTS 2025-26.</figcaption></figure>
+<p>Road, including walking and cycling, carries 94.4% of urban work trips. Metro, suburban rail and tram carry 5.0%.</p>
 </section>
 
 <section id="s2">
-<h2><span class="no">Step 2</span>Privately owned vehicles carry 66.8% of urban work trips</h2>
-<p>Among urban workers travelling more than 1 km, 58.0% use personal vehicles and 8.8% use shared autos. 14.5% use public transport, of which buses carry 9.2% and metro 5.0%. State bus undertakings lose ₹35,000 crore a year (FY26): each bus-km costs ₹86 and earns ₹55. Thus, the lack of public transport connectivity in India is filled by private and shared vehicles.</p>
-<h3>By ownership</h3>
-<div class="tw"><table><thead><tr><th>Ownership</th><th>Modes</th><th class="num">Urban work trips</th><th class="num">Spend, ₹ crore a year, 2026</th></tr></thead><tbody>
-<tr><td>Non-motorised</td><td>Walk, bicycle, cycle rickshaw</td><td class="num">19.5%</td><td class="num">n/a</td></tr>
-<tr><td>Privately owned, used for personal</td><td>Two-wheelers, cars (running costs; trips incl. bike taxis and app cabs)</td><td class="num">58.0%</td><td class="num">4,18,400</td></tr>
-<tr><td>Privately owned, used for commercial</td><td>Autos and e-rickshaws, booked offline</td><td class="num">8.8%</td><td class="num">1,64,600</td></tr>
-<tr><td>Privately owned, used for commercial</td><td>App ride-hailing (bike taxi, auto, cab)</td><td class="num">in above</td><td class="num">38,500</td></tr>
-<tr><td>Privately owned, used for commercial</td><td>Other private buses, cabs, school and office transport</td><td class="num">n/a</td><td class="num">33,800</td></tr>
-<tr><td>Publicly owned</td><td>State buses (passenger fares)</td><td class="num">9.2% (all buses)</td><td class="num">64,700</td></tr>
-<tr><td><strong>Total</strong></td><td></td><td></td><td class="num"><strong>7,20,000</strong></td></tr></tbody></table></div>
-<p>Privately owned personal vehicles take 58.1% of spend through running costs. Autos collect the largest fare pool. Running cost inputs across all vehicles, including goods vehicles:</p>
-<div class="tw"><table><thead><tr><th>Running cost input, all vehicles</th><th class="num">Value</th><th>Year</th></tr></thead><tbody>
-<tr><td>Petrol consumption</td><td class="num">42,663 thousand tonnes</td><td>FY26</td></tr>
-<tr><td>Retail petrol spend, all uses</td><td class="num">₹5.5 lakh crore</td><td>FY26</td></tr>
-<tr><td>Petroleum products consumption (+1.7%; petrol +6.5%)</td><td class="num">2,43,203 thousand tonnes</td><td>FY26</td></tr>
-<tr><td>Motor insurance premium</td><td class="num">₹1,06,990 crore</td><td>FY26</td></tr></tbody></table></div>
+<h2><span class="no">Step 2</span>Privately owned vehicles take 58.1% of intra-city road spend</h2>
+<p>Most people do not use public transport. Among urban workers travelling more than 1 km:</p>
+<ul class="b"><li>58.0% use a privately owned vehicle (two-wheeler or car)</li><li>8.8% use shared autos</li><li>14.5% use public transport: 9.2% buses and 5.0% metro</li><li>19.5% walk or cycle</li></ul>
+<p>State bus undertakings lose ₹35,000 crore a year because each bus-km costs ₹86 and earns ₹55. Thus, the lack of public transport connectivity in India is filled by privately owned and shared vehicles.</p>
+
+<figure class="ex"><div class="n">Exhibit 3</div><div class="h">Running costs of privately owned vehicles are 58.1% of spend</div><div class="u">Intra-city road passenger spend by ownership, ₹ lakh crore a year, 2026</div><div id="e3"></div><figcaption>Spend is fares and running costs (fuel, maintenance, insurance, tolls, parking). Source: MoSPI HCES; MoRTH; company filings.</figcaption></figure>
+
 <h3>By vehicle</h3>
-<div class="tw"><table><thead><tr><th>Vehicle</th><th class="num">All trips</th><th class="num">Urban work trips</th><th class="num">Privately owned, personal</th><th class="num">Privately owned, commercial</th><th class="num">Publicly owned</th></tr></thead><tbody>
-<tr><td>Non-motor (walk, bicycle, cycle rickshaw)</td><td class="num">31% (walk)</td><td class="num">19.5%</td><td class="num">n/a</td><td class="num">n/a</td><td class="num">n/a</td></tr>
-<tr><td>Two-wheelers</td><td class="num">34%</td><td class="num">52.3%</td><td class="num">22.5 crore</td><td class="num">in personal</td><td class="num">n/a</td></tr>
-<tr><td>Three-wheelers</td><td class="num">n/a</td><td class="num">8.8%</td><td class="num">n/a</td><td class="num">70 lakh</td><td class="num">n/a</td></tr>
-<tr><td>Four-wheelers</td><td class="num">2.5%</td><td class="num">5.7%</td><td class="num">4.35 crore</td><td class="num">24.5 lakh cabs</td><td class="num">n/a</td></tr>
-<tr><td>Larger than four-wheelers (buses)</td><td class="num">12%</td><td class="num">9.2%</td><td class="num">n/a</td><td class="num">14.7 lakh private, all services incl. inter-city; 3.8 lakh school buses; 3.5 lakh vans</td><td class="num">1,40,100</td></tr>
-<tr><td>Other (jugaads, chhakdas)</td><td class="num">n/a</td><td class="num">0.3%</td><td class="num">n/a</td><td class="num">n/a</td><td class="num">n/a</td></tr></tbody></table></div>
-<p>Two-wheelers carry the highest share of trips. Three-wheelers are 45 lakh CNG or petrol autos and 25.3 lakh registered e-rickshaws. Other vehicles such as jugaads and chhakdas carry 70 lakh work trips a day, 1.0% of work trips in India.</p>
-<figure class="ex"><div class="n">Exhibit 2</div><div class="h">Two-wheelers carry 52.3% of urban work trips</div><div class="u">Urban workers travelling >1 km, by mode, %</div><div id="e2"></div><figcaption>Source: MoSPI NHTS 2025-26, Table 4.</figcaption></figure>
-<h3>New vehicles and students</h3>
-<div class="tw"><table><thead><tr><th>Registrations</th><th class="num">Units</th><th>Period</th></tr></thead><tbody>
-<tr><td>All vehicles</td><td class="num">3.08 crore</td><td>FY26</td></tr>
-<tr><td>Three-wheelers, all fuels</td><td class="num">13.6 lakh</td><td>FY26</td></tr>
-<tr><td>Electric three-wheelers</td><td class="num">8,30,819</td><td>FY26</td></tr>
-<tr><td>Electric two-wheelers</td><td class="num">14,01,818</td><td>FY26</td></tr></tbody></table></div>
-<div class="tw"><table><thead><tr><th>Metric (NHTS 2025-26)</th><th class="num">Urban</th><th class="num">India</th></tr></thead><tbody>
-<tr><td>Students going by bus</td><td class="num">33.7%</td><td class="num">29.5%</td></tr>
-<tr><td>Students walking</td><td class="num">29.6%</td><td class="num">37.0%</td></tr>
-<tr><td>Students going by auto</td><td class="num">14.4%</td><td class="num">10.5%</td></tr>
-<tr><td>Students going by two-wheeler</td><td class="num">11.5%</td><td class="num">6.7%</td></tr>
-<tr><td>Monthly travel cost per student, ₹</td><td class="num">617</td><td class="num">443</td></tr>
-<tr><td>Monthly commute cost per worker, ₹</td><td class="num">1,044</td><td class="num">n/a</td></tr>
-<tr><td>Average time to work, minutes</td><td class="num">27</td><td class="num">25</td></tr>
-<tr><td>Average time to school, minutes</td><td class="num">22</td><td class="num">n/a</td></tr></tbody></table></div>
+<figure class="ex"><div class="n">Exhibit 4</div><div class="h">Two-wheelers lead work trips, and buses lead school trips</div><div class="u">Trip share by mode, %, 2025-26</div><div id="e4"></div><figcaption>Source: MoSPI NHTS 2025-26, Tables 2 and 4; all-trip shares weighted across work, education and other trips.</figcaption></figure>
+<p>Three-wheelers are 45 lakh CNG or petrol autos and 25.3 lakh e-rickshaws. Other vehicles such as jugaads and chhakdas carry 70 lakh work trips a day.</p>
+
+<h3>Fares: offline autos collect 55% of ₹3.02 lakh crore</h3>
+<figure class="ex"><div class="n">Exhibit 5</div><div class="h">Offline autos collect more fares than every other hired service combined</div><div class="u">Intra-city road fares, ₹ thousand crore a year, 2026</div><div id="e5"></div><figcaption>Source: MoRTH; company filings; MoSPI NHTS 2025-26.</figcaption></figure>
+<p>Autos and e-rickshaws make 150 crore trips a month, and app auto rides are 3 crore a month. That means 147 crore auto trips a month are still booked offline.</p>
+
+<h3>Public transport: state buses lose money on every km</h3>
+<div class="sm">
+<div><h4>Cost and revenue per bus-km, ₹, FY26</h4><div id="e6a"></div></div>
+<div><h4>Net loss of 58 state bus undertakings, ₹ crore</h4><div id="e6b"></div></div>
+</div>
+<p>State buses carry 6.0 crore passengers a day on a fleet of 1,40,100. Each bus has 4.39 staff. Delhi city buses (DTC and IMTS) alone lose ₹10,950 crore a year.</p>
+
+<h3>Ride-hailing: every large platform loses money</h3>
+<p>App ride-hailing is ₹38,500 crore of fares a year from 303 crore rides. Bikes and autos are 78% of rides, but cabs collect 53% of fares because a cab ride costs more.</p>
+<figure class="ex"><div class="n">Exhibit 6</div><div class="h">Bikes and autos are 78% of app rides, and cabs are 53% of app fares</div><div class="u">App ride-hailing by vehicle, %, 2026</div><div id="e7"></div><figcaption>Source: company filings; press reports.</figcaption></figure>
+<figure class="ex"><div class="n">Exhibit 7</div><div class="h">All 4 platforms lose money, and Rapido loses the least per ₹ of revenue</div><div class="u">FY25 net loss as a share of operating revenue, %</div><div id="e8"></div><figcaption>Uber India figure is Uber India Systems, whose operating revenue includes ₹3,664 crore of support services to the Uber group. Source: MCA filings via Entrackr, Free Press Journal, Outlook Business and Inc42.</figcaption></figure>
+<table><thead><tr><th>FY25, ₹ crore</th><th class="num">Uber India</th><th class="num">Rapido</th><th class="num">Ola Consumer</th><th class="num">Namma Yatri</th></tr></thead><tbody>
+<tr><td>Ride-hailing commission before incentives</td><td class="num">2,604</td><td class="num">552</td><td class="num">n/a</td><td class="num">n/a</td></tr>
+<tr><td>Net loss</td><td class="num">1,512</td><td class="num">258</td><td class="num">662</td><td class="num">51</td></tr>
+<tr><td>Loss per ride, ₹</td><td class="num">19</td><td class="num">2</td><td class="num">18</td><td class="num">n/a</td></tr></tbody></table>
+<p>Rapido ran 6.5 million rides a day in March 2026, about 50% of all app rides, and is valued at $3 billion. Uber's parent put ₹2,921 crore into its India arm across November 2025 and January 2026. Ola's valuation was marked down from $7.3 billion to $1.5 billion.</p>
 </section>
 
 <section id="s3">
 <h2><span class="no">Step 3</span>Factors influencing the intra-city mobility sector:</h2>
 <ol class="b" style="margin-left:20px"><li>Regulation</li><li>Road infrastructure and connectivity</li><li>Technology</li><li>Population</li></ol>
-<div class="tw"><table><thead><tr><th>Factor</th><th>Metric</th><th>Value</th></tr></thead><tbody>
-<tr><td rowspan="6">1. Regulation</td><td>Motor Vehicle Aggregator Guidelines 2025: driver share of fare</td><td>At least 80% (own vehicle); 60% (aggregator-owned)</td></tr>
-<tr><td>MVAG 2025: surge pricing</td><td>Max 2x base fare; min 50% below base</td></tr>
-<tr><td>MVAG 2025: driver cover and vehicle age</td><td>₹5 lakh health + ₹10 lakh term insurance; vehicles max 8 years old</td></tr>
-<tr><td>PM E-DRIVE outlay</td><td>₹10,900 crore: 24.79 lakh e-2W, 3.16 lakh e-3W, 14,028 e-buses</td></tr>
-<tr><td>PM e-Bus Sewa</td><td>10,000 e-buses in 169 cities</td></tr>
-<tr><td>PM e-Bus Sewa Payment Security Mechanism</td><td>₹3,435 crore for 38,000+ e-buses</td></tr>
-<tr><td rowspan="2">2. Road infrastructure and connectivity</td><td>National highway length</td><td>1,46,560 km</td></tr>
-<tr><td>State buses per lakh population, 2026</td><td>9.7 against a benchmark of 60 (84% gap)</td></tr>
-<tr><td rowspan="3">3. Technology</td><td>EV share of 3W sales, FY26</td><td>61%; CNG 24%</td></tr>
-<tr><td>EV share of 2W sales, FY26</td><td>6.5%</td></tr>
-<tr><td>New vehicle registrations, FY26</td><td>3.08 crore</td></tr>
-<tr><td>4. Population</td><td>Urban population, 2026</td><td>53.7 crore (37%)</td></tr></tbody></table></div>
+
+<h3>1. Regulation</h3>
+<div class="big"><div><b>80%</b><span>Minimum share of each fare kept by a driver on their own vehicle</span></div><div><b>2x</b><span>Cap on surge over the state base fare</span></div><div><b>8 years</b><span>Maximum age of an aggregator vehicle</span></div></div>
+<p>The Motor Vehicle Aggregator Guidelines 2025 also require ₹5 lakh health cover and ₹10 lakh term cover for each driver, and allow private bikes as taxis where the state consents. Karnataka banned bike taxis in 2025, and the High Court lifted the ban in 2026. Maharashtra's draft rules add ₹5 a ride for the state and 2% of fares for a welfare fund.</p>
+<figure class="ex"><div class="n">Exhibit 8</div><div class="h">27.3% of PM e-Bus Sewa buses have a signed concession, and 4 cities operate</div><div class="u">PM e-Bus Sewa electric buses, March 2026</div><div id="e9"></div><figcaption>The ₹3,435 crore Payment Security Mechanism guarantees operator payments on 38,000+ e-buses from FY25 to FY29. Source: MoHUA; Cabinet; emobilityplus.</figcaption></figure>
+
+<h3>2. Road infrastructure and connectivity</h3>
+<div class="sm">
+<div><h4>Metro network in operation, km</h4><div id="e10a"></div></div>
+<div><h4>Peak-hour speed, km/h, TomTom 2025</h4><div id="e10b"></div></div>
+</div>
+<p>Metro now runs in 26 cities, up from 5 in 2014. 8 Indian cities are in the world's 50 most congested. In Pune, 10 km takes 33 minutes 20 seconds at peak. India has 1,46,560 km of national highway.</p>
+
+<h3>3. Technology</h3>
+<div class="sm">
+<div><h4>Electric share of passenger three-wheeler sales, %</h4><div id="e11a"></div></div>
+<div><h4>Electric share of two-wheeler sales, %</h4><div id="e11b"></div></div>
+</div>
+<div class="big"><div><b>241.6 billion</b><span>UPI transactions, FY26, worth ₹314 lakh crore</span></div><div><b>55.5 crore</b><span>UPI users</span></div></div>
+<p>EVs were 8.5% of all vehicle sales in FY26, 25.5 lakh vehicles out of 3.08 crore registrations. 8,30,819 electric three-wheelers and 14,01,818 electric two-wheelers were sold.</p>
+
+<h3>4. Population</h3>
+<figure class="ex"><div class="n">Exhibit 9</div><div class="h">India's urban population grows 57% between 2011 and 2036</div><div class="u">Urban population, crore</div><div id="e12"></div><figcaption>Source: Census 2011; National Commission on Population Technical Group 2019; 2026 projected.</figcaption></figure>
 </section>
 
 <section id="s4">
-<h2><span class="no">Step 4</span>Auto trips booked offline are the largest problem at ₹1.65 lakh crore a year</h2>
-<div class="tw"><table><thead><tr><th>Rank</th><th>Problem statement</th><th>Size</th><th class="num">₹ crore a year, 2026</th><th>Capture potential</th></tr></thead><tbody>
-<tr><td>1</td><td>98% of auto trips are booked offline</td><td>70 lakh autos and e-rickshaws</td><td class="num">1,64,600</td><td>High</td></tr>
-<tr><td>2</td><td>Public bus supply is 84% below benchmark</td><td>1,40,100 state buses; 6.0 crore passengers a day</td><td class="num">64,700</td><td>Medium</td></tr>
-<tr><td>3</td><td>Ride-hailing runs at a loss</td><td>303 crore rides; 78% bikes and autos</td><td class="num">38,500</td><td>Medium</td></tr>
-<tr><td>4</td><td>School transport outside large cities is unorganised</td><td>3.8 lakh buses + 3.5 lakh vans; 33.7% of urban students by bus</td><td class="num">n/a</td><td>Medium</td></tr>
-<tr><td>5</td><td>Women travel to work less</td><td>41.9% of women workers travel >1 km against 61.9% of men</td><td class="num">n/a</td><td>Medium</td></tr>
-<tr><td>6</td><td>Two-wheeler riders are 46.2% of road deaths</td><td>46.2% of 1.89 lakh deaths (2026)</td><td class="num">n/a</td><td>Low</td></tr></tbody></table></div>
-<figure class="ex"><div class="n">Exhibit 3</div><div class="h">Autos collect 2.6 times the state bus fare pool</div><div class="u">Fare pool, ₹ thousand crore a year, 2026</div><div id="e4"></div><figcaption>Source: MoRTH; company filings; MoSPI NHTS 2025-26.</figcaption></figure>
-<h3>1. 98% of auto trips are booked offline</h3>
-<p>Autos and e-rickshaws collect ₹460 crore a day. They make 150 crore trips a month, and app auto rides are 3 crore a month. That means 147 crore auto trips a month are still booked offline.</p>
-<h3>2. Public bus supply is 84% below benchmark</h3>
-<div class="tw"><table><thead><tr><th>State bus metric (58 SRTUs), FY26</th><th class="num">Value</th></tr></thead><tbody>
-<tr><td>Buses held</td><td class="num">1,40,100</td></tr>
-<tr><td>Passengers a day</td><td class="num">6.0 crore</td></tr>
-<tr><td>Passenger fares, ₹ crore a year</td><td class="num">64,700</td></tr>
-<tr><td>Cost per km, ₹</td><td class="num">86</td></tr>
-<tr><td>Revenue per km, ₹</td><td class="num">55</td></tr>
-<tr><td>Staff per bus</td><td class="num">4.39</td></tr>
-<tr><td>Buses per lakh population (benchmark 60)</td><td class="num">9.7</td></tr>
-<tr><td><strong>Net loss, ₹ crore a year</strong></td><td class="num"><strong>35,000</strong></td></tr></tbody></table></div>
-<div class="tw"><table><thead><tr><th>State bus history (58 SRTUs)</th><th class="num">FY20</th><th class="num">FY22</th><th class="num">FY26</th></tr></thead><tbody>
-<tr><td>Buses held</td><td class="num">1,51,802</td><td class="num">1,47,032</td><td class="num">1,40,100</td></tr>
-<tr><td>Passengers a day, crore</td><td class="num">6.17</td><td class="num">3.55</td><td class="num">6.0</td></tr>
-<tr><td>Net loss, ₹ crore</td><td class="num">20,378</td><td class="num">30,192</td><td class="num">35,000</td></tr></tbody></table></div>
-<p>Delhi city buses (DTC and IMTS) lose ₹10,950 crore a year. MSRTC lost ₹591 crore in FY26.</p>
-<figure class="ex"><div class="n">Exhibit 4</div><div class="h">A state bus loses ₹31 on every km</div><div class="u">Cost and revenue per bus-km, ₹, FY26</div><div id="e3"></div><figcaption>Source: MoRTH, Review of the performance of SRTUs.</figcaption></figure>
-<h3>3. Ride-hailing runs at a loss</h3>
-<div class="tw"><table><thead><tr><th>Company</th><th class="num">Operating revenue FY26, ₹ crore</th><th class="num">Net loss FY25, ₹ crore</th></tr></thead><tbody>
-<tr><td>Rapido</td><td class="num">1,345</td><td class="num">258</td></tr>
-<tr><td>Ola Consumer</td><td class="num">679</td><td class="num">662.4</td></tr>
-<tr><td>Uber India ride-hailing</td><td class="num">88</td><td class="num">1,401</td></tr></tbody></table></div>
-<p>Rapido is valued at $3 billion (2026). Uber's listed parent invested $330M in its India arm in 2025-26; this is parent capital, not venture funding. Ola's valuation was marked down by investors from $7.3 billion to $1.5 billion.</p>
-<h3>4. School transport outside large cities is unorganised</h3>
-<p>33.7% of urban students go to school by bus and 14.4% by auto. Each urban student spends ₹617 a month on travel. 3.8 lakh school buses and 3.5 lakh vans carry them.</p>
-<h3>5. Women travel to work less</h3>
-<div class="tw"><table><thead><tr><th>Workers travelling >1 km to work</th><th class="num">Men</th><th class="num">Women</th></tr></thead><tbody>
-<tr><td>Urban</td><td class="num">66.6%</td><td class="num">52.9%</td></tr>
-<tr><td>India</td><td class="num">61.9%</td><td class="num">41.9%</td></tr>
-<tr><td>Persons making a trip for other purposes</td><td class="num">23.8%</td><td class="num">13.3%</td></tr></tbody></table></div>
-<p>57% of urban male workers use a two-wheeler. 21.7% of urban female workers use a bus. Women spend 36% less on their commute.</p>
-<h3>6. Two-wheeler riders are 46.2% of road deaths</h3>
-<div class="tw"><table><thead><tr><th>Road deaths (MoRTH)</th><th class="num">Value</th></tr></thead><tbody>
-<tr><td>Deaths, 2026</td><td class="num">1.89 lakh</td></tr>
-<tr><td>Two-wheeler riders, share of deaths</td><td class="num">46.2%</td></tr>
-<tr><td>Pedestrians, share of deaths</td><td class="num">20.6%</td></tr>
-<tr><td>Car, taxi, van and LMV occupants, share of deaths</td><td class="num">12.4%</td></tr></tbody></table></div>
+<h2><span class="no">Step 4</span>8 problem statements, ranked by size and capture potential</h2>
+<p>Each problem statement below has a customer with an unmet need and evidence that the customer pays. The ranking weighs size, that evidence of payment and room for an early-stage company. Size is ₹ crore a year in 2026.</p>
+<div class="gaps" id="gaps"></div>
+
+<div class="gap"><h4><em>1</em>Driver EV financing, leasing and battery-as-a-service</h4><dl>
+<dt>Unmet need</dt><dd>70 lakh auto and e-rickshaw drivers have no credit history. E-3W loans cost 14% to 16%.</dd>
+<dt>Customers pay</dt><dd>Drivers already pay daily rent of ₹300 to ₹500 for fleet e-3Ws and e-2Ws. Battery-as-a-service cuts upfront e-3W cost by 35% to 40%.</dd>
+<dt>Size</dt><dd>₹20,000 crore of e-3W loans and ₹10,800 crore of e-2W loans a year</dd>
+<dt>Why now</dt><dd>Electric passenger 3Ws went from 12.6% of sales in FY24 to 33.7% in FY26. Telematics lets lenders immobilise a vehicle.</dd>
+<dt>Closest</dt><dd>Mufin Green (listed NBFC), Vidyut, Chargeup, Battery Smart (late stage)</dd></dl></div>
+
+<div class="gap"><h4><em>2</em>Subscription transport for school and college students</h4><dl>
+<dt>Unmet need</dt><dd>1.5 crore students use school transport, much of it unregulated vans. 33.7% of urban students go by bus and 14.4% by auto.</dd>
+<dt>Customers pay</dt><dd>Parents pay ₹1,500 to ₹4,000 a month in metros. ZeroMoblt has run 3.4 lakh student trips for 15+ institutions.</dd>
+<dt>Size</dt><dd>₹27,000 crore a year</dd>
+<dt>Why now</dt><dd>GPS tracking is now mandated (AIS-140), and UPI autopay makes a monthly subscription easy to collect</dd>
+<dt>Closest</dt><dd>ZeroMoblt (pre-seed); legacy school bus contractors</dd></dl></div>
+
+<div class="gap"><h4><em>3</em>Organised EV fleets that supply ride-hailing</h4><dl>
+<dt>Unmet need</dt><dd>Asset-light platforms need reliable driver supply. Uber reported that driver supply lagged demand.</dd>
+<dt>Customers pay</dt><dd>Snap-E Cabs reports ₹120 crore of gross revenue from 1,112 EVs and is EBITDA positive.</dd>
+<dt>Size</dt><dd>₹4,000 crore addressable within ₹20,000 crore of app cab fares</dd>
+<dt>Why now</dt><dd>BluSmart shut in April 2025 and left its riders without a fleet.</dd>
+<dt>Closest</dt><dd>Snap-E, Milo Drive, Trevel, Trev Mobility, Evera</dd></dl></div>
+
+<div class="gap"><h4><em>4</em>Employee commute for offices and shift workers</h4><dl>
+<dt>Unmet need</dt><dd>IT and GCC night shifts need employer transport after dark.</dd>
+<dt>Customers pay</dt><dd>Routematic earned ₹178 crore in FY25. MoveInSync earned ₹438 crore in FY24.</dd>
+<dt>Size</dt><dd>₹72,000 crore a year</dd>
+<dt>Why now</dt><dd>GCC hiring and return to office</dd>
+<dt>Closest</dt><dd>MoveInSync, Routematic ($40M Series C), Cityflo. The leaders are past early stage.</dd></dl></div>
+
+<div class="gap"><h4><em>5</em>Feeders to metro stations</h4><dl>
+<dt>Unmet need</dt><dd>Metro grew from 248 km in 2014 to 1,095 km in December 2025, but stations sit beyond walking distance for many riders.</dd>
+<dt>Customers pay</dt><dd>Riders already pay ₹10 to ₹30 a leg for shared autos and e-rickshaws. Yulu raised a $93M Series C in August 2026.</dd>
+<dt>Size</dt><dd>₹8,800 crore a year</dd>
+<dt>Closest</dt><dd>Yulu, Namma Yatri (Bengaluru metro integration), e-rickshaw fleet operators</dd></dl></div>
+
+<div class="gap"><h4><em>6</em>Premium shared city buses</h4><dl>
+<dt>Unmet need</dt><dd>9.7 state buses per lakh people against a benchmark of 60. Only 4 PM e-Bus Sewa cities operate.</dd>
+<dt>Customers pay</dt><dd>Cityflo runs at more than ₹275 crore annualised, and 120 of its 150 routes are cash positive.</dd>
+<dt>Size</dt><dd>₹6,000 crore a year</dd>
+<dt>Closest</dt><dd>Cityflo, Chalo</dd></dl></div>
+
+<div class="gap"><h4><em>7</em>Two-wheeler rider safety technology</h4><dl>
+<dt>Unmet need</dt><dd>Two-wheeler riders are 46.2% of road deaths, 87,300 deaths in 2026.</dd>
+<dt>Customers pay</dt><dd>No paying customer disclosed. The route to revenue is OEM fitment or fleet and insurer contracts.</dd>
+<dt>Size</dt><dd>₹5,000 crore a year at 5% fitment on 2 crore new two-wheelers</dd>
+<dt>Closest</dt><dd>EdgeVerse, BYTES, OEM in-house teams</dd></dl></div>
+
+<div class="gap"><h4><em>8</em>Safe commute for women</h4><dl>
+<dt>Unmet need</dt><dd>Travel limits work. Urban women's labour force participation is 25.0%, against about 75% for urban men. 41.9% of women workers travel more than 1 km to work, against 61.9% of men.</dd>
+<dt>Customers pay</dt><dd>Women's share of Delhi bus riders rose from 33% to 42% after fares were made free, and 150 crore+ free pink tickets were issued by November 2024. Demand is proven at zero price. Paid demand is not.</dd>
+<dt>Size</dt><dd>Sits inside employee commute, where the employer pays</dd>
+<dt>Closest</dt><dd>Fery Rides (seed)</dd></dl></div>
+<figure class="ex"><div class="n">Exhibit 10</div><div class="h">Women name the trip, not the job, as the unsafe part of work</div><div class="u">Share of women, %</div><div id="e13"></div><figcaption>Source: Save the Children 2019 (Bengaluru, 3,000 women); ITDP India and GIZ 2024; NARI 2025; Ola Mobility Institute 2019 (11 cities).</figcaption></figure>
 </section>
 
 <section id="s5">
-<h2><span class="no">Step 5</span>Tracked startups in the subsegment have raised $962 million</h2>
-<div class="tw"><table><thead><tr><th>Problem</th><th>Company</th><th class="num">Raised (Tracxn)</th><th>Stage / status</th></tr></thead><tbody>
-<tr><td>1. Offline autos</td><td>Namma Yatri</td><td class="num">$15.4M</td><td>2 rounds; ₹500 crore valuation (2026); 4.6 crore trips</td></tr>
-<tr><td>1, 3. Autos and ride-hailing</td><td>Rapido</td><td class="num">$240M (May 2026 round)</td><td>$3 billion valuation</td></tr>
-<tr><td>3. Ride-hailing</td><td>Evera</td><td class="num">$14M</td><td>Seed, June 2025</td></tr>
-<tr><td>3. Ride-hailing</td><td>BluSmart</td><td class="num">$142M</td><td>Shut down, April 2025</td></tr>
-<tr><td>2. Public bus</td><td>Chalo</td><td class="num">$117M</td><td>City bus ticketing and e-bus operations</td></tr>
-<tr><td>2. Public bus</td><td>Cityflo</td><td class="num">$14.7M</td><td>Series B</td></tr>
-<tr><td>2. Public bus</td><td>MoveInSync</td><td class="num">$32.7M</td><td>9 rounds</td></tr>
-<tr><td>Energy and fleets (2W, 3W)</td><td>Yulu</td><td class="num">$218M</td><td>Series C, August 2026</td></tr>
-<tr><td>Energy and fleets (2W, 3W)</td><td>Battery Smart</td><td class="num">$74.0M</td><td>Battery swapping</td></tr>
-<tr><td>Energy and fleets (2W, 3W)</td><td>SUN Mobility</td><td class="num">$50.0M</td><td>Battery swapping</td></tr>
-<tr><td>Energy and fleets (2W, 3W)</td><td>Zypp Electric</td><td class="num">$37.5M</td><td>Electric 2W fleet</td></tr>
-<tr><td>4. School transport</td><td>AppAlert</td><td class="num">$0.70M</td><td>Seed; school bus tracking</td></tr>
-<tr><td>4. School transport</td><td>ZeroMoblt</td><td class="num">$0.17M</td><td>Pre-seed; student transport</td></tr>
-<tr><td>5. Women's commute</td><td>Fery Rides</td><td class="num">$0.30M</td><td>Seed, October 2025</td></tr>
-<tr><td>6. Two-wheeler safety</td><td>Cautio</td><td class="num">$3.0M</td><td>Seed; dashcams; acquired BYTES</td></tr>
-<tr><td>6. Two-wheeler safety</td><td>Edgeverse</td><td class="num">$0.56M</td><td>Seed; rider assistance</td></tr>
-<tr><td>6. Road and pedestrian safety</td><td>Nayan Tech</td><td class="num">$2.0M</td><td>Pre-Series A, October 2024</td></tr>
-<tr><td><strong>Total, 17 companies</strong></td><td></td><td class="num"><strong>$962M</strong></td><td></td></tr></tbody></table></div>
-<p>Companies on problem statements 1 to 3 and on energy and fleets have raised $955.3 million, 99.3% of tracked funding. Companies on problem statements 4 to 6 have raised $6.7 million, and none has raised more than $3 million.</p>
+<h2><span class="no">Step 5</span>13 startups to track, 10 of them at pre-seed or seed</h2>
+<p>These companies are early enough for a pre-seed or seed cheque and have traction or a customer signal on a ranked problem statement. Vidyut, Namma Yatri and Cityflo are past seed and are tracked as benchmarks.</p>
+<table><thead><tr><th>Company</th><th>Problem</th><th>Stage</th><th class="num">Raised</th><th>Traction</th><th>Why tracked</th></tr></thead><tbody>
+<tr><td><strong>ZeroMoblt</strong><br>Hyderabad</td><td>2</td><td>Pre-seed</td><td class="num">₹1.5 crore</td><td>3.4 lakh student trips; 15+ institutions; 147 pincodes</td><td>Only funded player in student subscription transport</td></tr>
+<tr><td><strong>Chargeup</strong><br>Delhi</td><td>1</td><td>Seed</td><td class="num">₹22 crore round</td><td>10,000+ drivers</td><td>Battery and credit sold to the driver</td></tr>
+<tr><td><strong>Snap-E Cabs</strong><br>Kolkata, Delhi</td><td>3</td><td>Bridge</td><td class="num">$5M</td><td>1,112 EVs; 3.2 million rides; ₹120 crore gross revenue; EBITDA positive</td><td>Proof that an EV fleet can earn</td></tr>
+<tr><td><strong>Milo Drive</strong><br>Gurugram, Bengaluru</td><td>3</td><td>Seed</td><td class="num">$2.4M</td><td>Not disclosed</td><td>Driver-entrepreneur fleets for ride-hailing</td></tr>
+<tr><td><strong>Trevel</strong><br>Gurugram</td><td>3</td><td>Seed</td><td class="num">$1M</td><td>25 EVs added a month; target 500 by 2027</td><td>EV ride service in NCR</td></tr>
+<tr><td><strong>Trev Mobility</strong><br>Delhi-NCR</td><td>3</td><td>Angel</td><td class="num">₹3.65 crore</td><td>5 NCR cities</td><td>Funded by its own users</td></tr>
+<tr><td><strong>iGoWise Mobility</strong></td><td>1</td><td>Pre-seed</td><td class="num">₹8.2 crore</td><td>Pre-revenue</td><td>Electric three-wheeler supply</td></tr>
+<tr><td><strong>EdgeVerse</strong><br>Bengaluru</td><td>7</td><td>Seed</td><td class="num">₹4.85 crore</td><td>No disclosed paying customer</td><td>Test of OEM fitment for rider assistance</td></tr>
+<tr><td><strong>BYTES</strong><br>Bengaluru</td><td>7</td><td>Grant</td><td class="num">₹20 lakh</td><td>Prototype</td><td>Two-wheeler safety alternative</td></tr>
+<tr><td><strong>Fery Rides</strong></td><td>8</td><td>Seed</td><td class="num">₹2.075 crore</td><td>Not disclosed</td><td>Women-led ride platform</td></tr>
+<tr><td><strong>Vidyut</strong></td><td>1</td><td>Series A</td><td class="num">$16.5M</td><td>35% to 40% lower upfront cost</td><td>Benchmark for battery-as-a-service</td></tr>
+<tr><td><strong>Namma Yatri</strong><br>Bengaluru</td><td>5</td><td>Series A</td><td class="num">$15.4M</td><td>4.6 crore trips; FY25 revenue ₹23.5 crore</td><td>Benchmark for open-network ride-hailing</td></tr>
+<tr><td><strong>Cityflo</strong><br>Mumbai, Hyderabad</td><td>6</td><td>Series B</td><td class="num">$14.7M</td><td>₹275 crore+ annualised; 120 of 150 routes cash positive</td><td>Benchmark for premium buses</td></tr></tbody></table>
 </section>
 
 <section id="s6">
-<h2><span class="no">Step 6</span>3 of the 6 problem statements have only pre-seed and seed companies, none above $3 million</h2>
-<div class="card"><span class="pill open">Seed only</span><h4 style="margin-top:10px">School transport outside large cities</h4><dl><dt>Size</dt><dd>3.8 lakh school buses and 3.5 lakh vans; 33.7% of urban students go by bus at ₹617 a month</dd><dt>Funded</dt><dd>AppAlert $0.70M; ZeroMoblt $0.17M</dd></dl></div>
-<div class="card"><span class="pill open">Seed only</span><h4 style="margin-top:10px">Women's commute</h4><dl><dt>Size</dt><dd>41.9% of women workers travel >1 km to work against 61.9% of men; 21.7% of urban women workers use a bus</dd><dt>Funded</dt><dd>Fery Rides $0.30M</dd></dl></div>
-<div class="card"><span class="pill open">Seed only</span><h4 style="margin-top:10px">Two-wheeler rider safety</h4><dl><dt>Size</dt><dd>46.2% of 1.89 lakh road deaths (2026), 87,300 deaths; 22.5 crore two-wheelers on the road</dd><dt>Funded</dt><dd>Cautio $3.0M; Edgeverse $0.56M; Nayan Tech $2.0M</dd></dl></div>
-<div class="card" style="border-style:dashed"><span class="tag bet">PLACEHOLDER</span><h4>Investment memos 1 to 3</h4><p style="margin:0">To be added after company filtering. No companies are selected yet.</p></div>
+<h2><span class="no">Step 6</span>The best bets sit where customers already pay and only seed companies compete</h2>
+<p>Problem statements 1 to 3 combine the largest early-stage pools with paying customers today. In student transport, ZeroMoblt is the only funded company and has raised ₹1.5 crore. In EV fleets for ride-hailing, the leading seed fleets have raised $5M or less each. Employee commute is larger at ₹72,000 crore a year, but its leaders are already at Series B and C.</p>
+<div class="memo"><h4>Investment memos 1 to 3</h4><p style="margin:0">The 3 memos will be written after company filtering. No companies are selected yet. <a href="../memos/">Open the memos page</a>.</p></div>
 </section>
 
 <section id="s7">
 <h2><span class="no">Step 7</span>Risks</h2>
 <ul class="b">
-<li><strong>Regulation.</strong> MVAG 2025 fixes the driver share at 80% of fare and caps surge at 2x base fare, which limits platform take rates.</li>
-<li><strong>State payment.</strong> The ₹3,435 crore Payment Security Mechanism covers 38,000+ e-buses. Contracts outside it depend on state undertakings that lose ₹35,000 crore a year (FY26).</li>
-<li><strong>Platform economics.</strong> The 3 largest ride-hailing operators lost ₹2,321.4 crore in FY25. BluSmart shut down in April 2025 after raising $142M.</li>
-<li><strong>Battery value.</strong> EVs are 61% of 3W sales (FY26), and fleet economics rest on battery life.</li>
-<li><strong>Road deaths.</strong> 1.89 lakh road deaths a year are an all-road count, and the intra-city share is not published.</li>
-<li><strong>Data.</strong> No census has counted the population since 2011.</li>
+<li><strong>Regulation.</strong> Drivers keep at least 80% of each fare and surge is capped at 2x base, which limits platform take rates. Bike-taxi legality still varies by state.</li>
+<li><strong>State payment.</strong> The ₹3,435 crore Payment Security Mechanism covers 38,000+ e-buses. Contracts outside it depend on state undertakings that lose ₹35,000 crore a year.</li>
+<li><strong>Platform economics.</strong> The 4 ride-hailing platforms lost ₹2,483 crore in FY25. BluSmart shut in April 2025 after raising $142M.</li>
+<li><strong>Battery value.</strong> EVs are 61% of all three-wheeler sales, and fleet and lending economics rest on battery life and resale.</li>
+<li><strong>Data.</strong> No census has counted the population since 2011, and NHTS does not publish an all-trip mode share.</li>
 </ul>
 </section>
 
 <section id="sources" class="src">
 <h2><span class="no">Step 8</span>Sources</h2>
-<p>MoSPI / NSO, <a href="https://www.mospi.gov.in/uploads/publications_reports/publications_reports1791198151034_8d52ad0c-75ba-4040-a445-32c2ca98958e_Factsheet_-_NHTS.pdf">National Household Travel Survey Factsheet 2025-26</a>.</p>
-<p>MoSPI, <a href="https://mospi.gov.in/sites/default/files/press_release/HCES_Report202324_Press_Note_30012025.pdf">Household Consumption Expenditure Survey</a>.</p>
-<p>MoRTH, <a href="http://morth.gov.in/backend/documents/uploaded/Review%20of%20the%20performance%20of%20State%20Road%20Transport%20Undertakings%20for%202019-20%20to%202021-22.pdf">Review of the performance of SRTUs</a>; Road Accidents in India; Motor Vehicle Aggregator Guidelines 2025; Year End Review.</p>
-<p>PIB, <a href="https://pib.gov.in/PressReleasePage.aspx?PRID=2053959">PM E-DRIVE</a>; MoHUA, PM e-Bus Sewa.</p>
-<p>VAHAN via <a href="https://www.autocarpro.in/analysis/ev-share-of-3-wheeler-sales-jumps-to-61-cng-falls-to-24-in-fy2026-131965">Autocar Pro</a> and <a href="https://www.evinfrastructurenews.com/emobility/india-registers-2-55-million-ev-sales-in-fy2025-26-says-iesa">IESA</a>; SIAM.</p>
-<p>PPAC; IRDAI; UN World Population Prospects 2024.</p>
-<p>Company filings (MCA) via <a href="https://inc42.com/features/how-rapidos-super-app-model-is-taking-shape/">Inc42</a> and Outlook Business; <a href="https://techcrunch.com/2026/05/15/indian-uber-rival-rapido-raises-240m-at-3b-valuation/">TechCrunch</a>; <a href="https://tracxn.com/d/companies/namma-yatri/__FGqTvygiQCBiIJ6oOk3fqliczyGekTK1oExNZ_Z6qFM/funding-and-investors">Tracxn</a> (November 2026).</p>
+<p>MoSPI / NSO, <a href="https://www.mospi.gov.in/uploads/publications_reports/publications_reports1791198151034_8d52ad0c-75ba-4040-a445-32c2ca98958e_Factsheet_-_NHTS.pdf">National Household Travel Survey Factsheet 2025-26</a>; <a href="https://mospi.gov.in/sites/default/files/press_release/HCES_Report202324_Press_Note_30012025.pdf">Household Consumption Expenditure Survey 2023-24</a>; <a href="https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/may/doc2026515870701.pdf">PLFS monthly bulletin</a>.</p>
+<p>MoRTH, <a href="http://morth.gov.in/backend/documents/uploaded/Review%20of%20the%20performance%20of%20State%20Road%20Transport%20Undertakings%20for%202019-20%20to%202021-22.pdf">Review of the performance of SRTUs</a>; Road Accidents in India 2024; Motor Vehicle Aggregator Guidelines 2025.</p>
+<p>PIB, <a href="https://pib.gov.in/PressReleasePage.aspx?PRID=2053959">PM E-DRIVE</a>; <a href="https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/mar/doc2026315824501.pdf">metro network</a>; MoHUA, PM e-Bus Sewa via <a href="https://emobilityplus.com/2026/03/11/pm-e-bus-sewa-scheme-sanctions-10000-electric-buses-across-116-cities-to-boost-urban-green-mobility">emobilityplus</a>.</p>
+<p>VAHAN via <a href="https://www.autocarpro.in/analysis/ev-share-of-3-wheeler-sales-jumps-to-61-cng-falls-to-24-in-fy2026-131965">Autocar Pro</a>, <a href="https://evreporter.com/india-sold-2550865-electric-vehicles-across-categories-in-fy-2025-26/">EVreporter</a> and <a href="https://jmkresearch.com/indias-ev-penetration-reached-8-5-in-fy2025-26/">JMK Research</a>; FADA; SIAM; TomTom Traffic Index 2025; NPCI via Open.</p>
+<p>Company filings (MCA) via <a href="https://entrackr.com/analysis/uber-indias-ride-hailing-losses-soar-4x-to-rs-1407-cr-in-fy25-with-flat-gross-revenue-11102472">Entrackr</a>, <a href="https://www.freepressjournal.in/business/rapido-parent-roppen-transportation-narrows-fy25-loss-to-258-crore-revenue-jumps-44-to-934-crore-plans-ipo-by-end-2026">Free Press Journal</a>, <a href="https://www.outlookbusiness.com/corporate/ola-cabs-loss-widens-to-6624-crore-in-fy25">Outlook Business</a> and <a href="https://inc42.com/company/namma-yatri/financials/">Inc42</a>; <a href="https://techcrunch.com/2026/05/15/indian-uber-rival-rapido-raises-240m-at-3b-valuation/">TechCrunch</a>.</p>
+<p>Women and mobility: <a href="https://www.deccanherald.com/india/karnataka/bengaluru/only-9-women-feel-safe-public-721984.html">Save the Children via Deccan Herald</a>; <a href="https://www.thenewsminute.com/news/women-make-up-less-than-1-of-workforce-in-indias-public-transport-survey-finds">ITDP India and GIZ</a>; <a href="https://wri-india.org/sites/default/files/Working-paper-WRI-India-Fare-free-bus-travel-scheme-for-women-Lessons-from-Delhi.pdf">WRI India</a>; <a href="https://www.outlooktraveller.com/News/can-women-travel-safely-in-india-new-report-reveals-city-rankings">NARI 2025</a>.</p>
+<p>Startups: Tracxn; <a href="https://entrackr.com/snippets/student-mobility-startup-zeromobit-raises-pre-seed-round-11150709">Entrackr</a>; <a href="https://startuptalky.com/news/edgeverse-raises-3-crore-from-gvfl-to-bring-rider-assistance-to-indias-two-wheelers/">StartupTalky</a>; <a href="https://inc42.com/buzz/milo-drive-bags-2-4-mn-to-scale-electric-mobility-platform/">Inc42</a>; <a href="https://www.autocarpro.in/news/exclusive-120-of-cityflos-150-routes-are-cash-positive-says-ceo-134892">Autocar Pro</a> (November 2026).</p>
 </section>
 </main>
 </div>
 <footer>How India Moves · Sector thesis · <a href="../">Back to the site</a></footer>
 
 <script>
-const NS='http://www.w3.org/2000/svg',C={navy:'#051c2c',blue:'#2251ff',grey:'#b3b3b3',lgrey:'#e6e6e6',loss:'#c4442f'};
+const NS='http://www.w3.org/2000/svg',C={navy:'#051c2c',blue:'#2251ff',cyan:'#00a9f4',grey:'#b3b3b3',lgrey:'#e6e6e6',loss:'#c4442f',mid:'#7d93ff',pale:'#c9d4ff'};
 const el=(t,a={},p)=>{const e=document.createElementNS(NS,t);for(const k in a)k==='text'?e.textContent=a[k]:e.setAttribute(k,a[k]);p&&p.appendChild(e);return e};
-const mk=(id,w,h)=>{const s=el('svg',{viewBox:`0 0 ${w} ${h}`});document.getElementById(id).appendChild(s);return s};
-function bars(id,d,max,lw){const rowH=36,s=mk(id,720,d.length*rowH),sc=(720-lw-90)/max;
-  d.forEach((x,i)=>{const y=i*rowH;el('text',{x:0,y:y+23,class:'l',text:x[0]},s);el('rect',{x:lw,y:y+7,width:x[1]*sc,height:rowH-14,fill:x[2]},s);el('text',{x:lw+x[1]*sc+6,y:y+23,class:'v',text:x[1]+(x[3]||'')},s)})}
-bars('e1',[['Passenger mobility, all modes',8.7,C.grey],['Road',7.43,C.grey],['Intra-city road',7.2,C.blue]],9,230);
-bars('e2',[['Two-wheeler',52.3,C.blue,'%'],['Walk',13.5,C.grey,'%'],['Bus',9.2,C.grey,'%'],['Auto-rickshaw',8.8,C.grey,'%'],['Bicycle',5.8,C.grey,'%'],['Car',5.7,C.grey,'%'],['Metro, suburban, tram',5.0,C.lgrey,'%'],['Rail',0.3,C.lgrey,'%'],['Others',0.3,C.lgrey,'%'],['Cycle rickshaw',0.2,C.lgrey,'%']],55,170);
-bars('e4',[['Autos and e-rickshaws',168,C.navy],['State bus fares',64.7,C.blue],['Ride-hailing',38.5,C.blue]],170,190);
-(function(){const d=[['State bus, FY26',86,55]],s=mk('e3',720,d.length*74),x0=200,sc=380/90;
-  d.forEach((x,i)=>{const y=i*74;el('text',{x:0,y:y+34,class:'l',text:x[0]},s);el('rect',{x:x0,y:y+6,width:x[1]*sc,height:22,fill:C.lgrey},s);el('text',{x:x0+x[1]*sc+6,y:y+22,class:'s',text:'cost ₹'+x[1]},s);
-    el('rect',{x:x0,y:y+32,width:x[2]*sc,height:22,fill:x[2]>x[1]?C.blue:C.loss},s);el('text',{x:x0+x[2]*sc+6,y:y+48,class:'v',text:'earns ₹'+x[2]+' ('+(x[2]>x[1]?'+':'−')+'₹'+Math.abs(x[2]-x[1])+')'},s)})})();
+const mk=(id,w,h)=>{const s=el('svg',{viewBox:`0 0 ${w} ${h}`,role:'img'});document.getElementById(id).appendChild(s);return s};
+const fmt=v=>v.toLocaleString('en-IN');
+function legend(id,items){const d=document.createElement('div');d.className='legend';d.innerHTML=items.map(x=>`<span><i style="background:${x[1]}"></i>${x[0]}</span>`).join('');document.getElementById(id).appendChild(d)}
+/* horizontal bars: rows [label,value,color,suffix,prefix] */
+function bars(id,d,max,lw,W=720){const rowH=36,s=mk(id,W,d.length*rowH),sc=(W-lw-110)/max;
+  d.forEach((x,i)=>{const y=i*rowH;el('text',{x:0,y:y+23,class:'l',text:x[0]},s);el('rect',{x:lw,y:y+7,width:Math.max(1,x[1]*sc),height:rowH-14,fill:x[2]},s);el('text',{x:lw+x[1]*sc+6,y:y+23,class:'v',text:(x[4]||'')+fmt(x[1])+(x[3]||'')},s)})}
+/* vertical columns: items [label,value,color]; labels may contain | for 2 lines */
+function cols(id,d,max,o={}){const W=o.w||340,H=o.h||200,top=24,bot=40,cw=(W/d.length),bw=Math.min(56,cw*.6),s=mk(id,W,H),sc=(H-top-bot)/max;
+  d.forEach((x,i)=>{const cx=i*cw+cw/2,h=x[1]*sc,y=H-bot-h;el('rect',{x:cx-bw/2,y,width:bw,height:Math.max(1,h),fill:x[2]},s);
+    el('text',{x:cx,y:y-7,class:'v','text-anchor':'middle',text:(o.pre||'')+fmt(x[1])+(o.suf||'')},s);
+    String(x[0]).split('|').forEach((t,j)=>el('text',{x:cx,y:H-bot+18+j*14,class:'s','text-anchor':'middle',text:t},s))});
+  el('line',{x1:0,x2:W,y1:H-bot,y2:H-bot,stroke:'#051c2c','stroke-width':1},s)}
+/* 100% stacked rows: rows [label,[[name,val,color],...]] */
+function stack(id,rows,lw,o={}){const W=720,rowH=o.rowH||46,s=mk(id,W,rows.length*rowH),bw=W-lw;
+  rows.forEach((r,i)=>{const y=i*rowH,tot=r[1].reduce((a,b)=>a+b[1],0);let x=lw;
+    el('text',{x:0,y:y+rowH/2+5,class:'l',text:r[0]},s);
+    r[1].forEach(g=>{const w=g[1]/tot*bw;el('rect',{x,y:y+6,width:w,height:rowH-12,fill:g[2],stroke:'#fff','stroke-width':1},s);
+      if(w>34)el('text',{x:x+w/2,y:y+rowH/2+5,'text-anchor':'middle',class:g[3]||'w',text:(o.pre||'')+g[1]+(o.suf===undefined?'%':o.suf)},s);x+=w})})}
+
+/* Finding 1 and waterfall */
+function waterfall(id){const W=720,H=300,top=28,bot=52,s=mk(id,W,H),max=9,sc=(H-top-bot)/max,
+  d=[['Passenger|mobility',0,8.7,'t'],['Rail and|metro',7.8,8.7,'d',0.90],['Air',7.44,7.8,'d',0.36],['Water',7.43,7.44,'d',0.0145],['Road',0,7.43,'s'],['Inter-city|road',7.2,7.43,'d',0.23],['Intra-city|road',0,7.2,'f']],cw=W/d.length,bw=62;
+  const Y=v=>H-bot-v*sc;
+  d.forEach((x,i)=>{const cx=i*cw+cw/2,fill=x[3]==='f'?C.blue:x[3]==='d'?C.lgrey:x[3]==='s'?C.grey:C.navy;
+    const y0=Y(x[2]),h=Math.max(2,(x[2]-x[1])*sc);el('rect',{x:cx-bw/2,y:y0,width:bw,height:h,fill},s);
+    if(i<d.length-1){const lv=x[3]==='d'?x[1]:x[2];el('line',{x1:cx+bw/2,x2:cx+cw-bw/2,y1:Y(lv),y2:Y(lv),stroke:'#999','stroke-dasharray':'3 3'},s)}
+    const lab=x[3]==='d'?'−'+x[4]:String(x[2]);el('text',{x:cx,y:y0-8,class:'v','text-anchor':'middle',text:lab},s);
+    x[0].split('|').forEach((t,j)=>el('text',{x:cx,y:H-bot+20+j*15,class:'l','text-anchor':'middle',text:t},s))});
+  el('line',{x1:0,x2:W,y1:H-bot,y2:H-bot,stroke:'#051c2c'},s);
+  el('text',{x:0,y:14,class:'s',text:'₹ lakh crore a year, 2026'},s)}
+waterfall('x1');
+
+/* trip share colours, one per mode, used everywhere */
+const M={tw:[ 'Two-wheeler',C.blue],wk:['Walk',C.grey],bus:['Bus',C.navy],au:['Auto',C.cyan],car:['Car',C.mid],met:['Metro and rail',C.pale],cyc:['Bicycle',C.lgrey],oth:['Other',C.lgrey]};
+stack('x2',[['All trips',[[ 'tw',34,C.blue],['wk',31,C.grey],['bus',12,C.navy],['car',2.5,C.mid],['oth',20.5,C.lgrey,'v']]]],80,{rowH:60});
+legend('x2',[['Two-wheeler',C.blue],['Walk',C.grey],['Bus',C.navy],['Car',C.mid],['Auto, bicycle, metro and other',C.lgrey]]);
+
+bars('x4',[['State buses per lakh people',9.7,C.loss],['Benchmark',60,C.grey]],60,220);
+
+/* Exhibit 1: mode split of spend */
+bars('e1',[['Road',85.4,C.blue,'%'],['Rail and metro',10.3,C.grey,'%'],['Air',4.1,C.grey,'%'],['Water',0.2,C.lgrey,'%']],90,150);
+/* Exhibit 2 */
+bars('e2',[['Students 6+ (education)',66.4,C.blue,'%'],['Workers 15+ (work)',57.6,C.navy,'%'],['Persons 6+ (other purposes)',18.7,C.grey,'%']],70,210);
+/* Exhibit 3: ownership, shown once on the site */
+(function(){const W=720,s=mk('e3',W,150),segs=[['Privately owned vehicle, used for personal travel',4.18,C.blue],['Privately owned, used for commercial travel',2.37,C.navy],['Publicly owned',0.647,C.grey]],tot=7.2;let x=0;
+  segs.forEach(g=>{const w=g[1]/tot*W;el('rect',{x,y:10,width:w,height:56,fill:g[2],stroke:'#fff'},s);el('text',{x:x+8,y:44,class:'w',text:g[1]},s);x+=w});
+  const lab=[['Privately owned vehicle','running costs, ₹4.18 lakh crore, 58.1%',0],['Privately owned, commercial','fares, ₹2.37 lakh crore, 32.9%',4.18/tot*W]];
+  lab.forEach(l=>{el('text',{x:l[2],y:92,class:'v',text:l[0]},s);el('text',{x:l[2],y:110,class:'s',text:l[1]},s)});
+  el('text',{x:W,y:132,class:'v','text-anchor':'end',text:'Publicly owned'},s);el('text',{x:W,y:148,class:'s','text-anchor':'end',text:'state bus fares, ₹0.65 lakh crore, 9.0%'},s)})();
+/* Exhibit 4: trip share small multiple, 100% stacked */
+stack('e4',[
+ ['All trips',[['',34,C.blue],['',31,C.grey],['',12,C.navy],['',2.5,C.mid],['',20.5,C.lgrey,'v']]],
+ ['Urban work',[['',52.3,C.blue],['',13.5,C.grey],['',9.2,C.navy],['',8.8,C.cyan,'v'],['',5.7,C.mid],['',5.0,C.pale,'v'],['',5.8,C.lgrey,'v'],['',0.8,C.lgrey,'v']]],
+ ['Urban school',[['',11.5,C.blue],['',29.6,C.grey],['',33.7,C.navy],['',14.4,C.cyan,'v'],['',1.0,C.mid],['',1.9,C.pale,'v'],['',9.1,C.lgrey,'v'],['',0.5,C.lgrey,'v']]]],100);
+legend('e4',[['Two-wheeler',C.blue],['Walk',C.grey],['Bus',C.navy],['Auto',C.cyan],['Car',C.mid],['Metro and rail',C.pale],['Bicycle and other',C.lgrey]]);
+/* Exhibit 5: fares */
+bars('e5',[['Autos booked offline',164.6,C.blue],['State bus fares',64.7,C.grey],['App ride-hailing',38.5,C.grey],['Private buses, cabs, school and office transport',33.8,C.grey]],170,300);
+/* Exhibit 6: per km and loss trend */
+cols('e6a',[['Cost',86,C.grey],['Revenue',55,C.loss]],100,{pre:'₹'});
+cols('e6b',[['FY20',20378,C.lgrey],['FY22',30192,C.grey],['FY26',35000,C.loss]],40000,{pre:'₹'});
+/* Exhibit 7: rides vs fares */
+stack('e7',[['Share of rides',[['',45,C.pale,'v'],['',33,C.cyan],['',22,C.navy]]],['Share of fares',[['',20,C.pale,'v'],['',27,C.cyan],['',53,C.navy]]]],120);
+legend('e7',[['Bike taxi',C.pale],['Auto',C.cyan],['Cab',C.navy]]);
+/* Exhibit 8: loss as % of revenue */
+bars('e8',[['Rapido',28,C.loss,'%'],['Uber India',39,C.loss,'%'],['Ola Consumer',57,C.loss,'%'],['Namma Yatri',218,C.loss,'%']],220,130);
+/* Exhibit 9: e-Bus Sewa */
+bars('e9',[['Sanctioned',10000,C.grey],['Letters of award',5212,C.mid],['Concessions signed',2730,C.blue]],10000,170);
+/* Infrastructure */
+cols('e10a',[['2014',248,C.grey],['Jan 2025',1000,C.mid],['Dec 2025',1095,C.blue]],1200);
+cols('e10b',[['Pune',15.1,C.loss],['Bengaluru',16.6,C.loss],['Kolkata|(2024)',17.4,C.grey]],20);
+/* Technology */
+cols('e11a',[['FY22',4,C.pale],['FY23',8,C.pale],['FY24',12.6,C.mid],['FY25',22.8,C.mid],['FY26',33.7,C.blue]],40,{suf:'%'});
+cols('e11b',[['FY22',1.9,C.pale],['FY23',4.6,C.pale],['FY24',5.1,C.mid],['FY25',6.2,C.mid],['FY26',6.6,C.blue]],40,{suf:'%'});
+/* Population */
+cols('e12',[['2011',37.7,C.grey],['2026',53.7,C.blue],['2036',59.4,C.mid]],70,{w:720,h:220});
+/* Exhibit 10: women */
+bars('e13',[['Feel unsafe on public transport (Bengaluru)',86,C.navy,'%'],['Report harassment or theft on public transport',30,C.navy,'%'],['Name public transport as a harassment hotspot',29,C.navy,'%'],['Rate public transport "very safe"',9,C.grey,'%']],100,330);
+/* Problem statement ranking rows */
+(function(){const g=[['Driver EV financing and battery-as-a-service',30000],['Student transport subscriptions',27000],['EV fleets that supply ride-hailing',4000],['Employee commute',72000],['Metro feeders',8800],['Premium shared city buses',6000],['Two-wheeler safety technology',5000],['Safe commute for women',0]],max=72000,box=document.getElementById('gaps');
+  box.innerHTML=g.map((x,i)=>`<div class="gr"><span class="r">${i+1}</span><span class="t">${x[0]}</span><span class="val">${x[1]?'₹'+fmt(x[1])+' crore':'Inside rank 4'}</span><span class="bar"><i style="width:${x[1]/max*100}%"></i></span></div>`).join('')})();
 (function(){const links=[...document.querySelectorAll('#toc a')],secs=links.map(a=>document.querySelector(a.getAttribute('href')));
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-20% 0px -70% 0px'});secs.forEach(s=>s&&io.observe(s))})();
 </script>
