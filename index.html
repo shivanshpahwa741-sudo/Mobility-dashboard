@@ -452,15 +452,15 @@ header.glass{background:rgba(236,236,234,.55);backdrop-filter:blur(20px) saturat
     <div class="text">
       <div class="kicker">Women</div>
       <h2 class="t">25.0% of urban women are in the labour force</h2>
-      <p>91% of women do not rate public transport in their city as very safe. In Bengaluru, 86% of women feel unsafe on public transport. 30% of women have faced harassment or theft on it.</p>
+      <p>91% of women report feeling unsafe on public transport in their city. In Bengaluru, 86% of women feel unsafe on public transport. 30% of women have faced harassment or theft on it.</p>
       <p>75% of working women in Delhi work within 5 km of home. 41.9% of working women travel more than 1 km to work, against 61.9% of men.</p>
-      <p class="sowhat"><b>Thus,</b> when Delhi made buses free for women, their share of bus riders rose from 33% to 42%.</p>
+      <p class="sowhat"><b>Thus,</b> +1 reported crime per 1000 women leads to -6.3% workforce participation in the district.</p>
     </div>
     <div class="chart">
-      <h4>Women's share of Delhi bus riders rose 9 points after fares were removed</h4>
-      <div class="unit">Women as % of Delhi bus ridership</div>
+      <h4>When sexual crimes rise, fewer women work</h4>
+      <div class="unit">Percentage-point change in workforce participation, urban women 21-64</div>
       <div id="c-women"></div>
-      <div class="src">Source: WRI India; Ola Mobility Institute (2019); Save the Children (2019); ITDP India and GIZ (2024); MoSPI PLFS (Apr 2026); NHTS 2025-26.</div>
+      <div class="src">Source: Chakraborty and Lohawala, Review of Development Economics 30(1), 2026 (IZA DP 14372).</div>
     </div>
   </div>
 </section></div>
@@ -670,15 +670,24 @@ function lines(id,xs,series,o){
 })();
 
 
-/* women: Delhi bus share before and after */
+/* women: sexual crimes and workforce participation */
 (function(){
-  const s=svg('c-women',560,280),y=v=>250-v*4.6;
-  [120,440].forEach(x=>el('line',{x1:x,x2:x,y1:20,y2:256,stroke:C.line},s));
-  el('text',{x:120,y:276,'text-anchor':'middle',class:'small',text:'2019-20, paid fares'},s);el('text',{x:440,y:276,'text-anchor':'middle',class:'small',text:'2025, free for women'},s);
-  const ln=el('line',{x1:120,y1:y(33),x2:reduce?440:120,y2:reduce?y(42):y(33),stroke:C.blue,'stroke-width':3},s);
-  el('circle',{cx:120,cy:y(33),r:7,fill:C.blue},s);el('text',{x:104,y:y(33)+5,'text-anchor':'end',class:'val',text:'33%'},s);
-  const c=el('circle',{cx:440,cy:y(42),r:7,fill:C.blue,opacity:reduce?1:0},s),t=el('text',{x:456,y:y(42)+5,class:'val',opacity:reduce?1:0,text:'42%'},s);
-  if(!reduce)gsap.timeline({scrollTrigger:{trigger:s,start:'top 75%'}}).to(ln,{attr:{x2:440,y2:y(42)},duration:1.2,ease:'power2.inOut'}).to([c,t],{opacity:1,duration:.3});
+  const d=document.getElementById('c-women');if(!d)return;
+  const W=640,H=240,z=44,bot=H-40;
+  const bar=(cx,pp,col)=>{const h=Math.abs(pp)/7*(bot-z-26);const y=pp<0?z:z-h;const hh=Math.max(h,3);
+    return '<rect x="'+(cx-34)+'" y="'+y+'" width="68" height="'+hh+'" fill="'+col+'"/>';};
+  d.innerHTML=
+  '<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto;display:block">'
+  +[0,-2,-4,-6].map(v=>{const y=z+(-v)/7*(bot-z-26);return '<line x1="70" y1="'+y+'" x2="'+(W-40)+'" y2="'+y+'" stroke="rgba(13,13,13,0.1)"/><text x="58" y="'+(y+4)+'" text-anchor="end" font-size="12" fill="#77776f">'+(v===0?'0':v)+'</text>';}).join('')
+  +'<line x1="70" y1="'+z+'" x2="'+(W-40)+'" y2="'+z+'" stroke="rgba(13,13,13,0.5)" stroke-width="1.5"/>'
+  +bar(210,-6.3,'#2251ff')+bar(430,-0.1,'#c9c7c0')
+  +'<text x="210" y="'+(z-14)+'" text-anchor="middle" font-family="Instrument Serif,Georgia,serif" font-size="34" fill="#0d0d0d">-6.3 pts</text>'
+  +'<text x="430" y="'+(z-14)+'" text-anchor="middle" font-family="Instrument Serif,Georgia,serif" font-size="34" fill="#0d0d0d">-0.1 pts</text>'
+  +'<text x="210" y="'+(bot+24)+'" text-anchor="middle" font-size="13" fill="#0d0d0d">Women</text>'
+  +'<text x="430" y="'+(bot+24)+'" text-anchor="middle" font-size="13" fill="#0d0d0d">Men</text>'
+  +'<text x="430" y="'+(bot+24)+'" text-anchor="middle" font-size="11" fill="#77776f" dy="14">n.s.</text>'
+  +'</svg>'
+  +'<div style="font-size:11px;color:#999;font-style:italic;margin:2px 4px 10px">Urban women 21-64, away-from-home work or seeking it vs homemaking; district-level reported sexual crimes, not transit-only. District panel, NSS 2004-12, NCRB.</div>';
 })();
 
 /* ranked gaps */
