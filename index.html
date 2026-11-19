@@ -651,22 +651,22 @@ function lines(id,xs,series,o){
   if(!reduce)gsap.from(bars,{scaleX:0,duration:.7,stagger:.05,ease:'power3.out',scrollTrigger:{trigger:s,start:'top 82%'}});
 })();
 
-/* app rides vs app fares, by vehicle: totals on top, values on each segment */
+/* app rides vs app fares, by vehicle: horizontal stacked bars, totals above, values inside */
 (function(){
   const bars=[['App rides','303 crore rides',[[45,C.grey,'Bikes','136 Cr'],[33,C.cyan,'Autos','100 Cr'],[22,C.navy,'Cabs','67 Cr']]],
               ['App fares','₹38,500 crore',[[20,C.grey,'Bikes','₹7,700 Cr'],[27,C.cyan,'Autos','₹10,400 Cr'],[53,C.navy,'Cabs','₹20,400 Cr']]]];
-  const W=560,H=400,top=46,bh=310,bw=170,s=svg('c-mix',W,H),parts=[];
-  bars.forEach(([name,tot,segs],i)=>{const x=70+i*250;
-    el('text',{x:x+bw/2,y:top-14,'text-anchor':'middle',class:'val',style:'font-size:16px',text:tot},s);
-    el('text',{x:x+bw/2,y:top+bh+26,'text-anchor':'middle',class:'lbl',style:'font-size:13px',text:name},s);
-    let y=top+bh;
-    segs.forEach(([v,c,lab,val])=>{const h=v/100*bh;y-=h;
-      const r=el('rect',{x,y:y+1,width:bw,height:h-2,fill:c},s);r.style.transformBox='fill-box';r.style.transformOrigin='50% 100%';parts.push(r);
+  const W=560,bh=56,s=svg('c-mix',W,2*120),parts=[];
+  bars.forEach(([name,tot,segs],i)=>{const y=i*120+28;
+    el('text',{x:0,y:y-10,class:'lbl',style:'font-size:13px',text:name},s);
+    el('text',{x:W,y:y-10,'text-anchor':'end',class:'val',style:'font-size:15px',text:tot},s);
+    let x=0;
+    segs.forEach(([v,c,lab,val])=>{const ww=v/100*W;
+      const r=el('rect',{x:x+1,y,width:ww-2,height:bh,fill:c},s);r.style.transformBox='fill-box';r.style.transformOrigin='0% 50%';parts.push(r);
       const fill=c===C.grey?'#0d0d0d':'#fff';
-      el('text',{x:x+12,y:y+h/2-3,class:'seg-l',style:`fill:${fill}`,text:`${lab} ${v}%`},s);
-      el('text',{x:x+12,y:y+h/2+14,class:'seg-l',style:`fill:${fill};font-weight:600;font-size:14px`,text:val},s)});
+      el('text',{x:x+8,y:y+23,class:'seg-l',style:`fill:${fill}`,text:`${lab} ${v}%`},s);
+      el('text',{x:x+8,y:y+43,class:'seg-l',style:`fill:${fill};font-weight:600;font-size:14px`,text:val},s);x+=ww});
   });
-  if(!reduce)gsap.from(parts,{scaleY:0,duration:.6,stagger:.08,ease:'power2.out',scrollTrigger:{trigger:s,start:'top 82%'}});
+  if(!reduce)gsap.from(parts,{scaleX:0,duration:.6,stagger:.08,ease:'power2.out',scrollTrigger:{trigger:s,start:'top 82%'}});
 })();
 
 
@@ -701,7 +701,7 @@ const GAPS=[
  ['Metro first and last mile',8800,'₹8,800 Cr','Shared feeder rides between metro stations and homes or offices.',
   'Metro grew from 248 km in 2014 to 1,095 km in December 2025, across 26 cities.','Riders already pay ₹10 to ₹30 a leg for shared autos and e-rickshaws. Yulu raised a $93M Series C in August 2026.','Metro length grew 4.4x since 2014, and ridership lags projections partly because of the last mile.','Yulu, Namma Yatri, local e-rickshaw operators.'],
  ['Women-safe commute',7000,'₹7,000 Cr','Safe, tracked rides sold to working women who avoid buses after dark.',
-  '91% of women do not rate public transport as very safe. 86% of Bengaluru women feel unsafe on it.','2.55 crore urban women travel more than 1 km to work. Delhi women took 150 crore+ free bus rides by November 2024, so demand exists; evidence that women pay a premium is still thin.','Urban female labour force participation is 25.0%, against about 75% for men. Urban working women spend ₹28,000 crore a year on paid commutes; a verified women-safe service can capture ₹7,000 crore of it.','Fery Rides (₹2.075 crore seed).'],
+  '91% of women do not feel very safe on public transport in their city. 86% of Bengaluru women feel unsafe on it.','2.55 crore urban women travel more than 1 km to work. Delhi women took 150 crore+ free bus rides by November 2024, so demand exists; evidence that women pay a premium is still thin.','Urban female labour force participation is 25.0%, against about 75% for men. Urban working women spend ₹28,000 crore a year on paid commutes; a verified women-safe service can capture ₹7,000 crore of it.','Fery Rides (₹2.075 crore seed).'],
  ['Premium shared office buses',6000,'₹6,000 Cr','Seat-guaranteed buses for office commuters who own no car.',
   'India has 9.7 state buses per lakh people, against a benchmark of 60.','Cityflo runs at more than ₹275 crore annualised revenue, and 120 of its 150 routes are cash positive.','PM e-Bus Sewa buses run in only 4 cities by March 2026.','Cityflo, Chalo.'],
  ['Two-wheeler rider safety tech',5000,'₹5,000 Cr','Collision warning and rider monitoring fitted by two-wheeler makers.',
